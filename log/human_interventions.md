@@ -36,3 +36,8 @@ Every human action: timestamp, what, why, and which rule allows it. The brief al
 - **What:** The human: "I handled the audits in the planning chat, which should be up-to-date now if you refresh it. The audits also updated the briefs, including slightly new lyrics (though timing is otherwise staying the same) -- see ~/Downloads/Default On updated.zip for stems. The Narrator is a little uncanny, particularly on head turns. I recognize that the brief calls for this specific type of light switch, but let's change it to a flat plate style instead so that it cannot possibly be misread as phallic."
 - **Rule:** H3 (the v2 master and stems). H2 (look notes at the M2 gate: the Narrator redrawn; Switch changed from a toggle to a flat rocker plate, and the brief's Characters, S01, S04 and S57 wording changed to match, rev 52).
 - **Still needed:** the brief asks for the guardian's consent for Switch's voice to be recorded here; the agent can't write it on the human's behalf.
+
+## 2026-11-06T09:20 — M2: rig sheet approved; key frames under review; Rhubarb for M4 — H2
+
+- **What:** The human: "I already used Rhubarb successfully for Read Only, definitely look into it once you're at that point. Rig sheet is good; send me the key frames to review". The five key frames were sent.
+- **Rule:** H2 (the rig sheet, part of the M2 look). The rest of the M2 gate (key frames, film-layer strength, review resolution) is still open.
