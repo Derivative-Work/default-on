@@ -1,0 +1,27 @@
+{
+  "name": "default-on-remotion",
+  "private": true,
+  "type": "module",
+  "description": "The Default On video: one Remotion project, one composition per section, shared theme, rigs and film layer.",
+  "scripts": {
+    "studio": "remotion studio src/index.ts",
+    "still": "remotion still src/index.ts",
+    "render": "remotion render src/index.ts",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@fontsource/titan-one": "5.3.0",
+    "@fontsource/work-sans": "5.3.0",
+    "@remotion/bundler": "4.0.535",
+    "@remotion/cli": "4.0.535",
+    "@remotion/renderer": "4.0.535",
+    "react": "19.1.10",
+    "react-dom": "19.1.10",
+    "remotion": "4.0.535"
+  },
+  "devDependencies": {
+    "@types/react": "19.1.12",
+    "@types/react-dom": "19.1.9",
+    "typescript": "5.9.3"
+  }
+}
