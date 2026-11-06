@@ -66,3 +66,8 @@ Every human action: timestamp, what, why, and which rule allows it. The brief al
 
 - **What:** The human: "The level of detail appears to be good. Keep going."
 - **Rule:** H2 (section approval).
+
+## 2026-11-06T13:05 — Reference clips supplied; look driven toward them — H3, H2
+
+- **What:** The human: "I downloaded some reference video to ~/Downloads/schoolhouse-rock-reference -- see if you can drive the style towards that as a pastiche (do not directly copy any actual characters, sets, etc.). Looks like the difference is primarily in drawing style and film grading". 27 clips of 1970s educational shorts.
+- **Rule:** H3 (reference material) and H2 (a look direction). The clips are third-party and stay in `~/Downloads`; nothing from them is copied into the repo or the video. The agent looked at sampled stills only for line, colour and grade, and the brief now says so (rev 64).

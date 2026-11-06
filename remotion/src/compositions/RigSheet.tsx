@@ -3,7 +3,7 @@ import React from "react";
 import { Film } from "../film/Film";
 import { Paper } from "../film/Paper";
 import { BUBBLE, SANS } from "../theme/fonts";
-import { C, H, W } from "../theme/palette";
+import { C, H, W, lw } from "../theme/palette";
 import { Hand } from "../rigs/Hand";
 import { MOUTHS, Mouth } from "../rigs/Mouth";
 import { Narrator } from "../rigs/Narrator";
@@ -24,7 +24,7 @@ export const RigSheet: React.FC = () => (
       ))}
       {MOUTHS.map((m, i) => (
         <g key={m} transform={`translate(${110 + i * 110}, 560)`}>
-          <circle r={48} fill={C.cream} stroke={C.ink} strokeWidth={4} />
+          <circle r={48} fill={C.cream} stroke={C.ink} strokeWidth={lw(4)} />
           <g transform="translate(0,-10)"><Mouth shape={m} w={60} /></g>
           <text y={86} textAnchor="middle" fontFamily={SANS} fontSize={26} fill={C.ink}>{m}</text>
         </g>

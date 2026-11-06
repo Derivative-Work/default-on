@@ -8,7 +8,7 @@ import { Bookshelf, ChalkDoodles, ChalkTray, Clock, Globe, Lamp, Outlet, Pennant
 import { Narrator } from "../rigs/Narrator";
 import { Switch } from "../rigs/Switch";
 import { BUBBLE, SANS } from "../theme/fonts";
-import { C, H, W } from "../theme/palette";
+import { C, H, W, lw } from "../theme/palette";
 import { FPS, mouthAt, wordAt } from "../timing";
 import { Bg, ShotC, blink, bump, ez } from "./common";
 
@@ -32,8 +32,8 @@ export const S01: ShotC = ({ f, len }) => {
       <AbsoluteFill style={{ backgroundColor: "#cfc4ad" }}>
         <svg width={W} height={H}>
           <path d={`M${W / 2},${H / 2} L${W / 2},${H / 2 - 600} A600,600 0 ${sweep > 180 ? 1 : 0},1 ${W / 2 + 600 * Math.sin((sweep * Math.PI) / 180)},${H / 2 - 600 * Math.cos((sweep * Math.PI) / 180)} Z`} fill="#a89d86" />
-          <line x1={0} y1={H / 2} x2={W} y2={H / 2} stroke={C.ink} strokeWidth={4} />
-          <line x1={W / 2} y1={0} x2={W / 2} y2={H} stroke={C.ink} strokeWidth={4} />
+          <line x1={0} y1={H / 2} x2={W} y2={H / 2} stroke={C.ink} strokeWidth={lw(4)} />
+          <line x1={W / 2} y1={0} x2={W / 2} y2={H} stroke={C.ink} strokeWidth={lw(4)} />
           {[300, 380].map((r) => <circle key={r} cx={W / 2} cy={H / 2} r={r} fill="none" stroke={C.cream} strokeWidth={8} />)}
           <text x={W / 2} y={H / 2 + 120} textAnchor="middle" fontFamily={SANS} fontWeight={600} fontSize={340} fill={C.ink}>{n}</text>
         </svg>
@@ -49,7 +49,7 @@ export const S01: ShotC = ({ f, len }) => {
       <g opacity={0.5}><Sunburst a={C.mustard} b={C.orange} spin={t * 0.15} cy={470} /></g>
       {[[300, 220], [1600, 260], [420, 860], [1500, 840], [960, 120]].map(([x, y], i) => (
         <path key={i} transform={`translate(${x}, ${y}) scale(${0.8 + 0.25 * Math.sin((t + i * 9) / 6)})`}
-          d="M0,-34 L9,-9 L34,0 L9,9 L0,34 L-9,9 L-34,0 L-9,-9 Z" fill={C.cream} stroke={C.ink} strokeWidth={4} />
+          d="M0,-34 L9,-9 L34,0 L9,9 L0,34 L-9,9 L-34,0 L-9,-9 Z" fill={C.cream} stroke={C.ink} strokeWidth={lw(4)} />
       ))}
       <g transform={`translate(${W / 2}, 470) scale(${s})`}>
         <text textAnchor="middle" x={12} y={14} fontFamily={BUBBLE} fontSize={230} fill={C.ink} opacity={0.35} letterSpacing={6}>DEFAULT ON</text>
@@ -70,8 +70,8 @@ export const NarratorSet: React.FC<{ g: number; board: string[]; arm?: "open" | 
   <Bg id="narr" seed={20} base={C.avocado}>
     <Wallpaper id="narr" kind="stripe" a={C.avocado} b={C.cream} opacity={0.18} />
     <Wash id="narr" color={C.cardigan} opacity={0.85}><rect x={-40} y={880} width={W + 80} height={240} /></Wash>
-    {Array.from({ length: 9 }, (_, i) => <line key={i} x1={-40 + i * 260} y1={880} x2={-120 + i * 300} y2={H} stroke={C.ink} strokeWidth={3} opacity={0.35} />)}
-    <rect x={-10} y={866} width={W + 20} height={22} fill={C.cardiganShade} stroke={C.ink} strokeWidth={5} />
+    {Array.from({ length: 9 }, (_, i) => <line key={i} x1={-40 + i * 260} y1={880} x2={-120 + i * 300} y2={H} stroke={C.ink} strokeWidth={lw(3)} opacity={0.35} />)}
+    <rect x={-10} y={866} width={W + 20} height={22} fill={C.cardiganShade} stroke={C.ink} strokeWidth={lw(5)} />
     <Chalkboard lines={board} size={size} />
     <ChalkTray x={160} y={632} w={900} />
     {board.length < 3 && <ChalkDoodles x={560} y={420} />}
@@ -93,14 +93,14 @@ export const NarratorSet: React.FC<{ g: number; board: string[]; arm?: "open" | 
 // the teacher's desk in front of the Narrator: it hides where the waist-up rig ends
 const TeacherDesk: React.FC = () => (
   <g>
-    <rect x={-330} y={0} width={660} height={44} rx={8} fill={C.cardigan} stroke={C.ink} strokeWidth={7} />
-    <rect x={-310} y={44} width={620} height={220} fill={C.cardiganShade} stroke={C.ink} strokeWidth={7} />
-    <rect x={-270} y={80} width={240} height={70} rx={6} fill={C.cardigan} stroke={C.ink} strokeWidth={5} />
-    <circle cx={-150} cy={115} r={9} fill={C.mustard} stroke={C.ink} strokeWidth={3} />
+    <rect x={-330} y={0} width={660} height={44} rx={8} fill={C.cardigan} stroke={C.ink} strokeWidth={lw(7)} />
+    <rect x={-310} y={44} width={620} height={220} fill={C.cardiganShade} stroke={C.ink} strokeWidth={lw(7)} />
+    <rect x={-270} y={80} width={240} height={70} rx={6} fill={C.cardigan} stroke={C.ink} strokeWidth={lw(5)} />
+    <circle cx={-150} cy={115} r={9} fill={C.mustard} stroke={C.ink} strokeWidth={lw(3)} />
     {/* an apple, a stack of books and a pencil cup */}
-    <g transform="translate(-220, -34)"><circle r={34} fill={C.red} stroke={C.ink} strokeWidth={5} /><path d="M0,-34 q6,-18 18,-20" stroke={C.ink} strokeWidth={5} fill="none" /><ellipse cx={14} cy={-44} rx={12} ry={6} fill={C.avocado} stroke={C.ink} strokeWidth={3} /></g>
-    {[0, 1, 2].map((i) => <rect key={i} x={140 - i * 6} y={-24 - i * 22} width={150} height={24} fill={[C.teal, C.mustard, C.orange][i]} stroke={C.ink} strokeWidth={4} />)}
-    <g transform="translate(20, -50)"><rect x={-26} y={0} width={52} height={50} fill={C.teal} stroke={C.ink} strokeWidth={4} />
+    <g transform="translate(-220, -34)"><circle r={34} fill={C.red} stroke={C.ink} strokeWidth={lw(5)} /><path d="M0,-34 q6,-18 18,-20" stroke={C.ink} strokeWidth={lw(5)} fill="none" /><ellipse cx={14} cy={-44} rx={12} ry={6} fill={C.avocado} stroke={C.ink} strokeWidth={lw(3)} /></g>
+    {[0, 1, 2].map((i) => <rect key={i} x={140 - i * 6} y={-24 - i * 22} width={150} height={24} fill={[C.teal, C.mustard, C.orange][i]} stroke={C.ink} strokeWidth={lw(4)} />)}
+    <g transform="translate(20, -50)"><rect x={-26} y={0} width={52} height={50} fill={C.teal} stroke={C.ink} strokeWidth={lw(4)} />
       {[-12, 0, 12].map((dx, i) => <line key={dx} x1={dx} y1={0} x2={dx + (i - 1) * 6} y2={-46} stroke={[C.mustard, C.red, C.ink][i]} strokeWidth={7} strokeLinecap="round" />)}</g>
   </g>
 );
@@ -116,8 +116,8 @@ const LivingWall: React.FC<{ g: number }> = ({ g }) => (
     <Wallpaper id="sw" kind="daisy" a={C.cream} b={C.orange} x={-40} y={-40} w={W * 2 + 80} h={720} opacity={0.35} />
     <g transform="translate(420, 330)"><Picture kind="boat" /></g>
     <g transform="translate(980, 600)">
-      <rect x={-160} y={60} width={320} height={30} fill={C.cardigan} stroke={C.ink} strokeWidth={6} />
-      {[-130, 130].map((lx) => <line key={lx} x1={lx} y1={90} x2={lx} y2={240} stroke={C.ink} strokeWidth={10} />)}
+      <rect x={-160} y={60} width={320} height={30} fill={C.cardigan} stroke={C.ink} strokeWidth={lw(6)} />
+      {[-130, 130].map((lx) => <line key={lx} x1={lx} y1={90} x2={lx} y2={240} stroke={C.ink} strokeWidth={lw(10)} />)}
       <g transform="translate(-40, -140)"><Lamp /></g>
       <g transform="translate(90, 30) scale(0.45)"><Plant sway={Math.sin(g / 60)} /></g>
     </g>
@@ -183,34 +183,34 @@ const Study: React.FC<{ g: number; children: React.ReactNode; keys?: number }> =
   <Bg id="study" seed={5} base={C.teal}>
     <Wallpaper id="study" kind="diamond" a={C.cream} b={C.mustard} opacity={0.22} />
     <g transform="translate(1660, 230)">
-      <rect x={-180} y={-130} width={360} height={260} fill="#c9a26b" stroke={C.ink} strokeWidth={8} />
+      <rect x={-180} y={-130} width={360} height={260} fill="#c9a26b" stroke={C.ink} strokeWidth={lw(8)} />
       {[[-110, -60, C.cream, -4], [40, -70, C.mustard, 5], [-60, 40, C.orange, 3], [100, 50, C.white, -6]].map(([x, y, c, r], i) => (
         <g key={i} transform={`translate(${x}, ${y}) rotate(${r})`}>
-          <rect x={-60} y={-40} width={120} height={80} fill={c as string} stroke={C.ink} strokeWidth={3} />
-          <circle cy={-36} r={7} fill={C.red} stroke={C.ink} strokeWidth={2} />
+          <rect x={-60} y={-40} width={120} height={80} fill={c as string} stroke={C.ink} strokeWidth={lw(3)} />
+          <circle cy={-36} r={7} fill={C.red} stroke={C.ink} strokeWidth={lw(2)} />
           {[0, 1, 2].map((k) => <rect key={k} x={-46} y={-16 + k * 16} width={80 - k * 18} height={6} fill={C.inkSoft} opacity={0.5} />)}
         </g>
       ))}
     </g>
     <g transform="translate(240, 540)"><Lamp /></g>
     {/* the desktop */}
-    <rect x={-20} y={760} width={W + 40} height={340} fill="#a8703e" stroke={C.ink} strokeWidth={8} />
+    <rect x={-20} y={760} width={W + 40} height={340} fill="#a8703e" stroke={C.ink} strokeWidth={lw(8)} />
     {Array.from({ length: 7 }, (_, i) => <path key={i} d={`M-20,${800 + i * 42} q${400 + i * 30},${-14 + (i % 2) * 28} ${960},0 t${980},0`} stroke={C.cardiganShade} strokeWidth={3} fill="none" opacity={0.5} />)}
     {/* keyboard: three rows of round keys; the one being typed dips */}
     <g transform="translate(960, 900)">
-      <rect x={-460} y={-80} width={920} height={170} rx={30} fill={C.cardigan} stroke={C.ink} strokeWidth={7} />
+      <rect x={-460} y={-80} width={920} height={170} rx={30} fill={C.cardigan} stroke={C.ink} strokeWidth={lw(7)} />
       {[0, 1, 2].map((r) => Array.from({ length: 11 - r }, (_, i) => {
         const k = r * 11 + i, down = k === keys;
-        return <circle key={k} cx={-400 + r * 30 + i * 80} cy={-38 + r * 50 + (down ? 5 : 0)} r={26} fill={down ? C.mustard : C.cream} stroke={C.ink} strokeWidth={4} />;
+        return <circle key={k} cx={-400 + r * 30 + i * 80} cy={-38 + r * 50 + (down ? 5 : 0)} r={26} fill={down ? C.mustard : C.cream} stroke={C.ink} strokeWidth={lw(4)} />;
       }))}
     </g>
     <g transform="translate(1560, 820)">
-      <path d="M-60,-90 L60,-90 L50,40 L-50,40 Z" fill={C.red} stroke={C.ink} strokeWidth={6} />
-      <path d="M60,-60 q50,0 40,40 q-8,24 -42,22" fill="none" stroke={C.ink} strokeWidth={10} />
+      <path d="M-60,-90 L60,-90 L50,40 L-50,40 Z" fill={C.red} stroke={C.ink} strokeWidth={lw(6)} />
+      <path d="M60,-60 q50,0 40,40 q-8,24 -42,22" fill="none" stroke={C.ink} strokeWidth={lw(10)} />
       {[0, 1].map((k) => <path key={k} d={`M${-20 + k * 30},-110 q-14,-30 0,-60`} fill="none" stroke={C.white} strokeWidth={5} opacity={0.5 + 0.3 * Math.sin(g / 8 + k)} />)}
     </g>
     <g transform="translate(330, 850) rotate(-8)">
-      <rect x={-120} y={-80} width={240} height={160} fill={C.white} stroke={C.ink} strokeWidth={5} />
+      <rect x={-120} y={-80} width={240} height={160} fill={C.white} stroke={C.ink} strokeWidth={lw(5)} />
       {[0, 1, 2, 3].map((k) => <line key={k} x1={-100} x2={100} y1={-44 + k * 32} y2={-44 + k * 32} stroke={C.teal} strokeWidth={3} opacity={0.6} />)}
       <line x1={140} y1={-70} x2={220} y2={70} stroke={C.mustard} strokeWidth={16} strokeLinecap="round" />
     </g>
@@ -233,10 +233,10 @@ export const S05: ShotC = ({ f, g, len }) => {
 // the links page under the search box: titles (teal bars), grey snippet lines and a small round icon per result
 const LinkPage: React.FC<{ squash: number }> = ({ squash }) => (
   <g transform={`scale(1, ${1 - squash * 0.72})`}>
-    <rect x={-520} y={-40} width={1040} height={430} rx={16} fill={C.white} stroke={C.ink} strokeWidth={6} />
+    <rect x={-520} y={-40} width={1040} height={430} rx={16} fill={C.white} stroke={C.ink} strokeWidth={lw(6)} />
     {Array.from({ length: 4 }, (_, i) => (
       <g key={i} transform={`translate(-470, ${i * 95})`}>
-        <circle cx={14} cy={10} r={14} fill={[C.orange, C.avocado, C.mustard, C.red][i]} stroke={C.ink} strokeWidth={3} />
+        <circle cx={14} cy={10} r={14} fill={[C.orange, C.avocado, C.mustard, C.red][i]} stroke={C.ink} strokeWidth={lw(3)} />
         <rect x={44} y={0} width={420 - (i % 2) * 80} height={20} rx={6} fill={C.teal} />
         <rect x={44} y={34} width={820} height={12} rx={5} fill={C.creamShade} />
         <rect x={44} y={54} width={640 - i * 40} height={12} rx={5} fill={C.creamShade} />
@@ -258,9 +258,9 @@ export const S06: ShotC = ({ f, g, len }) => {
       <g transform="translate(960, 150)"><SearchBox text="why is there a robot in my search" caret={false} /></g>
       <g transform={`translate(960, ${330 + sq * 40})`}><LinkPage squash={sq} /></g>
       {puff > 0 && puff < 1 && [-1, 1].map((k) => [0, 1, 2].map((j) => (
-        <circle key={`${k}${j}`} cx={960 + k * (280 + puff * 140 + j * 50)} cy={540 - j * 26 - puff * 30 - 20} r={(30 - j * 6) * (1 - puff * 0.6)} fill={C.cream} stroke={C.ink} strokeWidth={3} opacity={1 - puff} />
+        <circle key={`${k}${j}`} cx={960 + k * (280 + puff * 140 + j * 50)} cy={540 - j * 26 - puff * 30 - 20} r={(30 - j * 6) * (1 - puff * 0.6)} fill={C.cream} stroke={C.ink} strokeWidth={lw(3)} opacity={1 - puff} />
       )))}
-      {f < land && <g opacity={0.6}>{[0, 1, 2].map((k) => <line key={k} x1={960 - 700 + p * 700 - 300 - k * 30} y1={y - 40 + k * 30} x2={960 - 700 + p * 700 - 400 - k * 30} y2={y - 20 + k * 30} stroke={C.ink} strokeWidth={5} strokeLinecap="round" />)}</g>}
+      {f < land && <g opacity={0.6}>{[0, 1, 2].map((k) => <line key={k} x1={960 - 700 + p * 700 - 300 - k * 30} y1={y - 40 + k * 30} x2={960 - 700 + p * 700 - 400 - k * 30} y2={y - 20 + k * 30} stroke={C.ink} strokeWidth={lw(5)} strokeLinecap="round" />)}</g>}
       <g transform={`translate(${960 - 700 + p * 700}, ${y})`}>
         <AnswerBox legs={f < land ? 1 : 0.3} squash={bump(f, land, 5)} mouth={f > land + 10 ? (f % 12 < 6 ? "D" : "C") : "X"} />
       </g>
@@ -278,7 +278,7 @@ export const S07: ShotC = ({ f, g }) => {
       <g transform={`translate(960, ${520 - lift * 30}) rotate(${-lift * 9}, 260, 100)`}><AnswerBox legs={0.3} /></g>
       <g transform={`translate(1390, 640) scale(${0.62 * breath(g, 3)})`}>
         <Switch pose="curious" mouth={mouthAt(g, "switch")} look={[-0.9, 0.3]} armL={110 + lift * 30} blink={blink(g, 1)} />
-        {lift > 0.6 && <path d="M120,-200 q14,24 0,34 q-14,-10 0,-34 Z" fill={C.white} stroke={C.ink} strokeWidth={4} />}
+        {lift > 0.6 && <path d="M120,-200 q14,24 0,34 q-14,-10 0,-34 Z" fill={C.white} stroke={C.ink} strokeWidth={lw(4)} />}
       </g>
     </Study>
   );
@@ -295,19 +295,19 @@ export const S08: ShotC = ({ f, g, len }) => {
       <Wallpaper id="s08" kind="stripe" a={C.mustard} b={C.cream} opacity={0.2} />
       <g transform="translate(1520, 1080)"><Bookshelf w={520} shelves={7} seed={5} /></g>
       <g transform="translate(1660, 108)">
-        <rect x={-42} y={-30} width={84} height={34} rx={6} fill={C.white} stroke={C.ink} strokeWidth={4} />
+        <rect x={-42} y={-30} width={84} height={34} rx={6} fill={C.white} stroke={C.ink} strokeWidth={lw(4)} />
         <text textAnchor="middle" y={-4} fontFamily={SANS} fontWeight={600} fontSize={24} fill={C.ink}>Web</text>
         <path d="M-60,-50 l-20,-20 M60,-50 l20,-20 M0,-50 v-24" stroke={C.cream} strokeWidth={5} strokeLinecap="round" opacity={0.5 + 0.5 * Math.sin(f / 5)} />
       </g>
       <g transform={`translate(1180, 1040) rotate(${wob - 8})`}>
         {[-70, 70].map((x) => <line key={x} x1={x} y1={0} x2={x * 0.7} y2={-900} stroke={C.cardigan} strokeWidth={20} strokeLinecap="round" />)}
-        {[-70, 70].map((x) => <line key={`i${x}`} x1={x} y1={0} x2={x * 0.7} y2={-900} stroke={C.ink} strokeWidth={4} strokeLinecap="round" opacity={0.6} />)}
+        {[-70, 70].map((x) => <line key={`i${x}`} x1={x} y1={0} x2={x * 0.7} y2={-900} stroke={C.ink} strokeWidth={lw(4)} strokeLinecap="round" opacity={0.6} />)}
         {Array.from({ length: 9 }, (_, i) => <line key={i} x1={-66 + i * 2} y1={-60 - i * 100} x2={66 - i * 2} y2={-60 - i * 100} stroke={C.cardigan} strokeWidth={14} />)}
       </g>
       <g transform={`translate(${1180 + wob}, ${900 - step * 80 - (climb * 8 - step) * 30}) scale(0.5) rotate(${wob})`}>
         <Switch pose="curious" look={[0.6, -0.9]} armL={step % 2 ? 165 : 140} armR={step % 2 ? 140 : 165} blink={blink(g, 2)} />
       </g>
-      <rect x={-20} y={1000} width={W + 40} height={100} fill={C.cardigan} stroke={C.ink} strokeWidth={6} />
+      <rect x={-20} y={1000} width={W + 40} height={100} fill={C.cardigan} stroke={C.ink} strokeWidth={lw(6)} />
       {/* the Narrator framed from the chest up, cropped by the frame's bottom edge */}
       <g transform={`translate(430, ${850 - (breath(g) - 1) * 200}) scale(0.9)`}><Narrator mouth={mouthAt(g, "narrator")} armR="point" head={1} blink={blink(g)} /></g>
     </Bg>

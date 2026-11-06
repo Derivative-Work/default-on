@@ -4,7 +4,7 @@
 // the pose sets eyes, brows and arm angles; `toggle` (0 OFF .. 1 ON) and `mouth` are driven separately so the click
 // and the lip sync move on their own. Drawn around the plate's centre, 250 x 390 units.
 import React from "react";
-import { C } from "../theme/palette";
+import { C, lw } from "../theme/palette";
 import { Mouth, MouthShape } from "./Mouth";
 
 export type SwitchPose = "neutral" | "curious" | "proud" | "sad" | "startled" | "relaxed";
@@ -40,10 +40,10 @@ const Arm: React.FC<{ side: -1 | 1; angle: number; wave?: number }> = ({ side, a
   const hx = Math.sin(a * 1.15) * len, hy = Math.cos(a * 1.15) * len;
   return (
     <g transform={`translate(${side * (PLATE.w / 2 - 6)}, 20)`}>
-      <path d={`M0,0 Q${ex + side * 10},${ey} ${hx},${hy}`} fill="none" stroke={C.ink} strokeWidth={26} strokeLinecap="round" />
-      <path d={`M0,0 Q${ex + side * 10},${ey} ${hx},${hy}`} fill="none" stroke={C.cream} strokeWidth={15} strokeLinecap="round" />
-      <circle cx={hx} cy={hy} r={21} fill={C.cream} stroke={C.ink} strokeWidth={5} />
-      <path d={`M${hx - side * 4},${hy - 12} q${side * 10},-6 ${side * 14},4`} fill="none" stroke={C.ink} strokeWidth={4} strokeLinecap="round" />
+      <path d={`M0,0 Q${ex + side * 10},${ey} ${hx},${hy}`} fill="none" stroke={C.ink} strokeWidth={21} strokeLinecap="round" />
+      <path d={`M0,0 Q${ex + side * 10},${ey} ${hx},${hy}`} fill="none" stroke={C.cream} strokeWidth={16} strokeLinecap="round" />
+      <circle cx={hx} cy={hy} r={21} fill={C.cream} stroke={C.ink} strokeWidth={lw(5)} />
+      <path d={`M${hx - side * 4},${hy - 12} q${side * 10},-6 ${side * 14},4`} fill="none" stroke={C.ink} strokeWidth={lw(4)} strokeLinecap="round" />
     </g>
   );
 };
@@ -58,25 +58,25 @@ const Eye: React.FC<{ x: number; spec: PoseSpec; look: [number, number]; blink: 
   return (
     <g transform={`translate(${x}, -108)`}>
       <clipPath id={clip}><circle r={r} /></clipPath>
-      <circle r={r} fill={C.white} stroke={C.ink} strokeWidth={6} />
+      <circle r={r} fill={C.white} stroke={C.ink} strokeWidth={lw(6)} />
       <g clipPath={`url(#${clip})`}>
         <circle cx={lx * r * 0.42} cy={ly * r * 0.42} r={r * 0.42} fill={C.ink} />
         <circle cx={lx * r * 0.42 + r * 0.14} cy={ly * r * 0.42 - r * 0.16} r={r * 0.12} fill={C.white} />
         {/* upper lid, a cream curtain from the top */}
         <rect x={-r - 2} y={-r - 2} width={2 * r + 4} height={(2 * r + 4) * lid} fill={C.cream} />
-        {lid > 0.02 && lid < 0.9 && <line x1={-r} x2={r} y1={-r - 2 + (2 * r + 4) * lid} y2={-r - 2 + (2 * r + 4) * lid} stroke={C.ink} strokeWidth={5} />}
-        {spec.lower > 0 && <rect x={-r} y={r - 2 * r * spec.lower} width={2 * r} height={2 * r} fill={C.cream} stroke={C.ink} strokeWidth={5} />}
+        {lid > 0.02 && lid < 0.9 && <line x1={-r} x2={r} y1={-r - 2 + (2 * r + 4) * lid} y2={-r - 2 + (2 * r + 4) * lid} stroke={C.ink} strokeWidth={lw(5)} />}
+        {spec.lower > 0 && <rect x={-r} y={r - 2 * r * spec.lower} width={2 * r} height={2 * r} fill={C.cream} stroke={C.ink} strokeWidth={lw(5)} />}
       </g>
-      <circle r={r} fill="none" stroke={C.ink} strokeWidth={6} />
+      <circle r={r} fill="none" stroke={C.ink} strokeWidth={lw(6)} />
       {/* shut: a curved lid line with three lashes */}
       {lid >= 0.9 && (
-        <g stroke={C.ink} strokeWidth={6} strokeLinecap="round" fill="none">
+        <g stroke={C.ink} strokeWidth={lw(6)} strokeLinecap="round" fill="none">
           <path d={`M${-r * 0.8},${r * 0.05} Q0,${r * 0.45} ${r * 0.8},${r * 0.05}`} />
           {[-0.45, 0, 0.45].map((k) => <path key={k} d={`M${k * r},${r * 0.27 - Math.abs(k) * r * 0.1} l${k * 10},${r * 0.2}`} />)}
         </g>
       )}
       {/* brow */}
-      <path d={`M${-r * 0.75},0 Q0,-8 ${r * 0.75},0`} fill="none" stroke={C.ink} strokeWidth={7} strokeLinecap="round"
+      <path d={`M${-r * 0.75},0 Q0,-8 ${r * 0.75},0`} fill="none" stroke={C.ink} strokeWidth={lw(7)} strokeLinecap="round"
         transform={`translate(0, ${-r - 16 - spec.browY}) rotate(${side * spec.brow})`} />
     </g>
   );
@@ -107,13 +107,13 @@ export const Switch: React.FC<SwitchProps> = ({
       {arms && <Arm side={-1} angle={armL ?? spec.armL} />}
       {arms && <Arm side={1} angle={armR ?? spec.armR} wave={wave} />}
       {/* plate: a soft-cornered rectangle with a bevel */}
-      <rect x={-PLATE.w / 2} y={-PLATE.h / 2} width={PLATE.w} height={PLATE.h} rx={34} fill={C.cream} stroke={C.ink} strokeWidth={8} />
+      <rect x={-PLATE.w / 2} y={-PLATE.h / 2} width={PLATE.w} height={PLATE.h} rx={34} fill={C.cream} stroke={C.ink} strokeWidth={lw(8)} />
       <rect x={-PLATE.w / 2 + 16} y={-PLATE.h / 2 + 16} width={PLATE.w - 32} height={PLATE.h - 32} rx={22} fill="none" stroke={C.creamShade} strokeWidth={6} />
       {/* screws */}
       {[-1, 1].map((s) => (
         <g key={s} transform={`translate(0, ${s * (PLATE.h / 2 - 24)})`}>
-          <circle r={8} fill={C.creamShade} stroke={C.ink} strokeWidth={3.5} />
-          <line x1={-5} y1={-2} x2={5} y2={2} stroke={C.ink} strokeWidth={3} />
+          <circle r={8} fill={C.creamShade} stroke={C.ink} strokeWidth={lw(3.5)} />
+          <line x1={-5} y1={-2} x2={5} y2={2} stroke={C.ink} strokeWidth={lw(3)} />
         </g>
       ))}
       <Eye x={-58} spec={spec} look={look} blink={blink} side={-1} />
@@ -121,15 +121,15 @@ export const Switch: React.FC<SwitchProps> = ({
       {/* the rocker paddle: a flush rounded rectangle split at the pivot; the pressed half is shaded and sits
           in, the raised half is lit and shows a sliver of its side */}
       <g transform="translate(0, 14)">
-        <rect x={-58} y={-70} width={116} height={140} rx={16} fill={PRESSED} stroke={C.ink} strokeWidth={6} />
+        <rect x={-58} y={-70} width={116} height={140} rx={16} fill={PRESSED} stroke={C.ink} strokeWidth={lw(6)} />
         <path d={`M-48,-60 h96 v${60 - rock * 4} h-96 Z`} fill={rock > 0 ? PRESSED : C.white} />
         <path d={`M-48,${-rock * 4} h96 v${60 + rock * 4} h-96 Z`} fill={rock > 0 ? C.white : PRESSED} />
         {/* the raised half's lower lip casts a little shadow onto the pressed half */}
         <rect x={-48} y={rock > 0 ? -rock * 4 - 8 : -rock * 4} width={96} height={8 * Math.abs(rock)} fill={C.ink} opacity={0.25} />
-        <line x1={-48} x2={48} y1={-rock * 4} y2={-rock * 4} stroke={C.ink} strokeWidth={4} />
-        <rect x={-58} y={-70} width={116} height={140} rx={16} fill="none" stroke={C.ink} strokeWidth={6} />
+        <line x1={-48} x2={48} y1={-rock * 4} y2={-rock * 4} stroke={C.ink} strokeWidth={lw(4)} />
+        <rect x={-58} y={-70} width={116} height={140} rx={16} fill="none" stroke={C.ink} strokeWidth={lw(6)} />
         {/* pilot light */}
-        <circle cx={0} cy={-44} r={8} fill={on > 0.5 ? C.mustard : PRESSED} stroke={C.ink} strokeWidth={3} />
+        <circle cx={0} cy={-44} r={8} fill={on > 0.5 ? C.mustard : PRESSED} stroke={C.ink} strokeWidth={lw(3)} />
         {on > 0.5 && <circle cx={0} cy={-44} r={16} fill={C.mustard} opacity={0.3} />}
       </g>
       <g transform="translate(0, 132)">

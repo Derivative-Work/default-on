@@ -7,7 +7,7 @@ import { Hand } from "../rigs/Hand";
 import { Narrator } from "../rigs/Narrator";
 import { Switch } from "../rigs/Switch";
 import { BUBBLE, SANS } from "../theme/fonts";
-import { C, H, W } from "../theme/palette";
+import { C, H, W, lw } from "../theme/palette";
 import { at, events, line, mouthAt, slot } from "../timing";
 import { S53 as S53Key, S61 as S61Key } from "../scenes/KeyFrames";
 import { Lyric } from "./Chorus";
@@ -19,12 +19,12 @@ export const S48: ShotC = ({ f, len }) => (
     <Wash id="s48" color={C.night} opacity={0.55}><rect x={-40} y={-40} width={W + 80} height={520} /></Wash>
     <Wash id="s48" color={C.avocado} opacity={0.8}><path d="M-40,760 Q600,700 1100,740 Q1600,780 1960,720 L1960,1120 L-40,1120 Z" /></Wash>
     <g transform={`translate(${1100 - ez(f, 0, len) * 260}, 760)`}>
-      <rect x={-260} y={-300} width={520} height={300} fill={C.red} stroke={C.ink} strokeWidth={8} />
-      <path d="M-300,-300 L0,-500 L300,-300 Z" fill={C.cardigan} stroke={C.ink} strokeWidth={8} strokeLinejoin="round" />
-      <rect x={-40} y={-620} width={80} height={140} fill={C.cream} stroke={C.ink} strokeWidth={6} />
-      <path d="M-40,-620 L0,-680 L40,-620 Z" fill={C.cardigan} stroke={C.ink} strokeWidth={6} />
-      <rect x={-50} y={-160} width={100} height={160} fill={C.cardiganShade} stroke={C.ink} strokeWidth={6} />
-      {[-170, 170].map((x) => <rect key={x} x={x - 50} y={-230} width={100} height={90} fill={C.mustard} stroke={C.ink} strokeWidth={6} />)}
+      <rect x={-260} y={-300} width={520} height={300} fill={C.red} stroke={C.ink} strokeWidth={lw(8)} />
+      <path d="M-300,-300 L0,-500 L300,-300 Z" fill={C.cardigan} stroke={C.ink} strokeWidth={lw(8)} strokeLinejoin="round" />
+      <rect x={-40} y={-620} width={80} height={140} fill={C.cream} stroke={C.ink} strokeWidth={lw(6)} />
+      <path d="M-40,-620 L0,-680 L40,-620 Z" fill={C.cardigan} stroke={C.ink} strokeWidth={lw(6)} />
+      <rect x={-50} y={-160} width={100} height={160} fill={C.cardiganShade} stroke={C.ink} strokeWidth={lw(6)} />
+      {[-170, 170].map((x) => <rect key={x} x={x - 50} y={-230} width={100} height={90} fill={C.mustard} stroke={C.ink} strokeWidth={lw(6)} />)}
     </g>
   </Bg>
 );
@@ -32,13 +32,13 @@ export const S48: ShotC = ({ f, len }) => (
 // S49: "So the school said, 'No AI, please'…": a teacher's desk with a polite handwritten note on it
 export const S49: ShotC = () => (
   <Bg id="s49" seed={49} base={C.avocado}>
-    <rect x={0} y={640} width={W} height={440} fill={C.cardigan} stroke={C.ink} strokeWidth={8} />
+    <rect x={0} y={640} width={W} height={440} fill={C.cardigan} stroke={C.ink} strokeWidth={lw(8)} />
     <g transform="translate(960, 640) rotate(-4)">
-      <rect x={-320} y={-200} width={640} height={300} fill={C.white} stroke={C.ink} strokeWidth={6} />
+      <rect x={-320} y={-200} width={640} height={300} fill={C.white} stroke={C.ink} strokeWidth={lw(6)} />
       <text x={-270} y={-90} fontFamily={SANS} fontStyle="italic" fontSize={72} fill={C.inkSoft}>No AI, please.</text>
       <text x={-270} y={10} fontFamily={SANS} fontStyle="italic" fontSize={52} fill={C.inkSoft}>Thank you! — the school</text>
     </g>
-    <g transform="translate(1500, 560)"><circle r={60} fill={C.red} stroke={C.ink} strokeWidth={6} /><path d="M0,-60 q10,-30 30,-30" stroke={C.ink} strokeWidth={6} fill="none" /></g>
+    <g transform="translate(1500, 560)"><circle r={60} fill={C.red} stroke={C.ink} strokeWidth={lw(6)} /><path d="M0,-60 q10,-30 30,-30" stroke={C.ink} strokeWidth={lw(6)} fill="none" /></g>
   </Bg>
 );
 
@@ -46,13 +46,13 @@ export const S49: ShotC = () => (
 // across the desk; "Take the robot with your search…": the contract has two boxes
 const Giant: React.FC<{ slide: number; boxes: string[] }> = ({ slide, boxes }) => (
   <Bg id="s50" seed={50} base={C.avocado}>
-    <rect x={0} y={640} width={W} height={440} fill={C.cardigan} stroke={C.ink} strokeWidth={8} />
+    <rect x={0} y={640} width={W} height={440} fill={C.cardigan} stroke={C.ink} strokeWidth={lw(8)} />
     <g transform={`translate(${1500 - slide * 560}, 640) rotate(-3)`}><g transform="scale(0.9)"><Contract boxes={boxes} /></g></g>
     <g transform={`translate(${2400 - slide * 560}, 560)`}>
-      <rect x={-200} y={-120} width={1200} height={240} fill="#3b3f52" stroke={C.ink} strokeWidth={8} />
+      <rect x={-200} y={-120} width={1200} height={240} fill="#3b3f52" stroke={C.ink} strokeWidth={lw(8)} />
       {Array.from({ length: 10 }, (_, i) => <line key={i} x1={-200 + i * 120} y1={-120} x2={-200 + i * 120} y2={120} stroke={C.cream} strokeWidth={3} opacity={0.5} />)}
-      <rect x={-260} y={-130} width={80} height={260} rx={10} fill={C.white} stroke={C.ink} strokeWidth={7} />
-      <path d="M-260,-90 Q-420,-110 -440,0 Q-420,100 -260,90 Z" fill={C.skin} stroke={C.ink} strokeWidth={7} />
+      <rect x={-260} y={-130} width={80} height={260} rx={10} fill={C.white} stroke={C.ink} strokeWidth={lw(7)} />
+      <path d="M-260,-90 Q-420,-110 -440,0 Q-420,100 -260,90 Z" fill={C.skin} stroke={C.ink} strokeWidth={lw(7)} />
     </g>
   </Bg>
 );
@@ -100,13 +100,13 @@ const Bolted: React.FC<{ g: number; tilt: number; tighten?: number }> = ({ g, ti
         <AnswerBox w={760} />
         {[-330, 330].map((x) => (
           <g key={x} transform={`translate(${x}, -150)`}>
-            <rect x={-14} y={-200} width={28} height={200} fill={C.sleeveShade} stroke={C.ink} strokeWidth={5} />
-            <g transform={`rotate(${tighten * 360})`}><circle r={30} fill={C.sleeve} stroke={C.ink} strokeWidth={6} /><path d="M-18,0 H18 M0,-18 V18" stroke={C.ink} strokeWidth={6} /></g>
+            <rect x={-14} y={-200} width={28} height={200} fill={C.sleeveShade} stroke={C.ink} strokeWidth={lw(5)} />
+            <g transform={`rotate(${tighten * 360})`}><circle r={30} fill={C.sleeve} stroke={C.ink} strokeWidth={lw(6)} /><path d="M-18,0 H18 M0,-18 V18" stroke={C.ink} strokeWidth={lw(6)} /></g>
           </g>
         ))}
         {tighten > 0.6 && (
           <g transform="translate(0, 220)">
-            <rect x={-230} y={-34} width={460} height={68} rx={10} fill={C.creamShade} stroke={C.ink} strokeWidth={5} />
+            <rect x={-230} y={-34} width={460} height={68} rx={10} fill={C.creamShade} stroke={C.ink} strokeWidth={lw(5)} />
             <text textAnchor="middle" y={14} fontFamily={SANS} fontWeight={600} fontSize={38} fill={C.ink}>deeply integrated</text>
           </g>
         )}
@@ -140,7 +140,7 @@ const Classroom: React.FC<{ f: number; g: number; lineId?: string }> = ({ f, g, 
       return (
         <g key={`${row}${i}`}>
           <g transform={`translate(${x}, ${y - 120}) scale(${s})`}><Kid seed={seed} mouth={mouthAt(g + seed * 2, "narrator")} /></g>
-          <rect x={x - 150 * s} y={y + 60 * s} width={300 * s} height={40} fill={C.cardigan} stroke={C.ink} strokeWidth={5} />
+          <rect x={x - 150 * s} y={y + 60 * s} width={300 * s} height={40} fill={C.cardigan} stroke={C.ink} strokeWidth={lw(5)} />
           <g transform={`translate(${x + 90 * s}, ${y + 30 * s})`}><MiniRocker on={f > 8 + seed * 9 ? 1 : 0} s={0.45} /></g>
         </g>
       );
@@ -164,14 +164,14 @@ const Desks: React.FC<{ f: number; g: number; len: number; lineId: string; gag?:
       return (
         <g key={i}>
           <g transform={`translate(${x}, 420) scale(1.25)`}><Kid seed={seed} mouth={mouthAt(g + seed * 2, "narrator")} look={gag ? [0.4, 0.9] : [0, 0]} /></g>
-          <rect x={x - 260} y={700} width={520} height={60} fill={C.cardigan} stroke={C.ink} strokeWidth={7} />
-          <rect x={x - 240} y={760} width={480} height={330} fill={C.cardiganShade} stroke={C.ink} strokeWidth={7} />
+          <rect x={x - 260} y={700} width={520} height={60} fill={C.cardigan} stroke={C.ink} strokeWidth={lw(7)} />
+          <rect x={x - 240} y={760} width={480} height={330} fill={C.cardiganShade} stroke={C.ink} strokeWidth={lw(7)} />
           <g transform={`translate(${x + 120}, ${640 - (on && !gag ? bump(t, 6, 5) * 24 : 0)})`}><MiniRocker on={on ? 1 : 0} s={1.1} /></g>
           {/* S57b's three gags: a book over it, a hand over it, tucked into the desk; each pops back ON */}
-          {gag && covered && i === 0 && <rect x={x + 30} y={560} width={190} height={150} rx={8} fill={C.teal} stroke={C.ink} strokeWidth={6} transform={`rotate(-6, ${x + 120}, 640)`} />}
-          {gag && covered && i === 1 && <ellipse cx={x + 120} cy={630} rx={90} ry={70} fill={(["#f0c49b", "#c98b5e", "#8d5a3a"])[i]} stroke={C.ink} strokeWidth={6} />}
-          {gag && covered && i === 2 && <rect x={x + 40} y={590} width={160} height={110} fill={C.cardigan} stroke={C.ink} strokeWidth={6} />}
-          {gag && !covered && t > len / 3 - 14 && t < len / 3 - 4 && <text x={x + 120} y={520} textAnchor="middle" fontFamily={BUBBLE} fontSize={60} fill={C.orange} stroke={C.ink} strokeWidth={4} paintOrder="stroke">ON!</text>}
+          {gag && covered && i === 0 && <rect x={x + 30} y={560} width={190} height={150} rx={8} fill={C.teal} stroke={C.ink} strokeWidth={lw(6)} transform={`rotate(-6, ${x + 120}, 640)`} />}
+          {gag && covered && i === 1 && <ellipse cx={x + 120} cy={630} rx={90} ry={70} fill={(["#f0c49b", "#c98b5e", "#8d5a3a"])[i]} stroke={C.ink} strokeWidth={lw(6)} />}
+          {gag && covered && i === 2 && <rect x={x + 40} y={590} width={160} height={110} fill={C.cardigan} stroke={C.ink} strokeWidth={lw(6)} />}
+          {gag && !covered && t > len / 3 - 14 && t < len / 3 - 4 && <text x={x + 120} y={520} textAnchor="middle" fontFamily={BUBBLE} fontSize={60} fill={C.orange} stroke={C.ink} strokeWidth={lw(4)} paintOrder="stroke">ON!</text>}
         </g>
       );
     })}
@@ -191,12 +191,12 @@ export const S57c: ShotC = ({ f, g, len }) => {
   const fx = 125, fy = 195;
   return (
     <Bg id="s57c" seed={57} base={C.mustard}>
-      <rect x={0} y={860} width={W} height={220} fill={C.cardigan} stroke={C.ink} strokeWidth={8} />
+      <rect x={0} y={860} width={W} height={220} fill={C.cardigan} stroke={C.ink} strokeWidth={lw(8)} />
       {[260, 1660].map((x, i) => <g key={x} transform={`translate(${x}, 560) scale(1.1)`} opacity={0.85}><Kid seed={8 + i} mouth={mouthAt(g + i * 3, "narrator")} /></g>)}
       <g transform="translate(960, 520) scale(1.25)">
         <clipPath id="s57c-peel"><path d={`M-600,-600 L600,-600 L600,${fx + fy - d - 600} L${fx + fy - d - 600},600 L-600,600 Z`} /></clipPath>
         <g clipPath="url(#s57c-peel)"><Switch pose={lift > 0.3 ? "startled" : "neutral"} mouth={mouthAt(g, "narrator")} armR={lift > 0.5 ? 60 : 25} look={lift > 0.3 ? [0.6, 0.7] : [0, 0]} blink={blink(g, 11)} /></g>
-        <path d={`M${fx},${fy - d} L${fx - d},${fy} L${fx - d},${fy - d} Z`} fill={C.white} stroke={C.ink} strokeWidth={5} strokeLinejoin="round" />
+        <path d={`M${fx},${fy - d} L${fx - d},${fy} L${fx - d},${fy - d} Z`} fill={C.white} stroke={C.ink} strokeWidth={lw(5)} strokeLinejoin="round" />
       </g>
       <Lyric id="L64" f={f} g={g} y={1030} size={58} />
     </Bg>
@@ -218,7 +218,7 @@ export const S58: ShotC = ({ f, g, len }) => {
       <svg width={W} height={H} style={{ position: "absolute" }}>
         <g transform={`translate(${W / 2}, ${H / 2 - 40 * back})`}>
           <path d={`M${-W * s / 2 - 34},${-H * s / 2 - 34} h${W * s + 68} v${H * s + 68} h${-W * s - 68} Z M${-W * s / 2},${-H * s / 2} v${H * s} h${W * s} v${-H * s} Z`}
-            fill={C.cardigan} fillRule="evenodd" stroke={C.ink} strokeWidth={7} opacity={back > 0.05 ? 1 : 0} />
+            fill={C.cardigan} fillRule="evenodd" stroke={C.ink} strokeWidth={lw(7)} opacity={back > 0.05 ? 1 : 0} />
           {back > 0.3 && [-1, 1].map((k) => <path key={k} d={`M${k * W * s * 0.3},${H * s / 2 + 34} l${k * 40},70`} stroke={C.ink} strokeWidth={14} strokeLinecap="round" />)}
         </g>
         {back > 0.7 && <g transform="translate(1700, 930)"><Tile color={C.mustard} glyph="spark" size={200} wink={f > len * 0.8 ? 1 : 0} /></g>}
@@ -264,13 +264,13 @@ const Summary: React.FC<{ x: number; f: number; pop: number }> = ({ x, f, pop })
   const bx = 340 + Math.sin(f / 5) * 40, by = -230 + Math.cos(f / 4) * 20; // the fleeing close button
   return (
     <g transform={`translate(${x}, 520) scale(${pop})`}>
-      <rect x={-460} y={-280} width={920} height={560} rx={24} fill={C.white} stroke={C.ink} strokeWidth={8} />
-      <rect x={-460} y={-280} width={920} height={90} rx={24} fill={C.mustard} stroke={C.ink} strokeWidth={8} />
-      <path d="M-420,-258 l8,18 l18,8 l-18,8 l-8,18 l-8,-18 l-18,-8 l18,-8 Z" fill={C.orange} stroke={C.ink} strokeWidth={3} />
+      <rect x={-460} y={-280} width={920} height={560} rx={24} fill={C.white} stroke={C.ink} strokeWidth={lw(8)} />
+      <rect x={-460} y={-280} width={920} height={90} rx={24} fill={C.mustard} stroke={C.ink} strokeWidth={lw(8)} />
+      <path d="M-420,-258 l8,18 l18,8 l-18,8 l-8,18 l-8,-18 l-18,-8 l18,-8 Z" fill={C.orange} stroke={C.ink} strokeWidth={lw(3)} />
       <text x={-380} y={-218} fontFamily={SANS} fontWeight={600} fontSize={40} fill={C.ink}>Summary of this song</text>
       {[0, 1, 2, 3, 4].map((i) => <rect key={i} x={-400} y={-140 + i * 70} width={800 - i * 90} height={26} rx={8} fill={C.creamShade} />)}
-      <g transform={`translate(${bx}, ${by})`}><circle r={26} fill={C.cream} stroke={C.ink} strokeWidth={5} /><path d="M-10,-10 L10,10 M10,-10 L-10,10" stroke={C.ink} strokeWidth={5} /></g>
-      <g transform={`translate(${bx - 70 + Math.sin(f / 5 - 0.6) * 40}, ${by + 60})`}><path d="M0,0 L0,44 L12,32 L22,54 L30,50 L20,28 L36,28 Z" fill={C.white} stroke={C.ink} strokeWidth={4} /></g>
+      <g transform={`translate(${bx}, ${by})`}><circle r={26} fill={C.cream} stroke={C.ink} strokeWidth={lw(5)} /><path d="M-10,-10 L10,10 M10,-10 L-10,10" stroke={C.ink} strokeWidth={lw(5)} /></g>
+      <g transform={`translate(${bx - 70 + Math.sin(f / 5 - 0.6) * 40}, ${by + 60})`}><path d="M0,0 L0,44 L12,32 L22,54 L30,50 L20,28 L36,28 Z" fill={C.white} stroke={C.ink} strokeWidth={lw(4)} /></g>
     </g>
   );
 };

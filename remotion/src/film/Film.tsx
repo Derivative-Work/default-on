@@ -1,11 +1,14 @@
-// The film layer (brief, "Film layer"): one shared module over every shot. Grain, slight gate weave, a soft
-// vignette, occasional dust specks and hairs, colour faded toward yellow, and a two-frame splice flash where each
-// section opens. `strength` stays at 1 through the song and drops to 0 for the real-world outro (S65-S67).
+// The film layer (brief, "Film layer"): one shared module over every shot. Graded toward the reference shorts
+// (2026-11-06): high-key and a little soft, whites leaning lavender, colour lifted rather than faded, a pale cool
+// vignette, fine grain, slight gate weave, occasional dust and hairs, and line boil (the ink shimmers frame to frame
+// like hand-inked cels). A two-frame splice flash where each section opens. `strength` stays at 1 through the song
+// and drops to 0 for the real-world outro (S65 on).
 import React from "react";
 import { AbsoluteFill, random, useCurrentFrame } from "remotion";
 import { C, H, W } from "../theme/palette";
 
 const WEAVE_HOLD = 2; // the gate weave moves every 2 frames (15 Hz), like a projector's pull-down
+const BOIL_HOLD = 3; // the line boil changes every 3 frames (10 Hz), like inking on threes
 
 // a smooth-ish random walk per frame: sum of a few sines with random phases, deterministic
 const wobble = (f: number, seed: string, amp: number) => {
@@ -46,28 +49,36 @@ export const Film: React.FC<{ strength?: number; splices?: number[]; children: R
   const dy = wobble(wf, "wy", 1.6) * s;
   const flicker = 1 + (random(`flicker${frame}`) - 0.5) * 0.04 * s;
   const splice = splices.find((f) => frame >= f && frame < f + 2);
+  const boil = Math.floor(frame / BOIL_HOLD);
   return (
     <AbsoluteFill style={{ backgroundColor: C.dark, overflow: "hidden" }}>
+      <svg width={0} height={0} style={{ position: "absolute" }}>
+        <filter id={`boil${boil}`} x="-2%" y="-2%" width="104%" height="104%">
+          <feTurbulence type="fractalNoise" baseFrequency="0.018" numOctaves={2} seed={boil % 97} result="n" />
+          <feDisplacementMap in="SourceGraphic" in2="n" scale={3.2 * s} xChannelSelector="R" yChannelSelector="G" />
+        </filter>
+      </svg>
       <AbsoluteFill style={{
         transform: `translate(${dx}px, ${dy}px) scale(${1 + 0.004 * s})`,
-        filter: `sepia(${0.22 * s}) saturate(${1 - 0.12 * s}) contrast(${1 - 0.06 * s}) brightness(${flicker})`,
+        filter: `${s > 0 ? `url(#boil${boil}) ` : ""}saturate(${1 + 0.1 * s}) contrast(${1 - 0.07 * s}) brightness(${flicker * (1 + 0.03 * s)}) blur(${0.55 * s}px)`,
       }}>
         {children}
       </AbsoluteFill>
       {s > 0 && (
         <>
-          {/* grain: a fresh noise field every frame, overlaid */}
-          <svg width={W} height={H} style={{ position: "absolute", mixBlendMode: "overlay", opacity: 0.5 * s }}>
+          {/* fine grain */}
+          <svg width={W} height={H} style={{ position: "absolute", mixBlendMode: "overlay", opacity: 0.32 * s }}>
             <filter id={`grain${frame}`}>
-              <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves={2} seed={frame % 997} />
+              <feTurbulence type="fractalNoise" baseFrequency="1.15" numOctaves={2} seed={frame % 997} />
               <feColorMatrix type="saturate" values="0" />
             </filter>
             <rect width={W} height={H} filter={`url(#grain${frame})`} />
           </svg>
-          {/* faded toward yellow: a warm wash, multiplied */}
-          <AbsoluteFill style={{ backgroundColor: "#f0d79a", mixBlendMode: "multiply", opacity: 0.16 * s }} />
+          {/* the telecine's cool cast: whites lean lavender */}
+          <AbsoluteFill style={{ backgroundColor: "#e6def5", mixBlendMode: "multiply", opacity: 0.2 * s }} />
+          {/* a pale, cool vignette, lighter than a dark burn */}
           <AbsoluteFill style={{
-            background: "radial-gradient(ellipse at center, rgba(0,0,0,0) 55%, rgba(40,22,10,0.55) 100%)",
+            background: "radial-gradient(ellipse at center, rgba(0,0,0,0) 58%, rgba(105,95,130,0.42) 100%)",
             opacity: s,
           }} />
           <div style={{ position: "absolute", inset: 0, opacity: s }}><Dust frame={frame} /></div>

@@ -4,7 +4,7 @@ import { BUBBLE, SANS } from "../theme/fonts";
 import { Caption, Door, Phone, PriceTag } from "../components/props";
 import { Narrator } from "../rigs/Narrator";
 import { Switch } from "../rigs/Switch";
-import { C, W } from "../theme/palette";
+import { C, W, lw } from "../theme/palette";
 import { mouthAt } from "../timing";
 import { Bg, ShotC, blink, bump, ez } from "./common";
 
@@ -14,15 +14,15 @@ const Show: React.FC<{ f: number; g: number; sign?: string; children?: React.Rea
     {Array.from({ length: 30 }, (_, i) => {
       const x = i < 15 ? 60 + i * 129 : 60 + (i - 15) * 129;
       const y = i < 15 ? 50 : 1030;
-      return <circle key={i} cx={x} cy={y} r={18} fill={(i + Math.floor(f / 4)) % 2 ? C.cream : C.mustard} stroke={C.ink} strokeWidth={4} />;
+      return <circle key={i} cx={x} cy={y} r={18} fill={(i + Math.floor(f / 4)) % 2 ? C.cream : C.mustard} stroke={C.ink} strokeWidth={lw(4)} />;
     })}
     <g transform="translate(960, 200)">
-      <rect x={-420} y={-80} width={840} height={160} rx={30} fill={C.teal} stroke={C.ink} strokeWidth={8} />
-      <text textAnchor="middle" y={36} fontFamily={BUBBLE} fontSize={110} fill={C.cream} stroke={C.ink} strokeWidth={6} paintOrder="stroke">{sign}</text>
+      <rect x={-420} y={-80} width={840} height={160} rx={30} fill={C.teal} stroke={C.ink} strokeWidth={lw(8)} />
+      <text textAnchor="middle" y={36} fontFamily={BUBBLE} fontSize={110} fill={C.cream} stroke={C.ink} strokeWidth={lw(6)} paintOrder="stroke">{sign}</text>
     </g>
     <g transform="translate(1400, 760)">
-      <path d="M-180,-60 L180,-60 L150,300 L-150,300 Z" fill={C.mustard} stroke={C.ink} strokeWidth={8} />
-      <circle cx={0} cy={-70} r={30} fill={light ?? C.red} stroke={C.ink} strokeWidth={6} />
+      <path d="M-180,-60 L180,-60 L150,300 L-150,300 Z" fill={C.mustard} stroke={C.ink} strokeWidth={lw(8)} />
+      <circle cx={0} cy={-70} r={30} fill={light ?? C.red} stroke={C.ink} strokeWidth={lw(6)} />
       <g transform="translate(0, -270) scale(0.62)"><Switch pose="curious" mouth={mouthAt(g, "switch")} armR={90} blink={blink(g, 5)} /></g>
     </g>
     <g transform="translate(420, 780) scale(0.7)"><Narrator mouth={mouthAt(g, "narrator")} armR="point" head={1} /></g>
@@ -38,15 +38,15 @@ const Chat: React.FC<{ f: number; ring: number; muffs?: number }> = ({ f, ring, 
   <Phone w={420}>
     <rect x={0} y={0} width={400} height={80} fill={C.teal} />
     <text x={200} y={54} textAnchor="middle" fontFamily={SANS} fontWeight={600} fontSize={32} fill={C.cream}>Family</text>
-    <rect x={30} y={120} width={250} height={90} rx={30} fill={C.cream} stroke={C.ink} strokeWidth={4} />
+    <rect x={30} y={120} width={250} height={90} rx={30} fill={C.cream} stroke={C.ink} strokeWidth={lw(4)} />
     <text x={50} y={176} fontFamily={SANS} fontSize={28} fill={C.ink}>Mom: dinner at 6</text>
-    <rect x={120} y={240} width={250} height={90} rx={30} fill={C.avocado} stroke={C.ink} strokeWidth={4} />
+    <rect x={120} y={240} width={250} height={90} rx={30} fill={C.avocado} stroke={C.ink} strokeWidth={lw(4)} />
     <text x={140} y={296} fontFamily={SANS} fontSize={28} fill={C.cream}>Dad: on my way</text>
     <g transform={`translate(${200}, ${860 - ring * 120})`}>
       <circle r={50 + Math.sin(f / 5) * 4} fill="none" stroke={C.teal} strokeWidth={18} opacity={0.9} />
       <circle r={70} fill="none" stroke={C.teal} strokeWidth={6} opacity={0.3} />
-      {muffs > 0 && [-1, 1].map((s) => <circle key={s} cx={s * 62} cy={0} r={26 * muffs} fill={C.red} stroke={C.ink} strokeWidth={4} />)}
-      {muffs > 0 && <path d="M-62,-10 Q0,-90 62,-10" stroke={C.ink} strokeWidth={8} fill="none" />}
+      {muffs > 0 && [-1, 1].map((s) => <circle key={s} cx={s * 62} cy={0} r={26 * muffs} fill={C.red} stroke={C.ink} strokeWidth={lw(4)} />)}
+      {muffs > 0 && <path d="M-62,-10 Q0,-90 62,-10" stroke={C.ink} strokeWidth={lw(8)} fill="none" />}
     </g>
   </Phone>
 );
@@ -74,20 +74,20 @@ export const S42: ShotC = ({ f, g, len }) => {
 export const S43: ShotC = ({ f, len }) => (
   <Bg id="s41" seed={41} base={C.orange}>
     <g transform="translate(960, 560)"><Chat f={f} ring={1} muffs={ez(f, len * 0.5, len * 0.65)} /></g>
-    <g transform="translate(1500, 300)"><text textAnchor="middle" fontFamily={BUBBLE} fontSize={90} fill={C.cream} stroke={C.ink} strokeWidth={5} paintOrder="stroke" opacity={ez(f, len * 0.5, len * 0.6)}>½</text></g>
+    <g transform="translate(1500, 300)"><text textAnchor="middle" fontFamily={BUBBLE} fontSize={90} fill={C.cream} stroke={C.ink} strokeWidth={lw(5)} paintOrder="stroke" opacity={ez(f, len * 0.5, len * 0.6)}>½</text></g>
   </Bg>
 );
 
 // S44: "Now your phone has got an update…": one enormous button, "Continue," and nothing else
 const ContinuePhone: React.FC<{ on?: number }> = ({ on = 0 }) => (
   <Phone w={360}>
-    <rect x={40} y={620} width={320} height={110} rx={40} fill={C.teal} stroke={C.ink} strokeWidth={5} />
+    <rect x={40} y={620} width={320} height={110} rx={40} fill={C.teal} stroke={C.ink} strokeWidth={lw(5)} />
     <text x={200} y={692} textAnchor="middle" fontFamily={SANS} fontWeight={600} fontSize={40} fill={C.cream}>Continue</text>
     <rect x={60} y={200} width={280} height={30} rx={10} fill={C.creamShade} />
     <rect x={60} y={260} width={220} height={30} rx={10} fill={C.creamShade} />
     <g transform="translate(200, 420)">
-      <rect x={-60} y={-32} width={120} height={64} rx={32} fill={on > 0.5 ? C.avocado : C.creamShade} stroke={C.ink} strokeWidth={5} />
-      <circle cx={-30 + on * 60} r={26} fill={C.white} stroke={C.ink} strokeWidth={5} />
+      <rect x={-60} y={-32} width={120} height={64} rx={32} fill={on > 0.5 ? C.avocado : C.creamShade} stroke={C.ink} strokeWidth={lw(5)} />
+      <circle cx={-30 + on * 60} r={26} fill={C.white} stroke={C.ink} strokeWidth={lw(5)} />
     </g>
   </Phone>
 );
@@ -125,13 +125,13 @@ export const S46: ShotC = ({ f, len }) => {
   return (
     <Bg id="s46" seed={46} base={C.cream}>
       <g transform="translate(560, 520)">
-        <rect x={-380} y={-330} width={760} height={600} rx={20} fill={C.paper} stroke={C.ink} strokeWidth={7} />
+        <rect x={-380} y={-330} width={760} height={600} rx={20} fill={C.paper} stroke={C.ink} strokeWidth={lw(7)} />
         {/* a hand-drawn continent outline: a simple blob, not a traced map */}
-        <path d="M-260,-60 Q-250,-170 -120,-190 Q-40,-260 40,-200 Q120,-230 170,-150 Q260,-120 270,-10 Q300,90 220,150 Q140,210 60,170 Q-10,220 -80,170 Q-200,170 -240,80 Q-290,10 -260,-60 Z" fill={C.orange} stroke={C.ink} strokeWidth={6} opacity={0.85} />
-        <path d="M140,230 q20,-10 30,10 q-10,20 -30,-10" fill={C.orange} stroke={C.ink} strokeWidth={4} />
+        <path d="M-260,-60 Q-250,-170 -120,-190 Q-40,-260 40,-200 Q120,-230 170,-150 Q260,-120 270,-10 Q300,90 220,150 Q140,210 60,170 Q-10,220 -80,170 Q-200,170 -240,80 Q-290,10 -260,-60 Z" fill={C.orange} stroke={C.ink} strokeWidth={lw(6)} opacity={0.85} />
+        <path d="M140,230 q20,-10 30,10 q-10,20 -30,-10" fill={C.orange} stroke={C.ink} strokeWidth={lw(4)} />
       </g>
       <g transform={`translate(1360, ${600 - inflate * 120}) scale(${0.6 + inflate * 0.9}) rotate(${Math.sin(f / 8) * 6})`}>
-        <path d="M-150,70 Q-120,220 -60,330" stroke={C.ink} strokeWidth={4} fill="none" />
+        <path d="M-150,70 Q-120,220 -60,330" stroke={C.ink} strokeWidth={lw(4)} fill="none" />
         <PriceTag text="+45%" />
       </g>
       <Caption text="Microsoft 365 Personal. Alleged by Australia's ACCC." />

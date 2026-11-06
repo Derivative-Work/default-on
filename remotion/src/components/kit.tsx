@@ -3,7 +3,7 @@ import React from "react";
 import { interpolate, spring } from "remotion";
 import { Wash } from "../film/Paper";
 import { BUBBLE, SANS } from "../theme/fonts";
-import { C, H, W } from "../theme/palette";
+import { C, H, W, lw } from "../theme/palette";
 
 const clamp = { extrapolateLeft: "clamp", extrapolateRight: "clamp" } as const;
 
@@ -12,9 +12,9 @@ export const Wall: React.FC<{ id: string; color: string; band?: string; floor?: 
   id, color, band = C.avocado, floor = 860, w = W,
 }) => (
   <g>
-    <Wash id={id} color={color} opacity={0.75}><rect x={-60} y={-60} width={w + 120} height={floor + 60} /></Wash>
-    <Wash id={id} color={band} opacity={0.7}><rect x={-60} y={floor - 170} width={w + 120} height={150} /></Wash>
-    <rect x={-10} y={floor - 22} width={w + 20} height={26} fill={C.creamShade} stroke={C.ink} strokeWidth={5} />
+    <Wash id={id} color={color} opacity={0.4}><rect x={-60} y={-60} width={w + 120} height={floor + 60} /></Wash>
+    <Wash id={id} color={band} opacity={0.45}><rect x={-60} y={floor - 170} width={w + 120} height={150} /></Wash>
+    <rect x={-10} y={floor - 22} width={w + 20} height={26} fill={C.creamShade} stroke={C.ink} strokeWidth={lw(5)} />
     <Wash id={id} color={C.inkSoft} opacity={0.55}><rect x={-60} y={floor + 4} width={w + 120} height={H - floor + 60} /></Wash>
   </g>
 );
@@ -31,7 +31,7 @@ export const Pop: React.FC<{ f: number; start: number; x: number; y: number; tex
       <path d={Array.from({ length: rays * 2 }, (_, i) => {
         const a = (i / (rays * 2)) * Math.PI * 2, r = i % 2 ? size * 0.75 : size * 1.15;
         return `${i ? "L" : "M"}${Math.cos(a) * r * 1.5},${Math.sin(a) * r * 0.85}`;
-      }).join(" ") + "Z"} fill={C.mustard} stroke={C.ink} strokeWidth={6} strokeLinejoin="round" />
+      }).join(" ") + "Z"} fill={C.mustard} stroke={C.ink} strokeWidth={lw(6)} strokeLinejoin="round" />
       <text textAnchor="middle" dominantBaseline="central" fontFamily={BUBBLE} fontSize={size} fill={color}
         stroke={C.ink} strokeWidth={size * 0.06} paintOrder="stroke" letterSpacing={4}>{text}</text>
     </g>
@@ -75,7 +75,7 @@ export const BallLyric: React.FC<{ f: number; syl: { t: string; at: number }[]; 
         <text key={i} x={pos[i] - (measure(s.t, size) - measure(s.t.trimEnd(), size)) / 2} y={y} textAnchor="middle" fontFamily={BUBBLE} fontSize={size}
           fill={k >= i ? C.orange : color} stroke={C.ink} strokeWidth={size * 0.07} paintOrder="stroke">{s.t.trim()}</text>
       ))}
-      <ellipse cx={bx} cy={by} rx={size * 0.24} ry={size * 0.22} fill={C.white} stroke={C.ink} strokeWidth={5} />
+      <ellipse cx={bx} cy={by} rx={size * 0.24} ry={size * 0.22} fill={C.white} stroke={C.ink} strokeWidth={lw(5)} />
     </g>
   );
 };

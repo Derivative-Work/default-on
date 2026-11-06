@@ -8,7 +8,7 @@ import { Hand } from "../rigs/Hand";
 import { Narrator } from "../rigs/Narrator";
 import { PLATE, Switch } from "../rigs/Switch";
 import { BUBBLE, SANS } from "../theme/fonts";
-import { C, H, W } from "../theme/palette";
+import { C, H, W, lw } from "../theme/palette";
 import { FPS, at, line, shot } from "../timing";
 import { MouthShape } from "../rigs/Mouth";
 import { Wallpaper } from "../components/sets";
@@ -36,7 +36,7 @@ export const S04: Scene = ({ f }) => {
         <Wall id="s04" color={C.mustard} band={C.avocado} />
         {/* a picture frame and a plant: the room around him */}
         <Wash id="s04" color={C.teal} opacity={0.6}><rect x={250} y={190} width={300} height={220} /></Wash>
-        <rect x={250} y={190} width={300} height={220} fill="none" stroke={C.ink} strokeWidth={7} filter="url(#s04-ink)" />
+        <rect x={250} y={190} width={300} height={220} fill="none" stroke={C.ink} strokeWidth={lw(7)} filter="url(#s04-ink)" />
         <Wash id="s04" color={C.orange} opacity={0.55}><circle cx={400} cy={330} r={70} /></Wash>
         <g transform={`translate(${W / 2}, 470)`}>
           <ellipse cx={8} cy={PLATE.h / 2 + 8} rx={150} ry={14} fill={C.ink} opacity={0.12} />
@@ -61,7 +61,7 @@ export const S16: Scene = ({ f }) => {
     <AbsoluteFill>
       <Paper id="s16" seed={16} base={C.mustard}>
         <Wallpaper id="s16" kind="daisy" a={C.cream} b={C.orange} opacity={0.3} />
-        <rect x={-10} y={860} width={W + 20} height={26} fill={C.creamShade} stroke={C.ink} strokeWidth={5} />
+        <rect x={-10} y={860} width={W + 20} height={26} fill={C.creamShade} stroke={C.ink} strokeWidth={lw(5)} />
         {/* the redrawn Switch on the wall, half finished in pencil */}
         <g transform={`translate(${cx + 470}, ${cy})`} opacity={0.9}>
           <rect x={-PLATE.w / 2} y={-PLATE.h / 2} width={PLATE.w} height={PLATE.h} rx={34} fill="none" stroke={C.inkSoft}
@@ -70,9 +70,9 @@ export const S16: Scene = ({ f }) => {
         </g>
         {/* a generic yellow pencil, at the end of its line */}
         <g transform={`translate(${cx + 470 + PLATE.w / 2}, ${cy - PLATE.h / 2 + 300 * peel}) rotate(-35)`}>
-          <rect x={0} y={-18} width={300} height={36} fill={C.mustard} stroke={C.ink} strokeWidth={6} />
-          <rect x={300} y={-18} width={40} height={36} fill={C.orange} stroke={C.ink} strokeWidth={6} />
-          <path d="M0,-18 L-50,0 L0,18 Z" fill={C.cream} stroke={C.ink} strokeWidth={6} strokeLinejoin="round" />
+          <rect x={0} y={-18} width={300} height={36} fill={C.mustard} stroke={C.ink} strokeWidth={lw(6)} />
+          <rect x={300} y={-18} width={40} height={36} fill={C.orange} stroke={C.ink} strokeWidth={lw(6)} />
+          <path d="M0,-18 L-50,0 L0,18 Z" fill={C.cream} stroke={C.ink} strokeWidth={lw(6)} strokeLinejoin="round" />
           <path d="M-36,-5 L-50,0 L-36,5 Z" fill={C.ink} />
         </g>
         {/* Switch the sticker: the plate with its bottom-right corner curling away to show the white backing */}
@@ -88,7 +88,7 @@ export const S16: Scene = ({ f }) => {
                 <g clipPath="url(#s16-peel)"><Switch pose="startled" mouth="E" look={[0.6, 0.6]} /></g>
                 <path d={`M${fx},${fy - d} L${fx - d},${fy} L${fx - d + 14},${fy - d + 14} Z`} fill={C.ink} opacity={0.18} transform="translate(-10, -6)" />
                 <path d={`M${fx},${fy - d} L${fx - d},${fy} Q${fx - d * 0.92},${fy - d * 0.9} ${fx - d},${fy - d} Q${fx - d * 0.9},${fy - d * 0.92} ${fx},${fy - d} Z`}
-                  fill={C.white} stroke={C.ink} strokeWidth={6} strokeLinejoin="round" />
+                  fill={C.white} stroke={C.ink} strokeWidth={lw(6)} strokeLinejoin="round" />
                 <path d={`M${fx - d * 0.3},${fy - d * 0.8} L${fx - d * 0.8},${fy - d * 0.3}`} stroke={C.creamShade} strokeWidth={6} strokeLinecap="round" />
               </>
             );
@@ -142,14 +142,14 @@ export const S28: Scene = ({ f }) => {
         </g>
         {/* the doorway, in the foreground, with its plaque */}
         <path d={`M0,0 L${W},0 L${W},${H} L0,${H} Z M360,${H} L360,150 L1560,150 L1560,${H} Z`} fill={C.orange} fillRule="evenodd" opacity={0.9} />
-        <rect x={360} y={150} width={1200} height={H} fill="none" stroke={C.ink} strokeWidth={10} filter="url(#s28-ink)" />
+        <rect x={360} y={150} width={1200} height={H} fill="none" stroke={C.ink} strokeWidth={lw(10)} filter="url(#s28-ink)" />
         <g transform="translate(960, 90)">
-          <rect x={-190} y={-44} width={380} height={80} rx={14} fill={C.cream} stroke={C.ink} strokeWidth={7} />
+          <rect x={-190} y={-44} width={380} height={80} rx={14} fill={C.cream} stroke={C.ink} strokeWidth={lw(7)} />
           <text textAnchor="middle" y={14} fontFamily={BUBBLE} fontSize={52} fill={C.ink}>SETTINGS</text>
         </g>
         {/* the open door, swung in against the frame */}
-        <path d="M360,150 L170,110 L170,1080 L360,1080 Z" fill={C.mustard} stroke={C.ink} strokeWidth={8} strokeLinejoin="round" />
-        <circle cx={210} cy={640} r={16} fill={C.creamShade} stroke={C.ink} strokeWidth={5} />
+        <path d="M360,150 L170,110 L170,1080 L360,1080 Z" fill={C.mustard} stroke={C.ink} strokeWidth={lw(8)} strokeLinejoin="round" />
+        <circle cx={210} cy={640} r={16} fill={C.creamShade} stroke={C.ink} strokeWidth={lw(5)} />
         {/* Switch at the threshold, looking in */}
         <g transform="translate(1660, 820) scale(0.6)"><Switch pose="curious" mouth="X" look={[-0.8, -0.3]} armL={60} /></g>
         <rect x={0} y={1010} width={W} height={46} fill={C.cream} opacity={0.85} />
@@ -172,9 +172,9 @@ export const S53: Scene = ({ f }) => {
         <path d="M210,250 Q400,236 600,252" stroke={C.white} strokeWidth={5} fill="none" opacity={0.6} />
         <g transform={`translate(560, ${720 + jitter * 0.3})`}><Narrator mouth="D" head={0.5} armL="tap" armR="down" sheepish={0.8} brows={0.6} /></g>
         {/* the desk and the contract */}
-        <rect x={0} y={880} width={W} height={220} fill={C.cardigan} stroke={C.ink} strokeWidth={8} />
+        <rect x={0} y={880} width={W} height={220} fill={C.cardigan} stroke={C.ink} strokeWidth={lw(8)} />
         <g transform="translate(1250, 640) rotate(-4)">
-          <rect x={-300} y={-220} width={600} height={430} fill={C.white} stroke={C.ink} strokeWidth={7} />
+          <rect x={-300} y={-220} width={600} height={430} fill={C.white} stroke={C.ink} strokeWidth={lw(7)} />
           <text x={-260} y={-160} fontFamily={BUBBLE} fontSize={40} fill={C.ink}>AGREEMENT</text>
           {["Search + AI", "No search", "Search, chatbot off"].map((t, i) => (
             <g key={t} transform={`translate(-250, ${-80 + i * 92})`}>
@@ -187,7 +187,7 @@ export const S53: Scene = ({ f }) => {
         </g>
         {/* the slate */}
         <g transform="translate(1520, 230) rotate(6)">
-          <rect x={-300} y={-90} width={600} height={180} rx={12} fill={C.red} stroke={C.ink} strokeWidth={8} />
+          <rect x={-300} y={-90} width={600} height={180} rx={12} fill={C.red} stroke={C.ink} strokeWidth={lw(8)} />
           <rect x={-280} y={-70} width={560} height={140} rx={8} fill="none" stroke={C.cream} strokeWidth={4} />
           <text textAnchor="middle" y={22} fontFamily={BUBBLE} fontSize={64} fill={C.cream} letterSpacing={2}>CORRECTION</text>
         </g>
