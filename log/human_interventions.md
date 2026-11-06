@@ -76,3 +76,21 @@ Every human action: timestamp, what, why, and which rule allows it. The brief al
 
 - **What:** The human, on the thinner-line look: "hm the thinner lines seem to demand more detail".
 - **Rule:** H2 (a look note). The agent stopped the six-section re-render it had started (now out of date) and added a pen-detail layer.
+
+## 2026-11-06T15:00 — M4 review notes on the full cut — H2
+
+- **What:** The human's notes, verbatim:
+  - "the on/off are reading backwards -- switch it throughout"
+  - "I like the idea of the ladder appearing shaky but this is a bit too far"
+  - "\"switch is just a picture\" -- have the drawn version eventually get to more detail"
+  - "the scene where the switches are being drawn on lined paper is not reading correctly, particularly wrt how the hand is supposed to be holding the pencil"
+  - "\"opt-in\" -- the cookie switch is not aligned with the switch"
+  - "the \"CIVICS\" text is not aligned in its flag"
+  - "\"opt-out\" the labyrinth could be more confusing, and the labels for the menus are both not clear enough and also being obscured by the other menus"
+  - "\"default\" animation could use more detail throughout"
+  - "the Australia scene is not reading correctly"
+  - "the school exterior could use a lot more detail"
+  - "\"No AI, please\" is overflowing the letter and also not on the lines"
+  - "the finger that turns the switch is not reading right throughout"
+  - "the switch peeling is not reading correctly now that it has a drawn-on shadow"
+- **Rule:** H2 (section notes at the M4 gate). No section is approved yet.
