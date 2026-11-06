@@ -49,3 +49,6 @@ remotion/out/
 # Switch's raw takes, clicks and room tone (the human's child): never published (brief, Protecting the child).
 audio/switch/
 audio/clicks/
+
+# Third-party tools fetched from their releases (SHA-256 in the production log): never committed or archived.
+tools/

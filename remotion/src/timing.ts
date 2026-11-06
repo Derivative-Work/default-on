@@ -34,20 +34,29 @@ const ordered = [...map.shots.map((s) => ({ id: s.id, cue: s.cue, frame: s.frame
   .sort((a, b) => a.frame - b.frame);
 export const shots = ordered.map((s, i) => ({ ...s, end: i + 1 < ordered.length ? ordered[i + 1].frame : END }));
 
-// placeholder mouths until M4's Rhubarb pass: inside an aligned word (or a proposed Switch slot) the mouth cycles
-// open shapes every 3 frames; otherwise it rests
-const SHAPES = ["C", "B", "D", "B", "E"] as const;
-const spans = (singer: string) => {
-  const w = map.lines.filter((l) => l.singer === singer).flatMap((l) => l.words.map((x) => [at(x.start), at(x.end)]));
-  if (singer === "switch") {
-    for (const s of map.switch_slots) if ("proposed" in s && s.proposed) w.push([at(s.proposed[0]), at(s.proposed[1])]);
+// mouths: Rhubarb Lip Sync's cues per line (timing/visemes.json, scripts/rhubarb_visemes.py), as frames. Switch's
+// cues are from the generator's attempt until M6 reruns Rhubarb on his comped takes; his ungenerated slots (V04, V11,
+// V21) keep a placeholder flap over their proposed spans
+import visemes from "../../timing/visemes.json";
+type Shape = "X" | "A" | "B" | "C" | "D" | "E" | "F";
+const CUES = { narrator: [] as [number, Shape][], switch: [] as [number, Shape][] };
+for (const l of visemes.lines) {
+  const who = l.singer as "narrator" | "switch";
+  for (const [t, v] of l.cues as [number, Shape][]) CUES[who].push([at(t), v]);
+}
+CUES.narrator.sort((a, b) => a[0] - b[0]);
+CUES.switch.sort((a, b) => a[0] - b[0]);
+const FLAP = ["C", "B", "D", "B", "E"] as const;
+const PROPOSED = map.switch_slots.filter((s) => "proposed" in s && s.proposed).map((s) => [at((s as { proposed: number[] }).proposed[0]), at((s as { proposed: number[] }).proposed[1])]);
+export const mouthAt = (g: number, who: "narrator" | "switch"): Shape => {
+  if (who === "switch") {
+    const p = PROPOSED.find(([a, b]) => g >= a && g < b);
+    if (p) return FLAP[Math.floor((g - p[0]) / 3) % FLAP.length];
   }
-  return w;
-};
-const SPANS = { narrator: spans("narrator"), switch: spans("switch") };
-export const mouthAt = (g: number, who: "narrator" | "switch") => {
-  const s = SPANS[who].find(([a, b]) => g >= a && g < b);
-  return s ? SHAPES[Math.floor((g - s[0]) / 3) % SHAPES.length] : "X";
+  const c = CUES[who];
+  let lo = 0, hi = c.length - 1, k = -1;
+  while (lo <= hi) { const m = (lo + hi) >> 1; if (c[m][0] <= g) { k = m; lo = m + 1; } else hi = m - 1; }
+  return k < 0 ? "X" : c[k][1];
 };
 // the global frame of the n'th word of a line
 export const wordAt = (lineId: string, n: number) => at(line(lineId).words[n].start);

@@ -102,3 +102,10 @@ Append-only. One entry per action: timestamp, step (shot ID where relevant), wha
 - **Commands:** docs `read` (rev 58, 61) and `update` (insert 3 rows; 2 find/replace); `python3 -I scripts/doc_to_md.py`; `.venv/bin/python -I scripts/timing_map.py`; stills of map frames 1288–1306 and a SpotCheck of S57–S68; the render below; `python3 -I scripts/contact_sheets.py renders/m3/m3_animatic.mp4`.
 - **Outputs:** `renders/m3/m3_animatic.mp4` (replaces the 09:40 render; regenerable from e33b2e7), 73 contact sheets (`review/S57a.jpg`, `S57b`, `S57c`, `FG`, `S68` new).
 - **Why:** the human's M3 notes (log/human_interventions.md, 10:05).
+
+## 2026-11-06T10:40:00-05:00 — M4: lip sync with Rhubarb Lip Sync
+
+- **What:** Fetched Rhubarb Lip Sync 1.14.0 (the human used it on Read Only; memory and the planning chat), verified against the SHA-256 Read Only recorded, and adapted Read Only's `scripts/rhubarb_visemes.py`: each of the 71 aligned lines is cut from the vocal stem (padded 0.25 s, 16 kHz mono) and run with its text as the dialog file (PocketSphinx), extended shapes X only, so the cues are exactly the rigs' seven mouths. `remotion/src/timing.ts` `mouthAt` now reads the cues (binary search per singer); Switch's ungenerated slots (V04, V11, V21) keep the placeholder flap; his other cues follow the generator's attempt until M6.
+- **Rhubarb:** https://github.com/DanielSWolf/rhubarb-lip-sync/releases/download/v1.14.0/Rhubarb-Lip-Sync-1.14.0-Linux.zip, SHA-256 a9a9074862cff47b2d59b8bf399a678a3b0b74f9452ad6ad94cb292913dd8667, unpacked to `tools/` (git-ignored, never archived). Third-party tool, MIT licence; it produces timing data, not an asset in the video.
+- **Commands:** `curl -sSL -o tools/rhubarb.zip <url>`; `sha256sum -c`; `.venv/bin/python -I scripts/rhubarb_visemes.py` (8 min 19 s)
+- **Outputs:** `timing/visemes.json`; `cache/rhubarb/` (regenerable, ignored)

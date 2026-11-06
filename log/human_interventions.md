@@ -56,3 +56,8 @@ Every human action: timestamp, what, why, and which rule allows it. The brief al
 
 - **What:** The human: "fix S11 as you suggested, add new shots for S57. also re-read the brief, some things have changed (mostly regarding the bookends)".
 - **Rule:** H2 (shot-list decisions at the M3 gate). The brief was edited to match (rev 61). The M3 gate itself is still open.
+
+## 2026-11-06T10:25 — M3 gate: animatic approved, with a detail note — H2
+
+- **What:** The human: "Yes keep going, just make sure to add detail (it seems a lot was omitted for a fast pass)".
+- **Rule:** H2. The detail note applies to M4's final renders, section by section.
