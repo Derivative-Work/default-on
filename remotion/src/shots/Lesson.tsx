@@ -189,11 +189,16 @@ const DefaultScene: React.FC<{ f: number; g: number; len: number; stamp?: boolea
     <Board word="DEFAULT" g={g} f={stamp ? 99 : f}>
       <g transform={`translate(${shake}, 0)`}>
         {/* the kid on a chair, scooting in from the left */}
-        <g transform={`translate(${380 + kidIn * 260}, ${470 + slump * 30})`}>
-          <rect x={-90} y={150} width={180} height={30} rx={8} fill={C.cardigan} stroke={C.ink} strokeWidth={lw(5)} />
-          {[-70, 70].map((x) => <line key={x} x1={x} y1={180} x2={x} y2={330} stroke={C.ink} strokeWidth={8} />)}
-          <rect x={-90} y={-20} width={24} height={180} rx={8} fill={C.cardigan} stroke={C.ink} strokeWidth={lw(5)} />
-          <g transform={`rotate(${slump * -6})`}><Kid seed={1} mouth={printed ? "E" : f > 34 ? "A" : "X"} look={[0.6, 0.8]} /></g>
+        <g transform={`translate(${380 + kidIn * 260}, ${440 + slump * 20})`}>
+          {/* the chair: back behind him, seat under his lap, four legs to the floor */}
+          <rect x={-110} y={-40} width={220} height={330} rx={14} fill={C.cardigan} stroke={C.ink} strokeWidth={lw(5)} />
+          <Grain x={-100} y={-30} w={200} h={300} n={3} seed={3} vertical />
+          <rect x={-120} y={284} width={240} height={30} rx={8} fill={C.cardiganShade} stroke={C.ink} strokeWidth={lw(5)} />
+          {[-104, 104].map((x) => <line key={x} x1={x} y1={314} x2={x} y2={480} stroke={C.ink} strokeWidth={9} />)}
+          <g transform={`rotate(${slump * -5}, 0, 290)`}>
+            <Kid seed={1} seated mouth={printed ? "E" : f > 34 ? "A" : "X"} look={[0.6, 0.8]}
+              arms={push > 0.05 ? [{ x: 130 + push * 90, y: 250 }, { x: 170 + push * 90, y: 270 }] : printed ? [{ x: -50, y: 300 }, { x: 50, y: 300 }] : [{ x: 60, y: 255 }, { x: 140, y: 262, point: f > 34 }]} />
+          </g>
           {!stamp && f > 34 && <text x={60} y={-90} fontFamily={BUBBLE} fontSize={70} fill={C.white} opacity={0.9}>?</text>}
           {printed && <g transform="translate(-20, -110)" opacity={1 - ez(f, st0 + 30, st0 + 40)}>{[0, 1, 2].map((k) => <circle key={k} cx={-k * 26} cy={-k * 8} r={12 + k * 4} fill={C.white} stroke={C.ink} strokeWidth={lw(3)} />)}</g>}
         </g>
@@ -205,7 +210,12 @@ const DefaultScene: React.FC<{ f: number; g: number; len: number; stamp?: boolea
             <rect x={-150} y={-60} width={300} height={70} rx={10} fill={C.red} stroke={C.ink} strokeWidth={lw(6)} />
           </g>
         )}
-        {printed && <text x={1020} y={735} textAnchor="middle" fontFamily={BUBBLE} fontSize={50} fill={C.red} transform="rotate(-6, 1020, 735)" opacity={0.92}>YOU CHOSE THIS</text>}
+        {/* the stamp's impression: red letters in a red frame on a cream patch, legible over the broccoli */}
+        {printed && <g transform="translate(1020, 728) rotate(-6)">
+          <rect x={-250} y={-52} width={500} height={78} rx={8} fill={C.cream} stroke={C.red} strokeWidth={7} opacity={0.96} />
+          <rect x={-238} y={-42} width={476} height={58} rx={4} fill="none" stroke={C.red} strokeWidth={2.5} />
+          <text x={0} y={2} textAnchor="middle" fontFamily={BUBBLE} fontSize={52} fill={C.red} letterSpacing={2}>YOU CHOSE THIS</text>
+        </g>}
         {printed && [[800, 690], [1240, 700], [860, 770], [1200, 770], [1080, 660]].map(([x, y], i) => <circle key={i} cx={x} cy={y} r={6 + (i % 3) * 3} fill={C.red} opacity={0.7} />)}
       </g>
     </Board>
@@ -217,15 +227,26 @@ export const S22: ShotC = ({ f, g, len }) => <DefaultScene f={f} g={g} len={len}
 // S23: "Got that? Opt-in, opt-out, default. There'll be a test.": the Narrator taps the three words; a stack of test
 // papers thuds onto the desk
 export const S23: ShotC = ({ f, g, len }) => {
-  const thud = len - 18;
+  const thud = len - 22;
+  const up = ez(f, thud + 4, thud + 12); // the cover sheet springs up off the stack to face us, like a sign
+  const X = 1120, Y = 832; // on the desk's left end
   return (
     <NarratorSet g={g} board={["OPT-IN", "OPT-OUT", "DEFAULT"]} arm="tap" size={80}>
-      <g transform={`translate(1500, ${f < thud ? -200 : 900 - bump(f, thud + 2, 4) * 20})`}>
-        {Array.from({ length: 6 }, (_, i) => <rect key={i} x={-180 + (i % 2) * 8} y={-i * 22} width={360} height={24} fill={C.white} stroke={C.ink} strokeWidth={lw(4)} />)}
-        <text x={-100} y={-120} fontFamily={BUBBLE} fontSize={46} fill={C.ink}>TEST</text>
+      <g transform={`translate(${X}, ${f < thud ? -300 : Y - bump(f, thud + 2, 4) * 20})`}>
+        {Array.from({ length: 7 }, (_, i) => <rect key={i} x={-150 + (i % 2) * 8} y={-20 - i * 16} width={300} height={18} fill={C.white} stroke={C.ink} strokeWidth={lw(3)} />)}
       </g>
+      {up > 0 && (
+        <g transform={`translate(${X}, ${Y - 130 - up * 140}) scale(${0.3 + up * 0.7}) rotate(${(1 - up) * 20 - 4})`}>
+          <rect x={-200} y={-150} width={400} height={300} fill={C.white} stroke={C.ink} strokeWidth={lw(6)} />
+          {[30, 70, 110].map((y) => <line key={y} x1={-180} x2={180} y1={y} y2={y} stroke={C.teal} strokeWidth={2} opacity={0.4} />)}
+          <text x={0} y={-30} textAnchor="middle" fontFamily={BUBBLE} fontSize={120} fill={C.red} stroke={C.ink} strokeWidth={4} paintOrder="stroke" letterSpacing={6}>TEST</text>
+          <text x={-176} y={26} fontFamily={SANS} fontWeight={600} fontSize={26} fill={C.ink}>Name: ____________</text>
+          <text x={-176} y={66} fontFamily={SANS} fontWeight={600} fontSize={26} fill={C.ink}>Score: ____ / 100</text>
+          <path d="M-196,-146 l26,0 M-196,-146 l0,26" stroke={C.sleeve} strokeWidth={6} />
+        </g>
+      )}
       {f > thud && f < thud + 16 && [-1, 1].map((k) => [0, 1].map((j) => (
-        <circle key={`${k}${j}`} cx={1500 + k * (200 + (f - thud) * 8 + j * 40)} cy={890 - j * 20 - (f - thud) * 2} r={26 - j * 8} fill={C.cream} stroke={C.ink} strokeWidth={lw(3)} opacity={1 - (f - thud) / 16} />
+        <circle key={`${k}${j}`} cx={X + k * (180 + (f - thud) * 8 + j * 40)} cy={Y - 10 - j * 20 - (f - thud) * 2} r={26 - j * 8} fill={C.cream} stroke={C.ink} strokeWidth={lw(3)} opacity={1 - (f - thud) / 16} />
       )))}
     </NarratorSet>
   );
@@ -433,39 +454,74 @@ export const S30: ShotC = ({ f, g, len }) => (
   </Living>
 );
 
-// S31-S33: in front of the TV: Switch drags the tile out toward a trash can, which turns into a HIDE box; the tile
-// waves from inside it
-const Trash: React.FC<{ f: number; g: number; phase: 1 | 2 | 3 }> = ({ f, g, phase }) => {
-  const drag = phase === 1 ? ez(f, 0, 30) : 1;
-  const morph = phase === 2 ? ez(f, 4, 14) : phase === 3 ? 1 : 0;
-  const lid = phase === 3 ? ez(f, 4, 14) : 0;
+// S31-S33: on the TV's own home screen, filling the frame inside its bezel (the human's note, 2026-11-06: the hide
+// didn't read): S31 Switch drags the winking new tile toward a "Delete" bin in the corner; S32 the bin card-flips into a
+// "Hide" box ("Can't delete this app. Hide it instead?"); S33 Switch lifts the box's lid and the tile is inside, waving
+const Bin: React.FC<{ flip: number; lid: number; f: number; inside: boolean }> = ({ flip, lid, f, inside }) => {
+  const hide = flip > 0.5;
+  const sx = Math.abs(Math.cos(flip * Math.PI)); // a card flip: squash to nothing and back as the face changes
   return (
-    <Living id="s31" night={false} g={g}>
-      <g transform="translate(760, 520)"><TV w={760}><Home wink={0} tile={false} /></TV></g>
-      <g transform="translate(1180, 760)">
-        {morph < 0.5 ? (
-          <g transform={`scale(${1 - bump(f, 9, 5) * 0.1})`}><path d="M-110,-130 L110,-130 L90,140 L-90,140 Z" fill={C.sleeve} stroke={C.ink} strokeWidth={lw(7)} />
-            {[-50, 0, 50].map((x) => <line key={x} x1={x} y1={-95} x2={x * 0.85} y2={110} stroke={C.ink} strokeWidth={lw(5)} />)}
-            <rect x={-128} y={-166} width={256} height={36} rx={10} fill={C.sleeveShade} stroke={C.ink} strokeWidth={lw(6)} /></g>
-        ) : (
-          <g><rect x={-150} y={-130} width={300} height={270} fill={C.mustard} stroke={C.ink} strokeWidth={lw(7)} />
-            <text y={40} textAnchor="middle" fontFamily={BUBBLE} fontSize={68} fill={C.ink}>HIDE</text>
-            <g transform={`translate(-160, -130) rotate(${-lid * 70})`}><rect x={0} y={-32} width={320} height={32} fill={C.orange} stroke={C.ink} strokeWidth={lw(6)} /></g>
-            {lid > 0.5 && <g transform="translate(0, -140) scale(0.6)"><Tile color={C.mustard} glyph="spark" size={260} /><path d={`M120,-60 q30,${Math.sin(f / 3) * 20 - 30} 50,-50`} stroke={C.ink} strokeWidth={lw(10)} fill="none" strokeLinecap="round" /></g>}
-          </g>
-        )}
-        {phase === 2 && f > 4 && f < 18 && [0, 1, 2, 3].map((k) => <path key={k} d={`M${Math.cos(k * 1.6) * 200},${Math.sin(k * 1.6) * 160 - 40} l${Math.cos(k * 1.6) * 40},${Math.sin(k * 1.6) * 30}`} stroke={C.ink} strokeWidth={lw(6)} strokeLinecap="round" />)}
-      </g>
-      {phase < 3 && <g transform={`translate(${560 + drag * 420}, ${600 + drag * 80}) scale(${0.62 - drag * 0.22})`}><Tile color={C.mustard} glyph="spark" size={260} /></g>}
-      <g transform={`translate(${phase === 1 ? 400 + drag * 400 : 800}, 820) scale(0.5)`}>
-        <Switch pose={phase === 3 ? "sad" : "curious"} mouth={mouthAt(g, "switch")} look={[1, -0.2]} armR={phase === 1 ? 120 : 40} blink={blink(g, 4)} />
-      </g>
-    </Living>
+    <g transform={`scale(${Math.max(0.04, sx)}, 1)`}>
+      {!hide ? (
+        <g>
+          <path d="M-110,-110 L110,-110 L90,130 L-90,130 Z" fill={C.sleeve} stroke={C.ink} strokeWidth={lw(6)} />
+          {[-50, 0, 50].map((x) => <line key={x} x1={x} y1={-80} x2={x * 0.85} y2={110} stroke={C.ink} strokeWidth={lw(4)} />)}
+          <rect x={-128} y={-146} width={256} height={36} rx={10} fill={C.sleeveShade} stroke={C.ink} strokeWidth={lw(5)} />
+          <rect x={-30} y={-166} width={60} height={22} rx={6} fill={C.sleeveShade} stroke={C.ink} strokeWidth={lw(4)} />
+          <text y={190} textAnchor="middle" fontFamily={SANS} fontWeight={600} fontSize={42} fill={C.ink}>Delete</text>
+        </g>
+      ) : (
+        <g>
+          <rect x={-130} y={-110} width={260} height={240} rx={10} fill={C.mustard} stroke={C.ink} strokeWidth={lw(6)} />
+          <path d="M-70,10 Q0,-60 70,10 Q0,80 -70,10 Z" fill={C.white} stroke={C.ink} strokeWidth={lw(5)} />
+          <circle cx={0} cy={10} r={20} fill={C.ink} />
+          <line x1={-80} y1={70} x2={80} y2={-50} stroke={C.ink} strokeWidth={10} strokeLinecap="round" />
+          <g transform={`translate(-140, -110) rotate(${-lid * 75})`}><rect x={0} y={-34} width={280} height={34} rx={6} fill={C.orange} stroke={C.ink} strokeWidth={lw(5)} /></g>
+          {inside && lid > 0.5 && <g transform={`translate(0, ${-150 - lid * 20})`}>
+            <Tile color={C.mustard} glyph="spark" size={150} wink={0} />
+            <path d={`M70,-30 q30,${Math.sin(f / 3) * 20 - 20} 50,-40`} stroke={C.ink} strokeWidth={9} fill="none" strokeLinecap="round" />
+          </g>}
+          <text y={190} textAnchor="middle" fontFamily={SANS} fontWeight={600} fontSize={42} fill={C.ink}>Hide</text>
+        </g>
+      )}
+    </g>
   );
 };
-export const S31: ShotC = ({ f, g }) => <Trash f={f} g={g} phase={1} />;
-export const S32: ShotC = ({ f, g }) => <Trash f={f} g={g} phase={2} />;
-export const S33: ShotC = ({ f, g }) => <Trash f={f} g={g} phase={3} />;
+const HideScreen: React.FC<{ f: number; g: number; phase: 1 | 2 | 3 }> = ({ f, g, phase }) => {
+  const drag = phase === 1 ? ez(f, 4, 34) : 1;
+  const flip = phase === 2 ? ez(f, 2, 14) : phase === 3 ? 1 : 0;
+  const lid = phase === 3 ? ez(f, 4, 14) : 0;
+  const tileIn = phase === 2 ? ez(f, 12, 18) : phase === 3 ? 1 : 0; // the tile drops into the box
+  const BX = 1500, BY = 640; // the bin, lower right of the screen
+  const tx = 560 + drag * (BX - 560 - 40), ty = 640 + drag * (BY - 640 - 120) - Math.sin(drag * Math.PI) * 120;
+  return (
+    <Bg id="hide" seed={31} base={C.cardigan}>
+      <rect x={30} y={20} width={W - 60} height={H - 40} rx={40} fill={C.cardigan} stroke={C.ink} strokeWidth={lw(8)} />
+      <Grain x={40} y={26} w={W - 80} h={30} n={2} seed={2} />
+      <rect x={80} y={70} width={W - 160} height={H - 140} rx={18} fill={C.paper} stroke={C.ink} strokeWidth={lw(6)} />
+      <rect x={80} y={70} width={W - 160} height={100} rx={18} fill={C.teal} />
+      <text x={130} y={140} fontFamily={SANS} fontWeight={600} fontSize={52} fill={C.cream}>Home</text>
+      <g transform="translate(1700, 120)"><Clock t={(6 * 60 + 47) * 60 + g / 30} r={30} /></g>
+      {[C.teal, C.orange, C.avocado, C.red].map((c, i) => <g key={i} transform={`translate(${340 + i * 330}, 330)`}><Tile color={c} glyph={(["play", "note", "star", "play"] as const)[i]} size={230} /></g>)}
+      {drag > 0.2 && <rect x={445} y={525} width={230} height={230} rx={24} fill="none" stroke={C.inkSoft} strokeWidth={4} strokeDasharray="14 10" />}
+      {phase === 2 && f > 8 && (
+        <g transform="translate(860, 780)">
+          <rect x={-330} y={-48} width={660} height={80} rx={14} fill={C.white} stroke={C.ink} strokeWidth={lw(4)} />
+          <text y={6} textAnchor="middle" fontFamily={SANS} fontWeight={600} fontSize={32} fill={C.ink}>Can't delete this app. Hide it instead?</text>
+        </g>
+      )}
+      <g transform={`translate(${BX}, ${BY})`}><Bin flip={flip} lid={lid} f={f} inside={phase === 3} /></g>
+      {tileIn < 1 && <g transform={`translate(${tx}, ${ty + tileIn * 120}) scale(${1 - tileIn * 0.5})`} opacity={1 - tileIn}><Tile color={C.mustard} glyph="spark" size={230} wink={phase === 1 && f < 6 ? 1 : 0} /></g>}
+      <g transform={`translate(${phase === 1 ? 420 + drag * 820 : 1240}, ${phase === 1 ? 900 - Math.sin(drag * Math.PI) * 40 : 900}) scale(0.62)`}>
+        <Switch pose={phase === 3 ? "sad" : phase === 2 ? "startled" : "curious"} mouth={mouthAt(g, "switch")} look={phase === 3 ? [0.8, -0.6] : [1, -0.5]}
+          armR={phase === 1 ? 150 : phase === 3 ? 120 : 60} armL={phase === 1 ? 140 : 30} blink={blink(g, 4)} />
+      </g>
+    </Bg>
+  );
+};
+export const S31: ShotC = ({ f, g }) => <HideScreen f={f} g={g} phase={1} />;
+export const S32: ShotC = ({ f, g }) => <HideScreen f={f} g={g} phase={2} />;
+export const S33: ShotC = ({ f, g }) => <HideScreen f={f} g={g} phase={3} />;
 
 // S34: "…Next verse!": back in the classroom, the Narrator yanks down a pull-down screen; whip transition
 export const S34: ShotC = ({ f, g, len }) => {

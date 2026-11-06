@@ -31,7 +31,9 @@ const Shrub: React.FC<{ x: number; y: number; s?: number }> = ({ x, y, s = 1 }) 
 const Schoolhouse: React.FC<{ f: number }> = ({ f }) => (
   <g>
     {/* chimney and smoke */}
-    <rect x={150} y={-560} width={60} height={140} fill={C.red} stroke={C.ink} strokeWidth={lw(5)} />
+    {/* the chimney runs down behind the roof, so it comes out of it (drawn before the roof) */}
+    <rect x={150} y={-560} width={60} height={200} fill={C.red} stroke={C.ink} strokeWidth={lw(5)} />
+    <rect x={142} y={-572} width={76} height={16} fill={C.red} stroke={C.ink} strokeWidth={lw(4)} />
     {Array.from({ length: 6 }, (_, i) => <line key={i} x1={150} x2={210} y1={-540 + i * 22} y2={-540 + i * 22} {...PEN} opacity={0.6} />)}
     {[0, 1, 2].map((k) => { const t = ((f + k * 30) % 90) / 90; return <circle key={k} cx={180 + t * 60} cy={-580 - t * 140} r={18 + t * 26} fill={C.cream} stroke={C.ink} strokeWidth={1.5} opacity={0.6 * (1 - t)} />; })}
     {/* roof: scalloped shingles in rows */}
@@ -110,8 +112,13 @@ export const S48: ShotC = ({ f, len }) => {
           <path d="M-14,-200 q-60,-20 -110,-60" stroke={C.cardigan} strokeWidth={18} fill="none" strokeLinecap="round" />
           <circle cx={-10} cy={-330} r={150} fill="#5f7d3a" stroke={C.ink} strokeWidth={lw(5)} />
           {[[-80, -380], [20, -420], [60, -320], [-60, -280], [-10, -350]].map(([x, y], i) => <path key={i} d={`M${x},${y} q14,-14 28,0`} {...PEN} />)}
-          <line x1={-110} y1={-258} x2={-110} y2={-90} stroke={C.ink} strokeWidth={3} />
-          <ellipse cx={-110} cy={-70} rx={34} ry={22} fill="none" stroke={C.ink} strokeWidth={14} transform={`rotate(${Math.sin(f / 15) * 6}, -110, -258)`} />
+          {/* the tire swing: a rope from the branch to a hanging tire (a dark ring with a see-through hole and tread) */}
+          <g transform={`rotate(${Math.sin(f / 15) * 5}, -110, -258)`}>
+            <line x1={-110} y1={-258} x2={-110} y2={-124} stroke={C.cardiganShade} strokeWidth={5} />
+            <path d="M-110,-124 m-40,52 a40,50 0 1,0 80,0 a40,50 0 1,0 -80,0 Z M-110,-124 m-18,52 a18,26 0 1,1 36,0 a18,26 0 1,1 -36,0 Z" fill="#2e2a2c" fillRule="evenodd" stroke={C.ink} strokeWidth={lw(4)} />
+            {[-30, -10, 10, 30].map((a) => <path key={a} d={`M${-110 + Math.sin((a * Math.PI) / 90) * 34},${-72 - Math.cos((a * Math.PI) / 90) * 40} l4,8`} stroke={C.sleeve} strokeWidth={3} />)}
+            <path d="M-140,-96 q-6,20 2,40" stroke={C.sleeve} strokeWidth={4} fill="none" opacity={0.7} />
+          </g>
         </g>
         {/* flagpole with a plain pennant */}
         <g transform="translate(560, 800)">
@@ -120,7 +127,7 @@ export const S48: ShotC = ({ f, len }) => {
           <path d={`M4,-414 Q60,${-404 + Math.sin(f / 6) * 8} 120,-390 Q60,${-376 + Math.sin(f / 6) * 8} 4,-366 Z`} fill={C.teal} stroke={C.ink} strokeWidth={lw(3)} />
         </g>
         {/* the schoolhouse */}
-        <g transform="translate(1180, 800)"><Schoolhouse f={f} /></g>
+        <g transform="translate(1180, 800) scale(1.12)"><Schoolhouse f={f} /></g>
         <Shrub x={820} y={800} s={1.1} /><Shrub x={1540} y={800} /><Shrub x={1600} y={808} s={0.8} />
         {/* stone path and the picket fence with its gate */}
         {Array.from({ length: 7 }, (_, i) => <ellipse key={i} cx={1180 + Math.sin(i) * 18} cy={860 + i * 34} rx={40 - i * 1} ry={12} fill={C.sleeve} stroke={C.ink} strokeWidth={lw(2.5)} />)}
@@ -325,30 +332,68 @@ const Classroom: React.FC<{ f: number; g: number; lineId?: string }> = ({ f, g, 
 // S57: the final chorus's first line, "Default on! Default on!": the whole classroom
 export const S57: ShotC = ({ f, g }) => <Classroom f={f} g={g} lineId="L61" />;
 
-// a row of desks seen low and close: three kids and their rockers; `gag` stages S57b's attempts to switch them off
+// a row of desks seen low and close: three kids and their rockers. In S57b (`gag`) each kid tries, in turn, to switch
+// theirs off, with their hands (the human's note, 2026-11-06): a finger pushes it OFF and it springs back ON; a heavy
+// book is dropped on it and bounces off; an OFF sticky note is stuck over it and flutters away. Each ends ON.
 const Desks: React.FC<{ f: number; g: number; len: number; lineId: string; gag?: boolean }> = ({ f, g, len, lineId, gag }) => (
   <Bg id="s57a" seed={57} base={C.mustard}>
     <Wallpaper id="s57a" kind="stripe" a={C.mustard} b={C.cream} opacity={0.2} />
     {"KLMNOPQ".split("").map((ch, i) => <g key={ch} transform={`translate(${100 + i * 270}, 30)`}><rect width={220} height={60} rx={6} fill={[C.teal, C.orange, C.avocado, C.red][i % 4]} stroke={C.ink} strokeWidth={lw(3)} /><text x={110} y={46} textAnchor="middle" fontFamily={BUBBLE} fontSize={42} fill={C.ink}>{ch}{ch.toLowerCase()}</text></g>)}
     {[0, 1, 2].map((i) => {
-      const x = 380 + i * 580, seed = 3 + i * 2;
-      const beat = (len / 3) * i; // S57a: rockers rock ON one after another; S57b: one gag per kid, in turn
-      const t = f - beat;
-      const covered = gag && t > 6 && t < len / 3 - 10;
-      const on = gag ? !covered || t > len / 3 - 14 : f > beat + 6;
+      const x = 380 + i * 580, seed = 3 + i * 2, S = 1.25;
+      const beat = (len / 3) * i, t = f - beat, part = len / 3;
+      const sw = { x, y: 612 }; // the rocker stands centred on the desktop, in front of the kid, big enough to read
+      const local = (wx: number, wy: number) => ({ x: (wx - x) / S, y: (wy - 420) / S });
+      // the gag's timeline for this kid: 0..1 within its third of the shot
+      const u = gag ? Math.max(0, Math.min(1, t / part)) : 0;
+      let on = gag ? 1 : f > beat + 6 ? 1 : 0;
+      let arms: [{ x: number; y: number; point?: boolean }, { x: number; y: number; point?: boolean }] = [local(x - 120, 690), local(x + 120, 690)];
+      let extra: React.ReactNode = null;
+      let mouth = mouthAt(g + seed * 2, "narrator");
+      const pop = gag && t >= 0 && t < part ? bump(u, 0.62, 0.12) : 0;
+      if (gag && t >= 0 && t < part) {
+        if (i === 0) { // a finger pushes it OFF; it springs back ON
+          on = u > 0.3 && u < 0.6 ? 0 : 1;
+          arms = [local(x - 120, 690), { ...local(sw.x - 70, sw.y + (u < 0.6 ? 30 : -30)), point: true }];
+          mouth = u > 0.6 ? "E" : "A";
+        } else if (i === 1) { // a heavy book dropped on it bounces off
+          const drop = ez(u, 0.15, 0.35), fly = ez(u, 0.6, 0.85);
+          on = u > 0.35 && u < 0.6 ? 0 : 1;
+          arms = u < 0.35 ? [local(sw.x - 90, 560 + drop * 60), local(sw.x + 90, 560 + drop * 60)] : [local(x - 120, 690), local(x + 120, 690)];
+          extra = <g transform={`translate(${sw.x + fly * 160}, ${560 + drop * 60 - fly * 220}) rotate(${fly * 140})`}>
+            <rect x={-110} y={-40} width={220} height={80} rx={6} fill={C.teal} stroke={C.ink} strokeWidth={lw(5)} />
+            <rect x={-110} y={22} width={220} height={18} fill={C.cream} stroke={C.ink} strokeWidth={lw(3)} />
+            <text x={0} y={8} textAnchor="middle" fontFamily={BUBBLE} fontSize={28} fill={C.cream}>BIG BOOK</text>
+          </g>;
+          mouth = u > 0.6 ? "D" : "X";
+        } else { // an OFF sticky note stuck over it flutters away
+          const stick = ez(u, 0.1, 0.3), off = ez(u, 0.6, 0.95);
+          on = u > 0.3 && u < 0.6 ? 0 : 1;
+          arms = u < 0.3 ? [local(x - 120, 690), local(sw.x + 30, sw.y - 40 + stick * 40)] : [local(x - 120, 690), local(x + 120, 690)];
+          extra = u > 0.05 && <g transform={`translate(${sw.x + off * 140 + Math.sin(off * 12) * 30}, ${sw.y - off * 300}) rotate(${off * 200 - 6})`} opacity={1 - off * 0.6}>
+            <rect x={-56} y={-56} width={112} height={112} fill={C.mustard} stroke={C.ink} strokeWidth={lw(4)} />
+            <text x={0} y={16} textAnchor="middle" fontFamily={BUBBLE} fontSize={44} fill={C.ink}>OFF</text>
+          </g>;
+          mouth = u > 0.6 ? "D" : "B";
+        }
+      }
       return (
         <g key={i}>
-          <g transform={`translate(${x}, 420) scale(1.25)`}><Kid seed={seed} mouth={mouthAt(g + seed * 2, "narrator")} look={gag ? [0.4, 0.9] : [0, 0]} /></g>
+          <g transform={`translate(${x}, 420) scale(${S})`}><Kid seed={seed} mouth={mouth} look={gag ? [0.6, 0.9] : [0, 0]} /></g>
           <rect x={x - 260} y={700} width={520} height={60} fill={C.cardigan} stroke={C.ink} strokeWidth={lw(7)} />
           <Grain x={x - 256} y={704} w={512} h={52} n={2} seed={seed} />
-          <rect x={x - 230} y={790} width={200} height={14} rx={4} fill={C.mustard} stroke={C.ink} strokeWidth={lw(3)} transform={`rotate(-4, ${x - 130}, 797)`} />
           <rect x={x - 240} y={760} width={480} height={330} fill={C.cardiganShade} stroke={C.ink} strokeWidth={lw(7)} />
-          <g transform={`translate(${x + 120}, ${640 - (on && !gag ? bump(t, 6, 5) * 24 : 0)})`}><MiniRocker on={on ? 1 : 0} s={1.1} /></g>
-          {/* S57b's three gags: a book over it, a hand over it, tucked into the desk; each pops back ON */}
-          {gag && covered && i === 0 && <rect x={x + 30} y={560} width={190} height={150} rx={8} fill={C.teal} stroke={C.ink} strokeWidth={lw(6)} transform={`rotate(-6, ${x + 120}, 640)`} />}
-          {gag && covered && i === 1 && <ellipse cx={x + 120} cy={630} rx={90} ry={70} fill={(["#f0c49b", "#c98b5e", "#8d5a3a"])[i]} stroke={C.ink} strokeWidth={lw(6)} />}
-          {gag && covered && i === 2 && <rect x={x + 40} y={590} width={160} height={110} fill={C.cardigan} stroke={C.ink} strokeWidth={lw(6)} />}
-          {gag && !covered && t > len / 3 - 14 && t < len / 3 - 4 && <text x={x + 120} y={520} textAnchor="middle" fontFamily={BUBBLE} fontSize={60} fill={C.orange} stroke={C.ink} strokeWidth={lw(4)} paintOrder="stroke">ON!</text>}
+          <rect x={x - 200} y={790} width={400} height={60} rx={6} fill={C.cardigan} stroke={C.ink} strokeWidth={lw(4)} />
+          {/* on the desk: an open notebook, a pencil, an eraser; an apple on one */}
+          <g transform={`translate(${x - 150}, 690)`}><path d="M-70,0 L0,-14 L70,0 L70,8 L0,-6 L-70,8 Z" fill={C.white} stroke={C.ink} strokeWidth={lw(3)} /><line x1={0} y1={-14} x2={0} y2={-6} {...PEN} /></g>
+          <rect x={x - 40} y={684} width={90} height={10} rx={4} fill={C.mustard} stroke={C.ink} strokeWidth={lw(2)} transform={`rotate(-6, ${x}, 690)`} />
+          <rect x={x + 210} y={680} width={30} height={18} rx={4} fill="#e8a0a0" stroke={C.ink} strokeWidth={lw(2)} />
+          {i === 1 && <g transform={`translate(${x - 220}, 670)`}><circle r={22} fill={C.red} stroke={C.ink} strokeWidth={lw(3)} /><path d="M0,-22 q4,-10 10,-12" stroke={C.ink} strokeWidth={3} fill="none" /></g>}
+          <g transform={`translate(${sw.x}, ${sw.y - pop * 30}) rotate(${pop * 8})`}><MiniRocker on={on} s={1.5} /></g>
+          {/* the arms in front of the desk, so the hands are seen at work */}
+          <g transform={`translate(${x}, 420) scale(${S})`}><Kid seed={seed} arms={arms} armsOnly /></g>
+          {extra}
+          {gag && t >= 0 && t < part && u > 0.6 && u < 0.85 && <text x={sw.x + 70} y={sw.y - 100} fontFamily={BUBBLE} fontSize={60} fill={C.orange} stroke={C.ink} strokeWidth={4} paintOrder="stroke">{i === 0 ? "boing!" : "ON!"}</text>}
         </g>
       );
     })}
@@ -448,6 +493,16 @@ export const S62: ShotC = ({ f, g, len }) => (
 
 // S63: [pop-up chime] / "Who asked for that?": a "Summary of this song" box pops up over everything; its close button
 // runs from the cursor. S64: V19 "Hey, who wrote this song, anyway?": Switch shoves the summary box out of frame
+const SUMMARY = [
+  "This animated music video uses the style of a 1970s",
+  "educational cartoon to explain how AI features are often",
+  "switched on by default in everyday apps and devices. A",
+  "narrator and a talking light switch walk through examples,",
+  "including search results, email, smart TVs, chat apps,",
+  "phone updates and software subscriptions, showing how",
+  "hard these features can be to turn off. The video ends by",
+  "revealing that the song itself was written by AI.",
+];
 const Summary: React.FC<{ x: number; f: number; pop: number }> = ({ x, f, pop }) => {
   const bx = 340 + Math.sin(f / 5) * 40, by = -230 + Math.cos(f / 4) * 20; // the fleeing close button
   return (
@@ -456,7 +511,13 @@ const Summary: React.FC<{ x: number; f: number; pop: number }> = ({ x, f, pop })
       <rect x={-460} y={-280} width={920} height={90} rx={24} fill={C.mustard} stroke={C.ink} strokeWidth={lw(8)} />
       <path d="M-420,-258 l8,18 l18,8 l-18,8 l-8,18 l-8,-18 l-18,-8 l18,-8 Z" fill={C.orange} stroke={C.ink} strokeWidth={lw(3)} />
       <text x={-380} y={-218} fontFamily={SANS} fontWeight={600} fontSize={40} fill={C.ink}>Summary of this song</text>
-      {[0, 1, 2, 3, 4].map((i) => <rect key={i} x={-400} y={-140 + i * 70} width={800 - i * 90} height={26} rx={8} fill={C.creamShade} />)}
+      {/* written the way an auto-generated video summary reads (the human's note, 2026-11-06) */}
+      {SUMMARY.map((ln, i) => <text key={i} x={-410} y={-138 + i * 44} fontFamily={SANS} fontSize={29} fill={C.ink}>{ln}</text>)}
+      <line x1={-430} x2={430} y1={196} y2={196} stroke={C.creamShade} strokeWidth={3} />
+      <text x={-410} y={240} fontFamily={SANS} fontSize={24} fill={C.inkSoft}>AI-generated summary · Was this helpful?</text>
+      {[0, 1].map((k) => <g key={k} transform={`translate(${130 + k * 64}, 230) rotate(${k ? 180 : 0})`}>
+        <path d="M-14,-4 h8 v20 h-8 Z M-4,-4 q6,-14 10,-22 q8,0 6,12 l-2,8 h14 q8,2 4,10 l-6,14 q-2,4 -8,4 h-18 Z" fill="none" stroke={C.inkSoft} strokeWidth={2.5} strokeLinejoin="round" />
+      </g>)}
       <g transform={`translate(${bx}, ${by})`}><circle r={26} fill={C.cream} stroke={C.ink} strokeWidth={lw(5)} /><path d="M-10,-10 L10,10 M10,-10 L-10,10" stroke={C.ink} strokeWidth={lw(5)} /></g>
       <g transform={`translate(${bx - 70 + Math.sin(f / 5 - 0.6) * 40}, ${by + 60})`}><path d="M0,0 L0,44 L12,32 L22,54 L30,50 L20,28 L36,28 Z" fill={C.white} stroke={C.ink} strokeWidth={lw(4)} /></g>
     </g>

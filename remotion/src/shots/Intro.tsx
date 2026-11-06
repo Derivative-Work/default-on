@@ -291,7 +291,7 @@ export const S07: ShotC = ({ f, g }) => {
 // on the highest shelf of a tall bookcase; the Narrator points the way
 export const S08: ShotC = ({ f, g, len }) => {
   const climb = ez(f, 6, len - 10);
-  const step = Math.floor(climb * 8);
+  const step = Math.min(6, Math.floor(climb * 7));
   const wob = Math.sin(f / 5) * 1.1 + (f % 18 < 2 ? 0.5 : 0); // shaky, not wild (the human's note, 2026-11-06)
   return (
     <Bg id="s08" seed={8} base={C.mustard}>
@@ -302,13 +302,15 @@ export const S08: ShotC = ({ f, g, len }) => {
         <text textAnchor="middle" y={-4} fontFamily={SANS} fontWeight={600} fontSize={24} fill={C.ink}>Web</text>
         <path d="M-60,-50 l-20,-20 M60,-50 l20,-20 M0,-50 v-24" stroke={C.cream} strokeWidth={5} strokeLinecap="round" opacity={0.5 + 0.5 * Math.sin(f / 5)} />
       </g>
-      <g transform={`translate(1180, 1040) rotate(${wob - 8})`}>
+      {/* the ladder leans against the bookcase; Switch is drawn in the ladder's own frame, so he is always on it,
+          climbing rung by rung (each rung a small lift), hands reaching up for the next rung */}
+      <g transform={`translate(1150, 1040) rotate(${5 + wob})`}>
         {[-70, 70].map((x) => <line key={x} x1={x} y1={0} x2={x * 0.7} y2={-900} stroke={C.cardigan} strokeWidth={20} strokeLinecap="round" />)}
         {[-70, 70].map((x) => <line key={`i${x}`} x1={x} y1={0} x2={x * 0.7} y2={-900} stroke={C.ink} strokeWidth={lw(4)} strokeLinecap="round" opacity={0.6} />)}
         {Array.from({ length: 9 }, (_, i) => <line key={i} x1={-66 + i * 2} y1={-60 - i * 100} x2={66 - i * 2} y2={-60 - i * 100} stroke={C.cardigan} strokeWidth={14} />)}
-      </g>
-      <g transform={`translate(${1180 + wob}, ${900 - step * 80 - (climb * 8 - step) * 30}) scale(0.5) rotate(${wob})`}>
-        <Switch pose="curious" look={[0.6, -0.9]} armL={step % 2 ? 165 : 140} armR={step % 2 ? 140 : 165} blink={blink(g, 2)} />
+        <g transform={`translate(0, ${-(150 + (step + ez((climb * 7 - step) * 10, 0, 6)) * 100)}) scale(0.5)`}>
+          <Switch pose="curious" look={[0.7, -0.9]} armL={step % 2 ? 170 : 150} armR={step % 2 ? 150 : 170} blink={blink(g, 2)} />
+        </g>
       </g>
       <rect x={-20} y={954} width={W + 40} height={46} fill="url(#pen-hatch)" opacity={0.32} />
       <rect x={-20} y={1000} width={W + 40} height={100} fill={C.cardigan} stroke={C.ink} strokeWidth={lw(6)} />

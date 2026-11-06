@@ -211,3 +211,15 @@ Append-only. One entry per action: timestamp, step (shot ID where relevant), wha
 ## 2026-11-06T16:45:00-05:00 — M4: all sections re-rendered with the 13 fixes; the full cut reassembled
 
 - **What:** every section re-rendered (the rocker and the hand appear throughout), the full cut reassembled with one continuous master track; sync verified (+0.0000 s at 30 s and 220 s). Rendered contact sheets checked for S16, S20, S46, S48.
+
+## 2026-11-06T17:30:00-05:00 — M4: review notes, round 2, applied
+
+1. **YOU CHOSE THIS (S22):** the stamp's impression is a framed print: red letters in a double red frame on a cream patch, legible over the broccoli.
+2. **The ladder (S08):** it now leans against the bookcase (about 5°), and Switch is drawn in the ladder's own frame, so he is always on it, climbing rung by rung with his hands reaching up.
+3. **The seated kid (S21–S22):** the Kid rig has a seated lower body (lap, shorts or trousers by seed, knees, socks, shoes) and arms with hands that point or rest; the kid sits on a full chair, hands on the table, points at the tray, pushes it away.
+4. **TEST (S23):** the stack lands on the desk's left end, and its cover sheet springs up to face us like a sign: "TEST" large in red bubble letters, "Name:", "Score: ____ / 100", a staple.
+5. **The TV hide (S31–S33):** now on the TV's own home screen, filling the frame inside its bezel: Switch drags the winking tile toward a "Delete" bin; the bin card-flips into a "Hide" box (an eye with a line through it) with "Can't delete this app. Hide it instead?"; the tile drops in; Switch lifts the lid and the tile waves from inside.
+6. **The schoolhouse (S48):** the chimney now runs down behind the roof (it floated 17 px above it) with a cap; the tire swing is a real tire (a dark ring with a see-through hole, tread and a highlight) on a rope from the branch, swaying from the knot; the school is drawn 12% larger.
+7. **The kids' attempts (S57a–b):** each switch stands centred on its desk at 1.5×, in front of the kid; the kids' arms are drawn in front of the desk (body behind it, `armsOnly`); one pushes it OFF with a finger and it springs back ON ("boing!"), one drops a BIG BOOK on it and it bounces off, one sticks an OFF note over it and it flutters away ("ON!"); desks gain an open notebook, a pencil, an eraser and an apple.
+8. **Summary of this song (S63–S64):** real text, written the way an auto-generated video summary reads: "This animated music video uses the style of a 1970s educational cartoon to explain how AI features are often switched on by default in everyday apps and devices. A narrator and a talking light switch walk through examples, including search results, email, smart TVs, chat apps, phone updates and software subscriptions, showing how hard these features can be to turn off. The video ends by revealing that the song itself was written by AI." A footer: "AI-generated summary · Was this helpful?" with thumbs. Generic, no platform branding.
+- **Checked:** stills of each (S08, S21–S23, S31–S33, S48, S57a–b, S63).

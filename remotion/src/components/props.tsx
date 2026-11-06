@@ -111,15 +111,59 @@ export const Person: React.FC<{ shirt?: string; hair?: string; facing?: number }
 );
 
 // a generic cartoon kid, front view, varied by `seed`; never drawn to resemble anyone real (brief)
-export const Kid: React.FC<{ seed: number; mouth?: MouthShape; look?: [number, number] }> = ({ seed, mouth = "X", look = [0, 0] }) => {
+// a generic cartoon kid, front view, varied by `seed`; never drawn to resemble anyone real (brief). Optional `arms`
+// (each a hand target in the kid's own coordinates, and whether it points) and a seated lower body (`seated`: shorts
+// or trousers, knees, socks and shoes), for the shots where the kids act (S21-S22, S57a-b)
+type ArmTarget = { x: number; y: number; point?: boolean };
+const KidArm: React.FC<{ side: -1 | 1; t: ArmTarget; sleeve: string; skin: string }> = ({ side, t, sleeve, skin }) => {
+  const sx = side * 78, sy = 140;
+  const ex = (sx + t.x) / 2 + side * 34, ey = (sy + t.y) / 2 + 30; // the elbow bends out and down
+  const ang = (Math.atan2(t.y - ey, t.x - ex) * 180) / Math.PI;
+  return (
+    <g>
+      <path d={`M${sx},${sy} Q${ex},${ey} ${t.x},${t.y}`} fill="none" stroke={C.ink} strokeWidth={36} strokeLinecap="round" />
+      <path d={`M${sx},${sy} Q${ex},${ey} ${t.x},${t.y}`} fill="none" stroke={sleeve} strokeWidth={28} strokeLinecap="round" />
+      <g transform={`translate(${t.x}, ${t.y}) rotate(${ang})`}>
+        <circle r={20} fill={skin} stroke={C.ink} strokeWidth={lw(4)} />
+        {t.point
+          ? <><path d="M12,-6 L44,-6 Q52,0 44,6 L12,6 Z" fill={skin} stroke={C.ink} strokeWidth={lw(4)} /><path d="M40,-4 q5,4 0,8" {...PEN} /></>
+          : <path d="M6,-12 q10,4 8,12 M2,2 q10,4 8,12" {...PEN} />}
+      </g>
+    </g>
+  );
+};
+// `armsOnly` draws just the arms, so a shot can put the body behind a desk and the arms in front of it
+export const Kid: React.FC<{ seed: number; mouth?: MouthShape; look?: [number, number]; arms?: [ArmTarget, ArmTarget]; seated?: boolean; armsOnly?: boolean }> = ({
+  seed, mouth = "X", look = [0, 0], arms, seated, armsOnly,
+}) => {
   const shirts = [C.teal, C.orange, C.avocado, C.mustard, C.red];
   const hairs = [C.hair, "#2e1d12", "#a8622e", "#d9a33a", "#7a4a2a"];
   const skins = ["#f0c49b", "#c98b5e", "#8d5a3a", "#e9b98f", "#b07a52"];
+  const trousers = [C.night, C.cardigan, "#5a6a8a", C.teal, C.avocado];
   const k = (n: number) => (seed * 7 + n * 3) % 5;
+  const shorts = seed % 2 === 0;
+  if (armsOnly) return <g>{arms && [-1, 1].map((sd, i) => <KidArm key={sd} side={sd as -1 | 1} t={arms[i]} sleeve={shirts[k(1)]} skin={skins[k(2)]} />)}</g>;
   return (
     <g>
+      {seated && (
+        <g>
+          {/* lap and legs, seated: the thighs come toward us, so we see the lap, the knees, then the shins */}
+          <path d="M-86,222 L86,222 L92,290 L-92,290 Z" fill={trousers[k(4)]} {...ink} />
+          <line x1={0} y1={226} x2={0} y2={286} {...PEN} />
+          {[-46, 46].map((x) => (
+            <g key={x}>
+              <path d={`M${x - 34},${shorts ? 290 : 286} L${x + 34},${shorts ? 290 : 286} L${x + 26},400 L${x - 26},400 Z`} fill={shorts ? skins[k(2)] : trousers[k(4)]} {...ink} />
+              {shorts && <path d={`M${x - 34},286 L${x + 34},286 L${x + 32},306 L${x - 32},306 Z`} fill={trousers[k(4)]} {...ink} />}
+              <rect x={x - 24} y={392} width={48} height={22} fill={C.white} stroke={C.ink} strokeWidth={lw(3)} />
+              <path d={`M${x - 30},414 L${x + 26},414 Q${x + 44},418 ${x + 40},440 L${x - 32},440 Z`} fill={[C.red, C.cardigan, C.night, C.ink, C.teal][k(5)]} {...ink} />
+              <path d={`M${x - 20},414 l8,-6 M${x - 6},414 l8,-6`} {...PEN} />
+            </g>
+          ))}
+        </g>
+      )}
       <path d="M-90,230 Q-96,110 0,104 Q96,110 90,230 Z" fill={shirts[k(1)]} {...ink} />
       <path d="M-34,108 l34,22 l34,-22 M-70,170 q8,30 2,60 M70,170 q-8,30 -2,60" {...PEN} />
+      {seed % 4 === 1 && [150, 186].map((y) => <line key={y} x1={-84} x2={84} y1={y} y2={y} stroke={C.cream} strokeWidth={8} opacity={0.6} />)}
       <circle cx={0} cy={20} r={80} fill={skins[k(2)]} {...ink} />
       {seed % 3 === 0 && <path d="M-80,0 Q-90,-80 0,-66 Q90,-80 80,0 Q50,-40 0,-42 Q-50,-40 -80,0 Z" fill={hairs[k(3)]} {...ink} />}
       {seed % 3 === 1 && <g>{[-1, 1].map((s) => <circle key={s} cx={s * 78} cy={-10} r={30} fill={hairs[k(3)]} {...ink} />)}<path d="M-78,-4 Q-70,-76 0,-64 Q70,-76 78,-4 Q40,-36 0,-36 Q-40,-36 -78,-4 Z" fill={hairs[k(3)]} {...ink} /></g>}
@@ -129,6 +173,7 @@ export const Kid: React.FC<{ seed: number; mouth?: MouthShape; look?: [number, n
       {/* pen detail: a few hair strands, freckles or cheeks, an ear line */}
       {seed % 3 !== 2 && [-40, -10, 20].map((x) => <path key={x} d={`M${x},-60 q8,12 4,26`} {...PEN} />)}
       {seed % 2 === 0 ? [-40, -32, 32, 40].map((x, i) => <circle key={i} cx={x} cy={40 + (i % 2) * 6} r={2.4} fill={C.cardigan} />) : null}
+      {arms && [-1, 1].map((sd, i) => <KidArm key={sd} side={sd as -1 | 1} t={arms[i]} sleeve={shirts[k(1)]} skin={skins[k(2)]} />)}
     </g>
   );
 };
