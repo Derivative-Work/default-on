@@ -133,3 +133,9 @@ Append-only. One entry per action: timestamp, step (shot ID where relevant), wha
 - **Agent review:** the first render's sleeve pointed at his eyes, not his paddle, and the furniture competed with him; both fixed before this render.
 - **Command:** `scripts/m4_section.sh Sec03-Prechorus1 sec03_prechorus1`
 - **Outputs:** `renders/m4/sec03_prechorus1.mp4`, review copy, `review/S09–S12.jpg`
+
+## 2026-11-06T12:10:00-05:00 — M4 detail pass: section 4, chorus 1 (S13–S18)
+
+- **What:** S13 over a turning sunburst; the five rockers bounce and flick ON on the downbeats; music notes drift up. A bedroom set for S14–S15 (and S37): daisy wallpaper, a curtained window (sunrise or moon), a headboard bed with a patchwork quilt and pillow, a bedside table with an alarm clock that rings at sunrise ("BRRING!"), a dresser with three drawers and a plant, slippers, a rug; night dims it. The gags are now staged in that room: a blanket thrown over the pillow; the mute bar; the top drawer that shuts on the answer box and slides back open (chorus 2: a zipped sleeping bag, the mute bar sliding off by itself, a lunchbox that pops open). S16 gains the wallpaper and skirting. S17's crooked redraw shows its pencil construction lines and eraser crumbs, with "on, on, on" drifting up. S18 is a ruled notebook page (binder holes, a red margin, a coffee ring, a star and notes) with the hand drawing each rocker with a pencil.
+- **Agent review:** stills caught the bed's headboard colliding with the bedside table and S18's hand off-frame; fixed before the render.
+- **Command:** `scripts/m4_section.sh Sec04-Chorus1 sec04_chorus1`

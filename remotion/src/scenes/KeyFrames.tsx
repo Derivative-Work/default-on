@@ -11,6 +11,7 @@ import { BUBBLE, SANS } from "../theme/fonts";
 import { C, H, W } from "../theme/palette";
 import { FPS, at, line, shot } from "../timing";
 import { MouthShape } from "../rigs/Mouth";
+import { Wallpaper } from "../components/sets";
 
 type Scene = React.FC<{ f: number }>;
 
@@ -59,6 +60,8 @@ export const S16: Scene = ({ f }) => {
   return (
     <AbsoluteFill>
       <Paper id="s16" seed={16} base={C.mustard}>
+        <Wallpaper id="s16" kind="daisy" a={C.cream} b={C.orange} opacity={0.3} />
+        <rect x={-10} y={860} width={W + 20} height={26} fill={C.creamShade} stroke={C.ink} strokeWidth={5} />
         {/* the redrawn Switch on the wall, half finished in pencil */}
         <g transform={`translate(${cx + 470}, ${cy})`} opacity={0.9}>
           <rect x={-PLATE.w / 2} y={-PLATE.h / 2} width={PLATE.w} height={PLATE.h} rx={34} fill="none" stroke={C.inkSoft}

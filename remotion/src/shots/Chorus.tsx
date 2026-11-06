@@ -6,9 +6,9 @@ import { AnswerBox, MiniRocker, Spotlight } from "../components/props";
 import { Hand } from "../rigs/Hand";
 import { Switch } from "../rigs/Switch";
 import { C, H, W } from "../theme/palette";
-import { BUBBLE } from "../theme/fonts";
-import { Bookshelf, Clock, Lamp, Wallpaper, Window, breath } from "../components/sets";
-import { at, line, mouthAt } from "../timing";
+import { BUBBLE, SANS } from "../theme/fonts";
+import { Bookshelf, Clock, Lamp, Plant, Rug, Sunburst, Wallpaper, Window, breath } from "../components/sets";
+import { at, downbeats, line, mouthAt } from "../timing";
 import { S16 as S16Key } from "../scenes/KeyFrames";
 import { Bg, ShotC, blink, bump, ez } from "./common";
 
@@ -117,33 +117,78 @@ export const S12: ShotC = ({ f, g }) => {
   );
 };
 
-// S13: "Default on! Default on!": bright mustard; bubble-letter lyrics with a bouncing ball; rockers flick on in time
-export const S13: ShotC = ({ f, g }) => (
-  <Bg id="s13" seed={13} base={C.mustard}>
-    {[0, 1, 2, 3, 4].map((i) => (
-      <g key={i} transform={`translate(${360 + i * 300}, ${420 - bump(f, 6 + i * 6, 6) * 40})`}><MiniRocker on={f > 6 + i * 6 ? 1 : 0} s={1.4} /></g>
-    ))}
-    <Lyric id="L10" f={f} g={g} y={820} size={110} />
+// S13: "Default on! Default on!": bright mustard over a slowly turning sunburst; bubble-letter lyrics with a bouncing
+// ball; five rockers bounce and flick ON on the downbeats; music notes drift up
+export const S13: ShotC = ({ f, g }) => {
+  const g0 = g - f;
+  const dbs = downbeats.filter((d) => d >= g0).slice(0, 5).map((d) => d - g0);
+  return (
+    <Bg id="s13" seed={13} base={C.mustard}>
+      <g opacity={0.45}><Sunburst a={C.mustard} b={C.orange} spin={g * 0.12} cy={420} /></g>
+      {[0, 1, 2, 3, 4].map((i) => {
+        const at0 = dbs[i] ?? 6 + i * 12;
+        return <g key={i} transform={`translate(${360 + i * 300}, ${440 - bump(f, at0, 5) * 50})`}><MiniRocker on={f > at0 ? 1 : 0} s={1.4} /></g>;
+      })}
+      {[0, 1, 2, 3, 4, 5].map((k) => {
+        const t = ((f + k * 23) % 90) / 90;
+        return <text key={k} x={200 + k * 300 + Math.sin((f + k * 20) / 10) * 30} y={720 - t * 520} fontFamily={SANS} fontSize={70} fill={C.ink} opacity={Math.sin(t * Math.PI) * 0.7}>{k % 2 ? "♪" : "♫"}</text>;
+      })}
+      <Lyric id="L10" f={f} g={g} y={860} size={120} />
+    </Bg>
+  );
+};
+
+// the bedroom (S14, S15, S37): daisy wallpaper, a window (sunrise or moon), a headboard bed with a patchwork quilt
+// and a pillow, a bedside table with an alarm clock, a dresser with three drawers, slippers and a rug; `night` dims it
+const Bedroom_: React.FC<{ id: string; night: boolean; g: number; drawer?: number; children?: React.ReactNode }> = ({ id, night, g, drawer = 0, children }) => (
+  <Bg id={id} seed={14} base={night ? C.night : C.cream}>
+    <Wallpaper id={id} kind="daisy" a={night ? "#3a4a70" : C.mustard} b={night ? "#2c3d63" : C.orange} opacity={night ? 0.35 : 0.3} />
+    <g transform="translate(1620, 280)"><Window w={300} h={320} sky={night ? "#16203a" : "#f2c98a"} sun={night ? "moon" : "sun"} curtain={night ? "#4a3a5a" : C.teal} /></g>
+    <rect x={-20} y={860} width={W + 40} height={240} fill={night ? "#1b2440" : "#b98a5a"} stroke={C.ink} strokeWidth={6} />
+    <g transform="translate(1450, 990)"><Rug w={520} color={night ? "#4a3a5a" : C.avocado} /></g>
+    {/* the dresser, right: three drawers; the top one can slide open */}
+    <g transform="translate(1620, 700)">
+      <rect x={-200} y={-140} width={400} height={300} fill={C.cardigan} stroke={C.ink} strokeWidth={7} />
+      {[0, 1, 2].map((k) => (
+        <g key={k} transform={`translate(${k === 0 ? drawer * 60 : 0}, ${-120 + k * 92})`}>
+          {k === 0 && drawer > 0 && <rect x={-180 - drawer * 60} y={0} width={360 + drawer * 60} height={80} fill={C.cardiganShade} stroke={C.ink} strokeWidth={5} />}
+          <rect x={-180} y={0} width={360} height={80} fill={C.cardiganShade} stroke={C.ink} strokeWidth={5} />
+          <circle cx={0} cy={40} r={10} fill={C.mustard} stroke={C.ink} strokeWidth={3} />
+        </g>
+      ))}
+      <g transform="translate(-110, -190) scale(0.55)"><Plant sway={Math.sin(g / 50)} /></g>
+    </g>
+    {/* the bed, left */}
+    <g transform="translate(640, 720)">
+      <rect x={-560} y={-300} width={70} height={460} rx={14} fill={C.cardigan} stroke={C.ink} strokeWidth={7} />
+      <rect x={-500} y={-40} width={1000} height={170} rx={20} fill={night ? "#3a5a58" : C.teal} stroke={C.ink} strokeWidth={7} />
+      {Array.from({ length: 10 }, (_, i) => <rect key={i} x={-300 + (i % 5) * 160} y={-30 + Math.floor(i / 5) * 76} width={150} height={70} fill={[C.orange, C.mustard, C.avocado, C.cream, C.red][(i * 3) % 5]} opacity={night ? 0.35 : 0.55} />)}
+      <ellipse cx={-330} cy={-50} rx={160} ry={60} fill={C.white} stroke={C.ink} strokeWidth={7} />
+      <rect x={480} y={-100} width={40} height={260} rx={10} fill={C.cardigan} stroke={C.ink} strokeWidth={6} />
+      <g transform="translate(-700, 120)">{[0, 1].map((k) => <ellipse key={k} cx={k * 70} cy={0} rx={34} ry={16} fill={C.red} stroke={C.ink} strokeWidth={4} />)}</g>
+    </g>
+    {/* bedside table and alarm clock (it rings at sunrise) */}
+    <g transform="translate(1260, 760)">
+      <rect x={-60} y={-60} width={140} height={200} fill={C.cardiganShade} stroke={C.ink} strokeWidth={6} />
+      <g transform={`translate(10, -110) rotate(${night ? 0 : Math.sin(g * 1.7) * 6})`}><Clock t={night ? 2 * 3600 + 40 * 60 : 6 * 3600 + 30 * 60} r={44} />
+        {!night && [-1, 1].map((k) => <circle key={k} cx={k * 32} cy={-46} r={14} fill={C.mustard} stroke={C.ink} strokeWidth={4} />)}</g>
+    </g>
+    {night && <rect x={-20} y={-20} width={W + 40} height={H + 40} fill="#0d1222" opacity={0.25} />}
+    {children}
   </Bg>
 );
 
-// S14: "It was there when you woke up…": sunrise over a bed with the answer box on the pillow; then the empty room
+// S14: "It was there when you woke up…": sunrise over the bed, the answer box on the pillow; then the same room at
+// night, the answer box still there, waving
 // at night, the answer box still there, waving
 export const Bedroom: React.FC<{ f: number; g: number; len: number; lineId: string }> = ({ f, g, len, lineId }) => {
   const night = f > len / 2;
   return (
-    <Bg id={night ? "s14n" : "s14"} seed={14} base={night ? C.night : C.paper}>
-      {!night && <Wash id="s14" color={C.orange} opacity={0.7}><circle cx={1540} cy={560} r={200} /></Wash>}
-      {night && <circle cx={1540} cy={260} r={80} fill={C.cream} opacity={0.85} />}
-      <rect x={1300} y={160} width={500} height={420} fill="none" stroke={C.ink} strokeWidth={10} />
-      <g transform="translate(700, 700)">
-        <rect x={-500} y={-40} width={1000} height={200} rx={20} fill={C.teal} stroke={C.ink} strokeWidth={7} />
-        <rect x={-560} y={-200} width={60} height={360} rx={10} fill={C.cardigan} stroke={C.ink} strokeWidth={7} />
-        <ellipse cx={-320} cy={-50} rx={160} ry={60} fill={C.white} stroke={C.ink} strokeWidth={7} />
-        <g transform="translate(-320, -150) scale(0.5)"><AnswerBox mouth={night ? "C" : "X"} wave={night ? Math.sin(f / 4) : 0} /></g>
-      </g>
-      <Lyric id={lineId} f={f} g={g} y={1010} size={64} />
-    </Bg>
+    <Bedroom_ id={night ? "bedn" : "bed"} night={night} g={g}>
+      <g transform="translate(310, 600) scale(0.5)"><AnswerBox mouth={night ? mouthAt(g, "narrator") : "X"} wave={night ? Math.sin(f / 4) : 0} /></g>
+      {!night && <text x={1170} y={580} fontFamily={BUBBLE} fontSize={50} fill={C.ink} transform="rotate(-8, 1170, 580)">BRRING!</text>}
+      <Lyric id={lineId} f={f} g={g} y={1030} size={64} />
+    </Bedroom_>
   );
 };
 export const S14: ShotC = ({ f, g, len }) => <Bedroom f={f} g={g} len={len} lineId="L11" />;
@@ -153,23 +198,47 @@ export const Gags: React.FC<{ f: number; g: number; len: number; lineId: string;
   const beat = Math.min(2, Math.floor((f / len) * 3));
   const t = f - (beat * len) / 3;
   const back = ez(t, len / 3 - 14, len / 3 - 4);
+  const toss = ez(t, 0, 8);
+  // set 1: a blanket thrown over it on the pillow; a mute bar over its mouth; shut in the top drawer, which slides
+  // back open. Set 2 (S37): a sleeping bag zipped over it; the mute bar slides off by itself; a lunchbox that pops open
   return (
-    <Bg id={`gag${set}`} seed={15} base={set === 1 ? C.paper : C.cream}>
-      <g transform="translate(960, 500)">
-        {beat === 0 && (set === 1
-          ? <g><g transform="scale(0.8)"><AnswerBox /></g><path d={`M-300,${-220 + ez(t, 0, 8) * 120} Q0,${-280 + ez(t, 0, 8) * 120} 300,${-220 + ez(t, 0, 8) * 120} L300,${140 - back * 300} Q0,${180 - back * 300} -300,${140 - back * 300} Z`} fill={C.orange} stroke={C.ink} strokeWidth={7} opacity={1 - back} /></g>
-          : <g><path d="M-420,120 Q-420,-120 0,-120 Q420,-120 420,120 Z" fill={C.teal} stroke={C.ink} strokeWidth={8} /><g transform={`translate(0, ${-110 - back * 40}) scale(0.5)`}><AnswerBox mouth={back > 0.5 ? "C" : "X"} /></g></g>)}
-        {beat === 1 && (
-          <g><g transform="scale(0.8)"><AnswerBox mouth="X" /></g>
-            <rect x={-60 + (set === 2 ? ez(t, 6, 20) * 500 : 0)} y={-14} width={300} height={60} rx={14} fill={C.ink} transform="translate(120, -40)" />
-            <text x={270 + (set === 2 ? ez(t, 6, 20) * 500 : 0)} y={0} textAnchor="middle" fontFamily="'Titan One'" fontSize={34} fill={C.cream}>MUTED</text></g>
-        )}
-        {beat === 2 && (set === 1
-          ? <g><rect x={-360} y={-60} width={720} height={260} fill={C.cardigan} stroke={C.ink} strokeWidth={8} /><rect x={-340} y={-40} width={680} height={200} fill={C.cardiganShade} stroke={C.ink} strokeWidth={6} /><g transform={`translate(0, ${-60 - back * 140}) scale(0.6)`} opacity={back}><AnswerBox mouth="D" /></g><rect x={-60} y={60} width={120} height={20} rx={8} fill={C.creamShade} stroke={C.ink} strokeWidth={4} /></g>
-          : <g><rect x={-320} y={-180} width={640} height={360} rx={30} fill={C.red} stroke={C.ink} strokeWidth={8} /><rect x={-80} y={-240} width={160} height={70} rx={30} fill="none" stroke={C.ink} strokeWidth={14} /><g transform={`translate(0, ${-back * 260}) scale(0.7)`}><AnswerBox /></g></g>)}
-      </g>
-      <Lyric id={lineId} f={f} g={g} y={1010} size={64} />
-    </Bg>
+    <Bedroom_ id={`gag${set}`} night={set === 2} g={g} drawer={set === 1 && beat === 2 ? back : 0}>
+      {beat === 0 && (set === 1 ? (
+        <g transform="translate(310, 600)">
+          <g transform="scale(0.5)"><AnswerBox mouth={back > 0.5 ? "D" : "X"} /></g>
+          <path d={`M-200,${-170 + toss * 120 - back * 160} Q0,${-230 + toss * 120 - back * 160} 200,${-170 + toss * 120 - back * 160} L210,${60 - back * 200} Q0,${90 - back * 200} -210,${60 - back * 200} Z`}
+            fill={C.orange} stroke={C.ink} strokeWidth={6} opacity={1 - back * 0.9} />
+        </g>
+      ) : (
+        <g transform="translate(900, 900)">
+          <path d="M-320,0 Q-330,-130 -200,-140 L260,-140 Q330,-120 320,0 Z" fill={C.avocado} stroke={C.ink} strokeWidth={7} />
+          <line x1={-200} y1={-140} x2={-200 + (1 - back) * 460} y2={-140} stroke={C.mustard} strokeWidth={8} />
+          <g transform={`translate(-230, ${-150 - back * 70}) scale(0.4)`}><AnswerBox mouth={back > 0.5 ? "C" : "X"} /></g>
+        </g>
+      ))}
+      {beat === 1 && (
+        <g transform="translate(310, 600)">
+          <g transform="scale(0.5)"><AnswerBox mouth="X" /></g>
+          <g transform={`translate(${set === 2 ? ez(t, 8, 22) * 420 : 0}, ${set === 2 ? ez(t, 8, 22) * 260 : 0}) rotate(${set === 2 ? ez(t, 8, 22) * 40 : 0})`}>
+            <rect x={60} y={-56} width={190} height={46} rx={12} fill={C.ink} />
+            <text x={155} y={-24} textAnchor="middle" fontFamily={BUBBLE} fontSize={30} fill={C.cream}>MUTED</text>
+          </g>
+        </g>
+      )}
+      {beat === 2 && (set === 1 ? (
+        <g transform={`translate(${1620 + back * 60}, ${560 - back * 110}) scale(0.4)`} opacity={toss > 0.5 && back < 0.1 ? 0 : 1}>
+          <AnswerBox mouth={back > 0.5 ? "D" : "X"} wave={back > 0.5 ? Math.sin(f / 3) : 0} />
+        </g>
+      ) : (
+        <g transform="translate(1260, 640)">
+          <rect x={-80} y={-60} width={180} height={110} rx={14} fill={C.red} stroke={C.ink} strokeWidth={6} />
+          <path d="M-30,-60 q40,-50 80,0" fill="none" stroke={C.ink} strokeWidth={8} />
+          <g transform={`rotate(${-back * 60}, -80, -60)`}><rect x={-80} y={-74} width={180} height={18} rx={6} fill={C.orange} stroke={C.ink} strokeWidth={5} /></g>
+          {back > 0.4 && <g transform={`translate(10, ${-80 - back * 40}) scale(0.3)`}><AnswerBox mouth="C" /></g>}
+        </g>
+      ))}
+      <Lyric id={lineId} f={f} g={g} y={1030} size={64} />
+    </Bedroom_>
   );
 };
 export const S15: ShotC = ({ f, g, len }) => <Gags f={f} g={g} len={len} lineId="L12" set={1} />;
@@ -179,25 +248,47 @@ export const S16: ShotC = ({ f }) => <S16Key f={f} />;
 // S17 / S39: "Default on!" / V04 / V11 "(On, on, on…)": Switch, redrawn slightly crooked, echoes quietly
 const Echo: React.FC<{ f: number; g: number; tired?: boolean }> = ({ f, g, tired }) => (
   <Bg id="echo" seed={17} base={C.mustard}>
-    <g transform={`translate(${W / 2}, 520) scale(${1 - f * 0.0008})`}>
+    <Wallpaper id="echo" kind="daisy" a={C.cream} b={C.orange} opacity={0.3} />
+    {/* the redrawing shows: faint pencil construction lines, a centre cross, eraser crumbs on the skirting */}
+    <g stroke={C.inkSoft} strokeWidth={2} fill="none" opacity={0.45}>
+      <rect x={W / 2 - 150} y={300} width={300} height={440} rx={30} transform={`rotate(${tired ? -5 : -3}, ${W / 2}, 520)`} />
+      <line x1={W / 2} y1={240} x2={W / 2} y2={800} /><line x1={W / 2 - 220} y1={520} x2={W / 2 + 220} y2={520} />
+      <circle cx={W / 2 - 58} cy={412} r={56} /><circle cx={W / 2 + 58} cy={412} r={56} />
+    </g>
+    {[0, 1, 2, 3, 4].map((k) => <ellipse key={k} cx={W / 2 + 160 + k * 26} cy={900 + (k % 2) * 8} rx={10} ry={6} fill="#e8b0a0" stroke={C.ink} strokeWidth={2} />)}
+    <rect x={-10} y={860} width={W + 20} height={26} fill={C.creamShade} stroke={C.ink} strokeWidth={5} />
+    <g transform={`translate(${W / 2}, 520) scale(${1 - f * 0.0008}, ${(1 - f * 0.0008) * breath(g, 5)})`}>
       <Switch pose={tired ? "sad" : "neutral"} tilt={tired ? -9 : -6} mouth={mouthAt(g, "switch")} blink={tired ? 0.4 : blink(g)} />
     </g>
+    {[0, 1, 2].map((k) => <text key={k} x={W / 2 + 220 + k * 70} y={400 - k * 50 - (f % 40)} fontFamily={BUBBLE} fontSize={56 - k * 10} fill={C.cream} stroke={C.ink} strokeWidth={3} paintOrder="stroke" opacity={0.85 - k * 0.2}>on</text>)}
   </Bg>
 );
 export const S17: ShotC = ({ f, g }) => <Echo f={f} g={g} />;
 export const S39: ShotC = ({ f, g }) => <Echo f={f} g={g} tired />;
 
 // S18: the flute and scat fill: the grey hand doodles little ON switches in a margin, in time with the fill
-export const S18: ShotC = ({ f }) => {
-  const n = Math.floor(f / 14);
+export const S18: ShotC = ({ f, g }) => {
+  const n = Math.min(Math.floor(f / 14), 10);
+  const k = Math.max(0, n - 1);
+  const px = 160 + (k % 2) * 140, py = 190 + Math.floor(k / 2) * 170;
+  const scrib = Math.sin(f * 1.3) * 10;
   return (
     <Bg id="s18" seed={18}>
+      {Array.from({ length: 13 }, (_, i) => <line key={i} x1={0} y1={110 + i * 76} x2={W} y2={110 + i * 76} stroke={C.teal} strokeWidth={2} opacity={0.35} />)}
       <line x1={420} y1={0} x2={420} y2={H} stroke={C.red} strokeWidth={4} opacity={0.6} />
-      {Array.from({ length: 12 }, (_, i) => <line key={i} x1={0} y1={140 + i * 80} x2={W} y2={140 + i * 80} stroke={C.teal} strokeWidth={2} opacity={0.3} />)}
-      {Array.from({ length: Math.min(n, 8) }, (_, i) => (
-        <g key={i} transform={`translate(${160 + (i % 2) * 140}, ${190 + Math.floor(i / 2) * 190}) rotate(${(i % 3) - 1 * 4})`}><MiniRocker on={1} s={0.9} /></g>
+      {[200, 540, 880].map((y) => <circle key={y} cx={60} cy={y} r={22} fill={C.paper} stroke={C.inkSoft} strokeWidth={3} />)}
+      <circle cx={1500} cy={760} r={130} fill="none" stroke={C.cardigan} strokeWidth={14} opacity={0.25} />
+      <text x={520} y={260} fontFamily={SANS} fontSize={44} fill={C.inkSoft} opacity={0.7}>opt-in · opt-out · default</text>
+      <path d="M520,320 q80,-30 160,0 t160,0" fill="none" stroke={C.inkSoft} strokeWidth={4} opacity={0.6} />
+      {Array.from({ length: n }, (_, i) => (
+        <g key={i} transform={`translate(${160 + (i % 2) * 140}, ${190 + Math.floor(i / 2) * 170}) rotate(${((i * 37) % 9) - 4})`}><MiniRocker on={1} s={0.9} /></g>
       ))}
-      <g transform={`translate(${-40}, ${260 + Math.floor(Math.min(n, 8) / 2) * 190}) rotate(-8)`}><Hand reach={0.7} length={700} curl={0.2} /></g>
+      {[[700, 520], [1100, 420], [900, 700]].map(([x, y], i) => i < n / 3 && <path key={i} d={`M${x},${y} l10,24 l26,4 l-20,16 l6,26 l-22,-14 l-22,14 l6,-26 l-20,-16 l26,-4 Z`} fill="none" stroke={C.inkSoft} strokeWidth={3} opacity={0.7} />)}
+      {/* the hand, with a pencil, scribbling the latest switch */}
+      <g transform={`translate(${px - 520 + scrib}, ${py + 360}) rotate(-35)`}>
+        <Hand reach={1} length={640} curl={0.5} />
+        <g transform="translate(560, -40) rotate(-50)"><rect x={0} y={-10} width={160} height={20} fill={C.mustard} stroke={C.ink} strokeWidth={4} /><path d="M0,-10 L-30,0 L0,10 Z" fill={C.cream} stroke={C.ink} strokeWidth={3} /></g>
+      </g>
     </Bg>
   );
 };
