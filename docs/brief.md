@@ -27,7 +27,7 @@
 **Protecting the child**
 
 - His face, name, school and home never appear. The reveal shows hands, a phone or mic, a waveform and a light switch, framed tight so no room details identify the house.
-- Credit him as you choose; the default is "Switch: voiced by a real kid." Record your consent as his guardian in the intervention log.
+- Credit him as you choose; the credit is "Switch: voiced by a child of two ex-Googlers and ex-Microsofties." Record your consent as his guardian in the intervention log.
 - Raw takes stay out of the public repo by default. Publish only the comped, processed lines that are in the final mix, and note in the log that the raw takes are withheld.
 
 ## Recording plan for Switch
@@ -72,7 +72,7 @@
 
 **Characters**
 
-- **Switch.** A cream wall plate with a toggle for a nose, big round eyes, stubby arms and no legs; he travels by hopping off the wall onto other surfaces. Poses: neutral, curious, proud, sad, flipped-on (startled, toggle up) and off (relaxed, toggle down). Seven mouth shapes, driven by the comped Switch track.
+- **Switch.** A cream flat-plate (rocker) wall switch: a flat paddle in the middle of the plate rocks top-in for ON and bottom-in for OFF, with a small pilot light that glows when ON (no lever, so nothing can be misread). Big round eyes, stubby arms and no legs; he travels by hopping off the wall onto other surfaces. Poses: neutral, curious, proud, sad, flipped-on (startled, paddle top-in) and off (relaxed, paddle bottom-in). Seven mouth shapes, driven by the comped Switch track.
 - **The Narrator.** A hand-drawn host in a brown cardigan and wide collar, seen from the waist up, seated on a stool or leaning on a chalkboard. Relaxed and slightly rumpled; he never looks at the off-screen hand. Seven mouth shapes, driven by the Narrator stem.
 - **The off-screen hand.** Only a cuff and fingers, entering from the frame edge. Same grey sleeve every time; no face is ever attached.
 - **Kids at desks** (final chorus only). Simple, generic, varied cartoon kids. None is drawn to resemble the real child.
@@ -90,7 +90,7 @@
 
 ## Shot list
 
-**6****8 shots (S00–S67)**** plus fact cards, each cued by a lyric line; the timing map in M1 turns cues into frames.** Switch's lines are marked with their recording IDs, so shots can be animated against the gap and lip-synced when the take lands.
+**6****9 shots (S00–S68****)**** plus fact cards, each cued by a lyric line; the timing map in M1 turns cues into frames.** Switch's lines are marked with their recording IDs, so shots can be animated against the gap and lip-synced when the take lands.
 
 **Source key:** **A** animated in Remotion · **R** real screen capture · **H** real footage the human shoots · **E** sound or edit event.
 
@@ -99,10 +99,10 @@
 | ID | Cue | Picture | Source |
 | --- | --- | --- | --- |
 | S00 | Before the audio starts (about 2 s of room tone, added in the edit) | Pre-roll card on cream paper: "A cartoon for grown-ups about tech settings." Plain sans, warm dark-brown ink, film layer on, no bubble letters and no characters, so it reads as a label rather than a title. Cut straight to S01's countdown | A |
-| S01 | Downbeat, before the first line | Film-leader countdown, then the title card "DEFAULT ON" in bubble letters on mustard. A small toggle under the title flips itself from OFF to ON | A |
+| S01 | Downbeat, before the first line | Film-leader countdown, then the title card "DEFAULT ON" in bubble letters on mustard. A small rocker switch under the title rocks itself from OFF to ON | A |
 | S02 | "Hi, grown-ups! Today we're learning how an opt-out works." (regenerated) | Narrator on a stool by a chalkboard reading "TODAY: HOW AN OPT-OUT WORKS" | A |
 | S03 | "Say hello to Little Switch!" | Pan right along the wall to a wall plate; Switch's eyes open | A |
-| S04 | V01 "Hi! I've got two sides…" | Switch waves, then demonstrates: toggle up, an "ON" label pops; toggle down, "OFF" | A |
+| S04 | V01 "Hi! I've got two sides…" | Switch waves, then demonstrates: paddle rocks to ON, an "ON" label pops; rocks back, "OFF" | A |
 
 ### Verse 1
 
@@ -118,7 +118,7 @@
 | ID | Cue | Picture | Source |
 | --- | --- | --- | --- |
 | S09 | V03 "I've only got two sides…" | Night-blue background, one spotlight; Switch alone on the wall, singing slowly | A |
-| S10 | "You push me down for off…" | Switch pulls himself down to OFF, exhales, closes his eyes | A |
+| S10 | "You push me down for off…" | Switch pulls himself down to OFF, exhales, closes his eyes. In the last half second the grey sleeve starts reaching in from frame left, so S11's flip (only 8 frames, in the 0.45 s gap) lands on the click | A |
 | S11 | [click] | The grey sleeve enters from frame left and flips him back up. Click from the real-switch recordings | A, E |
 | S12 | "…so how'd I just return?" | Switch looks left and right; nobody's there | A |
 
@@ -200,7 +200,10 @@
 
 | ID | Cue | Picture | Source |
 | --- | --- | --- | --- |
-| S57 | Final chorus, through the second-to-last line | A classroom of cartoon kids, each with a little toggle on the desk; the toggles flick ON in rhythm. Bubble-letter lyrics with a bouncing ball. Switch in the front row, mouthing along | A |
+| S57 | Final chorus, first line: "Default on! Default on!" | A classroom of cartoon kids, each with a little rocker switch on the desk; the switches rock ON in rhythm. Bubble-letter lyrics with a bouncing ball. Switch in the front row, mouthing along | A |
+| S57a | "It was there when we woke up…" | Low and close along a row of desks: the kids sing while their rocker switches rock ON one after another, in rhythm | A |
+| S57b | "We can hide it, we can mute it…" | The kids try the chorus gags on their own switches: a book laid over one, a hand clapped over another, one tucked into a desk. Each rocks back ON | A |
+| S57c | "But the switch is just a picture…" | Close on Switch in the front row, mouthing along; a corner of his plate lifts like a sticker, and he presses it flat again | A |
 | S58 | Last "Default on!" | Pull back: the classroom is on the TV from S29, with the winking tile from S30 | A |
 
 ### Outro and reveal
@@ -216,11 +219,12 @@
 | S65 | "An AI did." | Film layer drops to zero. Real screen capture of the generation screen: style prompt, lyrics, take list | R |
 | S66 | "…But somebody asked it to." | Split frame. Left: the generation screen. Right: the editing timeline with the Switch track labelled "Switch: recorded at home," its waveform playing | R |
 | S67 | V21 "Hey… was its switch on, too?" over the band's last bars, then the audio ends (the band plays to the end of the file; there is no silence after the last word) | Real close-up of a light switch on a plain wall. On V21, a small hand reaches in and waits; on the band's last note it flips the switch OFF. It stays off. Hold two seconds on room tone after the audio ends, then cut to fact card G | H |
+| S68 | After fact card G, room tone only | Real top-down shot, about five seconds: Google and Microsoft swag laid out neatly on a plain surface, Noogler hat on top. Caption: "Made by a former Google and Microsoft employee, who holds no stock in either. Nothing here comes from the inside: every claim is from public reporting, sourced on the cards that follow." Neutral, even fond; never discarded or binned | H |
 
 ### End card and fact cards
 
-- **End card:** lyrics drafted by Claude (Anthropic) and audited by another lab's model; music by the generator, with take ID; Narrator generated; Switch voiced by a real kid; animation by Claude Code; the human chose, edited and fact-checked every claim, with audits by Gemini, ChatGPT and Copilot; the count of human interventions, with a link to the log.
-- **Fact cards:** card G (who wrote this, and Anthropic's own default-on toggle) first, answering V21; then one per row of the Default On fact card, in that order, about four seconds each, in plain type with the source under each. Allegations say so.
+- **End card:** lyrics drafted by Claude (Anthropic) and audited by another lab's model; music by the generator, with take ID; Narrator generated; Switch voiced by a child of two ex-Googlers and ex-Microsofties; animation by Claude Code; the human chose, edited and fact-checked every claim, with audits by Gemini, ChatGPT and Copilot; the count of human interventions, with a link to the log.
+- **Fact cards:** card G (who wrote this, and Anthropic's own default-on toggle) first, answering V21; then S68, the creator's own disclosure; then one per row of the Default On fact card, in that order, about four seconds each, in plain type with the source under each. Allegations say so.
 
 **Thumbnail:** Switch mid-flip with the grey hand reaching in. Never the real hand, the generation screen or the timeline, which would spoil the reveal.
 
@@ -235,7 +239,7 @@
 - The locked master and its stems (Narrator vocal, instrumental, and any others the generator gave), with the take ID, prompt and settings.
 - A screen capture of the generation screen showing the style prompt, lyrics and take list (for S65–S66).
 - Switch's takes V01–V19 and V21, the 20 real-switch clicks and 10 seconds of room tone (see the recording plan).
-- About ten seconds of real footage for S67: a close-up of a small hand flipping a light switch off, shot tight on plain wall, phone held still, 4K if possible.
+- About ten seconds of real footage for S67: a close-up of a small hand flipping a light switch off, shot tight on plain wall, phone held still, 4K if possible. Plus about five seconds for S68: the swag from above on a plain surface, with nothing written, internal or badge-like in frame.
 - The Default On doc (lyrics, fact card) and this brief.
 
 **Pipeline**

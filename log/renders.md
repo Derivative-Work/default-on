@@ -27,3 +27,9 @@ Every render: timestamp, shot ID, composition, props, commit hash, output, conta
 - **Command:** `npx remotion render src/index.ts Animatic ../renders/m3/m3_animatic.mp4 --log=error --concurrency=8 --crf=26`
 - **Commit:** built on 19eb99c + the M3 code (committed with this entry).
 - **Output:** `renders/m3/m3_animatic.mp4` (20.6 MB). Contact sheets: `review/S00.jpg` … `review/S67.jpg` (`scripts/contact_sheets.py`).
+
+## 2026-11-06T10:18 — M3 animatic, revised
+
+- **Shots:** S00–S68 and FG. **Composition:** `Animatic` (960x540), 7,954 frames (4:25.2): the cut through S67's hold, fact card G's placeholder, S68's stand-in.
+- **Command:** as at 09:40. **Commit:** built on e33b2e7 + the changes committed with this entry.
+- **Output:** `renders/m3/m3_animatic.mp4`; 73 contact sheets in `review/`.

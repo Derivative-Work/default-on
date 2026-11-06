@@ -121,7 +121,10 @@ Mute = the generator's attempt (muted in the final mix). Room = Narrator's word 
 | S54 | Bridge | V16 "And the answer box on top?" | 193.48 | 5954 | L57 | cue words |
 | S55 | Bridge | "…That one's 'deeply integrated.'" | 195.86 | 6026 | L58 | cue words |
 | S56 | Bridge | V17 "What's that mean?" / "It means it stays." | 197.80 | 6084 | L59 | cue words |
-| S57 | Final chorus | Final chorus, through the second-to-last line | 201.00 | 6180 | L61 | first final-chorus line |
+| S57 | Final chorus | Final chorus, first line: "Default on! Default on!" | 201.00 | 6180 | L61 | first final-chorus line |
+| S57a | Final chorus | "It was there when we woke up…" | 204.07 | 6272 | L62 | cue words |
+| S57b | Final chorus | "We can hide it, we can mute it…" | 207.61 | 6378 | L63 | cue words |
+| S57c | Final chorus | "But the switch is just a picture…" | 211.21 | 6486 | L64 | cue words |
 | S58 | Final chorus | Last "Default on!" | 217.99 | 6690 | L65 | last "Default on!" |
 | S59 | Outro and reveal | V18 "I've got two sides." | 219.88 | 6746 | L66 | cue words |
 | S60 | Outro and reveal | [click] [click] [click] | 221.32 | 6790 | L66 | first outro click |
@@ -132,6 +135,7 @@ Mute = the generator's attempt (muted in the final mix). Room = Narrator's word 
 | S65 | Outro and reveal | "An AI did." | 239.08 | 7322 | L71 | cue words |
 | S66 | Outro and reveal | "…But somebody asked it to." | 241.46 | 7394 | L71 | cue words |
 | S67 | Outro and reveal | V21 "Hey… was its switch on, too?" over the band's last bars, then the audio ends (the band plays to the end of the file; there is no silence after the last word) | 243.10 | 7443 | L71 | V21 over the band's tail; the hand flips on the last note; holds past the audio |
+| S68 | Outro and reveal | After fact card G, room tone only | 255.15 | 7804 | L71 | post-roll: after fact card G |
 
 ## Lines
 

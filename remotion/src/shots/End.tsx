@@ -149,11 +149,58 @@ const Classroom: React.FC<{ f: number; g: number; lineId?: string }> = ({ f, g, 
   </Bg>
 );
 
-// S57: the final chorus, through the second-to-last line
-export const S57: ShotC = ({ f, g }) => {
-  const id = ["L61", "L62", "L63", "L64"].reverse().find((l) => g >= at(line(l).start) - 6) ?? "L61";
-  const g0 = at(line(id).start) - 6;
-  return <Classroom f={g - g0 + 6} g={g} lineId={id} />;
+// S57: the final chorus's first line, "Default on! Default on!": the whole classroom
+export const S57: ShotC = ({ f, g }) => <Classroom f={f} g={g} lineId="L61" />;
+
+// a row of desks seen low and close: three kids and their rockers; `gag` stages S57b's attempts to switch them off
+const Desks: React.FC<{ f: number; g: number; len: number; lineId: string; gag?: boolean }> = ({ f, g, len, lineId, gag }) => (
+  <Bg id="s57a" seed={57} base={C.mustard}>
+    {[0, 1, 2].map((i) => {
+      const x = 380 + i * 580, seed = 3 + i * 2;
+      const beat = (len / 3) * i; // S57a: rockers rock ON one after another; S57b: one gag per kid, in turn
+      const t = f - beat;
+      const covered = gag && t > 6 && t < len / 3 - 10;
+      const on = gag ? !covered || t > len / 3 - 14 : f > beat + 6;
+      return (
+        <g key={i}>
+          <g transform={`translate(${x}, 420) scale(1.25)`}><Kid seed={seed} mouth={mouthAt(g + seed * 2, "narrator")} look={gag ? [0.4, 0.9] : [0, 0]} /></g>
+          <rect x={x - 260} y={700} width={520} height={60} fill={C.cardigan} stroke={C.ink} strokeWidth={7} />
+          <rect x={x - 240} y={760} width={480} height={330} fill={C.cardiganShade} stroke={C.ink} strokeWidth={7} />
+          <g transform={`translate(${x + 120}, ${640 - (on && !gag ? bump(t, 6, 5) * 24 : 0)})`}><MiniRocker on={on ? 1 : 0} s={1.1} /></g>
+          {/* S57b's three gags: a book over it, a hand over it, tucked into the desk; each pops back ON */}
+          {gag && covered && i === 0 && <rect x={x + 30} y={560} width={190} height={150} rx={8} fill={C.teal} stroke={C.ink} strokeWidth={6} transform={`rotate(-6, ${x + 120}, 640)`} />}
+          {gag && covered && i === 1 && <ellipse cx={x + 120} cy={630} rx={90} ry={70} fill={(["#f0c49b", "#c98b5e", "#8d5a3a"])[i]} stroke={C.ink} strokeWidth={6} />}
+          {gag && covered && i === 2 && <rect x={x + 40} y={590} width={160} height={110} fill={C.cardigan} stroke={C.ink} strokeWidth={6} />}
+          {gag && !covered && t > len / 3 - 14 && t < len / 3 - 4 && <text x={x + 120} y={520} textAnchor="middle" fontFamily={BUBBLE} fontSize={60} fill={C.orange} stroke={C.ink} strokeWidth={4} paintOrder="stroke">ON!</text>}
+        </g>
+      );
+    })}
+    <Lyric id={lineId} f={f} g={g} y={1030} size={58} />
+  </Bg>
+);
+// S57a: "It was there when we woke up…": low and close along a row of desks; the rockers rock ON one after another
+export const S57a: ShotC = ({ f, g, len }) => <Desks f={f} g={g} len={len} lineId="L62" />;
+// S57b: "We can hide it, we can mute it…": the kids try the chorus gags on their own switches; each rocks back ON
+export const S57b: ShotC = ({ f, g, len }) => <Desks f={f} g={g} len={len} lineId="L63" gag />;
+
+// S57c: "But the switch is just a picture…": close on Switch in the front row, mouthing along; a corner of his plate
+// lifts like a sticker, and he presses it flat again
+export const S57c: ShotC = ({ f, g, len }) => {
+  const lift = ez(f, len * 0.35, len * 0.5) * (1 - ez(f, len * 0.7, len * 0.8));
+  const d = 20 + lift * 90;
+  const fx = 125, fy = 195;
+  return (
+    <Bg id="s57c" seed={57} base={C.mustard}>
+      <rect x={0} y={860} width={W} height={220} fill={C.cardigan} stroke={C.ink} strokeWidth={8} />
+      {[260, 1660].map((x, i) => <g key={x} transform={`translate(${x}, 560) scale(1.1)`} opacity={0.85}><Kid seed={8 + i} mouth={mouthAt(g + i * 3, "narrator")} /></g>)}
+      <g transform="translate(960, 520) scale(1.25)">
+        <clipPath id="s57c-peel"><path d={`M-600,-600 L600,-600 L600,${fx + fy - d - 600} L${fx + fy - d - 600},600 L-600,600 Z`} /></clipPath>
+        <g clipPath="url(#s57c-peel)"><Switch pose={lift > 0.3 ? "startled" : "neutral"} mouth={mouthAt(g, "narrator")} armR={lift > 0.5 ? 60 : 25} look={lift > 0.3 ? [0.6, 0.7] : [0, 0]} blink={blink(g, 11)} /></g>
+        <path d={`M${fx},${fy - d} L${fx - d},${fy} L${fx - d},${fy - d} Z`} fill={C.white} stroke={C.ink} strokeWidth={5} strokeLinejoin="round" />
+      </g>
+      <Lyric id="L64" f={f} g={g} y={1030} size={58} />
+    </Bg>
+  );
 };
 
 // S58: last "Default on!": pull back; the classroom is on the TV from S29, with the winking tile from S30
@@ -242,6 +289,19 @@ export const S64: ShotC = ({ f, g, len }) => {
     </Bg>
   );
 };
+
+// FG: fact card G, after S67's hold (M5 builds the cards; this marks its place and length)
+export const FG: ShotC = () => (
+  <Bg id="fg" seed={70}>
+    <text x={W / 2} y={470} textAnchor="middle" fontFamily={SANS} fontWeight={600} fontSize={60} fill={C.ink}>Fact card G</text>
+    <text x={W / 2} y={560} textAnchor="middle" fontFamily={SANS} fontSize={40} fill={C.inkSoft}>Who wrote this, and Anthropic's own default-on toggle (built in M5)</text>
+  </Bg>
+);
+
+// S68: the creator's disclosure, real footage the human shoots, with its caption (brief rev 61)
+export const S68: ShotC = () => (
+  <Stand label="S68 · REAL FOOTAGE · TOP-DOWN, ~5 s" note="Google and Microsoft swag laid out neatly on a plain surface, Noogler hat on top. Caption: “Made by a former Google and Microsoft employee, who holds no stock in either. Nothing here comes from the inside: every claim is from public reporting, sourced on the cards that follow.”" />
+);
 
 // S65-S67: real material. Until it lands, stand-ins say what goes there; the film layer is off from S65 (Cut.tsx)
 export const S65: ShotC = () => <Stand label="S65 · REAL SCREEN CAPTURE" note="The generation screen: style prompt, lyrics, take list (the human supplies it)" />;

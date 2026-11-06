@@ -1,8 +1,8 @@
 """Review aid (brief, Pipeline): one contact sheet per shot, review/<shot>.jpg, from a rendered video of the whole cut.
 Four frames per shot (at 10%, 35%, 65% and 90% of its range on screen) tiled 2x2, each 480 px wide; the render's own
-burn-in names the shot and frame. Shot ranges come from timing/map.json (S67 holds 2 s past the audio, as in
-remotion/src/timing.ts). A section render starts at frame <offset> of the cut; only the shots inside it get sheets.
-Each frame is seeked to directly, so a sheet doesn't decode the whole video.
+burn-in names the shot and frame. Shot ranges come from timing/map.json, with the post-roll so far (fact card G as
+"FG", then S68) and the video's end from it. A section render starts at frame <offset> of the cut; only the shots
+inside it get sheets. Each frame is seeked to directly, so a sheet doesn't decode the whole video.
 
 Usage: python3 -I scripts/contact_sheets.py <video> [<offset> <frames>]
 """
@@ -12,14 +12,13 @@ import sys
 import tempfile
 from pathlib import Path
 
-HOLD_S = 2  # keep in step with remotion/src/timing.ts
-
 
 def ranges():
     m = json.loads(Path("timing/map.json").read_text())
-    end = round((m["events"]["audio_end"] + HOLD_S + m["preroll_s"]) * m["fps"])
-    s = m["shots"]
-    return m["fps"], [(x["id"], x["frame"], s[i + 1]["frame"] if i + 1 < len(s) else end) for i, x in enumerate(s)]
+    s = sorted([(x["id"], x["frame"]) for x in m["shots"]] + [(p["id"], p["frame"]) for p in m["post"] if p["id"] == "FG"],
+               key=lambda x: x[1])
+    end = m["video_end_frame"]
+    return m["fps"], [(sid, a, s[i + 1][1] if i + 1 < len(s) else end) for i, (sid, a) in enumerate(s)]
 
 
 def main(video, offset=0, length=None):

@@ -26,13 +26,13 @@ export const beats = map.beats.map(at);
 export const downbeats = map.downbeats.map(at);
 export const events = map.events;
 
-// every shot in order, with its frame range; S67 holds HOLD_S past the audio (brief) before the fact cards
-export const HOLD_S = 2;
-export const END = at(map.events.audio_end + HOLD_S);
-export const shots = map.shots.map((s, i) => ({
-  id: s.id, cue: s.cue, frame: s.frame as number,
-  end: i + 1 < map.shots.length ? (map.shots[i + 1].frame as number) : END,
-}));
+// every shot in order, with its frame range, plus the post-roll so far: S67 holds 2 s past the audio, then fact
+// card G ("FG") and S68 (map.post; the other fact cards and the end card come in M5)
+export const END = map.video_end_frame;
+const ordered = [...map.shots.map((s) => ({ id: s.id, cue: s.cue, frame: s.frame as number })),
+  ...map.post.filter((p) => p.id === "FG").map((p) => ({ id: p.id, cue: "Fact card G (who wrote this; Anthropic's default-on toggle)", frame: p.frame }))]
+  .sort((a, b) => a.frame - b.frame);
+export const shots = ordered.map((s, i) => ({ ...s, end: i + 1 < ordered.length ? ordered[i + 1].frame : END }));
 
 // placeholder mouths until M4's Rhubarb pass: inside an aligned word (or a proposed Switch slot) the mouth cycles
 // open shapes every 3 frames; otherwise it rests

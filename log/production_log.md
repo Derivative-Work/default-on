@@ -93,3 +93,12 @@ Append-only. One entry per action: timestamp, step (shot ID where relevant), wha
 - **Commands:** `npx tsc --noEmit`; `npx remotion render src/index.ts SpotCheck <dir> --sequence`; `npx remotion render src/index.ts Animatic ../renders/m3/m3_animatic.mp4 --concurrency=8 --crf=26` (5 min 42 s, about 22 fps); `python3 -I scripts/contact_sheets.py renders/m3/m3_animatic.mp4` (new port: seeks each frame directly).
 - **Outputs:** `remotion/src/**`, `renders/m3/m3_animatic.mp4`, `review/S00.jpg` … `review/S67.jpg`
 - **Why:** the brief, M3.
+
+## 2026-11-06T10:20:00-05:00 — M3 revised: S11 timing, S57a–c, the post-roll (card G, S68)
+
+- **What:** Re-read the brief (rev 58): S68 added after fact card G; the credit changed; S68's footage added to Inputs. Edited the brief (rev 58 → 61): S57 now cues the final chorus's first line; new rows S57a ("It was there when we woke up…": the desks, rockers rocking ON in turn), S57b ("We can hide it, we can mute it…": the kids try the gags on their own switches; each rocks back ON) and S57c ("But the switch is just a picture…": Switch close, a sticker corner lifting); S10's picture now says the sleeve starts reaching in its last half second. Re-mirrored the brief.
+- **Map:** `timing_map.py` adds the post-roll so far: S67 holds 2 s past the audio (251.15 s), fact card G for 4 s ("FG"), S68 for 5 s (255.15 s); `video_end_frame` 7954. S57a–c resolve to L62–L64. The other fact cards and the end card are M5's.
+- **Shots:** S10's last 15 frames bring the sleeve in to 82% reach; S11 (8 frames) flips him on its first frame; S12's first 8 frames withdraw the hand while he looks after it. S57 is the wide classroom on the first line; S57a–c new; FG is a placeholder card; S68 a stand-in carrying the brief's caption. `timing.ts` merges the post-roll into the shot list; `contact_sheets.py` reads it from the map.
+- **Commands:** docs `read` (rev 58, 61) and `update` (insert 3 rows; 2 find/replace); `python3 -I scripts/doc_to_md.py`; `.venv/bin/python -I scripts/timing_map.py`; stills of map frames 1288–1306 and a SpotCheck of S57–S68; the render below; `python3 -I scripts/contact_sheets.py renders/m3/m3_animatic.mp4`.
+- **Outputs:** `renders/m3/m3_animatic.mp4` (replaces the 09:40 render; regenerable from e33b2e7), 73 contact sheets (`review/S57a.jpg`, `S57b`, `S57c`, `FG`, `S68` new).
+- **Why:** the human's M3 notes (log/human_interventions.md, 10:05).

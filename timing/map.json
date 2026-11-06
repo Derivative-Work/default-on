@@ -770,6 +770,23 @@
   "last_note_frame": 7575,
   "audio_end_frame": 7624
  },
+ "post": [
+  {
+   "id": "FG",
+   "what": "fact card G",
+   "t": 251.15,
+   "len_s": 4.0,
+   "frame": 7684
+  },
+  {
+   "id": "S68",
+   "what": "the swag shot (real footage)",
+   "t": 255.15,
+   "len_s": 5.0,
+   "frame": 7804
+  }
+ ],
+ "video_end_frame": 7954,
  "sections": [
   {
    "name": "Intro",
@@ -6007,7 +6024,7 @@
    "id": "S01",
    "section": "Intro",
    "cue": "Downbeat, before the first line",
-   "picture": "Film-leader countdown, then the title card \"DEFAULT ON\" in bubble letters on mustard. A small toggle under the title flips itself from OFF to ON",
+   "picture": "Film-leader countdown, then the title card \"DEFAULT ON\" in bubble letters on mustard. A small rocker switch under the title rocks itself from OFF to ON",
    "source": "A",
    "t": -3.0,
    "line": null,
@@ -6046,7 +6063,7 @@
    "id": "S04",
    "section": "Intro",
    "cue": "V01 \"Hi! I've got two sides\u2026\"",
-   "picture": "Switch waves, then demonstrates: toggle up, an \"ON\" label pops; toggle down, \"OFF\"",
+   "picture": "Switch waves, then demonstrates: paddle rocks to ON, an \"ON\" label pops; rocks back, \"OFF\"",
    "source": "A",
    "t": 11.85,
    "line": "L03",
@@ -6124,7 +6141,7 @@
    "id": "S10",
    "section": "Pre-chorus 1 (half-time)",
    "cue": "\"You push me down for off\u2026\"",
-   "picture": "Switch pulls himself down to OFF, exhales, closes his eyes",
+   "picture": "Switch pulls himself down to OFF, exhales, closes his eyes. In the last half second the grey sleeve starts reaching in from frame left, so S11's flip (only 8 frames, in the 0.45 s gap) lands on the click",
    "source": "A",
    "t": 36.63,
    "line": "L09",
@@ -6734,13 +6751,52 @@
   {
    "id": "S57",
    "section": "Final chorus",
-   "cue": "Final chorus, through the second-to-last line",
-   "picture": "A classroom of cartoon kids, each with a little toggle on the desk; the toggles flick ON in rhythm. Bubble-letter lyrics with a bouncing ball. Switch in the front row, mouthing along",
+   "cue": "Final chorus, first line: \"Default on! Default on!\"",
+   "picture": "A classroom of cartoon kids, each with a little rocker switch on the desk; the switches rock ON in rhythm. Bubble-letter lyrics with a bouncing ball. Switch in the front row, mouthing along",
    "source": "A",
    "t": 201.0,
    "line": "L61",
    "how": "first final-chorus line",
    "frame": 6180,
+   "end": 204.07,
+   "frame_end": 6272
+  },
+  {
+   "id": "S57a",
+   "section": "Final chorus",
+   "cue": "\"It was there when we woke up\u2026\"",
+   "picture": "Low and close along a row of desks: the kids sing while their rocker switches rock ON one after another, in rhythm",
+   "source": "A",
+   "t": 204.07,
+   "line": "L62",
+   "how": "cue words",
+   "frame": 6272,
+   "end": 207.61,
+   "frame_end": 6378
+  },
+  {
+   "id": "S57b",
+   "section": "Final chorus",
+   "cue": "\"We can hide it, we can mute it\u2026\"",
+   "picture": "The kids try the chorus gags on their own switches: a book laid over one, a hand clapped over another, one tucked into a desk. Each rocks back ON",
+   "source": "A",
+   "t": 207.61,
+   "line": "L63",
+   "how": "cue words",
+   "frame": 6378,
+   "end": 211.21,
+   "frame_end": 6486
+  },
+  {
+   "id": "S57c",
+   "section": "Final chorus",
+   "cue": "\"But the switch is just a picture\u2026\"",
+   "picture": "Close on Switch in the front row, mouthing along; a corner of his plate lifts like a sticker, and he presses it flat again",
+   "source": "A",
+   "t": 211.21,
+   "line": "L64",
+   "how": "cue words",
+   "frame": 6486,
    "end": 217.99,
    "frame_end": 6690
   },
@@ -6871,9 +6927,22 @@
    "line": "L71",
    "how": "V21 over the band's tail; the hand flips on the last note; holds past the audio",
    "frame": 7443,
-   "end": null,
-   "frame_end": null,
-   "note": "real footage; the shot runs past the audio (hold two seconds on room tone, then black)"
+   "end": 251.15,
+   "frame_end": 7684,
+   "note": "real footage; runs past the audio, holding 2 s on room tone, then fact card G"
+  },
+  {
+   "id": "S68",
+   "section": "Outro and reveal",
+   "cue": "After fact card G, room tone only",
+   "picture": "Real top-down shot, about five seconds: Google and Microsoft swag laid out neatly on a plain surface, Noogler hat on top. Caption: \"Made by a former Google and Microsoft employee, who holds no stock in either. Nothing here comes from the inside: every claim is from public reporting, sourced on the cards that follow.\" Neutral, even fond; never discarded or binned",
+   "source": "H",
+   "t": 255.15,
+   "line": "L71",
+   "how": "post-roll: after fact card G",
+   "frame": 7804,
+   "end": 260.15,
+   "frame_end": 7954
   }
  ]
 }

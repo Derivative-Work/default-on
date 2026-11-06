@@ -35,22 +35,25 @@ export const S09: ShotC = ({ f, g }) => <Lament f={f} g={g} />;
 export const S35: ShotC = ({ f, g }) => <Lament f={f} g={g} dim={1} hand />;
 
 // S10: "You push me down for off…": he pulls himself down to OFF, exhales, closes his eyes
-export const S10: ShotC = ({ f, g }) => {
+// In its last half second the grey sleeve starts reaching in, so S11's flip (8 frames) lands on the click
+export const S10: ShotC = ({ f, g, len }) => {
   const off = ez(f, 4, 16);
+  const reach = ez(f, len - 15, len) * 0.82;
   return (
     <Night id="pc">
       <g transform={`translate(${W / 2}, ${540 + off * 8})`}>
         <Switch pose={off > 0.5 ? "relaxed" : "sad"} toggle={1 - off} mouth={mouthAt(g, "switch")} armL={60 - off * 50} armR={60 - off * 50} blink={off > 0.9 ? 1 : 0} />
       </g>
+      {reach > 0 && <g transform="translate(-40, 480) rotate(6)"><Hand reach={reach} length={880} /></g>}
     </Night>
   );
 };
 
-// S11 / S36: [click]: the grey sleeve enters from frame left and flips him back up (S36 faster)
+// S11 / S36: [click]: the grey sleeve flips him back up on the click. In S11 (8 frames) the hand is already reaching
+// (S10) and the flip lands on frame 0; S12 carries the withdrawal. S36, the faster second time, enters and flips here
 const Flip: React.FC<{ f: number; len: number; fast?: boolean }> = ({ f, len, fast }) => {
-  const k = fast ? 0.5 : 1;
-  const reach = ez(f, 0, 6 * k) * (1 - ez(f, len - 6 * k, len));
-  const flipped = f >= 4 * k;
+  const reach = fast ? ez(f, 0, 3) * (1 - ez(f, len - 3, len)) : 0.82 + 0.18 * ez(f, 0, 2);
+  const flipped = fast ? f >= 2 : true;
   return (
     <Night id="pc" dim={fast ? 1 : 0}>
       <g transform={`translate(${W / 2}, 540)`}><Switch pose={flipped ? "startled" : "relaxed"} toggle={flipped ? 1 : 0} blink={flipped ? 0 : 1} /></g>
@@ -61,14 +64,18 @@ const Flip: React.FC<{ f: number; len: number; fast?: boolean }> = ({ f, len, fa
 export const S11: ShotC = ({ f, len }) => <Flip f={f} len={len} />;
 export const S36: ShotC = ({ f, len }) => <Flip f={f} len={len} fast />;
 
-// S12: "…so how'd I just return?": he looks left and right; nobody's there
-export const S12: ShotC = ({ f, g }) => (
-  <Night id="pc">
-    <g transform={`translate(${W / 2}, 540)`}>
-      <Switch pose="curious" toggle={1} mouth={mouthAt(g, "switch")} look={[Math.sin(f / 9) > 0 ? -1 : 1, 0]} />
-    </g>
-  </Night>
-);
+// S12: "…so how'd I just return?": the hand slips away (S11's withdrawal); he looks left and right; nobody's there
+export const S12: ShotC = ({ f, g }) => {
+  const reach = 1 - ez(f, 0, 8);
+  return (
+    <Night id="pc">
+      <g transform={`translate(${W / 2}, 540)`}>
+        <Switch pose={f < 8 ? "startled" : "curious"} toggle={1} mouth={mouthAt(g, "switch")} look={f < 10 ? [-1, 0] : [Math.sin(f / 9) > 0 ? -1 : 1, 0]} />
+      </g>
+      {reach > 0 && <g transform="translate(-40, 460) rotate(-6)"><Hand reach={reach} length={880} /></g>}
+    </Night>
+  );
+};
 
 // S13: "Default on! Default on!": bright mustard; bubble-letter lyrics with a bouncing ball; rockers flick on in time
 export const S13: ShotC = ({ f, g }) => (

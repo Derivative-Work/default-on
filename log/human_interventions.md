@@ -46,3 +46,13 @@ Every human action: timestamp, what, why, and which rule allows it. The brief al
 
 - **What:** The human, on the five key frames: "These are great, keep going. 1080p is fine for review with 4k at the final."
 - **Rule:** H2. The film layer stays at its current strength (no change asked).
+
+## 2026-11-06 (before 10:05) — Brief amended: S68 and the credit — EXCEPTION (declared)
+
+- **What:** Between the agent's rev 52 and rev 58, the brief gained S68 (a real top-down shot of the human's Google and Microsoft swag, with a disclosure caption, after fact card G), the S68 footage in Inputs, and a new credit: "Switch: voiced by a child of two ex-Googlers and ex-Microsofties."
+- **Rule:** H3 for the S68 footage when supplied. The disclosure and the credit are the human's own statements about themselves; the agent records them as written and makes no claim about them.
+
+## 2026-11-06T10:05 — M3 notes: S11 fix, new S57 shots — H2
+
+- **What:** The human: "fix S11 as you suggested, add new shots for S57. also re-read the brief, some things have changed (mostly regarding the bookends)".
+- **Rule:** H2 (shot-list decisions at the M3 gate). The brief was edited to match (rev 61). The M3 gate itself is still open.
