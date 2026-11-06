@@ -207,3 +207,7 @@ Append-only. One entry per action: timestamp, step (shot ID where relevant), wha
 12. **The finger:** the hand is redrawn as one pointing hand (three curled knuckles, the thumb along them, an extended index finger with a nail that bends a little as it presses). Every flip shot (S10–S12, S35–S36, S60–S61) brings it in along one line to press Switch's bottom half, the half that goes in when he turns ON.
 13. **The peel:** a `flat` Switch (no plate thickness or edge shadow) for every peel (S16, S38, S57c and the key frame): a sticker has no thickness.
 - **Checked:** stills of each fix (S10–S12, S16 at four stages, S18–S22, S46, S48–S50, S60–S61).
+
+## 2026-11-06T16:45:00-05:00 — M4: all sections re-rendered with the 13 fixes; the full cut reassembled
+
+- **What:** every section re-rendered (the rocker and the hand appear throughout), the full cut reassembled with one continuous master track; sync verified (+0.0000 s at 30 s and 220 s). Rendered contact sheets checked for S16, S20, S46, S48.

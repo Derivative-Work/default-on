@@ -66,3 +66,9 @@ Every render: timestamp, shot ID, composition, props, commit hash, output, conta
 
 - **Compositions:** `Sec01-Intro` … `Sec11-Outroandreveal` (`Cut`), 1920x1080; sections 1–8 bundled from 83ede8e, 9–11 from 3ef3e38 (End.tsx edits between them touch only sections 7's S34 hand-off and 9–11). **Command:** `scripts/m4_section.sh <comp> <stem>` each.
 - **Full cut:** `renders/m4/m4_full.mp4` (concat + one continuous master track; see the production log). Review copy `renders/m4/review/m4_full_review_720p.mp4` (26 MB). **Commit:** 3ef3e38.
+
+## 2026-11-06T16:40 — M4 sections 1–11 and the full cut, after the 13 review notes
+
+- **Compositions:** `Sec01-Intro` … `Sec11-Outroandreveal`, 1920x1080, all from d3dc750. **Command:** `scripts/m4_section.sh` per section; concat; one continuous master track (5 s delay), as at 14:35.
+- **Checks:** 7,954 frames; sync +0.0000 s at 30 s and 220 s into the song.
+- **Outputs:** `renders/m4/sec*.mp4`, `renders/m4/m4_full.mp4`, `renders/m4/review/m4_full_review_720p.mp4` (26.7 MB), contact sheets in `review/`.
