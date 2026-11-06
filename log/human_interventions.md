@@ -41,3 +41,8 @@ Every human action: timestamp, what, why, and which rule allows it. The brief al
 
 - **What:** The human: "I already used Rhubarb successfully for Read Only, definitely look into it once you're at that point. Rig sheet is good; send me the key frames to review". The five key frames were sent.
 - **Rule:** H2 (the rig sheet, part of the M2 look). The rest of the M2 gate (key frames, film-layer strength, review resolution) is still open.
+
+## 2026-11-06T09:30 — M2 gate: look approved; review at 1080p, final at 4K — H2
+
+- **What:** The human, on the five key frames: "These are great, keep going. 1080p is fine for review with 4k at the final."
+- **Rule:** H2. The film layer stays at its current strength (no change asked).

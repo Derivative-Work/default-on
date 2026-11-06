@@ -20,3 +20,10 @@ Every render: timestamp, shot ID, composition, props, commit hash, output, conta
 - **Shots and compositions:** as at 08:20 (`RigSheet`, `StyleBoard` frames 0–4, `MotionTest` = S04 on v2: map frames 506 - 707, the mix from 11.85 s). `scripts/m1_preview.sh` on v2 (counter now adds the 150-frame pre-roll).
 - **Commit:** built on 88cfa92 + the changes committed with this entry.
 - **Outputs (replacing the 08:20 renders, which are in git history and regenerable from 88cfa92):** `review/m2/*.jpg`, `renders/m2/m2_motion_S04.mp4`, `renders/m1/m1_preview.mp4`.
+
+## 2026-11-06T09:40 — M3 animatic
+
+- **Shots:** S00–S67, all. **Composition:** `Animatic` (960x540, `from` 0), 7,684 frames = the map's 7,624 + S67's 2 s hold; the mix from frame 150. Props: none beyond `from`.
+- **Command:** `npx remotion render src/index.ts Animatic ../renders/m3/m3_animatic.mp4 --log=error --concurrency=8 --crf=26`
+- **Commit:** built on 19eb99c + the M3 code (committed with this entry).
+- **Output:** `renders/m3/m3_animatic.mp4` (20.6 MB). Contact sheets: `review/S00.jpg` … `review/S67.jpg` (`scripts/contact_sheets.py`).

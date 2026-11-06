@@ -47,8 +47,11 @@ export const measure = (text: string, size: number, face = BUBBLE) => {
 
 // a lyric line in bubble letters with a bouncing ball; `syl` are the syllables with their local start frames
 export const BallLyric: React.FC<{ f: number; syl: { t: string; at: number }[]; y?: number; size?: number; color?: string }> = ({
-  f, syl, y = 960, size = 74, color = C.cream,
+  f, syl, y = 960, size: want = 74, color = C.cream,
 }) => {
+  // shrink a long line to fit the frame with a margin
+  const natural = syl.reduce((a, s) => a + measure(s.t, want), 0);
+  const size = natural > W - 160 ? (want * (W - 160)) / natural : want;
   // lay the syllables out on one centred line, measured in the loaded face (the fonts module holds every frame
   // until Titan One is ready)
   const widths = syl.map((s) => measure(s.t, size));
