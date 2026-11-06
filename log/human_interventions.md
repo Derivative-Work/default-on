@@ -94,3 +94,16 @@ Every human action: timestamp, what, why, and which rule allows it. The brief al
   - "the finger that turns the switch is not reading right throughout"
   - "the switch peeling is not reading correctly now that it has a drawn-on shadow"
 - **Rule:** H2 (section notes at the M4 gate). No section is approved yet.
+
+## 2026-11-06T16:55 — M4 review notes, round 2 — H2
+
+- **What:** The human's notes, verbatim:
+  - "\"YOU CHOSE THIS\" does not have enough contrast"
+  - "the ladder is not underneath the switch while it climbs"
+  - "\"DEFAULT\" scene: the person sitting down at the table is missing all detail below the shirt"
+  - "\"TEST\" text is illegible"
+  - "at the TV verse, the icon being hidden is not reading correctly"
+  - "the schoolhouse is still not reading right: the tire swing is shaped wrong, and the chimney is disconnected from the school"
+  - "the classroom scene where the kids are trying to turn it off is not reading right and needs more detail"
+  - "put a reasonable \"Summary of this song\", written like what YouTube will actually put on it once uploaded"
+- **Rule:** H2 (section notes at the M4 gate).
