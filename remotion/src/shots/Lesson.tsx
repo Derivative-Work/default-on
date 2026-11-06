@@ -267,7 +267,7 @@ export const S28: ShotC = ({ f }) => (
 
 // the living room (S29-S33): striped wallpaper, a window (moon, or sunrise with sunbeams), a sofa with a cat on it
 // (asleep at night, sitting up by day), a floor lamp, a plant, a rug, a clock, the TV on a low cabinet
-const Living: React.FC<{ id: string; night: boolean; g: number; children: React.ReactNode }> = ({ id, night, g, children }) => (
+export const Living: React.FC<{ id: string; night: boolean; g: number; children: React.ReactNode }> = ({ id, night, g, children }) => (
   <Bg id={id} seed={29} base={night ? C.night : C.mustard}>
     <Wallpaper id={id} kind="stripe" a={night ? "#2c3d63" : C.mustard} b={night ? C.night : C.cream} opacity={night ? 0.35 : 0.22} />
     <g transform="translate(1620, 320)"><Window w={300} h={360} sky={night ? "#16203a" : "#f2c98a"} sun={night ? "moon" : "sun"} curtain={night ? "#4a3a5a" : C.orange} /></g>
