@@ -5,31 +5,48 @@ import { Wash } from "../film/Paper";
 import { Caption, Chalkboard, Door, Envelope, Person, Kid, Slate, TV, Tile } from "../components/props";
 import { Narrator } from "../rigs/Narrator";
 import { Switch } from "../rigs/Switch";
-import { BUBBLE } from "../theme/fonts";
+import { BUBBLE, SANS } from "../theme/fonts";
 import { C, H, W } from "../theme/palette";
-import { mouthAt } from "../timing";
+import { FPS, mouthAt } from "../timing";
+import { ChalkTray, Clock, Pennant, Wallpaper, breath } from "../components/sets";
 import { S28 as S28Key } from "../scenes/KeyFrames";
 import { Bg, ShotC, blink, bump, ez } from "./common";
 import { NarratorSet } from "./Intro";
 
 const LAWSUIT = "Alleged in a lawsuit. Google denies changing settings.";
 
-// the lesson board: a chalkboard word heading, a cartoon kid, and the scene's prop
-const Board: React.FC<{ word: string; g: number; children: React.ReactNode }> = ({ word, g, children }) => (
-  <Bg id="lesson" seed={19} base={C.avocado}>
-    <Chalkboard x={100} y={80} w={1560} h={760} lines={[]} />
-    <text x={200} y={230} fontFamily={BUBBLE} fontSize={110} fill={C.white} opacity={0.9}>{word}</text>
-    {children}
-    <g transform="translate(1810, 1010) scale(0.36)"><Narrator mouth={mouthAt(g, "narrator")} armR="point" head={-1} /></g>
-  </Bg>
-);
+// the lesson board: the classroom wall (stripes, the clock, the pennant), a big chalkboard whose heading writes itself
+// on in chalk (with a puff of chalk dust), and the Narrator at the right, chest-up, cropped by the frame's edge
+const Board: React.FC<{ word: string; g: number; f?: number; children: React.ReactNode }> = ({ word, g, f = 99, children }) => {
+  const write = ez(f, 0, 14);
+  return (
+    <Bg id="lesson" seed={19} base={C.avocado}>
+      <Wallpaper id="lesson" kind="stripe" a={C.avocado} b={C.cream} opacity={0.18} />
+      <g transform="translate(1600, 90)"><Clock t={g / FPS + 40} r={52} /></g>
+      <g transform="translate(1690, 60) scale(0.6)"><Pennant text="CIVICS" color={C.red} /></g>
+      <Chalkboard x={80} y={70} w={1420} h={780} lines={[]} />
+      <ChalkTray x={80} y={852} w={1420} />
+      <clipPath id="lesson-write"><rect x={140} y={100} width={30 + write * 900} height={180} /></clipPath>
+      <text x={160} y={220} fontFamily={BUBBLE} fontSize={110} fill={C.white} opacity={0.9} clipPath="url(#lesson-write)">{word}</text>
+      {write > 0 && write < 1 && <circle cx={170 + write * 900} cy={190} r={20} fill={C.white} opacity={0.25} />}
+      <path d="M160,250 q300,-14 620,4" stroke={C.white} strokeWidth={5} fill="none" opacity={0.5 * write} />
+      <ellipse cx={1150} cy={700} rx={180} ry={40} fill={C.white} opacity={0.06} />
+      {children}
+      <rect x={-20} y={940} width={W + 40} height={160} fill={C.cardigan} stroke={C.ink} strokeWidth={6} />
+      <g transform={`translate(1730, ${880 - (breath(g) - 1) * 200}) scale(0.72)`}><Narrator mouth={mouthAt(g, "narrator")} armR="tap" armL="down" head={-1} blink={blink(g)} /></g>
+    </Bg>
+  );
+};
 
 // S19: "Now, 'opt-in' means somebody asks you…": a cartoon kid is offered a cookie and nods
 export const S19: ShotC = ({ f, g }) => {
   const offer = ez(f, 10, 30);
   return (
-    <Board word="OPT-IN" g={g}>
-      <g transform={`translate(760, ${540 + Math.sin(f / 4) * (f > 40 ? 8 : 0)})`}><Kid seed={1} mouth={f > 40 ? "B" : "X"} look={[0.8, 0.3]} /></g>
+    <Board word="OPT-IN" g={g} f={f}>
+      <g transform={`translate(640, ${560 + Math.sin(f / 4) * (f > 40 ? 8 : 0)})`}><Kid seed={1} mouth={f > 40 ? "B" : "X"} look={[0.8, 0.3]} /></g>
+      {f > 40 && <text x={760} y={400} fontFamily={BUBBLE} fontSize={60} fill={C.white} opacity={0.85}>sure!</text>}
+      <g transform="translate(1180, 780)"><ellipse rx={170} ry={40} fill={C.white} stroke={C.ink} strokeWidth={5} />
+        {[-90, -30, 30, 90, -60, 0, 60].map((x, i) => <g key={i} transform={`translate(${x}, ${i < 4 ? -14 : -44})`}><circle r={34} fill={C.mustard} stroke={C.ink} strokeWidth={4} />{[[-10, -8], [8, 6], [-4, 12]].map(([cx, cy], k) => <circle key={k} cx={cx} cy={cy} r={5} fill={C.cardigan} />)}</g>)}</g>
       <g transform={`translate(${1300 - offer * 260}, 560)`}>
         <path d="M120,30 L-40,30" stroke={C.sleeve} strokeWidth={60} strokeLinecap="round" />
         <circle cx={-70} cy={20} r={50} fill={C.mustard} stroke={C.ink} strokeWidth={6} />
@@ -47,14 +64,19 @@ export const S20: ShotC = ({ f, g }) => {
   const k = Math.floor(p), u = p - k;
   const x = path[k][0] + (path[k + 1][0] - path[k][0]) * u, y = path[k][1] + (path[k + 1][1] - path[k][1]) * u;
   return (
-    <Board word="OPT-OUT" g={g}>
-      {[[300, 300, 1400, 0], [300, 300, 0, 500], [300, 800, 900, 0], [600, 520, 0, 280], [1050, 300, 0, 420], [1400, 480, 0, 320], [600, 520, 300, 0]].map(([a, b, w, h], i) => (
-        <rect key={i} x={a} y={b} width={Math.max(w, 26)} height={Math.max(h, 26)} rx={10} fill={C.white} stroke={C.ink} strokeWidth={5} opacity={0.9} />
+    <Board word="OPT-OUT" g={g} f={f}>
+      {/* the maze's walls are menu panels, each labelled like a settings page */}
+      {[[300, 300, 1100, 0, "Settings"], [300, 300, 0, 500, "Privacy"], [300, 780, 900, 0, "More"], [600, 520, 0, 260, "Advanced"], [1050, 300, 0, 420, "Personalize"], [1400, 330, 0, 470, "Other"], [600, 520, 300, 0, "Help"]].map(([a, b, w, h, t], i) => (
+        <g key={i}>
+          <rect x={a as number} y={b as number} width={Math.max(w as number, 30)} height={Math.max(h as number, 30)} rx={10} fill={C.white} stroke={C.ink} strokeWidth={5} opacity={0.92} />
+          <text x={(a as number) + 12} y={(b as number) + ((w as number) > 0 ? 22 : 24)} fontFamily={SANS} fontSize={20} fontWeight={600} fill={C.inkSoft} transform={(w as number) > 0 ? undefined : `rotate(90, ${(a as number) + 12}, ${(b as number) + 24})`}>{t}</text>
+        </g>
       ))}
       <g transform={`translate(${x}, ${y}) scale(0.5)`}><Kid seed={1} look={[1, 0]} /></g>
       <circle cx={x + 55} cy={y + 80} r={22} fill={C.mustard} stroke={C.ink} strokeWidth={4} />
-      <text x={1560} y={300} fontFamily={BUBBLE} fontSize={40} fill={C.white}>EXIT?</text>
-      <g transform="translate(1720, 720) scale(0.32)"><Switch pose="proud" mouth={mouthAt(g, "switch")} /></g>
+      <text x={1300} y={280} fontFamily={BUBBLE} fontSize={44} fill={C.white} opacity={0.9}>EXIT?</text>
+      <path d="M1300,300 l60,0 l-12,-12 M1360,300 l-12,12" stroke={C.white} strokeWidth={4} fill="none" opacity={0.8} />
+      <g transform="translate(1380, 770) scale(0.3)"><Switch pose="proud" mouth={mouthAt(g, "switch")} blink={blink(g, 3)} /></g>
     </Board>
   );
 };
@@ -62,21 +84,27 @@ export const S20: ShotC = ({ f, g }) => {
 // S21: "And 'default' is the setting that they picked…": the kid sits down to a plate already piled with broccoli
 // S22: "…they'll say you picked the same.": a rubber stamp slams "YOU CHOSE THIS" onto the plate
 const Plate: React.FC<{ f: number; g: number; stamp?: boolean }> = ({ f, g, stamp }) => {
-  const s = stamp ? ez(f, 4, 10) : 0;
+  const s = stamp ? ez(f, 4, 10) * (1 - ez(f, 18, 30)) : 0; // down hard, then lifted away
+  const printed = stamp && f >= 10;
   return (
-    <Board word="DEFAULT" g={g}>
+    <Board word="DEFAULT" g={g} f={stamp ? 99 : f}>
+      <g transform={`translate(${stamp ? Math.sin(f * 3) * 8 * bump(f, 10, 8) : 0}, 0)`}>
       <g transform="translate(900, 460)"><Kid seed={1} mouth={stamp ? "E" : "X"} look={[0, 1]} /></g>
+      <g transform="translate(560, 730) rotate(-10)"><rect x={-20} y={-90} width={40} height={180} rx={8} fill={C.cream} stroke={C.ink} strokeWidth={4} />{[-12, 0, 12].map((x) => <line key={x} x1={x} y1={-90} x2={x} y2={-140} stroke={C.ink} strokeWidth={6} />)}</g>
+      <path d="M1180,700 l120,-20 l20,110 l-120,20 Z" fill={C.red} stroke={C.ink} strokeWidth={4} opacity={0.85} />
       <g transform="translate(900, 720)">
         <ellipse rx={300} ry={70} fill={C.white} stroke={C.ink} strokeWidth={7} />
         {Array.from({ length: 9 }, (_, i) => <circle key={i} cx={-160 + i * 40} cy={-30 - (i % 3) * 22} r={34} fill={C.avocado} stroke={C.ink} strokeWidth={5} />)}
       </g>
       {stamp && (
-        <g transform={`translate(1220, ${360 + s * 300})`}>
+        <g transform={`translate(900, ${300 + s * 400})`}>
           <rect x={-40} y={-200} width={80} height={140} rx={20} fill={C.cardigan} stroke={C.ink} strokeWidth={6} />
           <rect x={-150} y={-60} width={300} height={70} rx={10} fill={C.red} stroke={C.ink} strokeWidth={6} />
         </g>
       )}
-      {stamp && s > 0.95 && <text x={1080} y={760} fontFamily={BUBBLE} fontSize={56} fill={C.red} transform="rotate(-8, 1080, 760)" opacity={0.9}>YOU CHOSE THIS</text>}
+      {printed && <text x={900} y={745} textAnchor="middle" fontFamily={BUBBLE} fontSize={54} fill={C.red} transform="rotate(-6, 900, 745)" opacity={0.92}>YOU CHOSE THIS</text>}
+      {printed && [[640, 700], [1160, 720], [700, 790], [1120, 790], [980, 680]].map(([x, y], i) => <circle key={i} cx={x} cy={y} r={6 + (i % 3) * 3} fill={C.red} opacity={0.7} />)}
+      </g>
     </Board>
   );
 };
@@ -93,13 +121,24 @@ export const S23: ShotC = ({ f, g, len }) => {
         {Array.from({ length: 6 }, (_, i) => <rect key={i} x={-180 + (i % 2) * 8} y={-i * 22} width={360} height={24} fill={C.white} stroke={C.ink} strokeWidth={4} />)}
         <text x={-100} y={-120} fontFamily={BUBBLE} fontSize={46} fill={C.ink}>TEST</text>
       </g>
+      {f > thud && f < thud + 16 && [-1, 1].map((k) => [0, 1].map((j) => (
+        <circle key={`${k}${j}`} cx={1500 + k * (200 + (f - thud) * 8 + j * 40)} cy={890 - j * 20 - (f - thud) * 2} r={26 - j * 8} fill={C.cream} stroke={C.ink} strokeWidth={3} opacity={1 - (f - thud) / 16} />
+      )))}
     </NarratorSet>
   );
 };
 
 // S24: V06 "There's always a test.": Switch, half buried under the stack
-export const S24: ShotC = ({ g }) => (
+export const S24: ShotC = ({ f, g }) => (
   <Bg id="s24" seed={24} base={C.avocado}>
+    <Wallpaper id="s24" kind="stripe" a={C.avocado} b={C.cream} opacity={0.18} />
+    {[0, 1, 2].map((k) => {
+      const t = ((f + k * 17) % 60) / 60;
+      return <g key={k} transform={`translate(${700 + k * 260 + Math.sin(t * 6 + k) * 80}, ${200 + t * 560}) rotate(${Math.sin(t * 8 + k) * 40})`} opacity={1 - t * 0.5}>
+        <rect x={-70} y={-50} width={140} height={100} fill={C.white} stroke={C.ink} strokeWidth={3} />
+        {[0, 1, 2].map((r) => <rect key={r} x={-54} y={-30 + r * 22} width={100 - r * 20} height={8} fill={C.creamShade} />)}
+      </g>;
+    })}
     <rect x={0} y={760} width={W} height={320} fill={C.cardigan} stroke={C.ink} strokeWidth={7} />
     <g transform="translate(960, 640) rotate(-8)"><Switch pose="relaxed" toggle={0.5} mouth={mouthAt(g, "switch")} armL={120} /></g>
     <g transform="translate(980, 840)">

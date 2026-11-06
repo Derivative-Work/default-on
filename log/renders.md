@@ -53,3 +53,7 @@ Every render: timestamp, shot ID, composition, props, commit hash, output, conta
 ## 2026-11-06T12:08 — M4 section 4, chorus 1
 
 - **Shots:** S13–S18. **Composition:** `Sec04-Chorus1`, 602 frames. **Command:** `scripts/m4_section.sh Sec04-Chorus1 sec04_chorus1`. **Commit:** built on 2159b8a + this entry's changes.
+
+## 2026-11-06T12:28 — M4 section 5, the Lesson
+
+- **Shots:** S19–S24. **Composition:** `Sec05-Lesson`, 896 frames. **Command:** `scripts/m4_section.sh Sec05-Lesson sec05_lesson`. **Commit:** built on 72b3204 + this entry's changes.
