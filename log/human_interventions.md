@@ -13,3 +13,8 @@ Every human action: timestamp, what, why, and which rule allows it. The brief al
 - **What:** The human pointed the agent at the brief, the planning chat (https://claude.ai/share/3c896ee0-8eca-47f1-9c4b-dc62e4944768), the drafts in the sibling folders, the released versions on GitHub (https://github.com/Derivative-Work) and the stems and audio in `~/Downloads`. They said: "per the brief, I will be re-recording "switch"'s part, but the words and timing for everything else is locked."
 - **Rule:** H3.
 - **Still needed (H3):** the take ID, prompt and settings; Switch's takes V01–V20, the 20 real-switch clicks and 10 s of room tone; the generation-screen capture (S65–S66); the S67 footage.
+
+## 2026-11-06T07:44 — Suno link supplied — H3
+
+- **What:** The human: "oh also here is the Suno link for retrieving the take and potentially a screen grab if needed later https://suno.com/s/h5g20uJMykgSH4pn".
+- **Rule:** H3 (take ID, prompt and settings). The generation-screen capture for S65–S66 is still the human's to supply.

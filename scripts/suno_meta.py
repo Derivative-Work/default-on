@@ -24,8 +24,8 @@ def main(d):
             clip[k] = json.loads(m.group(1))
     (d / "clip.json").write_text(json.dumps(clip, indent=1, ensure_ascii=False) + "\n")
     t = (d / "page.txt").read_text()
-    # The lyrics run from the intro tag to the last stage direction, the server fan spinning down.
-    first, last = "[Intro", "A server fan spins down.]"
+    # The lyrics run from the intro tag to the Narrator's last line.
+    first, last = "[Intro", "But somebody asked it to."
     a, b = t.find(first), t.rfind(last)
     (d / "lyrics.txt").write_text(t[a:b + len(last)] + "\n")
     print(d.name, clip.get("id"), clip.get("duration"))

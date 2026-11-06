@@ -27,3 +27,12 @@ Append-only. One entry per action: timestamp, step (shot ID where relevant), wha
 - **Outputs:** `docs/planning_chat/planning_chat.{json,html,txt,md}`
 - **Findings:** snapshot 2026-11-06T12:27:34Z, "Song: Default On (Unwanted AI features in apps)", messages 1–18, 2026-11-06T01:36Z to 12:06Z. Messages 7–10 aren't in the share (probably edited branches). Message 13: the generator sang the Narrator fine but not Switch; message 15: the human's son will voice Switch, and the generation and stems are locked. No lyric audit by another lab's model is in the chat, so `log/audits/` stays empty until M8.
 - **Why:** house practice: the planning chat is part of the making-of record.
+
+## 2026-11-06T07:45:00-05:00 — Step 3: the Suno take logged
+
+- **What:** The human sent the Suno share link mid-step. Fetched the page with the house Puppeteer script, extracted the clip's metadata and submitted lyrics, and diffed them against Draft 2.
+- **Commands:** `node scripts/fetch_suno.mjs https://suno.com/s/h5g20uJMykgSH4pn log/prompts/suno/fetch_accepted`; `python3 -I scripts/suno_meta.py log/prompts/suno/fetch_accepted`; an inline `difflib` diff of `fetch_accepted/lyrics.txt` against `lyrics/draft2.txt` (curly quotes normalized)
+- **Script change:** `suno_meta.py`'s lyric bounds are now `[Intro` … `But somebody asked it to.`
+- **Outputs:** `log/prompts/suno/fetch_accepted/{clip.json,lyrics.txt,page.*,resp_*.json}`; `log/prompts/suno/takes.md`
+- **Findings:** clip `759f181e-63fa-462f-acbe-32d6fd031117`, V6 (`chirp-hawk`), created 2026-11-06T02:06:56Z, 249.2 s (matches the mix). The submitted lyrics are Draft 2 word for word, including the bracketed voice and cue notes; no lyric exception. The stored style is a reworded, longer version of the song doc's prompt (`clip.json`, `tags`). Two prompt-to-audio differences for M1: the beat tracker finds a median 130.4 BPM against the prompt's 100, and the song runs 4:09 against "about 3:00".
+- **Why:** the brief (Inputs: take ID, prompt and settings).

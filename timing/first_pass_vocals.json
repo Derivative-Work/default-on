@@ -1,0 +1,4044 @@
+{
+ "model": "faster-whisper medium.en int8",
+ "stem": "0 Lead Vocals",
+ "segments": [
+  {
+   "start": 2.84,
+   "end": 12.56,
+   "text": "Hi, kids! Today we're learning how an opt-out works. Say hello to Little Switch. Hi, I",
+   "words": [
+    {
+     "w": "Hi,",
+     "start": 2.84,
+     "end": 3.38,
+     "p": 0.52
+    },
+    {
+     "w": "kids!",
+     "start": 3.46,
+     "end": 3.84,
+     "p": 0.93
+    },
+    {
+     "w": "Today",
+     "start": 4.76,
+     "end": 5.02,
+     "p": 0.98
+    },
+    {
+     "w": "we're",
+     "start": 5.02,
+     "end": 5.24,
+     "p": 0.89
+    },
+    {
+     "w": "learning",
+     "start": 5.24,
+     "end": 5.52,
+     "p": 1.0
+    },
+    {
+     "w": "how",
+     "start": 5.52,
+     "end": 5.74,
+     "p": 0.99
+    },
+    {
+     "w": "an",
+     "start": 5.74,
+     "end": 5.92,
+     "p": 0.99
+    },
+    {
+     "w": "opt",
+     "start": 5.92,
+     "end": 6.14,
+     "p": 0.87
+    },
+    {
+     "w": "-out",
+     "start": 6.14,
+     "end": 6.28,
+     "p": 0.92
+    },
+    {
+     "w": "works.",
+     "start": 6.28,
+     "end": 6.76,
+     "p": 1.0
+    },
+    {
+     "w": "Say",
+     "start": 8.14,
+     "end": 8.34,
+     "p": 0.98
+    },
+    {
+     "w": "hello",
+     "start": 8.34,
+     "end": 8.68,
+     "p": 0.88
+    },
+    {
+     "w": "to",
+     "start": 8.68,
+     "end": 9.24,
+     "p": 0.97
+    },
+    {
+     "w": "Little",
+     "start": 9.24,
+     "end": 9.48,
+     "p": 0.53
+    },
+    {
+     "w": "Switch.",
+     "start": 9.48,
+     "end": 10.06,
+     "p": 0.96
+    },
+    {
+     "w": "Hi,",
+     "start": 11.58,
+     "end": 11.86,
+     "p": 0.91
+    },
+    {
+     "w": "I",
+     "start": 12.16,
+     "end": 12.56,
+     "p": 1.0
+    }
+   ]
+  },
+  {
+   "start": 12.56,
+   "end": 21.74,
+   "text": "got two sides on and off. You typed a little question in a little search box line, and",
+   "words": [
+    {
+     "w": "got",
+     "start": 12.56,
+     "end": 12.72,
+     "p": 0.67
+    },
+    {
+     "w": "two",
+     "start": 12.72,
+     "end": 13.04,
+     "p": 0.99
+    },
+    {
+     "w": "sides",
+     "start": 13.04,
+     "end": 13.62,
+     "p": 1.0
+    },
+    {
+     "w": "on",
+     "start": 13.62,
+     "end": 14.24,
+     "p": 0.81
+    },
+    {
+     "w": "and",
+     "start": 14.24,
+     "end": 14.8,
+     "p": 0.93
+    },
+    {
+     "w": "off.",
+     "start": 14.8,
+     "end": 15.26,
+     "p": 1.0
+    },
+    {
+     "w": "You",
+     "start": 18.06,
+     "end": 18.28,
+     "p": 0.75
+    },
+    {
+     "w": "typed",
+     "start": 18.28,
+     "end": 18.6,
+     "p": 0.99
+    },
+    {
+     "w": "a",
+     "start": 18.6,
+     "end": 18.84,
+     "p": 0.99
+    },
+    {
+     "w": "little",
+     "start": 18.84,
+     "end": 19.02,
+     "p": 0.98
+    },
+    {
+     "w": "question",
+     "start": 19.02,
+     "end": 19.5,
+     "p": 1.0
+    },
+    {
+     "w": "in",
+     "start": 19.5,
+     "end": 19.84,
+     "p": 0.98
+    },
+    {
+     "w": "a",
+     "start": 19.84,
+     "end": 20.02,
+     "p": 0.98
+    },
+    {
+     "w": "little",
+     "start": 20.02,
+     "end": 20.22,
+     "p": 0.95
+    },
+    {
+     "w": "search",
+     "start": 20.22,
+     "end": 20.64,
+     "p": 0.99
+    },
+    {
+     "w": "box",
+     "start": 20.64,
+     "end": 20.9,
+     "p": 0.95
+    },
+    {
+     "w": "line,",
+     "start": 20.9,
+     "end": 21.38,
+     "p": 0.98
+    },
+    {
+     "w": "and",
+     "start": 21.52,
+     "end": 21.74,
+     "p": 0.97
+    }
+   ]
+  },
+  {
+   "start": 21.74,
+   "end": 26.3,
+   "text": "an answer hopped on top of it and said, I'll save you time. That's neat, but what",
+   "words": [
+    {
+     "w": "an",
+     "start": 21.74,
+     "end": 21.9,
+     "p": 0.99
+    },
+    {
+     "w": "answer",
+     "start": 21.9,
+     "end": 22.16,
+     "p": 1.0
+    },
+    {
+     "w": "hopped",
+     "start": 22.16,
+     "end": 22.44,
+     "p": 0.98
+    },
+    {
+     "w": "on",
+     "start": 22.44,
+     "end": 22.74,
+     "p": 1.0
+    },
+    {
+     "w": "top",
+     "start": 22.74,
+     "end": 22.94,
+     "p": 1.0
+    },
+    {
+     "w": "of",
+     "start": 22.94,
+     "end": 23.1,
+     "p": 0.99
+    },
+    {
+     "w": "it",
+     "start": 23.1,
+     "end": 23.22,
+     "p": 1.0
+    },
+    {
+     "w": "and",
+     "start": 23.22,
+     "end": 23.4,
+     "p": 0.95
+    },
+    {
+     "w": "said,",
+     "start": 23.4,
+     "end": 23.62,
+     "p": 1.0
+    },
+    {
+     "w": "I'll",
+     "start": 23.82,
+     "end": 24.12,
+     "p": 0.55
+    },
+    {
+     "w": "save",
+     "start": 24.12,
+     "end": 24.3,
+     "p": 1.0
+    },
+    {
+     "w": "you",
+     "start": 24.3,
+     "end": 24.48,
+     "p": 1.0
+    },
+    {
+     "w": "time.",
+     "start": 24.48,
+     "end": 24.9,
+     "p": 1.0
+    },
+    {
+     "w": "That's",
+     "start": 25.2,
+     "end": 25.52,
+     "p": 1.0
+    },
+    {
+     "w": "neat,",
+     "start": 25.52,
+     "end": 25.78,
+     "p": 1.0
+    },
+    {
+     "w": "but",
+     "start": 26.06,
+     "end": 26.18,
+     "p": 0.99
+    },
+    {
+     "w": "what",
+     "start": 26.18,
+     "end": 26.3,
+     "p": 0.99
+    }
+   ]
+  },
+  {
+   "start": 26.3,
+   "end": 30.84,
+   "text": "Not if I would rather read the page myself Well, there's a tiny tab marked WEB way up",
+   "words": [
+    {
+     "w": "Not",
+     "start": 26.3,
+     "end": 26.3,
+     "p": 0.12
+    },
+    {
+     "w": "if",
+     "start": 26.3,
+     "end": 26.42,
+     "p": 0.98
+    },
+    {
+     "w": "I",
+     "start": 26.42,
+     "end": 26.54,
+     "p": 0.98
+    },
+    {
+     "w": "would",
+     "start": 26.54,
+     "end": 26.68,
+     "p": 0.86
+    },
+    {
+     "w": "rather",
+     "start": 26.68,
+     "end": 26.94,
+     "p": 0.99
+    },
+    {
+     "w": "read",
+     "start": 26.94,
+     "end": 27.2,
+     "p": 1.0
+    },
+    {
+     "w": "the",
+     "start": 27.2,
+     "end": 27.38,
+     "p": 0.99
+    },
+    {
+     "w": "page",
+     "start": 27.38,
+     "end": 27.64,
+     "p": 0.99
+    },
+    {
+     "w": "myself",
+     "start": 27.64,
+     "end": 28.26,
+     "p": 0.99
+    },
+    {
+     "w": "Well,",
+     "start": 28.26,
+     "end": 28.66,
+     "p": 0.27
+    },
+    {
+     "w": "there's",
+     "start": 28.78,
+     "end": 28.92,
+     "p": 0.98
+    },
+    {
+     "w": "a",
+     "start": 28.92,
+     "end": 29.12,
+     "p": 0.99
+    },
+    {
+     "w": "tiny",
+     "start": 29.12,
+     "end": 29.32,
+     "p": 0.99
+    },
+    {
+     "w": "tab",
+     "start": 29.32,
+     "end": 29.66,
+     "p": 1.0
+    },
+    {
+     "w": "marked",
+     "start": 29.66,
+     "end": 29.98,
+     "p": 0.98
+    },
+    {
+     "w": "WEB",
+     "start": 29.98,
+     "end": 30.36,
+     "p": 0.57
+    },
+    {
+     "w": "way",
+     "start": 30.36,
+     "end": 30.62,
+     "p": 0.6
+    },
+    {
+     "w": "up",
+     "start": 30.62,
+     "end": 30.84,
+     "p": 0.96
+    }
+   ]
+  },
+  {
+   "start": 30.84,
+   "end": 35.22,
+   "text": "on the highest shelf I've only got two sides, it isn't much to",
+   "words": [
+    {
+     "w": "on",
+     "start": 30.84,
+     "end": 31.0,
+     "p": 0.99
+    },
+    {
+     "w": "the",
+     "start": 31.0,
+     "end": 31.18,
+     "p": 0.99
+    },
+    {
+     "w": "highest",
+     "start": 31.18,
+     "end": 31.48,
+     "p": 1.0
+    },
+    {
+     "w": "shelf",
+     "start": 31.48,
+     "end": 32.04,
+     "p": 1.0
+    },
+    {
+     "w": "I've",
+     "start": 32.04,
+     "end": 32.78,
+     "p": 0.91
+    },
+    {
+     "w": "only",
+     "start": 32.78,
+     "end": 33.06,
+     "p": 1.0
+    },
+    {
+     "w": "got",
+     "start": 33.06,
+     "end": 33.3,
+     "p": 1.0
+    },
+    {
+     "w": "two",
+     "start": 33.3,
+     "end": 33.62,
+     "p": 0.97
+    },
+    {
+     "w": "sides,",
+     "start": 33.62,
+     "end": 34.22,
+     "p": 1.0
+    },
+    {
+     "w": "it",
+     "start": 34.38,
+     "end": 34.52,
+     "p": 0.98
+    },
+    {
+     "w": "isn't",
+     "start": 34.52,
+     "end": 34.8,
+     "p": 1.0
+    },
+    {
+     "w": "much",
+     "start": 34.8,
+     "end": 35.0,
+     "p": 1.0
+    },
+    {
+     "w": "to",
+     "start": 35.0,
+     "end": 35.22,
+     "p": 1.0
+    }
+   ]
+  },
+  {
+   "start": 35.22,
+   "end": 38.56,
+   "text": "learn You pushed me down for off, so how'd I just",
+   "words": [
+    {
+     "w": "learn",
+     "start": 35.22,
+     "end": 35.64,
+     "p": 1.0
+    },
+    {
+     "w": "You",
+     "start": 35.64,
+     "end": 36.22,
+     "p": 0.8
+    },
+    {
+     "w": "pushed",
+     "start": 36.22,
+     "end": 36.48,
+     "p": 0.69
+    },
+    {
+     "w": "me",
+     "start": 36.48,
+     "end": 36.72,
+     "p": 1.0
+    },
+    {
+     "w": "down",
+     "start": 36.72,
+     "end": 36.92,
+     "p": 1.0
+    },
+    {
+     "w": "for",
+     "start": 36.92,
+     "end": 37.16,
+     "p": 0.98
+    },
+    {
+     "w": "off,",
+     "start": 37.16,
+     "end": 37.5,
+     "p": 0.7
+    },
+    {
+     "w": "so",
+     "start": 37.96,
+     "end": 38.02,
+     "p": 0.9
+    },
+    {
+     "w": "how'd",
+     "start": 38.02,
+     "end": 38.24,
+     "p": 0.88
+    },
+    {
+     "w": "I",
+     "start": 38.24,
+     "end": 38.36,
+     "p": 0.99
+    },
+    {
+     "w": "just",
+     "start": 38.36,
+     "end": 38.56,
+     "p": 0.99
+    }
+   ]
+  },
+  {
+   "start": 38.56,
+   "end": 42.78,
+   "text": "return Default on, default on",
+   "words": [
+    {
+     "w": "return",
+     "start": 38.56,
+     "end": 39.22,
+     "p": 1.0
+    },
+    {
+     "w": "Default",
+     "start": 39.22,
+     "end": 40.34,
+     "p": 0.13
+    },
+    {
+     "w": "on,",
+     "start": 40.34,
+     "end": 41.02,
+     "p": 0.93
+    },
+    {
+     "w": "default",
+     "start": 41.74,
+     "end": 42.08,
+     "p": 0.99
+    },
+    {
+     "w": "on",
+     "start": 42.08,
+     "end": 42.78,
+     "p": 1.0
+    }
+   ]
+  },
+  {
+   "start": 42.78,
+   "end": 46.32,
+   "text": "It was there when you woke up It'll be there when you're gone",
+   "words": [
+    {
+     "w": "It",
+     "start": 42.78,
+     "end": 43.02,
+     "p": 0.92
+    },
+    {
+     "w": "was",
+     "start": 43.02,
+     "end": 43.24,
+     "p": 1.0
+    },
+    {
+     "w": "there",
+     "start": 43.24,
+     "end": 43.64,
+     "p": 1.0
+    },
+    {
+     "w": "when",
+     "start": 43.64,
+     "end": 43.88,
+     "p": 0.99
+    },
+    {
+     "w": "you",
+     "start": 43.88,
+     "end": 44.02,
+     "p": 1.0
+    },
+    {
+     "w": "woke",
+     "start": 44.02,
+     "end": 44.2,
+     "p": 1.0
+    },
+    {
+     "w": "up",
+     "start": 44.2,
+     "end": 44.62,
+     "p": 1.0
+    },
+    {
+     "w": "It'll",
+     "start": 44.62,
+     "end": 45.08,
+     "p": 0.65
+    },
+    {
+     "w": "be",
+     "start": 45.08,
+     "end": 45.22,
+     "p": 1.0
+    },
+    {
+     "w": "there",
+     "start": 45.22,
+     "end": 45.48,
+     "p": 1.0
+    },
+    {
+     "w": "when",
+     "start": 45.48,
+     "end": 45.68,
+     "p": 1.0
+    },
+    {
+     "w": "you're",
+     "start": 45.68,
+     "end": 46.04,
+     "p": 0.99
+    },
+    {
+     "w": "gone",
+     "start": 46.04,
+     "end": 46.32,
+     "p": 1.0
+    }
+   ]
+  },
+  {
+   "start": 46.32,
+   "end": 49.86,
+   "text": "You can hide it, you can mute it You can tuck it out of view",
+   "words": [
+    {
+     "w": "You",
+     "start": 46.32,
+     "end": 46.56,
+     "p": 0.98
+    },
+    {
+     "w": "can",
+     "start": 46.56,
+     "end": 46.8,
+     "p": 1.0
+    },
+    {
+     "w": "hide",
+     "start": 46.8,
+     "end": 47.22,
+     "p": 1.0
+    },
+    {
+     "w": "it,",
+     "start": 47.22,
+     "end": 47.46,
+     "p": 1.0
+    },
+    {
+     "w": "you",
+     "start": 47.52,
+     "end": 47.62,
+     "p": 1.0
+    },
+    {
+     "w": "can",
+     "start": 47.62,
+     "end": 47.8,
+     "p": 1.0
+    },
+    {
+     "w": "mute",
+     "start": 47.8,
+     "end": 47.98,
+     "p": 0.86
+    },
+    {
+     "w": "it",
+     "start": 47.98,
+     "end": 48.22,
+     "p": 1.0
+    },
+    {
+     "w": "You",
+     "start": 48.22,
+     "end": 48.5,
+     "p": 0.94
+    },
+    {
+     "w": "can",
+     "start": 48.5,
+     "end": 48.84,
+     "p": 1.0
+    },
+    {
+     "w": "tuck",
+     "start": 48.84,
+     "end": 48.98,
+     "p": 0.96
+    },
+    {
+     "w": "it",
+     "start": 48.98,
+     "end": 49.16,
+     "p": 1.0
+    },
+    {
+     "w": "out",
+     "start": 49.16,
+     "end": 49.32,
+     "p": 1.0
+    },
+    {
+     "w": "of",
+     "start": 49.32,
+     "end": 49.58,
+     "p": 0.96
+    },
+    {
+     "w": "view",
+     "start": 49.58,
+     "end": 49.86,
+     "p": 0.99
+    }
+   ]
+  },
+  {
+   "start": 49.86,
+   "end": 53.46,
+   "text": "But the switch is just a picture that somebody drew for you",
+   "words": [
+    {
+     "w": "But",
+     "start": 49.86,
+     "end": 50.16,
+     "p": 0.35
+    },
+    {
+     "w": "the",
+     "start": 50.16,
+     "end": 50.42,
+     "p": 0.94
+    },
+    {
+     "w": "switch",
+     "start": 50.42,
+     "end": 50.78,
+     "p": 0.94
+    },
+    {
+     "w": "is",
+     "start": 50.78,
+     "end": 51.08,
+     "p": 0.98
+    },
+    {
+     "w": "just",
+     "start": 51.08,
+     "end": 51.32,
+     "p": 1.0
+    },
+    {
+     "w": "a",
+     "start": 51.32,
+     "end": 51.56,
+     "p": 0.99
+    },
+    {
+     "w": "picture",
+     "start": 51.56,
+     "end": 51.86,
+     "p": 1.0
+    },
+    {
+     "w": "that",
+     "start": 51.86,
+     "end": 52.14,
+     "p": 0.45
+    },
+    {
+     "w": "somebody",
+     "start": 52.14,
+     "end": 52.6,
+     "p": 0.96
+    },
+    {
+     "w": "drew",
+     "start": 52.6,
+     "end": 52.86,
+     "p": 1.0
+    },
+    {
+     "w": "for",
+     "start": 52.86,
+     "end": 53.12,
+     "p": 1.0
+    },
+    {
+     "w": "you",
+     "start": 53.12,
+     "end": 53.46,
+     "p": 1.0
+    }
+   ]
+  },
+  {
+   "start": 53.46,
+   "end": 55.6,
+   "text": "default on",
+   "words": [
+    {
+     "w": "default",
+     "start": 53.46,
+     "end": 53.94,
+     "p": 0.71
+    },
+    {
+     "w": "on",
+     "start": 53.94,
+     "end": 55.6,
+     "p": 0.9
+    }
+   ]
+  },
+  {
+   "start": 60.42,
+   "end": 67.46,
+   "text": "Now opt-in means somebody asks you and you say well sure why not",
+   "words": [
+    {
+     "w": "Now",
+     "start": 60.42,
+     "end": 61.06,
+     "p": 0.37
+    },
+    {
+     "w": "opt",
+     "start": 61.06,
+     "end": 61.7,
+     "p": 0.61
+    },
+    {
+     "w": "-in",
+     "start": 61.7,
+     "end": 61.88,
+     "p": 0.84
+    },
+    {
+     "w": "means",
+     "start": 61.88,
+     "end": 62.18,
+     "p": 0.95
+    },
+    {
+     "w": "somebody",
+     "start": 62.18,
+     "end": 62.56,
+     "p": 0.99
+    },
+    {
+     "w": "asks",
+     "start": 62.56,
+     "end": 62.98,
+     "p": 0.96
+    },
+    {
+     "w": "you",
+     "start": 62.98,
+     "end": 63.34,
+     "p": 1.0
+    },
+    {
+     "w": "and",
+     "start": 63.34,
+     "end": 63.98,
+     "p": 0.88
+    },
+    {
+     "w": "you",
+     "start": 63.98,
+     "end": 64.16,
+     "p": 1.0
+    },
+    {
+     "w": "say",
+     "start": 64.16,
+     "end": 64.48,
+     "p": 1.0
+    },
+    {
+     "w": "well",
+     "start": 64.48,
+     "end": 64.94,
+     "p": 0.84
+    },
+    {
+     "w": "sure",
+     "start": 64.94,
+     "end": 65.66,
+     "p": 0.96
+    },
+    {
+     "w": "why",
+     "start": 65.66,
+     "end": 66.44,
+     "p": 0.86
+    },
+    {
+     "w": "not",
+     "start": 66.44,
+     "end": 67.46,
+     "p": 1.0
+    }
+   ]
+  },
+  {
+   "start": 67.96,
+   "end": 74.32,
+   "text": "And opt-out means that no one asked you and you're hunting for the spot and",
+   "words": [
+    {
+     "w": "And",
+     "start": 67.96,
+     "end": 68.52,
+     "p": 0.13
+    },
+    {
+     "w": "opt",
+     "start": 68.52,
+     "end": 68.82,
+     "p": 0.95
+    },
+    {
+     "w": "-out",
+     "start": 68.82,
+     "end": 68.96,
+     "p": 0.95
+    },
+    {
+     "w": "means",
+     "start": 68.96,
+     "end": 69.26,
+     "p": 1.0
+    },
+    {
+     "w": "that",
+     "start": 69.26,
+     "end": 69.46,
+     "p": 1.0
+    },
+    {
+     "w": "no",
+     "start": 69.46,
+     "end": 69.7,
+     "p": 1.0
+    },
+    {
+     "w": "one",
+     "start": 69.7,
+     "end": 69.86,
+     "p": 1.0
+    },
+    {
+     "w": "asked",
+     "start": 69.86,
+     "end": 70.16,
+     "p": 0.97
+    },
+    {
+     "w": "you",
+     "start": 70.16,
+     "end": 70.6,
+     "p": 1.0
+    },
+    {
+     "w": "and",
+     "start": 70.6,
+     "end": 71.66,
+     "p": 0.9
+    },
+    {
+     "w": "you're",
+     "start": 71.66,
+     "end": 72.08,
+     "p": 0.97
+    },
+    {
+     "w": "hunting",
+     "start": 72.08,
+     "end": 72.44,
+     "p": 0.92
+    },
+    {
+     "w": "for",
+     "start": 72.44,
+     "end": 73.34,
+     "p": 1.0
+    },
+    {
+     "w": "the",
+     "start": 73.34,
+     "end": 73.62,
+     "p": 1.0
+    },
+    {
+     "w": "spot",
+     "start": 73.62,
+     "end": 74.12,
+     "p": 1.0
+    },
+    {
+     "w": "and",
+     "start": 74.12,
+     "end": 74.44,
+     "p": 0.88
+    }
+   ]
+  },
+  {
+   "start": 75.56,
+   "end": 80.56,
+   "text": "Default is the setting that they picked before you came and if you never touch it friend",
+   "words": [
+    {
+     "w": "Default",
+     "start": 75.56,
+     "end": 76.04,
+     "p": 0.64
+    },
+    {
+     "w": "is",
+     "start": 76.04,
+     "end": 76.32,
+     "p": 1.0
+    },
+    {
+     "w": "the",
+     "start": 76.32,
+     "end": 76.54,
+     "p": 1.0
+    },
+    {
+     "w": "setting",
+     "start": 76.54,
+     "end": 76.94,
+     "p": 1.0
+    },
+    {
+     "w": "that",
+     "start": 76.94,
+     "end": 77.14,
+     "p": 1.0
+    },
+    {
+     "w": "they",
+     "start": 77.14,
+     "end": 77.36,
+     "p": 1.0
+    },
+    {
+     "w": "picked",
+     "start": 77.36,
+     "end": 77.54,
+     "p": 0.76
+    },
+    {
+     "w": "before",
+     "start": 77.54,
+     "end": 77.92,
+     "p": 1.0
+    },
+    {
+     "w": "you",
+     "start": 77.92,
+     "end": 78.14,
+     "p": 1.0
+    },
+    {
+     "w": "came",
+     "start": 78.14,
+     "end": 78.52,
+     "p": 0.97
+    },
+    {
+     "w": "and",
+     "start": 78.52,
+     "end": 79.26,
+     "p": 0.73
+    },
+    {
+     "w": "if",
+     "start": 79.26,
+     "end": 79.42,
+     "p": 1.0
+    },
+    {
+     "w": "you",
+     "start": 79.42,
+     "end": 79.54,
+     "p": 1.0
+    },
+    {
+     "w": "never",
+     "start": 79.54,
+     "end": 79.78,
+     "p": 1.0
+    },
+    {
+     "w": "touch",
+     "start": 79.78,
+     "end": 80.1,
+     "p": 0.99
+    },
+    {
+     "w": "it",
+     "start": 80.1,
+     "end": 80.26,
+     "p": 0.98
+    },
+    {
+     "w": "friend",
+     "start": 80.26,
+     "end": 80.56,
+     "p": 0.97
+    }
+   ]
+  },
+  {
+   "start": 80.56,
+   "end": 83.34,
+   "text": "They'll say you picked the same got that opt-in",
+   "words": [
+    {
+     "w": "They'll",
+     "start": 80.56,
+     "end": 80.82,
+     "p": 0.57
+    },
+    {
+     "w": "say",
+     "start": 80.82,
+     "end": 81.02,
+     "p": 1.0
+    },
+    {
+     "w": "you",
+     "start": 81.02,
+     "end": 81.24,
+     "p": 1.0
+    },
+    {
+     "w": "picked",
+     "start": 81.24,
+     "end": 81.48,
+     "p": 0.6
+    },
+    {
+     "w": "the",
+     "start": 81.48,
+     "end": 81.7,
+     "p": 1.0
+    },
+    {
+     "w": "same",
+     "start": 81.7,
+     "end": 82.04,
+     "p": 0.99
+    },
+    {
+     "w": "got",
+     "start": 82.04,
+     "end": 82.38,
+     "p": 0.92
+    },
+    {
+     "w": "that",
+     "start": 82.38,
+     "end": 82.72,
+     "p": 1.0
+    },
+    {
+     "w": "opt",
+     "start": 82.72,
+     "end": 83.14,
+     "p": 0.71
+    },
+    {
+     "w": "-in",
+     "start": 83.14,
+     "end": 83.34,
+     "p": 0.95
+    }
+   ]
+  },
+  {
+   "start": 83.46,
+   "end": 85.8,
+   "text": "Opt-out. Default. There'll be a test.",
+   "words": [
+    {
+     "w": "Opt",
+     "start": 83.46,
+     "end": 84.0,
+     "p": 0.58
+    },
+    {
+     "w": "-out.",
+     "start": 84.0,
+     "end": 84.26,
+     "p": 0.69
+    },
+    {
+     "w": "Default.",
+     "start": 84.48,
+     "end": 84.72,
+     "p": 0.94
+    },
+    {
+     "w": "There'll",
+     "start": 84.98,
+     "end": 85.12,
+     "p": 0.93
+    },
+    {
+     "w": "be",
+     "start": 85.12,
+     "end": 85.22,
+     "p": 1.0
+    },
+    {
+     "w": "a",
+     "start": 85.22,
+     "end": 85.48,
+     "p": 1.0
+    },
+    {
+     "w": "test.",
+     "start": 85.48,
+     "end": 85.8,
+     "p": 0.98
+    }
+   ]
+  },
+  {
+   "start": 86.9,
+   "end": 88.5,
+   "text": "There's always a test.",
+   "words": [
+    {
+     "w": "There's",
+     "start": 86.9,
+     "end": 87.38,
+     "p": 0.98
+    },
+    {
+     "w": "always",
+     "start": 87.38,
+     "end": 87.66,
+     "p": 0.99
+    },
+    {
+     "w": "a",
+     "start": 87.66,
+     "end": 88.1,
+     "p": 1.0
+    },
+    {
+     "w": "test.",
+     "start": 88.1,
+     "end": 88.5,
+     "p": 1.0
+    }
+   ]
+  },
+  {
+   "start": 89.38,
+   "end": 93.0,
+   "text": "Now your inbox has a helper, and it reads your mail with you.",
+   "words": [
+    {
+     "w": "Now",
+     "start": 89.38,
+     "end": 89.6,
+     "p": 0.94
+    },
+    {
+     "w": "your",
+     "start": 89.6,
+     "end": 89.92,
+     "p": 0.82
+    },
+    {
+     "w": "inbox",
+     "start": 89.92,
+     "end": 90.32,
+     "p": 0.97
+    },
+    {
+     "w": "has",
+     "start": 90.32,
+     "end": 90.66,
+     "p": 1.0
+    },
+    {
+     "w": "a",
+     "start": 90.66,
+     "end": 90.84,
+     "p": 1.0
+    },
+    {
+     "w": "helper,",
+     "start": 90.84,
+     "end": 91.12,
+     "p": 0.98
+    },
+    {
+     "w": "and",
+     "start": 91.46,
+     "end": 91.64,
+     "p": 0.97
+    },
+    {
+     "w": "it",
+     "start": 91.64,
+     "end": 91.76,
+     "p": 1.0
+    },
+    {
+     "w": "reads",
+     "start": 91.76,
+     "end": 92.0,
+     "p": 0.97
+    },
+    {
+     "w": "your",
+     "start": 92.0,
+     "end": 92.22,
+     "p": 1.0
+    },
+    {
+     "w": "mail",
+     "start": 92.22,
+     "end": 92.42,
+     "p": 1.0
+    },
+    {
+     "w": "with",
+     "start": 92.42,
+     "end": 92.66,
+     "p": 1.0
+    },
+    {
+     "w": "you.",
+     "start": 92.66,
+     "end": 93.0,
+     "p": 1.0
+    }
+   ]
+  },
+  {
+   "start": 93.46,
+   "end": 96.6,
+   "text": "A lawsuit says it flipped itself last fall while out of view.",
+   "words": [
+    {
+     "w": "A",
+     "start": 93.46,
+     "end": 93.64,
+     "p": 0.75
+    },
+    {
+     "w": "lawsuit",
+     "start": 93.64,
+     "end": 93.96,
+     "p": 0.99
+    },
+    {
+     "w": "says",
+     "start": 93.96,
+     "end": 94.24,
+     "p": 0.99
+    },
+    {
+     "w": "it",
+     "start": 94.24,
+     "end": 94.42,
+     "p": 0.98
+    },
+    {
+     "w": "flipped",
+     "start": 94.42,
+     "end": 94.76,
+     "p": 0.99
+    },
+    {
+     "w": "itself",
+     "start": 94.76,
+     "end": 95.12,
+     "p": 0.99
+    },
+    {
+     "w": "last",
+     "start": 95.12,
+     "end": 95.52,
+     "p": 0.99
+    },
+    {
+     "w": "fall",
+     "start": 95.52,
+     "end": 95.84,
+     "p": 0.97
+    },
+    {
+     "w": "while",
+     "start": 95.84,
+     "end": 96.04,
+     "p": 0.94
+    },
+    {
+     "w": "out",
+     "start": 96.04,
+     "end": 96.2,
+     "p": 0.99
+    },
+    {
+     "w": "of",
+     "start": 96.2,
+     "end": 96.36,
+     "p": 0.98
+    },
+    {
+     "w": "view.",
+     "start": 96.36,
+     "end": 96.6,
+     "p": 0.99
+    }
+   ]
+  },
+  {
+   "start": 97.02,
+   "end": 98.12,
+   "text": "And what's the company say?",
+   "words": [
+    {
+     "w": "And",
+     "start": 97.02,
+     "end": 97.16,
+     "p": 0.98
+    },
+    {
+     "w": "what's",
+     "start": 97.16,
+     "end": 97.36,
+     "p": 0.97
+    },
+    {
+     "w": "the",
+     "start": 97.36,
+     "end": 97.48,
+     "p": 1.0
+    },
+    {
+     "w": "company",
+     "start": 97.48,
+     "end": 97.74,
+     "p": 0.99
+    },
+    {
+     "w": "say?",
+     "start": 97.74,
+     "end": 98.12,
+     "p": 0.72
+    }
+   ]
+  },
+  {
+   "start": 98.32,
+   "end": 99.86,
+   "text": "That it's fine, and here's the door.",
+   "words": [
+    {
+     "w": "That",
+     "start": 98.32,
+     "end": 98.44,
+     "p": 0.8
+    },
+    {
+     "w": "it's",
+     "start": 98.44,
+     "end": 98.66,
+     "p": 0.98
+    },
+    {
+     "w": "fine,",
+     "start": 98.66,
+     "end": 98.98,
+     "p": 1.0
+    },
+    {
+     "w": "and",
+     "start": 99.1,
+     "end": 99.2,
+     "p": 0.89
+    },
+    {
+     "w": "here's",
+     "start": 99.2,
+     "end": 99.4,
+     "p": 1.0
+    },
+    {
+     "w": "the",
+     "start": 99.4,
+     "end": 99.52,
+     "p": 1.0
+    },
+    {
+     "w": "door.",
+     "start": 99.52,
+     "end": 99.86,
+     "p": 1.0
+    }
+   ]
+  },
+  {
+   "start": 100.22,
+   "end": 103.72,
+   "text": "Just a menu, then a menu, then a menu, then one more.",
+   "words": [
+    {
+     "w": "Just",
+     "start": 100.22,
+     "end": 100.38,
+     "p": 0.99
+    },
+    {
+     "w": "a",
+     "start": 100.38,
+     "end": 100.74,
+     "p": 1.0
+    },
+    {
+     "w": "menu,",
+     "start": 100.74,
+     "end": 101.14,
+     "p": 0.97
+    },
+    {
+     "w": "then",
+     "start": 101.18,
+     "end": 101.38,
+     "p": 0.99
+    },
+    {
+     "w": "a",
+     "start": 101.38,
+     "end": 101.58,
+     "p": 0.99
+    },
+    {
+     "w": "menu,",
+     "start": 101.58,
+     "end": 102.04,
+     "p": 0.84
+    },
+    {
+     "w": "then",
+     "start": 102.16,
+     "end": 102.28,
+     "p": 0.99
+    },
+    {
+     "w": "a",
+     "start": 102.28,
+     "end": 102.42,
+     "p": 0.98
+    },
+    {
+     "w": "menu,",
+     "start": 102.42,
+     "end": 102.72,
+     "p": 1.0
+    },
+    {
+     "w": "then",
+     "start": 102.88,
+     "end": 103.02,
+     "p": 0.99
+    },
+    {
+     "w": "one",
+     "start": 103.02,
+     "end": 103.26,
+     "p": 1.0
+    },
+    {
+     "w": "more.",
+     "start": 103.26,
+     "end": 103.72,
+     "p": 1.0
+    }
+   ]
+  },
+  {
+   "start": 104.12,
+   "end": 107.12,
+   "text": "Then the TV got an update in the middle of the night,",
+   "words": [
+    {
+     "w": "Then",
+     "start": 104.12,
+     "end": 104.28,
+     "p": 0.99
+    },
+    {
+     "w": "the",
+     "start": 104.28,
+     "end": 104.44,
+     "p": 0.99
+    },
+    {
+     "w": "TV",
+     "start": 104.44,
+     "end": 104.68,
+     "p": 0.97
+    },
+    {
+     "w": "got",
+     "start": 104.68,
+     "end": 104.94,
+     "p": 1.0
+    },
+    {
+     "w": "an",
+     "start": 104.94,
+     "end": 105.12,
+     "p": 1.0
+    },
+    {
+     "w": "update",
+     "start": 105.12,
+     "end": 105.48,
+     "p": 1.0
+    },
+    {
+     "w": "in",
+     "start": 105.48,
+     "end": 106.12,
+     "p": 0.4
+    },
+    {
+     "w": "the",
+     "start": 106.12,
+     "end": 106.28,
+     "p": 1.0
+    },
+    {
+     "w": "middle",
+     "start": 106.28,
+     "end": 106.44,
+     "p": 1.0
+    },
+    {
+     "w": "of",
+     "start": 106.44,
+     "end": 106.64,
+     "p": 1.0
+    },
+    {
+     "w": "the",
+     "start": 106.64,
+     "end": 106.8,
+     "p": 0.99
+    },
+    {
+     "w": "night,",
+     "start": 106.8,
+     "end": 107.12,
+     "p": 1.0
+    }
+   ]
+  },
+  {
+   "start": 107.14,
+   "end": 110.56,
+   "text": "and a brand new tile was waiting in the early morning light.",
+   "words": [
+    {
+     "w": "and",
+     "start": 107.14,
+     "end": 107.72,
+     "p": 0.98
+    },
+    {
+     "w": "a",
+     "start": 107.72,
+     "end": 107.94,
+     "p": 1.0
+    },
+    {
+     "w": "brand",
+     "start": 107.94,
+     "end": 108.12,
+     "p": 1.0
+    },
+    {
+     "w": "new",
+     "start": 108.12,
+     "end": 108.4,
+     "p": 0.68
+    },
+    {
+     "w": "tile",
+     "start": 108.4,
+     "end": 108.82,
+     "p": 0.51
+    },
+    {
+     "w": "was",
+     "start": 108.82,
+     "end": 109.06,
+     "p": 1.0
+    },
+    {
+     "w": "waiting",
+     "start": 109.06,
+     "end": 109.36,
+     "p": 0.99
+    },
+    {
+     "w": "in",
+     "start": 109.36,
+     "end": 109.58,
+     "p": 1.0
+    },
+    {
+     "w": "the",
+     "start": 109.58,
+     "end": 109.68,
+     "p": 1.0
+    },
+    {
+     "w": "early",
+     "start": 109.68,
+     "end": 109.92,
+     "p": 1.0
+    },
+    {
+     "w": "morning",
+     "start": 109.92,
+     "end": 110.2,
+     "p": 0.97
+    },
+    {
+     "w": "light.",
+     "start": 110.2,
+     "end": 110.56,
+     "p": 1.0
+    }
+   ]
+  },
+  {
+   "start": 110.56,
+   "end": 114.44,
+   "text": "Can I delete it? You can hide it. Is that the same?",
+   "words": [
+    {
+     "w": "Can",
+     "start": 110.56,
+     "end": 111.14,
+     "p": 0.75
+    },
+    {
+     "w": "I",
+     "start": 111.14,
+     "end": 111.36,
+     "p": 0.98
+    },
+    {
+     "w": "delete",
+     "start": 111.36,
+     "end": 111.64,
+     "p": 1.0
+    },
+    {
+     "w": "it?",
+     "start": 111.64,
+     "end": 112.0,
+     "p": 1.0
+    },
+    {
+     "w": "You",
+     "start": 112.28,
+     "end": 112.46,
+     "p": 0.98
+    },
+    {
+     "w": "can",
+     "start": 112.46,
+     "end": 112.64,
+     "p": 1.0
+    },
+    {
+     "w": "hide",
+     "start": 112.64,
+     "end": 112.84,
+     "p": 1.0
+    },
+    {
+     "w": "it.",
+     "start": 112.84,
+     "end": 113.3,
+     "p": 1.0
+    },
+    {
+     "w": "Is",
+     "start": 113.52,
+     "end": 113.72,
+     "p": 0.99
+    },
+    {
+     "w": "that",
+     "start": 113.72,
+     "end": 113.86,
+     "p": 1.0
+    },
+    {
+     "w": "the",
+     "start": 113.86,
+     "end": 114.0,
+     "p": 1.0
+    },
+    {
+     "w": "same?",
+     "start": 114.0,
+     "end": 114.44,
+     "p": 0.99
+    }
+   ]
+  },
+  {
+   "start": 116.02,
+   "end": 117.06,
+   "text": "Next verse.",
+   "words": [
+    {
+     "w": "Next",
+     "start": 116.02,
+     "end": 116.54,
+     "p": 0.98
+    },
+    {
+     "w": "verse.",
+     "start": 116.54,
+     "end": 117.06,
+     "p": 0.99
+    }
+   ]
+  },
+  {
+   "start": 118.8,
+   "end": 121.9,
+   "text": "I've only got two sides, it isn't much to learn",
+   "words": [
+    {
+     "w": "I've",
+     "start": 118.8,
+     "end": 118.92,
+     "p": 0.5
+    },
+    {
+     "w": "only",
+     "start": 118.92,
+     "end": 119.24,
+     "p": 1.0
+    },
+    {
+     "w": "got",
+     "start": 119.24,
+     "end": 119.5,
+     "p": 1.0
+    },
+    {
+     "w": "two",
+     "start": 119.5,
+     "end": 119.82,
+     "p": 0.97
+    },
+    {
+     "w": "sides,",
+     "start": 119.82,
+     "end": 120.48,
+     "p": 1.0
+    },
+    {
+     "w": "it",
+     "start": 120.56,
+     "end": 120.72,
+     "p": 0.91
+    },
+    {
+     "w": "isn't",
+     "start": 120.72,
+     "end": 121.04,
+     "p": 1.0
+    },
+    {
+     "w": "much",
+     "start": 121.04,
+     "end": 121.26,
+     "p": 1.0
+    },
+    {
+     "w": "to",
+     "start": 121.26,
+     "end": 121.5,
+     "p": 1.0
+    },
+    {
+     "w": "learn",
+     "start": 121.5,
+     "end": 121.9,
+     "p": 1.0
+    }
+   ]
+  },
+  {
+   "start": 121.9,
+   "end": 125.48,
+   "text": "You pushed me down for off, so how'd I just return?",
+   "words": [
+    {
+     "w": "You",
+     "start": 121.9,
+     "end": 122.42,
+     "p": 0.31
+    },
+    {
+     "w": "pushed",
+     "start": 122.42,
+     "end": 122.72,
+     "p": 0.76
+    },
+    {
+     "w": "me",
+     "start": 122.72,
+     "end": 122.92,
+     "p": 1.0
+    },
+    {
+     "w": "down",
+     "start": 122.92,
+     "end": 123.14,
+     "p": 1.0
+    },
+    {
+     "w": "for",
+     "start": 123.14,
+     "end": 123.38,
+     "p": 0.96
+    },
+    {
+     "w": "off,",
+     "start": 123.38,
+     "end": 123.7,
+     "p": 0.84
+    },
+    {
+     "w": "so",
+     "start": 123.84,
+     "end": 124.24,
+     "p": 0.94
+    },
+    {
+     "w": "how'd",
+     "start": 124.24,
+     "end": 124.46,
+     "p": 0.88
+    },
+    {
+     "w": "I",
+     "start": 124.46,
+     "end": 124.58,
+     "p": 0.99
+    },
+    {
+     "w": "just",
+     "start": 124.58,
+     "end": 124.74,
+     "p": 0.99
+    },
+    {
+     "w": "return?",
+     "start": 124.74,
+     "end": 125.48,
+     "p": 1.0
+    }
+   ]
+  },
+  {
+   "start": 126.42,
+   "end": 129.04,
+   "text": "Default on, default on",
+   "words": [
+    {
+     "w": "Default",
+     "start": 126.42,
+     "end": 126.56,
+     "p": 0.84
+    },
+    {
+     "w": "on,",
+     "start": 126.56,
+     "end": 127.34,
+     "p": 0.96
+    },
+    {
+     "w": "default",
+     "start": 127.84,
+     "end": 128.3,
+     "p": 0.99
+    },
+    {
+     "w": "on",
+     "start": 128.3,
+     "end": 129.04,
+     "p": 1.0
+    }
+   ]
+  },
+  {
+   "start": 129.04,
+   "end": 132.6,
+   "text": "It was there when you woke up, it'll be there when you're gone",
+   "words": [
+    {
+     "w": "It",
+     "start": 129.04,
+     "end": 129.22,
+     "p": 0.7
+    },
+    {
+     "w": "was",
+     "start": 129.22,
+     "end": 129.48,
+     "p": 1.0
+    },
+    {
+     "w": "there",
+     "start": 129.48,
+     "end": 129.86,
+     "p": 1.0
+    },
+    {
+     "w": "when",
+     "start": 129.86,
+     "end": 130.12,
+     "p": 0.97
+    },
+    {
+     "w": "you",
+     "start": 130.12,
+     "end": 130.28,
+     "p": 1.0
+    },
+    {
+     "w": "woke",
+     "start": 130.28,
+     "end": 130.46,
+     "p": 1.0
+    },
+    {
+     "w": "up,",
+     "start": 130.46,
+     "end": 130.74,
+     "p": 1.0
+    },
+    {
+     "w": "it'll",
+     "start": 130.94,
+     "end": 131.2,
+     "p": 0.94
+    },
+    {
+     "w": "be",
+     "start": 131.2,
+     "end": 131.46,
+     "p": 1.0
+    },
+    {
+     "w": "there",
+     "start": 131.46,
+     "end": 131.74,
+     "p": 1.0
+    },
+    {
+     "w": "when",
+     "start": 131.74,
+     "end": 131.96,
+     "p": 1.0
+    },
+    {
+     "w": "you're",
+     "start": 131.96,
+     "end": 132.3,
+     "p": 0.99
+    },
+    {
+     "w": "gone",
+     "start": 132.3,
+     "end": 132.6,
+     "p": 1.0
+    }
+   ]
+  },
+  {
+   "start": 132.6,
+   "end": 136.2,
+   "text": "You can hide it, you can mute it, you can tuck it out of view",
+   "words": [
+    {
+     "w": "You",
+     "start": 132.6,
+     "end": 132.84,
+     "p": 0.96
+    },
+    {
+     "w": "can",
+     "start": 132.84,
+     "end": 133.08,
+     "p": 1.0
+    },
+    {
+     "w": "hide",
+     "start": 133.08,
+     "end": 133.54,
+     "p": 1.0
+    },
+    {
+     "w": "it,",
+     "start": 133.54,
+     "end": 133.8,
+     "p": 0.99
+    },
+    {
+     "w": "you",
+     "start": 133.86,
+     "end": 133.9,
+     "p": 1.0
+    },
+    {
+     "w": "can",
+     "start": 133.9,
+     "end": 134.1,
+     "p": 1.0
+    },
+    {
+     "w": "mute",
+     "start": 134.1,
+     "end": 134.24,
+     "p": 0.75
+    },
+    {
+     "w": "it,",
+     "start": 134.24,
+     "end": 134.52,
+     "p": 1.0
+    },
+    {
+     "w": "you",
+     "start": 134.72,
+     "end": 134.8,
+     "p": 0.99
+    },
+    {
+     "w": "can",
+     "start": 134.8,
+     "end": 135.06,
+     "p": 1.0
+    },
+    {
+     "w": "tuck",
+     "start": 135.06,
+     "end": 135.28,
+     "p": 0.98
+    },
+    {
+     "w": "it",
+     "start": 135.28,
+     "end": 135.44,
+     "p": 1.0
+    },
+    {
+     "w": "out",
+     "start": 135.44,
+     "end": 135.62,
+     "p": 1.0
+    },
+    {
+     "w": "of",
+     "start": 135.62,
+     "end": 135.86,
+     "p": 0.98
+    },
+    {
+     "w": "view",
+     "start": 135.86,
+     "end": 136.2,
+     "p": 0.97
+    }
+   ]
+  },
+  {
+   "start": 136.2,
+   "end": 140.52,
+   "text": "but the switch is just a picture that somebody drew for you default on",
+   "words": [
+    {
+     "w": "but",
+     "start": 136.2,
+     "end": 136.44,
+     "p": 0.15
+    },
+    {
+     "w": "the",
+     "start": 136.44,
+     "end": 136.7,
+     "p": 0.97
+    },
+    {
+     "w": "switch",
+     "start": 136.7,
+     "end": 137.0,
+     "p": 0.82
+    },
+    {
+     "w": "is",
+     "start": 137.0,
+     "end": 137.38,
+     "p": 0.91
+    },
+    {
+     "w": "just",
+     "start": 137.38,
+     "end": 137.64,
+     "p": 0.99
+    },
+    {
+     "w": "a",
+     "start": 137.64,
+     "end": 137.88,
+     "p": 0.99
+    },
+    {
+     "w": "picture",
+     "start": 137.88,
+     "end": 138.2,
+     "p": 1.0
+    },
+    {
+     "w": "that",
+     "start": 138.2,
+     "end": 138.46,
+     "p": 0.96
+    },
+    {
+     "w": "somebody",
+     "start": 138.46,
+     "end": 138.94,
+     "p": 0.98
+    },
+    {
+     "w": "drew",
+     "start": 138.94,
+     "end": 139.18,
+     "p": 1.0
+    },
+    {
+     "w": "for",
+     "start": 139.18,
+     "end": 139.46,
+     "p": 0.99
+    },
+    {
+     "w": "you",
+     "start": 139.46,
+     "end": 139.84,
+     "p": 0.99
+    },
+    {
+     "w": "default",
+     "start": 139.84,
+     "end": 140.28,
+     "p": 0.62
+    },
+    {
+     "w": "on",
+     "start": 140.28,
+     "end": 140.54,
+     "p": 0.85
+    }
+   ]
+  },
+  {
+   "start": 144.0,
+   "end": 145.04,
+   "text": "pop quiz",
+   "words": [
+    {
+     "w": "pop",
+     "start": 144.0,
+     "end": 144.52,
+     "p": 0.06
+    },
+    {
+     "w": "quiz",
+     "start": 144.52,
+     "end": 145.04,
+     "p": 0.99
+    }
+   ]
+  },
+  {
+   "start": 146.86,
+   "end": 150.2,
+   "text": "there's a blue ring in the chat app where you talk to mom and dad",
+   "words": [
+    {
+     "w": "there's",
+     "start": 146.86,
+     "end": 147.38,
+     "p": 0.7
+    },
+    {
+     "w": "a",
+     "start": 147.38,
+     "end": 147.52,
+     "p": 1.0
+    },
+    {
+     "w": "blue",
+     "start": 147.52,
+     "end": 147.78,
+     "p": 0.99
+    },
+    {
+     "w": "ring",
+     "start": 147.78,
+     "end": 148.04,
+     "p": 1.0
+    },
+    {
+     "w": "in",
+     "start": 148.04,
+     "end": 148.2,
+     "p": 1.0
+    },
+    {
+     "w": "the",
+     "start": 148.2,
+     "end": 148.42,
+     "p": 1.0
+    },
+    {
+     "w": "chat",
+     "start": 148.42,
+     "end": 148.58,
+     "p": 1.0
+    },
+    {
+     "w": "app",
+     "start": 148.58,
+     "end": 148.86,
+     "p": 1.0
+    },
+    {
+     "w": "where",
+     "start": 148.86,
+     "end": 149.0,
+     "p": 1.0
+    },
+    {
+     "w": "you",
+     "start": 149.0,
+     "end": 149.1,
+     "p": 1.0
+    },
+    {
+     "w": "talk",
+     "start": 149.1,
+     "end": 149.36,
+     "p": 0.98
+    },
+    {
+     "w": "to",
+     "start": 149.36,
+     "end": 149.52,
+     "p": 1.0
+    },
+    {
+     "w": "mom",
+     "start": 149.52,
+     "end": 149.7,
+     "p": 0.97
+    },
+    {
+     "w": "and",
+     "start": 149.7,
+     "end": 149.9,
+     "p": 1.0
+    },
+    {
+     "w": "dad",
+     "start": 149.9,
+     "end": 150.2,
+     "p": 1.0
+    }
+   ]
+  },
+  {
+   "start": 150.2,
+   "end": 154.54,
+   "text": "i'll uninstall it nope i'll mute it then that's not so bad",
+   "words": [
+    {
+     "w": "i'll",
+     "start": 150.2,
+     "end": 150.92,
+     "p": 0.92
+    },
+    {
+     "w": "uninstall",
+     "start": 150.92,
+     "end": 151.34,
+     "p": 1.0
+    },
+    {
+     "w": "it",
+     "start": 151.34,
+     "end": 151.64,
+     "p": 1.0
+    },
+    {
+     "w": "nope",
+     "start": 151.64,
+     "end": 151.96,
+     "p": 1.0
+    },
+    {
+     "w": "i'll",
+     "start": 151.96,
+     "end": 152.88,
+     "p": 0.99
+    },
+    {
+     "w": "mute",
+     "start": 152.88,
+     "end": 153.02,
+     "p": 1.0
+    },
+    {
+     "w": "it",
+     "start": 153.02,
+     "end": 153.2,
+     "p": 1.0
+    },
+    {
+     "w": "then",
+     "start": 153.2,
+     "end": 153.42,
+     "p": 1.0
+    },
+    {
+     "w": "that's",
+     "start": 153.42,
+     "end": 153.86,
+     "p": 1.0
+    },
+    {
+     "w": "not",
+     "start": 153.86,
+     "end": 153.96,
+     "p": 1.0
+    },
+    {
+     "w": "so",
+     "start": 153.96,
+     "end": 154.16,
+     "p": 1.0
+    },
+    {
+     "w": "bad",
+     "start": 154.16,
+     "end": 154.54,
+     "p": 1.0
+    }
+   ]
+  },
+  {
+   "start": 154.54,
+   "end": 158.58,
+   "text": "now your phone has got an update and it asks you to continue where's the no",
+   "words": [
+    {
+     "w": "now",
+     "start": 154.54,
+     "end": 154.94,
+     "p": 1.0
+    },
+    {
+     "w": "your",
+     "start": 154.94,
+     "end": 155.14,
+     "p": 1.0
+    },
+    {
+     "w": "phone",
+     "start": 155.14,
+     "end": 155.38,
+     "p": 1.0
+    },
+    {
+     "w": "has",
+     "start": 155.38,
+     "end": 155.5,
+     "p": 1.0
+    },
+    {
+     "w": "got",
+     "start": 155.5,
+     "end": 155.68,
+     "p": 1.0
+    },
+    {
+     "w": "an",
+     "start": 155.68,
+     "end": 155.84,
+     "p": 1.0
+    },
+    {
+     "w": "update",
+     "start": 155.84,
+     "end": 156.12,
+     "p": 1.0
+    },
+    {
+     "w": "and",
+     "start": 156.12,
+     "end": 156.3,
+     "p": 1.0
+    },
+    {
+     "w": "it",
+     "start": 156.3,
+     "end": 156.44,
+     "p": 1.0
+    },
+    {
+     "w": "asks",
+     "start": 156.44,
+     "end": 156.64,
+     "p": 0.62
+    },
+    {
+     "w": "you",
+     "start": 156.64,
+     "end": 156.82,
+     "p": 1.0
+    },
+    {
+     "w": "to",
+     "start": 156.82,
+     "end": 157.14,
+     "p": 1.0
+    },
+    {
+     "w": "continue",
+     "start": 157.14,
+     "end": 157.68,
+     "p": 1.0
+    },
+    {
+     "w": "where's",
+     "start": 157.68,
+     "end": 158.16,
+     "p": 1.0
+    },
+    {
+     "w": "the",
+     "start": 158.16,
+     "end": 158.28,
+     "p": 1.0
+    },
+    {
+     "w": "no",
+     "start": 158.28,
+     "end": 158.58,
+     "p": 0.97
+    }
+   ]
+  },
+  {
+   "start": 158.58,
+   "end": 164.6,
+   "text": "there isn't one it turned back on for you in australia office software went up 45",
+   "words": [
+    {
+     "w": "there",
+     "start": 158.58,
+     "end": 159.1,
+     "p": 0.98
+    },
+    {
+     "w": "isn't",
+     "start": 159.1,
+     "end": 159.4,
+     "p": 1.0
+    },
+    {
+     "w": "one",
+     "start": 159.4,
+     "end": 159.72,
+     "p": 1.0
+    },
+    {
+     "w": "it",
+     "start": 159.72,
+     "end": 160.14,
+     "p": 1.0
+    },
+    {
+     "w": "turned",
+     "start": 160.14,
+     "end": 160.38,
+     "p": 1.0
+    },
+    {
+     "w": "back",
+     "start": 160.38,
+     "end": 160.62,
+     "p": 1.0
+    },
+    {
+     "w": "on",
+     "start": 160.62,
+     "end": 160.84,
+     "p": 1.0
+    },
+    {
+     "w": "for",
+     "start": 160.84,
+     "end": 161.02,
+     "p": 1.0
+    },
+    {
+     "w": "you",
+     "start": 161.02,
+     "end": 161.56,
+     "p": 1.0
+    },
+    {
+     "w": "in",
+     "start": 161.56,
+     "end": 162.16,
+     "p": 0.99
+    },
+    {
+     "w": "australia",
+     "start": 162.16,
+     "end": 162.84,
+     "p": 0.98
+    },
+    {
+     "w": "office",
+     "start": 162.84,
+     "end": 163.16,
+     "p": 1.0
+    },
+    {
+     "w": "software",
+     "start": 163.16,
+     "end": 163.66,
+     "p": 1.0
+    },
+    {
+     "w": "went",
+     "start": 163.66,
+     "end": 163.86,
+     "p": 1.0
+    },
+    {
+     "w": "up",
+     "start": 163.86,
+     "end": 164.02,
+     "p": 1.0
+    },
+    {
+     "w": "45",
+     "start": 164.02,
+     "end": 164.6,
+     "p": 0.96
+    }
+   ]
+  },
+  {
+   "start": 164.6,
+   "end": 168.8,
+   "text": "Was there one without the robot? Only once you tried to leave.",
+   "words": [
+    {
+     "w": "Was",
+     "start": 164.6,
+     "end": 165.22,
+     "p": 0.02
+    },
+    {
+     "w": "there",
+     "start": 165.22,
+     "end": 165.8,
+     "p": 0.99
+    },
+    {
+     "w": "one",
+     "start": 165.8,
+     "end": 166.0,
+     "p": 0.99
+    },
+    {
+     "w": "without",
+     "start": 166.0,
+     "end": 166.26,
+     "p": 0.99
+    },
+    {
+     "w": "the",
+     "start": 166.26,
+     "end": 166.48,
+     "p": 0.99
+    },
+    {
+     "w": "robot?",
+     "start": 166.48,
+     "end": 166.78,
+     "p": 0.99
+    },
+    {
+     "w": "Only",
+     "start": 167.28,
+     "end": 167.46,
+     "p": 0.96
+    },
+    {
+     "w": "once",
+     "start": 167.46,
+     "end": 167.76,
+     "p": 0.99
+    },
+    {
+     "w": "you",
+     "start": 167.76,
+     "end": 167.92,
+     "p": 0.97
+    },
+    {
+     "w": "tried",
+     "start": 167.92,
+     "end": 168.18,
+     "p": 0.96
+    },
+    {
+     "w": "to",
+     "start": 168.18,
+     "end": 168.42,
+     "p": 1.0
+    },
+    {
+     "w": "leave.",
+     "start": 168.42,
+     "end": 168.8,
+     "p": 1.0
+    }
+   ]
+  },
+  {
+   "start": 169.06,
+   "end": 172.4,
+   "text": "Now the school's the place for learning, and the school picks what you learn.",
+   "words": [
+    {
+     "w": "Now",
+     "start": 169.06,
+     "end": 169.16,
+     "p": 0.99
+    },
+    {
+     "w": "the",
+     "start": 169.16,
+     "end": 169.42,
+     "p": 0.92
+    },
+    {
+     "w": "school's",
+     "start": 169.42,
+     "end": 169.78,
+     "p": 0.9
+    },
+    {
+     "w": "the",
+     "start": 169.78,
+     "end": 169.92,
+     "p": 0.99
+    },
+    {
+     "w": "place",
+     "start": 169.92,
+     "end": 170.14,
+     "p": 1.0
+    },
+    {
+     "w": "for",
+     "start": 170.14,
+     "end": 170.38,
+     "p": 1.0
+    },
+    {
+     "w": "learning,",
+     "start": 170.38,
+     "end": 170.7,
+     "p": 1.0
+    },
+    {
+     "w": "and",
+     "start": 170.74,
+     "end": 171.12,
+     "p": 0.93
+    },
+    {
+     "w": "the",
+     "start": 171.12,
+     "end": 171.28,
+     "p": 0.99
+    },
+    {
+     "w": "school",
+     "start": 171.28,
+     "end": 171.48,
+     "p": 1.0
+    },
+    {
+     "w": "picks",
+     "start": 171.48,
+     "end": 171.74,
+     "p": 1.0
+    },
+    {
+     "w": "what",
+     "start": 171.74,
+     "end": 171.9,
+     "p": 1.0
+    },
+    {
+     "w": "you",
+     "start": 171.9,
+     "end": 172.04,
+     "p": 1.0
+    },
+    {
+     "w": "learn.",
+     "start": 172.04,
+     "end": 172.4,
+     "p": 0.98
+    }
+   ]
+  },
+  {
+   "start": 172.66,
+   "end": 176.04,
+   "text": "So the school said, no A.I. please, and waited for its turn.",
+   "words": [
+    {
+     "w": "So",
+     "start": 172.66,
+     "end": 172.9,
+     "p": 0.99
+    },
+    {
+     "w": "the",
+     "start": 172.9,
+     "end": 173.06,
+     "p": 0.94
+    },
+    {
+     "w": "school",
+     "start": 173.06,
+     "end": 173.3,
+     "p": 1.0
+    },
+    {
+     "w": "said,",
+     "start": 173.3,
+     "end": 173.54,
+     "p": 1.0
+    },
+    {
+     "w": "no",
+     "start": 173.74,
+     "end": 173.82,
+     "p": 0.2
+    },
+    {
+     "w": "A",
+     "start": 173.82,
+     "end": 174.08,
+     "p": 0.21
+    },
+    {
+     "w": ".I.",
+     "start": 174.08,
+     "end": 174.22,
+     "p": 0.97
+    },
+    {
+     "w": "please,",
+     "start": 174.22,
+     "end": 174.74,
+     "p": 0.92
+    },
+    {
+     "w": "and",
+     "start": 174.74,
+     "end": 174.98,
+     "p": 0.99
+    },
+    {
+     "w": "waited",
+     "start": 174.98,
+     "end": 175.18,
+     "p": 0.99
+    },
+    {
+     "w": "for",
+     "start": 175.18,
+     "end": 175.44,
+     "p": 1.0
+    },
+    {
+     "w": "its",
+     "start": 175.44,
+     "end": 175.66,
+     "p": 0.9
+    },
+    {
+     "w": "turn.",
+     "start": 175.66,
+     "end": 176.04,
+     "p": 0.99
+    }
+   ]
+  },
+  {
+   "start": 176.18,
+   "end": 179.6,
+   "text": "And the giant said, we hear you. Here's a deal that's very fair.",
+   "words": [
+    {
+     "w": "And",
+     "start": 176.18,
+     "end": 176.56,
+     "p": 0.99
+    },
+    {
+     "w": "the",
+     "start": 176.56,
+     "end": 176.74,
+     "p": 0.99
+    },
+    {
+     "w": "giant",
+     "start": 176.74,
+     "end": 176.96,
+     "p": 0.86
+    },
+    {
+     "w": "said,",
+     "start": 176.96,
+     "end": 177.26,
+     "p": 1.0
+    },
+    {
+     "w": "we",
+     "start": 177.3,
+     "end": 177.44,
+     "p": 0.96
+    },
+    {
+     "w": "hear",
+     "start": 177.44,
+     "end": 177.7,
+     "p": 0.99
+    },
+    {
+     "w": "you.",
+     "start": 177.7,
+     "end": 178.02,
+     "p": 1.0
+    },
+    {
+     "w": "Here's",
+     "start": 178.18,
+     "end": 178.44,
+     "p": 1.0
+    },
+    {
+     "w": "a",
+     "start": 178.44,
+     "end": 178.58,
+     "p": 0.99
+    },
+    {
+     "w": "deal",
+     "start": 178.58,
+     "end": 178.8,
+     "p": 1.0
+    },
+    {
+     "w": "that's",
+     "start": 178.8,
+     "end": 179.04,
+     "p": 0.99
+    },
+    {
+     "w": "very",
+     "start": 179.04,
+     "end": 179.24,
+     "p": 1.0
+    },
+    {
+     "w": "fair.",
+     "start": 179.24,
+     "end": 179.6,
+     "p": 1.0
+    }
+   ]
+  },
+  {
+   "start": 179.86,
+   "end": 183.8,
+   "text": "Take the robot with your search, or else there's no search there.",
+   "words": [
+    {
+     "w": "Take",
+     "start": 179.86,
+     "end": 180.12,
+     "p": 1.0
+    },
+    {
+     "w": "the",
+     "start": 180.12,
+     "end": 180.4,
+     "p": 1.0
+    },
+    {
+     "w": "robot",
+     "start": 180.4,
+     "end": 180.7,
+     "p": 1.0
+    },
+    {
+     "w": "with",
+     "start": 180.7,
+     "end": 180.96,
+     "p": 1.0
+    },
+    {
+     "w": "your",
+     "start": 180.96,
+     "end": 181.18,
+     "p": 0.99
+    },
+    {
+     "w": "search,",
+     "start": 181.18,
+     "end": 181.54,
+     "p": 1.0
+    },
+    {
+     "w": "or",
+     "start": 181.54,
+     "end": 182.12,
+     "p": 1.0
+    },
+    {
+     "w": "else",
+     "start": 182.12,
+     "end": 182.3,
+     "p": 1.0
+    },
+    {
+     "w": "there's",
+     "start": 182.3,
+     "end": 182.64,
+     "p": 0.98
+    },
+    {
+     "w": "no",
+     "start": 182.64,
+     "end": 182.86,
+     "p": 1.0
+    },
+    {
+     "w": "search",
+     "start": 182.86,
+     "end": 183.24,
+     "p": 1.0
+    },
+    {
+     "w": "there.",
+     "start": 183.24,
+     "end": 183.8,
+     "p": 1.0
+    }
+   ]
+  },
+  {
+   "start": 186.5,
+   "end": 190.46,
+   "text": "Correction boys and girls. You can switch the chatbot off.",
+   "words": [
+    {
+     "w": "Correction",
+     "start": 186.5,
+     "end": 187.02,
+     "p": 0.83
+    },
+    {
+     "w": "boys",
+     "start": 187.02,
+     "end": 187.4,
+     "p": 0.64
+    },
+    {
+     "w": "and",
+     "start": 187.4,
+     "end": 187.7,
+     "p": 0.99
+    },
+    {
+     "w": "girls.",
+     "start": 187.7,
+     "end": 188.1,
+     "p": 1.0
+    },
+    {
+     "w": "You",
+     "start": 188.36,
+     "end": 188.88,
+     "p": 1.0
+    },
+    {
+     "w": "can",
+     "start": 188.88,
+     "end": 189.04,
+     "p": 1.0
+    },
+    {
+     "w": "switch",
+     "start": 189.04,
+     "end": 189.28,
+     "p": 1.0
+    },
+    {
+     "w": "the",
+     "start": 189.28,
+     "end": 189.54,
+     "p": 1.0
+    },
+    {
+     "w": "chatbot",
+     "start": 189.54,
+     "end": 189.94,
+     "p": 0.77
+    },
+    {
+     "w": "off.",
+     "start": 189.94,
+     "end": 190.46,
+     "p": 1.0
+    }
+   ]
+  },
+  {
+   "start": 190.46,
+   "end": 194.22,
+   "text": "And you keep your search and everything and the answer box on top",
+   "words": [
+    {
+     "w": "And",
+     "start": 190.46,
+     "end": 191.1,
+     "p": 0.39
+    },
+    {
+     "w": "you",
+     "start": 191.1,
+     "end": 191.22,
+     "p": 0.84
+    },
+    {
+     "w": "keep",
+     "start": 191.22,
+     "end": 191.46,
+     "p": 0.99
+    },
+    {
+     "w": "your",
+     "start": 191.46,
+     "end": 191.74,
+     "p": 0.99
+    },
+    {
+     "w": "search",
+     "start": 191.74,
+     "end": 192.04,
+     "p": 0.98
+    },
+    {
+     "w": "and",
+     "start": 192.04,
+     "end": 192.24,
+     "p": 0.56
+    },
+    {
+     "w": "everything",
+     "start": 192.24,
+     "end": 192.68,
+     "p": 0.99
+    },
+    {
+     "w": "and",
+     "start": 192.68,
+     "end": 192.92,
+     "p": 0.33
+    },
+    {
+     "w": "the",
+     "start": 192.92,
+     "end": 193.08,
+     "p": 0.99
+    },
+    {
+     "w": "answer",
+     "start": 193.08,
+     "end": 193.38,
+     "p": 0.99
+    },
+    {
+     "w": "box",
+     "start": 193.38,
+     "end": 193.64,
+     "p": 0.98
+    },
+    {
+     "w": "on",
+     "start": 193.64,
+     "end": 193.92,
+     "p": 1.0
+    },
+    {
+     "w": "top",
+     "start": 193.92,
+     "end": 194.22,
+     "p": 1.0
+    }
+   ]
+  },
+  {
+   "start": 194.84,
+   "end": 197.8,
+   "text": "That one's deeply integrated. What's that mean?",
+   "words": [
+    {
+     "w": "That",
+     "start": 194.84,
+     "end": 195.4,
+     "p": 0.27
+    },
+    {
+     "w": "one's",
+     "start": 195.4,
+     "end": 195.88,
+     "p": 0.97
+    },
+    {
+     "w": "deeply",
+     "start": 195.88,
+     "end": 196.18,
+     "p": 1.0
+    },
+    {
+     "w": "integrated.",
+     "start": 196.18,
+     "end": 196.78,
+     "p": 1.0
+    },
+    {
+     "w": "What's",
+     "start": 196.98,
+     "end": 197.4,
+     "p": 0.98
+    },
+    {
+     "w": "that",
+     "start": 197.4,
+     "end": 197.52,
+     "p": 1.0
+    },
+    {
+     "w": "mean?",
+     "start": 197.52,
+     "end": 197.8,
+     "p": 0.99
+    }
+   ]
+  },
+  {
+   "start": 198.88,
+   "end": 200.0,
+   "text": "It means it stayed",
+   "words": [
+    {
+     "w": "It",
+     "start": 198.88,
+     "end": 198.96,
+     "p": 0.97
+    },
+    {
+     "w": "means",
+     "start": 198.96,
+     "end": 199.18,
+     "p": 0.99
+    },
+    {
+     "w": "it",
+     "start": 199.18,
+     "end": 199.34,
+     "p": 0.97
+    },
+    {
+     "w": "stayed",
+     "start": 199.34,
+     "end": 200.0,
+     "p": 0.61
+    }
+   ]
+  },
+  {
+   "start": 200.0,
+   "end": 200.92,
+   "text": "default",
+   "words": [
+    {
+     "w": "default",
+     "start": 200.0,
+     "end": 200.92,
+     "p": 0.52
+    }
+   ]
+  },
+  {
+   "start": 202.26,
+   "end": 206.96,
+   "text": "Default on it was there when we woke up. It'll be there when we're gone",
+   "words": [
+    {
+     "w": "Default",
+     "start": 202.26,
+     "end": 202.82,
+     "p": 0.02
+    },
+    {
+     "w": "on",
+     "start": 202.82,
+     "end": 203.38,
+     "p": 0.92
+    },
+    {
+     "w": "it",
+     "start": 203.38,
+     "end": 203.58,
+     "p": 0.87
+    },
+    {
+     "w": "was",
+     "start": 203.58,
+     "end": 203.8,
+     "p": 1.0
+    },
+    {
+     "w": "there",
+     "start": 203.8,
+     "end": 204.24,
+     "p": 1.0
+    },
+    {
+     "w": "when",
+     "start": 204.24,
+     "end": 204.46,
+     "p": 0.99
+    },
+    {
+     "w": "we",
+     "start": 204.46,
+     "end": 204.62,
+     "p": 0.98
+    },
+    {
+     "w": "woke",
+     "start": 204.62,
+     "end": 204.78,
+     "p": 1.0
+    },
+    {
+     "w": "up.",
+     "start": 204.78,
+     "end": 205.12,
+     "p": 1.0
+    },
+    {
+     "w": "It'll",
+     "start": 205.24,
+     "end": 205.5,
+     "p": 1.0
+    },
+    {
+     "w": "be",
+     "start": 205.5,
+     "end": 205.8,
+     "p": 1.0
+    },
+    {
+     "w": "there",
+     "start": 205.8,
+     "end": 206.08,
+     "p": 1.0
+    },
+    {
+     "w": "when",
+     "start": 206.08,
+     "end": 206.32,
+     "p": 0.99
+    },
+    {
+     "w": "we're",
+     "start": 206.32,
+     "end": 206.64,
+     "p": 1.0
+    },
+    {
+     "w": "gone",
+     "start": 206.64,
+     "end": 206.96,
+     "p": 1.0
+    }
+   ]
+  },
+  {
+   "start": 206.96,
+   "end": 210.36,
+   "text": "We can hide it we can mute it. We can tuck it out of you",
+   "words": [
+    {
+     "w": "We",
+     "start": 206.96,
+     "end": 207.16,
+     "p": 0.65
+    },
+    {
+     "w": "can",
+     "start": 207.16,
+     "end": 207.34,
+     "p": 1.0
+    },
+    {
+     "w": "hide",
+     "start": 207.34,
+     "end": 207.88,
+     "p": 0.99
+    },
+    {
+     "w": "it",
+     "start": 207.88,
+     "end": 208.1,
+     "p": 0.88
+    },
+    {
+     "w": "we",
+     "start": 208.1,
+     "end": 208.22,
+     "p": 0.4
+    },
+    {
+     "w": "can",
+     "start": 208.22,
+     "end": 208.36,
+     "p": 0.94
+    },
+    {
+     "w": "mute",
+     "start": 208.36,
+     "end": 208.6,
+     "p": 0.89
+    },
+    {
+     "w": "it.",
+     "start": 208.6,
+     "end": 208.86,
+     "p": 0.99
+    },
+    {
+     "w": "We",
+     "start": 208.92,
+     "end": 209.02,
+     "p": 1.0
+    },
+    {
+     "w": "can",
+     "start": 209.02,
+     "end": 209.2,
+     "p": 0.92
+    },
+    {
+     "w": "tuck",
+     "start": 209.2,
+     "end": 209.5,
+     "p": 0.87
+    },
+    {
+     "w": "it",
+     "start": 209.5,
+     "end": 209.66,
+     "p": 1.0
+    },
+    {
+     "w": "out",
+     "start": 209.66,
+     "end": 209.82,
+     "p": 0.97
+    },
+    {
+     "w": "of",
+     "start": 209.82,
+     "end": 210.0,
+     "p": 0.99
+    },
+    {
+     "w": "you",
+     "start": 210.0,
+     "end": 210.36,
+     "p": 0.75
+    }
+   ]
+  },
+  {
+   "start": 210.36,
+   "end": 214.18,
+   "text": "But the switch is just a picture that somebody drew for you",
+   "words": [
+    {
+     "w": "But",
+     "start": 210.36,
+     "end": 210.8,
+     "p": 0.79
+    },
+    {
+     "w": "the",
+     "start": 210.8,
+     "end": 211.02,
+     "p": 1.0
+    },
+    {
+     "w": "switch",
+     "start": 211.02,
+     "end": 211.4,
+     "p": 0.99
+    },
+    {
+     "w": "is",
+     "start": 211.4,
+     "end": 211.74,
+     "p": 1.0
+    },
+    {
+     "w": "just",
+     "start": 211.74,
+     "end": 212.06,
+     "p": 1.0
+    },
+    {
+     "w": "a",
+     "start": 212.06,
+     "end": 212.28,
+     "p": 1.0
+    },
+    {
+     "w": "picture",
+     "start": 212.28,
+     "end": 212.6,
+     "p": 1.0
+    },
+    {
+     "w": "that",
+     "start": 212.6,
+     "end": 212.88,
+     "p": 1.0
+    },
+    {
+     "w": "somebody",
+     "start": 212.88,
+     "end": 213.36,
+     "p": 0.99
+    },
+    {
+     "w": "drew",
+     "start": 213.36,
+     "end": 213.72,
+     "p": 1.0
+    },
+    {
+     "w": "for",
+     "start": 213.72,
+     "end": 214.04,
+     "p": 1.0
+    },
+    {
+     "w": "you",
+     "start": 214.04,
+     "end": 214.32,
+     "p": 1.0
+    }
+   ]
+  },
+  {
+   "start": 218.64,
+   "end": 224.06,
+   "text": "I got two sides. Guess one of them was just for show.",
+   "words": [
+    {
+     "w": "I",
+     "start": 218.64,
+     "end": 219.12,
+     "p": 0.23
+    },
+    {
+     "w": "got",
+     "start": 219.12,
+     "end": 219.6,
+     "p": 0.38
+    },
+    {
+     "w": "two",
+     "start": 219.6,
+     "end": 219.9,
+     "p": 0.93
+    },
+    {
+     "w": "sides.",
+     "start": 219.9,
+     "end": 220.5,
+     "p": 0.96
+    },
+    {
+     "w": "Guess",
+     "start": 222.34,
+     "end": 222.62,
+     "p": 0.88
+    },
+    {
+     "w": "one",
+     "start": 222.62,
+     "end": 222.84,
+     "p": 1.0
+    },
+    {
+     "w": "of",
+     "start": 222.84,
+     "end": 222.94,
+     "p": 0.99
+    },
+    {
+     "w": "them",
+     "start": 222.94,
+     "end": 223.06,
+     "p": 0.76
+    },
+    {
+     "w": "was",
+     "start": 223.06,
+     "end": 223.24,
+     "p": 0.99
+    },
+    {
+     "w": "just",
+     "start": 223.24,
+     "end": 223.48,
+     "p": 0.99
+    },
+    {
+     "w": "for",
+     "start": 223.48,
+     "end": 223.64,
+     "p": 0.99
+    },
+    {
+     "w": "show.",
+     "start": 223.64,
+     "end": 224.06,
+     "p": 1.0
+    }
+   ]
+  },
+  {
+   "start": 225.98,
+   "end": 230.46,
+   "text": "And that's how an opt-out works. Join us next week when we learn about.",
+   "words": [
+    {
+     "w": "And",
+     "start": 225.98,
+     "end": 226.1,
+     "p": 0.97
+    },
+    {
+     "w": "that's",
+     "start": 226.1,
+     "end": 226.34,
+     "p": 0.99
+    },
+    {
+     "w": "how",
+     "start": 226.34,
+     "end": 226.46,
+     "p": 1.0
+    },
+    {
+     "w": "an",
+     "start": 226.46,
+     "end": 226.6,
+     "p": 0.98
+    },
+    {
+     "w": "opt",
+     "start": 226.6,
+     "end": 226.74,
+     "p": 0.84
+    },
+    {
+     "w": "-out",
+     "start": 226.74,
+     "end": 226.92,
+     "p": 0.9
+    },
+    {
+     "w": "works.",
+     "start": 226.92,
+     "end": 227.34,
+     "p": 1.0
+    },
+    {
+     "w": "Join",
+     "start": 228.52,
+     "end": 228.64,
+     "p": 1.0
+    },
+    {
+     "w": "us",
+     "start": 228.64,
+     "end": 228.88,
+     "p": 1.0
+    },
+    {
+     "w": "next",
+     "start": 228.88,
+     "end": 229.12,
+     "p": 1.0
+    },
+    {
+     "w": "week",
+     "start": 229.12,
+     "end": 229.46,
+     "p": 1.0
+    },
+    {
+     "w": "when",
+     "start": 229.46,
+     "end": 229.8,
+     "p": 0.8
+    },
+    {
+     "w": "we",
+     "start": 229.8,
+     "end": 229.96,
+     "p": 1.0
+    },
+    {
+     "w": "learn",
+     "start": 229.96,
+     "end": 230.14,
+     "p": 1.0
+    },
+    {
+     "w": "about.",
+     "start": 230.14,
+     "end": 230.46,
+     "p": 1.0
+    }
+   ]
+  },
+  {
+   "start": 232.78,
+   "end": 237.12,
+   "text": "Who asked for that? Hey, who wrote this song anyway?",
+   "words": [
+    {
+     "w": "Who",
+     "start": 232.78,
+     "end": 233.26,
+     "p": 0.24
+    },
+    {
+     "w": "asked",
+     "start": 233.26,
+     "end": 233.74,
+     "p": 0.99
+    },
+    {
+     "w": "for",
+     "start": 233.74,
+     "end": 233.96,
+     "p": 1.0
+    },
+    {
+     "w": "that?",
+     "start": 233.96,
+     "end": 234.16,
+     "p": 1.0
+    },
+    {
+     "w": "Hey,",
+     "start": 235.22,
+     "end": 235.46,
+     "p": 0.94
+    },
+    {
+     "w": "who",
+     "start": 235.64,
+     "end": 236.06,
+     "p": 1.0
+    },
+    {
+     "w": "wrote",
+     "start": 236.06,
+     "end": 236.24,
+     "p": 1.0
+    },
+    {
+     "w": "this",
+     "start": 236.24,
+     "end": 236.48,
+     "p": 1.0
+    },
+    {
+     "w": "song",
+     "start": 236.48,
+     "end": 236.72,
+     "p": 1.0
+    },
+    {
+     "w": "anyway?",
+     "start": 236.72,
+     "end": 237.12,
+     "p": 0.81
+    }
+   ]
+  },
+  {
+   "start": 238.24,
+   "end": 242.7,
+   "text": "An AI did, but somebody asked it to.",
+   "words": [
+    {
+     "w": "An",
+     "start": 238.24,
+     "end": 238.96,
+     "p": 0.38
+    },
+    {
+     "w": "AI",
+     "start": 238.96,
+     "end": 239.24,
+     "p": 0.89
+    },
+    {
+     "w": "did,",
+     "start": 239.24,
+     "end": 239.68,
+     "p": 0.99
+    },
+    {
+     "w": "but",
+     "start": 241.12,
+     "end": 241.44,
+     "p": 0.98
+    },
+    {
+     "w": "somebody",
+     "start": 241.44,
+     "end": 241.78,
+     "p": 0.97
+    },
+    {
+     "w": "asked",
+     "start": 241.78,
+     "end": 242.1,
+     "p": 0.89
+    },
+    {
+     "w": "it",
+     "start": 242.1,
+     "end": 242.32,
+     "p": 1.0
+    },
+    {
+     "w": "to.",
+     "start": 242.32,
+     "end": 242.7,
+     "p": 0.35
+    }
+   ]
+  }
+ ]
+}
