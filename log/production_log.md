@@ -119,3 +119,10 @@ Append-only. One entry per action: timestamp, step (shot ID where relevant), wha
   - **Switch's rig:** shut eyes are now a curved lid line with lashes (they read as empty circles before).
 - **Commands:** stills of `Sec01-Intro` at frames 140–588 for review; `npx remotion render src/index.ts Sec01-Intro ../renders/m4/sec01_intro.mp4 --concurrency=8 --crf=18` (2 min 25 s); `python3 -I scripts/contact_sheets.py renders/m4/sec01_intro.mp4 0 659`
 - **Outputs:** `renders/m4/sec01_intro.mp4` (1920x1080, 659 frames, with audio), `review/S00–S04.jpg`
+
+## 2026-11-06T11:30:00-05:00 — M4 detail pass: section 2, Verse 1 (S05–S08)
+
+- **What:** A study-desk set for S05–S07: diamond wallpaper on teal, a pinboard of notes, a floor lamp, a wood-grain desktop with a round-key keyboard (a key dips with each typed letter), a steaming mug, a notepad and pencil. The search page under the box now has results (an icon, a title bar and two snippet lines each). S06: the answer box comes in from the left on a low hop with speed lines and lands on the first results (a dust puff; they squash flat). S07: Switch lifts its corner with a strain and a sweat drop. S08: a tall bookcase of seven shelves with the tiny "Web" tab glinting on top, a wooden ladder Switch climbs rung by rung, alternating arms, and the Narrator framed chest-up, cropped by the frame edge rather than floating.
+- **Agent review:** stills before the render caught the Narrator floating waist-up in S08 and S06's hop covering the search box and landing below the page; both fixed.
+- **Commands:** `scripts/m4_section.sh Sec02-Verse1 sec02_verse1` (new: render, contact sheets, CRF 26 review copy)
+- **Outputs:** `renders/m4/sec02_verse1.mp4`, `renders/m4/review/sec02_verse1_review.mp4`, `review/S05–S08.jpg`

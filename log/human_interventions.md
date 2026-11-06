@@ -61,3 +61,8 @@ Every human action: timestamp, what, why, and which rule allows it. The brief al
 
 - **What:** The human: "Yes keep going, just make sure to add detail (it seems a lot was omitted for a fast pass)".
 - **Rule:** H2. The detail note applies to M4's final renders, section by section.
+
+## 2026-11-06T11:10 — M4 section 1 (Intro) approved; detail level confirmed — H2
+
+- **What:** The human: "The level of detail appears to be good. Keep going."
+- **Rule:** H2 (section approval).

@@ -177,69 +177,139 @@ export const S04: ShotC = ({ f, g }) => {
   );
 };
 
-// S05: "You typed a little question…": a big generic search box on a desk; letters type themselves
-export const S05: ShotC = ({ f, len }) => {
+// the study desk for verse 1: diamond wallpaper on teal, a pinboard, a desk lamp, a wood-grain desktop with a
+// typewriter-style keyboard, a mug, a notepad and pencils
+const Study: React.FC<{ g: number; children: React.ReactNode; keys?: number }> = ({ g, children, keys = -1 }) => (
+  <Bg id="study" seed={5} base={C.teal}>
+    <Wallpaper id="study" kind="diamond" a={C.cream} b={C.mustard} opacity={0.22} />
+    <g transform="translate(1660, 230)">
+      <rect x={-180} y={-130} width={360} height={260} fill="#c9a26b" stroke={C.ink} strokeWidth={8} />
+      {[[-110, -60, C.cream, -4], [40, -70, C.mustard, 5], [-60, 40, C.orange, 3], [100, 50, C.white, -6]].map(([x, y, c, r], i) => (
+        <g key={i} transform={`translate(${x}, ${y}) rotate(${r})`}>
+          <rect x={-60} y={-40} width={120} height={80} fill={c as string} stroke={C.ink} strokeWidth={3} />
+          <circle cy={-36} r={7} fill={C.red} stroke={C.ink} strokeWidth={2} />
+          {[0, 1, 2].map((k) => <rect key={k} x={-46} y={-16 + k * 16} width={80 - k * 18} height={6} fill={C.inkSoft} opacity={0.5} />)}
+        </g>
+      ))}
+    </g>
+    <g transform="translate(240, 540)"><Lamp /></g>
+    {/* the desktop */}
+    <rect x={-20} y={760} width={W + 40} height={340} fill="#a8703e" stroke={C.ink} strokeWidth={8} />
+    {Array.from({ length: 7 }, (_, i) => <path key={i} d={`M-20,${800 + i * 42} q${400 + i * 30},${-14 + (i % 2) * 28} ${960},0 t${980},0`} stroke={C.cardiganShade} strokeWidth={3} fill="none" opacity={0.5} />)}
+    {/* keyboard: three rows of round keys; the one being typed dips */}
+    <g transform="translate(960, 900)">
+      <rect x={-460} y={-80} width={920} height={170} rx={30} fill={C.cardigan} stroke={C.ink} strokeWidth={7} />
+      {[0, 1, 2].map((r) => Array.from({ length: 11 - r }, (_, i) => {
+        const k = r * 11 + i, down = k === keys;
+        return <circle key={k} cx={-400 + r * 30 + i * 80} cy={-38 + r * 50 + (down ? 5 : 0)} r={26} fill={down ? C.mustard : C.cream} stroke={C.ink} strokeWidth={4} />;
+      }))}
+    </g>
+    <g transform="translate(1560, 820)">
+      <path d="M-60,-90 L60,-90 L50,40 L-50,40 Z" fill={C.red} stroke={C.ink} strokeWidth={6} />
+      <path d="M60,-60 q50,0 40,40 q-8,24 -42,22" fill="none" stroke={C.ink} strokeWidth={10} />
+      {[0, 1].map((k) => <path key={k} d={`M${-20 + k * 30},-110 q-14,-30 0,-60`} fill="none" stroke={C.white} strokeWidth={5} opacity={0.5 + 0.3 * Math.sin(g / 8 + k)} />)}
+    </g>
+    <g transform="translate(330, 850) rotate(-8)">
+      <rect x={-120} y={-80} width={240} height={160} fill={C.white} stroke={C.ink} strokeWidth={5} />
+      {[0, 1, 2, 3].map((k) => <line key={k} x1={-100} x2={100} y1={-44 + k * 32} y2={-44 + k * 32} stroke={C.teal} strokeWidth={3} opacity={0.6} />)}
+      <line x1={140} y1={-70} x2={220} y2={70} stroke={C.mustard} strokeWidth={16} strokeLinecap="round" />
+    </g>
+    {children}
+  </Bg>
+);
+
+// S05: "You typed a little question…": a big generic search box; letters type themselves, a key dips with each
+export const S05: ShotC = ({ f, g, len }) => {
   const q = "why is there a robot in my search";
   const n = Math.min(q.length, Math.floor((f / (len * 0.8)) * q.length));
   return (
-    <Bg id="s05" seed={5} base={C.teal}>
-      <Wash id="s05" color={C.cardigan} opacity={0.8}><rect x={-40} y={760} width={W + 80} height={400} /></Wash>
-      <g transform={`translate(${W / 2}, 460)`}><SearchBox text={q.slice(0, n)} caret={f % 20 < 10} /></g>
-    </Bg>
+    <Study g={g} keys={n < q.length ? (n * 7) % 30 : -1}>
+      <g transform="translate(960, 440)"><SearchBox text={q.slice(0, n)} caret={f % 20 < 10} /></g>
+      <text x={960} y={330} textAnchor="middle" fontFamily={SANS} fontWeight={600} fontSize={40} fill={C.cream} opacity={0.85}>Search</text>
+    </Study>
   );
 };
 
-// S06: "And an answer hopped on top of it…": an answer box with legs hops onto the links and sits on them
-export const S06: ShotC = ({ f, len }) => {
+// the links page under the search box: titles (teal bars), grey snippet lines and a small round icon per result
+const LinkPage: React.FC<{ squash: number }> = ({ squash }) => (
+  <g transform={`scale(1, ${1 - squash * 0.72})`}>
+    <rect x={-520} y={-40} width={1040} height={430} rx={16} fill={C.white} stroke={C.ink} strokeWidth={6} />
+    {Array.from({ length: 4 }, (_, i) => (
+      <g key={i} transform={`translate(-470, ${i * 95})`}>
+        <circle cx={14} cy={10} r={14} fill={[C.orange, C.avocado, C.mustard, C.red][i]} stroke={C.ink} strokeWidth={3} />
+        <rect x={44} y={0} width={420 - (i % 2) * 80} height={20} rx={6} fill={C.teal} />
+        <rect x={44} y={34} width={820} height={12} rx={5} fill={C.creamShade} />
+        <rect x={44} y={54} width={640 - i * 40} height={12} rx={5} fill={C.creamShade} />
+      </g>
+    ))}
+  </g>
+);
+
+// S06: "And an answer hopped on top of it…": an answer box with legs hops onto the links and sits on them, squashing
+// them flat; a dust puff and squish marks where it lands
+export const S06: ShotC = ({ f, g, len }) => {
   const land = len * 0.45;
   const p = ez(f, 0, land);
-  const y = 160 + p * 280 - Math.sin(p * Math.PI) * 240;
+  const y = 300 + p * 150 - Math.sin(p * Math.PI) * 120; // in from the left, a low hop, landing on the first links
   const sq = Math.min(1, Math.max(0, (f - land) / 4)) * (1 - bump(f, land + 8, 10) * 0.3);
+  const puff = f > land ? ez(f, land, land + 14) : 0;
   return (
-    <Bg id="s06" seed={6} base={C.teal}>
-      <g transform={`translate(${W / 2}, 230)`}><SearchBox text="why is there a robot in my search" caret={false} /></g>
-      <g transform={`translate(${W / 2}, ${600 + sq * 40})`}><Links squash={sq} /></g>
-      <g transform={`translate(${W / 2 - 300 + p * 300}, ${y + 200})`}>
-        <AnswerBox legs={f < land ? 1 : 0.3} squash={bump(f, land, 5)} mouth={f > land + 10 ? "D" : "X"} />
+    <Study g={g}>
+      <g transform="translate(960, 150)"><SearchBox text="why is there a robot in my search" caret={false} /></g>
+      <g transform={`translate(960, ${330 + sq * 40})`}><LinkPage squash={sq} /></g>
+      {puff > 0 && puff < 1 && [-1, 1].map((k) => [0, 1, 2].map((j) => (
+        <circle key={`${k}${j}`} cx={960 + k * (280 + puff * 140 + j * 50)} cy={540 - j * 26 - puff * 30 - 20} r={(30 - j * 6) * (1 - puff * 0.6)} fill={C.cream} stroke={C.ink} strokeWidth={3} opacity={1 - puff} />
+      )))}
+      {f < land && <g opacity={0.6}>{[0, 1, 2].map((k) => <line key={k} x1={960 - 700 + p * 700 - 300 - k * 30} y1={y - 40 + k * 30} x2={960 - 700 + p * 700 - 400 - k * 30} y2={y - 20 + k * 30} stroke={C.ink} strokeWidth={5} strokeLinecap="round" />)}</g>}
+      <g transform={`translate(${960 - 700 + p * 700}, ${y})`}>
+        <AnswerBox legs={f < land ? 1 : 0.3} squash={bump(f, land, 5)} mouth={f > land + 10 ? (f % 12 < 6 ? "D" : "C") : "X"} />
       </g>
-    </Bg>
+    </Study>
   );
 };
 
 // S07: V02 "That's neat, but what if I would rather read the page myself?": Switch lifts a corner of the answer box
-// and peeks at the squashed links
+// and peeks at the squashed links underneath; a sweat drop on the strain
 export const S07: ShotC = ({ f, g }) => {
   const lift = ez(f, 8, 26);
   return (
-    <Bg id="s07" seed={7} base={C.teal}>
-      <g transform={`translate(${W / 2}, 620)`}><Links squash={0.75} /></g>
-      <g transform={`translate(${W / 2}, ${560 - lift * 30}) rotate(${-lift * 9}, 260, 100)`}><AnswerBox legs={0.3} /></g>
-      <g transform={`translate(${W / 2 + 420}, 720) scale(0.62)`}>
+    <Study g={g}>
+      <g transform="translate(960, 490)"><LinkPage squash={0.72} /></g>
+      <g transform={`translate(960, ${520 - lift * 30}) rotate(${-lift * 9}, 260, 100)`}><AnswerBox legs={0.3} /></g>
+      <g transform={`translate(1390, 640) scale(${0.62 * breath(g, 3)})`}>
         <Switch pose="curious" mouth={mouthAt(g, "switch")} look={[-0.9, 0.3]} armL={110 + lift * 30} blink={blink(g, 1)} />
+        {lift > 0.6 && <path d="M120,-200 q14,24 0,34 q-14,-10 0,-34 Z" fill={C.white} stroke={C.ink} strokeWidth={4} />}
       </g>
-    </Bg>
+    </Study>
   );
 };
 
-// S08: "Well, there's a tiny tab marked 'Web'…": Switch climbs a wobbling ladder to a tiny "Web" tab on a high shelf
+// S08: "Well, there's a tiny tab marked 'Web'…": Switch climbs a wobbling ladder, rung by rung, to a tiny "Web" tab
+// on the highest shelf of a tall bookcase; the Narrator points the way
 export const S08: ShotC = ({ f, g, len }) => {
   const climb = ez(f, 6, len - 10);
-  const wob = Math.sin(f / 3) * 3;
+  const step = Math.floor(climb * 8);
+  const wob = Math.sin(f / 3) * 3 + (f % 10 < 2 ? 1.5 : 0);
   return (
     <Bg id="s08" seed={8} base={C.mustard}>
-      <rect x={1000} y={180} width={700} height={30} fill={C.cardigan} stroke={C.ink} strokeWidth={6} />
-      <g transform="translate(1520, 150)">
+      <Wallpaper id="s08" kind="stripe" a={C.mustard} b={C.cream} opacity={0.2} />
+      <g transform="translate(1520, 1080)"><Bookshelf w={520} shelves={7} seed={5} /></g>
+      <g transform="translate(1660, 108)">
         <rect x={-42} y={-30} width={84} height={34} rx={6} fill={C.white} stroke={C.ink} strokeWidth={4} />
         <text textAnchor="middle" y={-4} fontFamily={SANS} fontWeight={600} fontSize={24} fill={C.ink}>Web</text>
+        <path d="M-60,-50 l-20,-20 M60,-50 l20,-20 M0,-50 v-24" stroke={C.cream} strokeWidth={5} strokeLinecap="round" opacity={0.5 + 0.5 * Math.sin(f / 5)} />
       </g>
-      <g transform={`translate(1240, 1000) rotate(${wob - 8})`}>
-        {[-70, 70].map((x) => <line key={x} x1={x} y1={0} x2={x * 0.7} y2={-840} stroke={C.ink} strokeWidth={14} strokeLinecap="round" />)}
-        {Array.from({ length: 8 }, (_, i) => <line key={i} x1={-66 + i * 2} y1={-60 - i * 100} x2={66 - i * 2} y2={-60 - i * 100} stroke={C.ink} strokeWidth={10} />)}
+      <g transform={`translate(1180, 1040) rotate(${wob - 8})`}>
+        {[-70, 70].map((x) => <line key={x} x1={x} y1={0} x2={x * 0.7} y2={-900} stroke={C.cardigan} strokeWidth={20} strokeLinecap="round" />)}
+        {[-70, 70].map((x) => <line key={`i${x}`} x1={x} y1={0} x2={x * 0.7} y2={-900} stroke={C.ink} strokeWidth={4} strokeLinecap="round" opacity={0.6} />)}
+        {Array.from({ length: 9 }, (_, i) => <line key={i} x1={-66 + i * 2} y1={-60 - i * 100} x2={66 - i * 2} y2={-60 - i * 100} stroke={C.cardigan} strokeWidth={14} />)}
       </g>
-      <g transform={`translate(${1240 + wob}, ${880 - climb * 560}) scale(0.5) rotate(${wob})`}>
-        <Switch pose="curious" look={[0.6, -0.9]} armL={150} armR={150} blink={blink(g, 2)} />
+      <g transform={`translate(${1180 + wob}, ${900 - step * 80 - (climb * 8 - step) * 30}) scale(0.5) rotate(${wob})`}>
+        <Switch pose="curious" look={[0.6, -0.9]} armL={step % 2 ? 165 : 140} armR={step % 2 ? 140 : 165} blink={blink(g, 2)} />
       </g>
-      <g transform="translate(560, 420) scale(0.8)"><Narrator mouth={mouthAt(g, "narrator")} armR="point" head={1} /></g>
+      <rect x={-20} y={1000} width={W + 40} height={100} fill={C.cardigan} stroke={C.ink} strokeWidth={6} />
+      {/* the Narrator framed from the chest up, cropped by the frame's bottom edge */}
+      <g transform={`translate(430, ${850 - (breath(g) - 1) * 200}) scale(0.9)`}><Narrator mouth={mouthAt(g, "narrator")} armR="point" head={1} blink={blink(g)} /></g>
     </Bg>
   );
 };

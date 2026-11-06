@@ -40,3 +40,8 @@ Every render: timestamp, shot ID, composition, props, commit hash, output, conta
 - **Command:** `npx remotion render src/index.ts Sec01-Intro ../renders/m4/sec01_intro.mp4 --log=error --concurrency=8 --crf=18`
 - **Commit:** built on 89f1d11 + the changes committed with this entry.
 - **Output:** `renders/m4/sec01_intro.mp4`; contact sheets `review/S00.jpg`–`S04.jpg`.
+
+## 2026-11-06T11:28 — M4 section 2, Verse 1
+
+- **Shots:** S05–S08. **Composition:** `Sec02-Verse1` (`Cut`), 1920x1080, 480 frames. **Command:** `scripts/m4_section.sh Sec02-Verse1 sec02_verse1`. **Commit:** built on 0e786d4 + this entry's changes.
+- **Output:** `renders/m4/sec02_verse1.mp4`, review copy `renders/m4/review/sec02_verse1_review.mp4`; contact sheets `review/S05–S08.jpg`.
