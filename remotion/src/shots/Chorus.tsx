@@ -6,6 +6,8 @@ import { AnswerBox, MiniRocker, Spotlight } from "../components/props";
 import { Hand } from "../rigs/Hand";
 import { Switch } from "../rigs/Switch";
 import { C, H, W } from "../theme/palette";
+import { BUBBLE } from "../theme/fonts";
+import { Bookshelf, Clock, Lamp, Wallpaper, Window, breath } from "../components/sets";
 import { at, line, mouthAt } from "../timing";
 import { S16 as S16Key } from "../scenes/KeyFrames";
 import { Bg, ShotC, blink, bump, ez } from "./common";
@@ -17,15 +19,45 @@ export const Lyric: React.FC<{ id: string; f: number; g: number; y?: number; siz
   return <BallLyric f={f} syl={syl} y={y} size={size} />;
 };
 
-// the pre-chorus set: night blue, one spotlight, Switch alone on the wall; `dim` for the second time round
-const Night: React.FC<{ id: string; dim?: number; children: React.ReactNode }> = ({ id, dim = 0, children }) => (
-  <Bg id={id} seed={9} base={C.night}><Spotlight dim={dim} />{children}</Bg>
+// (the sleeve's fingertip meets the paddle: hand at y 560-600, length 990)
+// the pre-chorus set: the living room at night, night blue: a curtained window with the moon and twinkling stars,
+// a dark bookshelf, a lamp switched off, a clock reading late, the floor; one spotlight on Switch, with a moth
+// circling it; `dim` for the second time round (S35-S36)
+const Night: React.FC<{ id: string; dim?: number; g?: number; children: React.ReactNode }> = ({ id, dim = 0, g = 0, children }) => (
+  <Bg id={id} seed={9} base={C.night}>
+    <Wallpaper id={`${id}n`} kind="stripe" a={C.night} b="#2c3d63" opacity={0.4} />
+    <g transform="translate(330, 330)" opacity={0.85}>
+      <Window w={300} h={360} sky="#16203a" sun="moon" curtain="#4a3a5a" />
+      {[[-90, -120], [60, -60], [-40, 40], [100, 110], [-110, 120]].map(([x, y], i) => (
+        <circle key={i} cx={x} cy={y} r={3 + (Math.sin(g / 7 + i * 2) + 1) * 2} fill={C.cream} opacity={0.8} />
+      ))}
+    </g>
+    <g transform="translate(1790, 1000)" opacity={0.5}><Bookshelf w={240} shelves={4} seed={9} /></g>
+    <g transform="translate(1560, 620)" opacity={0.5}><Lamp on={false} /></g>
+    <g transform="translate(700, 180)" opacity={0.7}><Clock t={(23 * 60 + 47) * 60 + g / 30} r={54} /></g>
+    <rect x={-20} y={900} width={W + 40} height={200} fill="#1b2440" stroke={C.ink} strokeWidth={6} />
+    {Array.from({ length: 8 }, (_, i) => <line key={i} x1={i * 280} y1={900} x2={i * 300 - 120} y2={H} stroke={C.ink} strokeWidth={3} opacity={0.5} />)}
+    {/* the dark: everything outside the spotlight falls away, so he is alone on the wall */}
+    <defs>
+      <radialGradient id={`${id}-dark`} cx="0.5" cy="0.5" r="0.62">
+        <stop offset="0.22" stopColor="#0d1222" stopOpacity={0} />
+        <stop offset="0.75" stopColor="#0d1222" stopOpacity={0.7 + dim * 0.1} />
+        <stop offset="1" stopColor="#0d1222" stopOpacity={0.88} />
+      </radialGradient>
+    </defs>
+    <rect x={-20} y={-20} width={W + 40} height={H + 40} fill={`url(#${id}-dark)`} />
+    <Spotlight dim={dim} />
+    <g transform={`translate(${W / 2 + Math.cos(g / 9) * 260}, ${150 + Math.sin(g / 5) * 60})`} opacity={0.8}>
+      <path d={`M0,0 q-14,${-10 - Math.abs(Math.sin(g)) * 10} -22,0 q8,8 22,0 q14,${-10 - Math.abs(Math.sin(g)) * 10} 22,0 q-8,8 -22,0 Z`} fill={C.cream} stroke={C.ink} strokeWidth={2} />
+    </g>
+    {children}
+  </Bg>
 );
 
 // S09 / S35: V03 / V10 "I've only got two sides…": Switch alone, singing slowly; in S35 the hand already waits
 const Lament: React.FC<{ g: number; f: number; dim?: number; hand?: boolean }> = ({ g, f, dim = 0, hand }) => (
-  <Night id="pc" dim={dim}>
-    <g transform={`translate(${W / 2}, 540) rotate(${Math.sin(f / 22) * 2})`}>
+  <Night id="pc" dim={dim} g={g}>
+    <g transform={`translate(${W / 2}, 540) rotate(${Math.sin(f / 22) * 2}) scale(1, ${breath(g, 4)})`}>
       <Switch pose="sad" toggle={1} mouth={mouthAt(g, "switch")} look={[0, -0.3]} blink={blink(g, 3)} />
     </g>
     {hand && <g transform="translate(-40, 470) rotate(2)"><Hand reach={0.12} length={600} curl={0.4} /></g>}
@@ -39,40 +71,48 @@ export const S35: ShotC = ({ f, g }) => <Lament f={f} g={g} dim={1} hand />;
 export const S10: ShotC = ({ f, g, len }) => {
   const off = ez(f, 4, 16);
   const reach = ez(f, len - 15, len) * 0.82;
+  const sigh = ez(f, 16, 40);
   return (
-    <Night id="pc">
+    <Night id="pc" g={g}>
+      {sigh > 0 && sigh < 1 && <g transform={`translate(${W / 2 + 40 + sigh * 120}, ${700 - sigh * 60})`} opacity={1 - sigh}>
+        {[0, 1, 2].map((k) => <circle key={k} cx={k * 34} cy={-k * 10} r={18 + k * 6} fill={C.cream} stroke={C.ink} strokeWidth={3} />)}
+      </g>}
       <g transform={`translate(${W / 2}, ${540 + off * 8})`}>
         <Switch pose={off > 0.5 ? "relaxed" : "sad"} toggle={1 - off} mouth={mouthAt(g, "switch")} armL={60 - off * 50} armR={60 - off * 50} blink={off > 0.9 ? 1 : 0} />
       </g>
-      {reach > 0 && <g transform="translate(-40, 480) rotate(6)"><Hand reach={reach} length={880} /></g>}
+      {reach > 0 && <g transform="translate(-40, 590)"><Hand reach={reach} length={990} /></g>}
     </Night>
   );
 };
 
 // S11 / S36: [click]: the grey sleeve flips him back up on the click. In S11 (8 frames) the hand is already reaching
 // (S10) and the flip lands on frame 0; S12 carries the withdrawal. S36, the faster second time, enters and flips here
-const Flip: React.FC<{ f: number; len: number; fast?: boolean }> = ({ f, len, fast }) => {
+const Flip: React.FC<{ f: number; g: number; len: number; fast?: boolean }> = ({ f, g, len, fast }) => {
   const reach = fast ? ez(f, 0, 3) * (1 - ez(f, len - 3, len)) : 0.82 + 0.18 * ez(f, 0, 2);
   const flipped = fast ? f >= 2 : true;
   return (
-    <Night id="pc" dim={fast ? 1 : 0}>
+    <Night id="pc" dim={fast ? 1 : 0} g={g}>
       <g transform={`translate(${W / 2}, 540)`}><Switch pose={flipped ? "startled" : "relaxed"} toggle={flipped ? 1 : 0} blink={flipped ? 0 : 1} /></g>
-      <g transform={`translate(-40, ${440 + (flipped ? -20 : 40)}) rotate(${flipped ? -6 : 6})`}><Hand reach={reach} length={880} /></g>
+      {flipped && <text x={W / 2 + 200} y={330} fontFamily={BUBBLE} fontSize={90} fill={C.mustard} stroke={C.ink} strokeWidth={5} paintOrder="stroke" transform={`rotate(-10, ${W / 2 + 200}, 330)`}>click!</text>}
+      <g transform={`translate(-40, ${flipped ? 560 : 600})`}><Hand reach={reach} length={990} /></g>
     </Night>
   );
 };
-export const S11: ShotC = ({ f, len }) => <Flip f={f} len={len} />;
-export const S36: ShotC = ({ f, len }) => <Flip f={f} len={len} fast />;
+export const S11: ShotC = ({ f, g, len }) => <Flip f={f} g={g} len={len} />;
+export const S36: ShotC = ({ f, g, len }) => <Flip f={f} g={g} len={len} fast />;
 
 // S12: "…so how'd I just return?": the hand slips away (S11's withdrawal); he looks left and right; nobody's there
 export const S12: ShotC = ({ f, g }) => {
   const reach = 1 - ez(f, 0, 8);
   return (
-    <Night id="pc">
+    <Night id="pc" g={g}>
+      {f > 12 && [0, 1].map((k) => (
+        <text key={k} x={W / 2 - 60 + k * 120} y={300 - k * 30 - Math.min(20, f - 12) * 2} fontFamily={BUBBLE} fontSize={90 - k * 20} fill={C.cream} stroke={C.ink} strokeWidth={4} paintOrder="stroke" opacity={Math.min(1, (f - 12 - k * 6) / 6)}>?</text>
+      ))}
       <g transform={`translate(${W / 2}, 540)`}>
         <Switch pose={f < 8 ? "startled" : "curious"} toggle={1} mouth={mouthAt(g, "switch")} look={f < 10 ? [-1, 0] : [Math.sin(f / 9) > 0 ? -1 : 1, 0]} />
       </g>
-      {reach > 0 && <g transform="translate(-40, 460) rotate(-6)"><Hand reach={reach} length={880} /></g>}
+      {reach > 0 && <g transform="translate(-40, 560)"><Hand reach={reach} length={990} /></g>}
     </Night>
   );
 };

@@ -45,3 +45,7 @@ Every render: timestamp, shot ID, composition, props, commit hash, output, conta
 
 - **Shots:** S05–S08. **Composition:** `Sec02-Verse1` (`Cut`), 1920x1080, 480 frames. **Command:** `scripts/m4_section.sh Sec02-Verse1 sec02_verse1`. **Commit:** built on 0e786d4 + this entry's changes.
 - **Output:** `renders/m4/sec02_verse1.mp4`, review copy `renders/m4/review/sec02_verse1_review.mp4`; contact sheets `review/S05–S08.jpg`.
+
+## 2026-11-06T11:44 — M4 section 3, pre-chorus 1
+
+- **Shots:** S09–S12. **Composition:** `Sec03-Prechorus1`, 217 frames. **Command:** `scripts/m4_section.sh Sec03-Prechorus1 sec03_prechorus1`. **Commit:** built on d2223a5 + this entry's changes.

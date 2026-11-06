@@ -126,3 +126,10 @@ Append-only. One entry per action: timestamp, step (shot ID where relevant), wha
 - **Agent review:** stills before the render caught the Narrator floating waist-up in S08 and S06's hop covering the search box and landing below the page; both fixed.
 - **Commands:** `scripts/m4_section.sh Sec02-Verse1 sec02_verse1` (new: render, contact sheets, CRF 26 review copy)
 - **Outputs:** `renders/m4/sec02_verse1.mp4`, `renders/m4/review/sec02_verse1_review.mp4`, `review/S05–S08.jpg`
+
+## 2026-11-06T11:45:00-05:00 — M4 detail pass: section 3, pre-chorus 1 (S09–S12)
+
+- **What:** The night set (shared with S35–S36): night-blue striped wallpaper, a curtained window with the moon and twinkling stars, a clock at 11:47, a lamp switched off and a dark bookshelf pushed to the frame's edge, floorboards, a radial falloff into the dark so Switch is alone in the spotlight, and a moth circling the light. S09: he sways to the half-time and breathes. S10: a sigh puff as he settles to OFF; the sleeve slides in over the last half second. S11: the fingertip presses his paddle on the click, with a "click!". S12: the hand withdraws; two question marks rise as he looks around.
+- **Agent review:** the first render's sleeve pointed at his eyes, not his paddle, and the furniture competed with him; both fixed before this render.
+- **Command:** `scripts/m4_section.sh Sec03-Prechorus1 sec03_prechorus1`
+- **Outputs:** `renders/m4/sec03_prechorus1.mp4`, review copy, `review/S09–S12.jpg`
