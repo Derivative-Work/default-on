@@ -8,14 +8,14 @@ import { C, H, W } from "../theme/palette";
 const clamp = { extrapolateLeft: "clamp", extrapolateRight: "clamp" } as const;
 
 // a painted wall: a wash of `color`, a darker band at the bottom (a wainscot) and a skirting board
-export const Wall: React.FC<{ id: string; color: string; band?: string; floor?: number }> = ({
-  id, color, band = C.avocado, floor = 860,
+export const Wall: React.FC<{ id: string; color: string; band?: string; floor?: number; w?: number }> = ({
+  id, color, band = C.avocado, floor = 860, w = W,
 }) => (
   <g>
-    <Wash id={id} color={color} opacity={0.75}><rect x={-60} y={-60} width={W + 120} height={floor + 60} /></Wash>
-    <Wash id={id} color={band} opacity={0.7}><rect x={-60} y={floor - 170} width={W + 120} height={150} /></Wash>
-    <rect x={-10} y={floor - 22} width={W + 20} height={26} fill={C.creamShade} stroke={C.ink} strokeWidth={5} />
-    <Wash id={id} color={C.inkSoft} opacity={0.55}><rect x={-60} y={floor + 4} width={W + 120} height={H - floor + 60} /></Wash>
+    <Wash id={id} color={color} opacity={0.75}><rect x={-60} y={-60} width={w + 120} height={floor + 60} /></Wash>
+    <Wash id={id} color={band} opacity={0.7}><rect x={-60} y={floor - 170} width={w + 120} height={150} /></Wash>
+    <rect x={-10} y={floor - 22} width={w + 20} height={26} fill={C.creamShade} stroke={C.ink} strokeWidth={5} />
+    <Wash id={id} color={C.inkSoft} opacity={0.55}><rect x={-60} y={floor + 4} width={w + 120} height={H - floor + 60} /></Wash>
   </g>
 );
 

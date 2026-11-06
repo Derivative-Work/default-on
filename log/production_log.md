@@ -109,3 +109,13 @@ Append-only. One entry per action: timestamp, step (shot ID where relevant), wha
 - **Rhubarb:** https://github.com/DanielSWolf/rhubarb-lip-sync/releases/download/v1.14.0/Rhubarb-Lip-Sync-1.14.0-Linux.zip, SHA-256 a9a9074862cff47b2d59b8bf399a678a3b0b74f9452ad6ad94cb292913dd8667, unpacked to `tools/` (git-ignored, never archived). Third-party tool, MIT licence; it produces timing data, not an asset in the video.
 - **Commands:** `curl -sSL -o tools/rhubarb.zip <url>`; `sha256sum -c`; `.venv/bin/python -I scripts/rhubarb_visemes.py` (8 min 19 s)
 - **Outputs:** `timing/visemes.json`; `cache/rhubarb/` (regenerable, ignored)
+
+## 2026-11-06T11:05:00-05:00 — M4 detail pass: section 1, the Intro (S00–S04)
+
+- **What:** Applied the human's detail note (10:25) to the Intro, as the benchmark for the other sections. New set-dressing kit `remotion/src/components/sets.tsx` (wallpaper patterns, a 70s sunburst, a ticking clock, a globe, a plant, a bookshelf of varied books, a curtained window, a rug, a pennant, a lamp, framed pictures, an outlet, chalk doodles and a chalk tray; `breath` and `sway` idles).
+  - **S01:** the title over a slowly turning mustard-and-orange sunburst, with a drop shadow and twinkling sparkles; the little rocker hops ON with an "ON" pop.
+  - **The classroom (S02, and S23 later):** striped wallpaper, a floor with boards and a skirting, the chalkboard with a tray (chalk, eraser), a CIVICS pennant, a ticking clock, a curtained window, a bookshelf with a spinning globe, a plant; the Narrator now sits behind a teacher's desk (apple, books, pencil cup), which hides the waist-up rig's edge, and breathes, sways and raises his brows on wide vowels.
+  - **The living-room wall (S03, S04):** one continuous wash across the pan (a seam between two tiles was fixed), daisy wallpaper, an avocado wainscot, a sailboat picture, a lamp and plant on a side table, a flower picture, an outlet, a hills picture. S04's flips get anticipation, a hop and a squash, and Switch breathes.
+  - **Switch's rig:** shut eyes are now a curved lid line with lashes (they read as empty circles before).
+- **Commands:** stills of `Sec01-Intro` at frames 140–588 for review; `npx remotion render src/index.ts Sec01-Intro ../renders/m4/sec01_intro.mp4 --concurrency=8 --crf=18` (2 min 25 s); `python3 -I scripts/contact_sheets.py renders/m4/sec01_intro.mp4 0 659`
+- **Outputs:** `renders/m4/sec01_intro.mp4` (1920x1080, 659 frames, with audio), `review/S00–S04.jpg`

@@ -64,10 +64,17 @@ const Eye: React.FC<{ x: number; spec: PoseSpec; look: [number, number]; blink: 
         <circle cx={lx * r * 0.42 + r * 0.14} cy={ly * r * 0.42 - r * 0.16} r={r * 0.12} fill={C.white} />
         {/* upper lid, a cream curtain from the top */}
         <rect x={-r - 2} y={-r - 2} width={2 * r + 4} height={(2 * r + 4) * lid} fill={C.cream} />
-        {lid > 0.02 && <line x1={-r} x2={r} y1={-r - 2 + (2 * r + 4) * lid} y2={-r - 2 + (2 * r + 4) * lid} stroke={C.ink} strokeWidth={5} />}
+        {lid > 0.02 && lid < 0.9 && <line x1={-r} x2={r} y1={-r - 2 + (2 * r + 4) * lid} y2={-r - 2 + (2 * r + 4) * lid} stroke={C.ink} strokeWidth={5} />}
         {spec.lower > 0 && <rect x={-r} y={r - 2 * r * spec.lower} width={2 * r} height={2 * r} fill={C.cream} stroke={C.ink} strokeWidth={5} />}
       </g>
       <circle r={r} fill="none" stroke={C.ink} strokeWidth={6} />
+      {/* shut: a curved lid line with three lashes */}
+      {lid >= 0.9 && (
+        <g stroke={C.ink} strokeWidth={6} strokeLinecap="round" fill="none">
+          <path d={`M${-r * 0.8},${r * 0.05} Q0,${r * 0.45} ${r * 0.8},${r * 0.05}`} />
+          {[-0.45, 0, 0.45].map((k) => <path key={k} d={`M${k * r},${r * 0.27 - Math.abs(k) * r * 0.1} l${k * 10},${r * 0.2}`} />)}
+        </g>
+      )}
       {/* brow */}
       <path d={`M${-r * 0.75},0 Q0,-8 ${r * 0.75},0`} fill="none" stroke={C.ink} strokeWidth={7} strokeLinecap="round"
         transform={`translate(0, ${-r - 16 - spec.browY}) rotate(${side * spec.brow})`} />

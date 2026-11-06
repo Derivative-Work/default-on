@@ -33,3 +33,10 @@ Every render: timestamp, shot ID, composition, props, commit hash, output, conta
 - **Shots:** S00–S68 and FG. **Composition:** `Animatic` (960x540), 7,954 frames (4:25.2): the cut through S67's hold, fact card G's placeholder, S68's stand-in.
 - **Command:** as at 09:40. **Commit:** built on e33b2e7 + the changes committed with this entry.
 - **Output:** `renders/m3/m3_animatic.mp4`; 73 contact sheets in `review/`.
+
+## 2026-11-06T11:00 — M4 section 1, Intro
+
+- **Shots:** S00–S04. **Composition:** `Sec01-Intro` (`Cut`, `from` 0), 1920x1080, 659 frames, with the mix from frame 150.
+- **Command:** `npx remotion render src/index.ts Sec01-Intro ../renders/m4/sec01_intro.mp4 --log=error --concurrency=8 --crf=18`
+- **Commit:** built on 89f1d11 + the changes committed with this entry.
+- **Output:** `renders/m4/sec01_intro.mp4`; contact sheets `review/S00.jpg`–`S04.jpg`.
