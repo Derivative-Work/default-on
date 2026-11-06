@@ -3,13 +3,17 @@
 Joins the beat grid (scripts/beats_beat_this.py), the aligned words (scripts/align_words.py) and the brief's shot
 list (docs/brief.md) into timing/map.json, a readable timing/map.md and the M1 ear-check subtitles.
 
-Clocks: `t` is seconds of the audio (the locked mix). `frame` is the video's frame at 30 fps, which starts PREROLL_S
-before the audio so S01's film-leader countdown plays before the downbeat: frame = round((t + PREROLL_S) * FPS).
+Clocks: `t` is seconds of the audio (the locked mix, v2). `frame` is the video's frame at 30 fps, which starts
+PREROLL_S before the audio: S00's "cartoon for grown-ups" card (2 s), then S01's film-leader countdown (3 s) before
+the downbeat: frame = round((t + PREROLL_S) * FPS).
 
 Switch slots (V01-V20): the generator sang every Switch line itself, in the lead stem. Each slot has `mute`, the
 spans of the generated attempt (muted in the final mix), and `room`, from the end of the Narrator's word before to
 the start of his word after: the most a take can fill without overlapping him. V04 and V11 ("On, on, on...") were not
-generated; their slots are proposed after the chorus's last "Default on!". Clicks sit in the vocal gaps the
+generated; their slots are proposed after the chorus's last "Default on!". V21 (new in Draft 3) has no generated
+attempt either: it is proposed over the band's tail, after the Narrator's last word and before the band's last note,
+where S67's real hand flips the switch off. V20 is retired (the generation has no sing-along). Clicks sit in the
+vocal gaps the
 generator left at each [click]: one per pre-chorus, three in the outro (on the beats inside the gap).
 
 Shot cues are resolved in reading order, searching forward from the previous shot's line: a quoted cue matches the
@@ -28,20 +32,22 @@ import librosa
 import numpy as np
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
-from song import STEM, TITLE, TRACK  # noqa: E402
+from song import BACKING, STEM, TITLE, TRACK  # noqa: E402
 
 FPS = 30
-PREROLL_S = 3.0  # S01: film-leader countdown before the downbeat (M1 gate question)
+S00_S = 2.0  # S00: the "cartoon for grown-ups" card, on room tone, before the countdown
+PREROLL_S = S00_S + 3.0  # then S01's film-leader countdown (3 s, approved at the M1 gate) before the downbeat
 SR = 22050
 PAD = (0.08, 0.12)  # mute pad before/after a generated Switch word, clipped to the room
 SLOTS = {  # Switch line: aligned line IDs (timing/words.json) of the generator's attempt; None = not generated
     "V01": ["L03"], "V02": ["L06"], "V03": ["L08", "L09"], "V04": None, "V05": ["L16"], "V06": ["L20"],
     "V07": ["L23"], "V08": ["L28"], "V09": ["L30"], "V10": ["L32", "L33"], "V11": None, "V12": ["L41"],
     "V13": ["L43"], "V14": ["L46"], "V15": ["L49"], "V16": ["L57"], "V17": ["L59"], "V18": ["L66", "L67"],
-    "V19": ["L70"], "V20": ["L61", "L62", "L63", "L64", "L65"],
+    "V19": ["L70"], "V21": None,
 }
 TAG_AFTER = {"V04": "L14", "V11": "L38"}  # ungenerated tags: after this line's last word
 TAG_LEN = 2.4  # proposed length of an ungenerated "(On, on, on...)" tag, seconds
+V21_GAP = 0.6  # V21 starts this long after the Narrator's last word
 SECTIONS = [  # brief section (one composition each): the as-sung sections it covers
     ("Intro", ["Intro"]), ("Verse 1", ["Verse 1"]), ("Pre-chorus 1", ["Pre-chorus 1"]), ("Chorus 1", ["Chorus 1"]),
     ("Lesson", ["Lesson"]), ("Verse 2", ["Verse 2"]), ("Pre-chorus 2 and Chorus 2", ["Pre-chorus 2", "Chorus 2"]),
@@ -87,6 +93,12 @@ def main():
     loud = np.where(20 * np.log10(rms / rms.max() + 1e-12) > -40)[0]
     audio_end = round(float(librosa.frames_to_time(loud[-1], sr=SR, hop_length=512)), 3)
     narr = [w for ln in lines if ln["singer"] == "narrator" for w in ln["words"]]
+    # the band's last note: the last strong onset in the mix after the last word (S67's hand flips the switch on it)
+    env = librosa.onset.onset_strength(y=y, sr=SR, hop_length=512)
+    ot = librosa.times_like(env, sr=SR, hop_length=512)
+    tail = (ot > by_id["L71"]["end"]) & (ot < audio_end)
+    strong = np.where(tail & (env > 0.5 * env[tail].max()))[0]
+    last_note = round(float(ot[strong[-1]]), 3)
 
     def room(t0, t1):
         before = [w["end"] for w in narr if w["end"] <= t0 + 0.05]
@@ -113,6 +125,7 @@ def main():
         "record_scratch": [by_id["L54"]["end"], by_id["L55"]["start"]],
         "popup_chime": round((by_id["L68"]["end"] + by_id["L69"]["start"]) / 2, 3),
         "last_word_end": by_id["L71"]["end"],
+        "last_note": last_note,
         "audio_end": audio_end,
     }
     for k, v in list(events.items()):
@@ -121,7 +134,13 @@ def main():
     # Switch slots
     slots = []
     for vid, lids in SLOTS.items():
-        if lids is None:
+        if vid == "V21":
+            t0 = by_id["L71"]["end"] + V21_GAP
+            r = [by_id["L71"]["end"], last_note]
+            slot = {"id": vid, "generated": False, "lines": [], "text": "Hey... was its switch on, too?", "mute": [],
+                    "room": r, "proposed": [round(t0, 3), round(min(t0 + TAG_LEN, last_note - 0.3), 3)],
+                    "note": "new in Draft 3; over the band's tail, before the last note (S67)"}
+        elif lids is None:
             t0 = by_id[TAG_AFTER[vid]]["end"] + 0.1
             r = room(t0, t0 + TAG_LEN)
             slot = {"id": vid, "generated": False, "lines": [], "text": "(On, on, on...)", "mute": [],
@@ -138,14 +157,11 @@ def main():
                 slot["click"] = c1 if vid == "V03" else c2
             if vid == "V18":
                 slot["clicks"] = ob
-            if vid == "V20":
-                slot["note"] = "optional sing-along under the Narrator; nothing muted (the Narrator sings the chorus)"
-                slot["mute"] = []
         slot["room_len"] = round(slot["room"][1] - slot["room"][0], 3)
         slot["room_frames"] = [fr(x) for x in slot["room"]]
         slots.append(slot)
     # backing-stem bleed of the generated Switch inside each mute span (dB re the stem's median active level)
-    by, _ = librosa.load(STEM.format("1 Backing Vocals"), sr=SR, mono=True)
+    by, _ = librosa.load(STEM.format(BACKING), sr=SR, mono=True)
     brms = 20 * np.log10(librosa.feature.rms(y=by, frame_length=2048, hop_length=512)[0] + 1e-12)
     ref = float(np.median(brms[brms > -60]))
     for s in slots:
@@ -175,9 +191,10 @@ def main():
 
     # shots
     shots = shots_from_brief()
-    v04, v11 = next(s for s in slots if s["id"] == "V04"), next(s for s in slots if s["id"] == "V11")
+    v04, v11, v21 = (next(s for s in slots if s["id"] == v) for v in ("V04", "V11", "V21"))
     special = {
-        "S01": (0.0, None, "pre-roll countdown, title on the first downbeat"),
+        "S00": (-PREROLL_S, None, "pre-roll card on room tone, before the countdown"),
+        "S01": (S00_S - PREROLL_S, None, "pre-roll countdown, title on the first downbeat"),
         "S11": (c1, "L09", "click in the generator's gap"),
         "S18": (v04["proposed"][1], "L14", "after the proposed V04 tag"),
         "S36": (c2, "L33", "click in the generator's gap"),
@@ -188,7 +205,7 @@ def main():
         "S58": (by_id["L65"]["start"], "L65", "last \"Default on!\""),
         "S60": (ob[0], "L66", "first outro click"),
         "S63": (events["popup_chime"], "L68", "chime in the gap; \"Huh.\" is not sung"),
-        "S67": (audio_end, "L71", "the music ends (M1 gate)"),
+        "S67": (v21["proposed"][0], "L71", "V21 over the band's tail; the hand flips on the last note; holds past the audio"),
     }
     cur = 0
     for s in shots:
@@ -222,7 +239,7 @@ def main():
         s.update(t=round(hit[1], 3), line=lines[cur]["id"],
                  how="cue words" + (f" (first {hit[2]} not sung)" if hit[2] else ""))
     for k, s in enumerate(shots):
-        s["frame"] = fr(s["t"]) if s["id"] != "S01" else 0
+        s["frame"] = fr(s["t"])
         nxt = shots[k + 1]["t"] if k + 1 < len(shots) else None
         s["end"] = nxt
         s["frame_end"] = fr(nxt) if nxt is not None else None

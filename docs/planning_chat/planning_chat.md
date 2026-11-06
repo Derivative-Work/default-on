@@ -333,3 +333,214 @@ No. The plan is almost entirely 2D work that runs on the CPU, so the 970 is enou
 - **Watercolour backgrounds:** the brief doesn't say how they're made. Procedural SVG textures or hand-built layers are fine on the 970. If you want an image model to paint them, that's the one step where the 5090 helps, since current image models need far more than 4 GB of VRAM. It would also count as another AI-generated element to log.
 
 So unless you choose image-model backgrounds, give the agent the 970 box and keep the 5090 free for training the post-filter, which is where its 32 GB is actually needed. If you'd like the backgrounds pinned down in the brief either way, I can add a line saying how they're made.
+
+---
+
+## 19. User (2026-11-06T12:36:47.381976Z)
+
+Make me the prompt for the audits. I'm thinking Gemini, ChatGPT, and some variant of Copilot for maximum complicity
+
+---
+
+## 20. Claude (2026-11-06T12:37:53.411828Z)
+
+> *[Conversation search]*
+
+The earlier audits lived in each song's doc as a self-contained prompt, so I'll add one to Default On the same way. First, a check for any edits since I last touched it.
+
+> *[Claude Docs: Read]*
+
+No edits, so the prompt can carry Draft 2 exactly as it stands. Adding the audit section now.
+
+> *[Claude Docs: Update]*
+
+The audit prompt is now in [Default On](https://claude.ai/artifact/CZ4NPoVgNhxTUwRisQ9JBP) under "Rival audit prompt", ready to paste verbatim into all three.
+
+It asks each model to name its maker's stake before auditing. Google and Microsoft are both subjects of the song, and Copilot runs on OpenAI's models, so none of the three is neutral. That's partly the point, so the stake should be on the record. The prompt also has the auditors check whether the closing line lets Anthropic off the hook.
+
+For the most complicity:
+- **Copilot:** open it from the Windows taskbar button that ships turned on.
+- **Gemini:** run the audit in the Gemini app. For a bonus screenshot, paste the first question into Search's AI Mode.
+
+I added one check I hadn't raised before: whether YouTube might treat the video as made for kids because of the cartoon style. That would turn off comments and limit the video's reach. It's worth knowing before you upload.
+
+---
+
+## 21. User (2026-11-06T12:49:12.750594Z)
+
+Here's Gemini and ChatGPT
+
+---
+
+## 22. Claude (2026-11-06T12:50:41.127897Z)
+
+I'll check the claims they couldn't verify or added themselves, then log both audits in the doc.
+
+> *[Searched the web: "Anthropic consumer terms update train on chats toggle on by default pop-up"]*
+
+> *[Searched the web: "Thele v. Google Gemini Gmail lawsuit dismissed amended complaint 2026"]*
+
+> *[Searched the web: "Google Search Help AI Overviews can't be turned off Web filter"]*
+
+> *[Searched the web: "Google K-12 Gemini Search off by default announcement New York Times November 2 2026"]*
+
+I've verified the disputed points. Writing the audit log into the doc now.
+
+> *[Claude Docs: Update]*
+
+Both audits are logged in [Default On](https://claude.ai/artifact/CZ4NPoVgNhxTUwRisQ9JBP). Both say "publish after fixes," and their biggest point is one I should have caught: the ending lets Anthropic off the hook, and it's worse than they could confirm.
+
+**The Anthropic problem is real, and it's this song's exact pattern.** In August 2025, existing users were shown a pop-up labelled "Updates to Consumer Terms and Policies" with a large "Accept" button, and beneath it a much smaller toggle for training permissions, set to "On" by default. A song about default-on toggles, written by Claude, that ends with Claude's alibi doesn't hold up.
+
+**Most fixes have to work around the locked master.** The Narrator's lines can't change without regenerating sections. Your son's lines can, and so can captions and cards. So my proposals use only those:
+
+- **The ending:** a new last line for Switch, over the cut to the real light switch: "Hey… was its switch on, too?" Fact card G answers it first: Anthropic's 2025 toggle, plus who chose, edited and checked the video. The human voice gets the last word, and it's aimed at the AI that wrote the song.
+- **Gmail:** a caption through that verse saying the claim is alleged and that Google denies changing settings. The case history belongs on the card too: the judge dismissed the amended complaint on July 7, 2026 for not alleging a concrete injury, but allowed a new version, filed August 18; Google moved to dismiss again on September 29.
+- **Apple:** a caption, "Some iPhones, iOS 18.3.2," since the cause was never established.
+- **Made-for-kids risk:** both flagged "Hi, kids!", which is locked. Instead, a two-second "cartoon for grown-ups" card before the title, adult packaging, and possibly dropping V20, the sing-along.
+
+**What they got wrong.** ChatGPT says the correction line overstates Google's reversal, but the next three lines say the answer box stays. It also dates the reversal November 4; it was November 3. Gemini's claims that Apple fixed the bug and that Claude powers specific enterprise tools are unverified, so I've left them off the cards for now.
+
+**One thing neither caught strengthens the school card:** the New York Times reported on August 14 that Google had switched Gemini on by default for many K–12 student accounts, and that drew a Senate letter demanding answers by November 2. So the card can show the full arc: on by default, then off by default, with Search's AI still bundled in.
+
+Your calls: the V21 line (it would be a new recording, if your son is up for one more), dropping V20, and the pre-roll card. Copilot is still to run. Once you decide, I'll carry the changes into the shot list.
+
+---
+
+## 23. User (2026-11-06T12:58:26.102345Z)
+
+The generation I chose dropped the sing-along in V20. I was able to regenerate "Hi, kids" to "Hi, grown-ups" successfully in Suno Studio. Any more spots I should attempt?
+
+---
+
+## 24. Claude (2026-11-06T12:58:52.205894Z)
+
+Yes, two more are worth attempting, and one is optional. Since Replace Section worked on the intro, it can fix the lines the auditors flagged as "must fix" directly, instead of covering them with captions.
+
+**1. Gmail verse (top priority).** Both auditors flagged it. It's one short span, so it's a single replace:
+
+```
+Now your inbox got a helper, and it wants to help you too!
+A lawsuit says it flipped itself last fall, while out of view.
+[Switch] And what's the company say?
+[Narrator] That they didn't, and here's the door:
+Just a menu, then a menu, then a menu, then one more!
+```
+
+The first line no longer claims as fact that it reads your mail, and "That they didn't" matches Google's actual denial. "Door" still rhymes with "more," and Switch's line in between doesn't change.
+
+**2. Apple line (worth trying).** "It turned back on for you!" makes it sound universal and deliberate. Change the Narrator's answer in the Pop Quiz to:
+
+```
+[Narrator] There wasn't one! And for some, it turned back on, too!
+```
+
+It still rhymes with "Continue," and "for some" carries the fairness fix. If Suno chokes on the extra syllables, the caption still covers it.
+
+**3. Australia rhyme (optional, craft only).** If you want to fix "percent/leave":
+
+```
+[Narrator] Only once your "cancel" went!
+```
+
+It rhymes, and it's accurate to the ACCC's allegation that the cheaper plan appeared only during cancellation. Skip it if you've come to like the broken rhyme as the Narrator losing the script.
+
+**Leave the outro alone.** "An AI did… But somebody asked it to" now works as the setup for your son's new line, "Hey… was its switch on, too?" So the Narrator's line doesn't need to change, and quiet, exposed sections are the riskiest to regenerate.
+
+**For each replace:**
+- Check the section comes back the same length, or the timing map and shot cues shift.
+- Listen for a voice or room change at the seams.
+- Log each replace as a lyric change, with the finding that prompted it.
+
+If the final chorus in your take has prominent kids' backing vocals, that's another made-for-kids signal. Only redo it if it's obvious, though: a full chorus is a much bigger replace than one line.
+
+Want me to update Default On and the shot list for "Hi, grown-ups," the dropped V20, and whichever of these land? I'd also add the new V21 line to the recording plan.
+
+---
+
+## 25. User (2026-11-06T13:09:21.923333Z)
+
+yes, go ahead -- keep in mind that the video code agent has already made some changes so you'll have to merge yours in
+
+---
+
+## 26. Claude (2026-11-06T13:11:35.219292Z)
+
+I'll check what the video agent changed in both docs before merging mine in.
+
+> *[Claude Docs: Read]*
+
+> *[Claude Docs: Read]*
+
+> *[Claude Docs: Read]*
+
+> *[Claude Docs: Read]*
+
+Now merging into the shot list around the agent's edits.
+
+> *[Claude Docs: Update]*
+
+> *[Claude Docs: Update]*
+
+Next batch: cue wording, captions, the V21 placement in the closing shot, and the end-card changes.
+
+> *[Claude Docs: Update]*
+
+Quick check that the "Locked" line merged cleanly.
+
+> *[Claude Docs: Read]*
+
+Shot list is merged. Now Default On: Draft 3 lyrics as sung, then the fact cards and audit status.
+
+> *[Claude Docs: Update]*
+
+---
+
+## 27. User (2026-11-06T13:11:35.269416Z)
+
+fwiw only the Gmail revision worked well
+
+---
+
+## 28. Claude (2026-11-06T13:12:25.202025Z)
+
+Only the Gmail replace landed, so I'll revert the Apple and Australia lines to Draft 2 in both docs. Their captions carry the fixes instead.
+
+> *[Claude Docs: Update]*
+
+> *[Claude Docs: Update]*
+
+Now the fact cards and the audit status in Default On.
+
+> *[Claude Docs: Update]*
+
+> *[Claude Docs: Update]*
+
+Both docs now reflect that only the Gmail replace landed, and my changes are merged alongside the video agent's (slot timings, unsung "Ahem!" and "Huh.", the band playing to the end of the file, the final-mix workflow).
+
+- **Shot list:** "Hi, grown-ups!" is in S02. The Gmail cues are marked replaced. S45 and S47 are back to their Draft 2 lines, with captions carrying the fixes ("Some iPhones, iOS 18.3.2" and "Microsoft 365 Personal. Alleged by Australia's ACCC."). V20 is out.
+- **V21:** "Hey… was its switch on, too?" is in the recording plan. It goes over the band's last bars in S67. The real hand waits on V21 and flips the switch off on the last note, then fact card G comes up first.
+- **Other shot list changes:** the end card says you chose, edited and fact-checked every claim, and names the three auditors. A guardian-consent note and a melody-similarity check (in M7) are added.
+- **Default On:** the lyrics are now Draft 3 as sung. The fact cards have Google's own help page as card A's source, the Gmail case history, both Microsoft prices, and the August default-on context for schools. The audit log has a status list of your decisions.
+
+Two things are still open: the optional "cartoon for grown-ups" pre-roll card, and Copilot's audit.
+
+---
+
+## 29. User (2026-11-06T13:13:10.312531Z)
+
+yes add the "cartoon for grown-ups"
+
+---
+
+## 30. Claude (2026-11-06T13:13:31.440052Z)
+
+> *[Claude Docs: Guide]*
+
+> *[Claude Docs: Read]*
+
+> *[Claude Docs: Update]*
+
+> *[Claude Docs: Update]*
+
+I added the pre-roll to the [shot list](https://claude.ai/artifact/Tjs1G5E1QKevpWRqgKzJt9) as S00, a two-second card before the countdown: "A cartoon for grown-ups about tech settings." It's set in plain type with no characters, so it reads as a label rather than part of the show. The audio starts after it, over about two seconds of room tone added in the edit. Default On's audit status now records the card as approved, so Copilot's audit is the only open item.

@@ -1,806 +1,1324 @@
 {
  "model": "faster-whisper medium.en int8",
- "stem": "1 Backing Vocals",
+ "stem": "11 Backing_Vocals",
  "segments": [
   {
-   "start": 39.0,
-   "end": 53.28,
-   "text": "default on, default on, default on, default on.",
+   "start": 39.78,
+   "end": 43.92,
+   "text": "De-fall on, De-fall on",
    "words": [
     {
-     "w": "default",
-     "start": 39.0,
-     "end": 40.4,
-     "p": 0.48
+     "w": "De",
+     "start": 39.78,
+     "end": 40.74,
+     "p": 0.05
+    },
+    {
+     "w": "-fall",
+     "start": 40.74,
+     "end": 41.0,
+     "p": 0.5
     },
     {
      "w": "on,",
-     "start": 40.4,
-     "end": 41.3,
-     "p": 0.23
+     "start": 41.0,
+     "end": 41.78,
+     "p": 0.67
     },
     {
-     "w": "default",
-     "start": 41.7,
-     "end": 42.08,
-     "p": 1.0
+     "w": "De",
+     "start": 42.26,
+     "end": 42.54,
+     "p": 0.53
     },
     {
-     "w": "on,",
-     "start": 42.08,
-     "end": 43.42,
+     "w": "-fall",
+     "start": 42.54,
+     "end": 42.8,
      "p": 0.99
     },
     {
-     "w": "default",
-     "start": 46.3,
-     "end": 47.7,
-     "p": 0.96
-    },
-    {
-     "w": "on,",
-     "start": 47.7,
-     "end": 50.92,
-     "p": 0.98
-    },
-    {
-     "w": "default",
-     "start": 50.92,
-     "end": 53.28,
+     "w": "on",
+     "start": 42.8,
+     "end": 43.92,
      "p": 0.99
-    },
-    {
-     "w": "on.",
-     "start": 53.28,
-     "end": 53.28,
-     "p": 0.98
     }
    ]
   },
   {
    "start": 60.0,
-   "end": 61.16,
-   "text": "Come on up now.",
-   "words": [
-    {
-     "w": "Come",
-     "start": 60.0,
-     "end": 60.16,
-     "p": 0.01
-    },
-    {
-     "w": "on",
-     "start": 60.16,
-     "end": 60.36,
-     "p": 0.91
-    },
-    {
-     "w": "up",
-     "start": 60.36,
-     "end": 60.56,
-     "p": 0.36
-    },
-    {
-     "w": "now.",
-     "start": 60.56,
-     "end": 61.16,
-     "p": 0.27
-    }
-   ]
-  },
-  {
-   "start": 65.32,
-   "end": 65.5,
-   "text": "Up.",
-   "words": [
-    {
-     "w": "Up.",
-     "start": 65.32,
-     "end": 65.5,
-     "p": 0.15
-    }
-   ]
-  },
-  {
-   "start": 70.78,
-   "end": 74.1,
-   "text": "And you are hunting for a spot.",
+   "end": 89.3,
+   "text": "And I'm going to turn around and I'm going to turn around and I'm going to turn around and I'm going to turn around and I'm going to turn around and I'm going to turn around and I'm going to turn around and I'm going to turn around and I'm going to turn around and I'm going to turn around and I'm going to turn around and I'm going to turn around and I'm going to turn around and I'm going to turn around and I'm going to turn around and I'm going to turn around and I'm going to turn around and I'm going to turn around and I'm going to turn around and I'm going to turn around and I'm going to turn around and I'm going to turn around and I'm going to turn around and I'm going to turn around and I'm going to turn around and I'm going to turn around and I'm going to turn around and I'm going to turn around and I'm going to turn around and I'm going to turn around and I'm going to turn around and I'm going to turn",
    "words": [
     {
      "w": "And",
-     "start": 70.78,
-     "end": 71.66,
-     "p": 0.05
+     "start": 60.0,
+     "end": 60.52,
+     "p": 0.02
     },
     {
-     "w": "you",
-     "start": 71.66,
-     "end": 71.9,
-     "p": 0.66
+     "w": "I'm",
+     "start": 60.52,
+     "end": 60.98,
+     "p": 0.32
     },
     {
-     "w": "are",
-     "start": 71.9,
-     "end": 72.14,
-     "p": 0.47
-    },
-    {
-     "w": "hunting",
-     "start": 72.14,
-     "end": 72.58,
-     "p": 0.21
-    },
-    {
-     "w": "for",
-     "start": 72.58,
-     "end": 73.42,
-     "p": 0.98
-    },
-    {
-     "w": "a",
-     "start": 73.42,
-     "end": 73.82,
-     "p": 0.69
-    },
-    {
-     "w": "spot.",
-     "start": 73.82,
-     "end": 74.1,
-     "p": 1.0
-    }
-   ]
-  },
-  {
-   "start": 80.06,
-   "end": 80.94,
-   "text": "Up.",
-   "words": [
-    {
-     "w": "Up.",
-     "start": 80.06,
-     "end": 80.94,
-     "p": 0.72
-    }
-   ]
-  },
-  {
-   "start": 80.94,
-   "end": 86.02,
-   "text": "You can see that happening all over the place.",
-   "words": [
-    {
-     "w": "You",
-     "start": 80.94,
-     "end": 81.22,
-     "p": 0.05
-    },
-    {
-     "w": "can",
-     "start": 81.22,
-     "end": 81.42,
-     "p": 0.25
-    },
-    {
-     "w": "see",
-     "start": 81.42,
-     "end": 82.06,
-     "p": 0.35
-    },
-    {
-     "w": "that",
-     "start": 82.06,
-     "end": 82.82,
-     "p": 0.59
-    },
-    {
-     "w": "happening",
-     "start": 82.82,
-     "end": 83.68,
-     "p": 0.62
-    },
-    {
-     "w": "all",
-     "start": 83.68,
-     "end": 84.78,
+     "w": "going",
+     "start": 60.98,
+     "end": 61.08,
      "p": 0.08
     },
     {
-     "w": "over",
-     "start": 84.78,
-     "end": 85.2,
-     "p": 0.7
+     "w": "to",
+     "start": 61.08,
+     "end": 61.28,
+     "p": 0.51
     },
     {
-     "w": "the",
-     "start": 85.2,
-     "end": 85.78,
-     "p": 0.9
-    },
-    {
-     "w": "place.",
-     "start": 85.78,
-     "end": 86.02,
-     "p": 0.98
-    }
-   ]
-  },
-  {
-   "start": 89.56,
-   "end": 90.44,
-   "text": "Now here it is.",
-   "words": [
-    {
-     "w": "Now",
-     "start": 89.56,
-     "end": 89.68,
-     "p": 0.21
-    },
-    {
-     "w": "here",
-     "start": 89.68,
-     "end": 89.88,
+     "w": "turn",
+     "start": 61.28,
+     "end": 61.48,
      "p": 0.16
     },
     {
-     "w": "it",
-     "start": 89.88,
-     "end": 90.08,
-     "p": 0.5
+     "w": "around",
+     "start": 61.48,
+     "end": 61.9,
+     "p": 0.14
     },
     {
-     "w": "is.",
-     "start": 90.08,
-     "end": 90.44,
-     "p": 0.99
-    }
-   ]
-  },
-  {
-   "start": 91.6,
-   "end": 93.16,
-   "text": "We've made it with you.",
-   "words": [
-    {
-     "w": "We've",
-     "start": 91.6,
-     "end": 92.28,
-     "p": 0.2
+     "w": "and",
+     "start": 61.9,
+     "end": 62.1,
+     "p": 0.52
     },
     {
-     "w": "made",
-     "start": 92.28,
-     "end": 92.28,
-     "p": 0.42
+     "w": "I'm",
+     "start": 62.1,
+     "end": 62.66,
+     "p": 0.53
     },
     {
-     "w": "it",
-     "start": 92.28,
-     "end": 92.56,
-     "p": 0.74
+     "w": "going",
+     "start": 62.66,
+     "end": 63.42,
+     "p": 0.57
     },
     {
-     "w": "with",
-     "start": 92.56,
-     "end": 92.7,
-     "p": 0.8
+     "w": "to",
+     "start": 63.42,
+     "end": 67.24,
+     "p": 0.95
     },
     {
-     "w": "you.",
-     "start": 92.7,
-     "end": 93.16,
-     "p": 0.98
-    }
-   ]
-  },
-  {
-   "start": 93.6,
-   "end": 96.62,
-   "text": "One of you.",
-   "words": [
-    {
-     "w": "One",
-     "start": 93.6,
-     "end": 94.0,
-     "p": 0.28
+     "w": "turn",
+     "start": 67.24,
+     "end": 67.24,
+     "p": 0.14
     },
     {
-     "w": "of",
-     "start": 94.0,
-     "end": 96.32,
+     "w": "around",
+     "start": 67.24,
+     "end": 67.74,
+     "p": 0.65
+    },
+    {
+     "w": "and",
+     "start": 67.74,
+     "end": 72.38,
+     "p": 0.54
+    },
+    {
+     "w": "I'm",
+     "start": 72.38,
+     "end": 72.66,
+     "p": 0.81
+    },
+    {
+     "w": "going",
+     "start": 72.66,
+     "end": 72.66,
+     "p": 0.85
+    },
+    {
+     "w": "to",
+     "start": 72.66,
+     "end": 72.66,
      "p": 0.98
     },
     {
-     "w": "you.",
-     "start": 96.32,
-     "end": 96.62,
-     "p": 0.96
-    }
-   ]
-  },
-  {
-   "start": 109.28,
-   "end": 112.46,
-   "text": "Good morning light, can I delete it?",
-   "words": [
-    {
-     "w": "Good",
-     "start": 109.28,
-     "end": 109.96,
-     "p": 0.18
+     "w": "turn",
+     "start": 72.66,
+     "end": 73.1,
+     "p": 0.9
     },
     {
-     "w": "morning",
-     "start": 109.96,
-     "end": 110.18,
-     "p": 0.98
+     "w": "around",
+     "start": 73.1,
+     "end": 74.38,
+     "p": 0.92
     },
     {
-     "w": "light,",
-     "start": 110.18,
-     "end": 110.66,
-     "p": 0.41
-    },
-    {
-     "w": "can",
-     "start": 111.0,
-     "end": 111.2,
+     "w": "and",
+     "start": 74.38,
+     "end": 74.38,
      "p": 0.84
     },
     {
+     "w": "I'm",
+     "start": 74.38,
+     "end": 74.38,
+     "p": 0.88
+    },
+    {
+     "w": "going",
+     "start": 74.38,
+     "end": 74.38,
+     "p": 0.89
+    },
+    {
+     "w": "to",
+     "start": 74.38,
+     "end": 74.38,
+     "p": 0.98
+    },
+    {
+     "w": "turn",
+     "start": 74.38,
+     "end": 74.38,
+     "p": 0.9
+    },
+    {
+     "w": "around",
+     "start": 74.38,
+     "end": 74.4,
+     "p": 0.95
+    },
+    {
+     "w": "and",
+     "start": 74.4,
+     "end": 74.4,
+     "p": 0.91
+    },
+    {
+     "w": "I'm",
+     "start": 74.4,
+     "end": 74.4,
+     "p": 0.92
+    },
+    {
+     "w": "going",
+     "start": 74.4,
+     "end": 74.4,
+     "p": 0.93
+    },
+    {
+     "w": "to",
+     "start": 74.4,
+     "end": 74.4,
+     "p": 0.99
+    },
+    {
+     "w": "turn",
+     "start": 74.4,
+     "end": 74.6,
+     "p": 0.92
+    },
+    {
+     "w": "around",
+     "start": 74.6,
+     "end": 74.6,
+     "p": 0.96
+    },
+    {
+     "w": "and",
+     "start": 74.6,
+     "end": 74.6,
+     "p": 0.93
+    },
+    {
+     "w": "I'm",
+     "start": 74.6,
+     "end": 75.56,
+     "p": 0.95
+    },
+    {
+     "w": "going",
+     "start": 75.56,
+     "end": 75.56,
+     "p": 0.95
+    },
+    {
+     "w": "to",
+     "start": 75.56,
+     "end": 75.56,
+     "p": 0.99
+    },
+    {
+     "w": "turn",
+     "start": 75.56,
+     "end": 75.56,
+     "p": 0.93
+    },
+    {
+     "w": "around",
+     "start": 75.56,
+     "end": 75.56,
+     "p": 0.97
+    },
+    {
+     "w": "and",
+     "start": 75.56,
+     "end": 75.56,
+     "p": 0.95
+    },
+    {
+     "w": "I'm",
+     "start": 75.56,
+     "end": 75.56,
+     "p": 0.96
+    },
+    {
+     "w": "going",
+     "start": 75.56,
+     "end": 75.56,
+     "p": 0.96
+    },
+    {
+     "w": "to",
+     "start": 75.56,
+     "end": 75.56,
+     "p": 0.99
+    },
+    {
+     "w": "turn",
+     "start": 75.56,
+     "end": 75.56,
+     "p": 0.94
+    },
+    {
+     "w": "around",
+     "start": 75.56,
+     "end": 75.56,
+     "p": 0.97
+    },
+    {
+     "w": "and",
+     "start": 75.56,
+     "end": 75.56,
+     "p": 0.96
+    },
+    {
+     "w": "I'm",
+     "start": 75.56,
+     "end": 75.6,
+     "p": 0.97
+    },
+    {
+     "w": "going",
+     "start": 75.6,
+     "end": 75.62,
+     "p": 0.97
+    },
+    {
+     "w": "to",
+     "start": 75.62,
+     "end": 75.74,
+     "p": 0.99
+    },
+    {
+     "w": "turn",
+     "start": 75.74,
+     "end": 75.74,
+     "p": 0.96
+    },
+    {
+     "w": "around",
+     "start": 75.74,
+     "end": 76.28,
+     "p": 0.98
+    },
+    {
+     "w": "and",
+     "start": 76.28,
+     "end": 76.28,
+     "p": 0.97
+    },
+    {
+     "w": "I'm",
+     "start": 76.28,
+     "end": 76.28,
+     "p": 0.98
+    },
+    {
+     "w": "going",
+     "start": 76.28,
+     "end": 76.28,
+     "p": 0.98
+    },
+    {
+     "w": "to",
+     "start": 76.28,
+     "end": 76.28,
+     "p": 0.99
+    },
+    {
+     "w": "turn",
+     "start": 76.28,
+     "end": 76.28,
+     "p": 0.97
+    },
+    {
+     "w": "around",
+     "start": 76.28,
+     "end": 76.42,
+     "p": 0.98
+    },
+    {
+     "w": "and",
+     "start": 76.42,
+     "end": 76.52,
+     "p": 0.97
+    },
+    {
+     "w": "I'm",
+     "start": 76.52,
+     "end": 76.78,
+     "p": 0.99
+    },
+    {
+     "w": "going",
+     "start": 76.78,
+     "end": 76.78,
+     "p": 0.98
+    },
+    {
+     "w": "to",
+     "start": 76.78,
+     "end": 76.78,
+     "p": 0.99
+    },
+    {
+     "w": "turn",
+     "start": 76.78,
+     "end": 76.78,
+     "p": 0.97
+    },
+    {
+     "w": "around",
+     "start": 76.78,
+     "end": 78.42,
+     "p": 0.98
+    },
+    {
+     "w": "and",
+     "start": 78.42,
+     "end": 81.72,
+     "p": 0.98
+    },
+    {
+     "w": "I'm",
+     "start": 81.72,
+     "end": 81.72,
+     "p": 0.99
+    },
+    {
+     "w": "going",
+     "start": 81.72,
+     "end": 81.72,
+     "p": 0.99
+    },
+    {
+     "w": "to",
+     "start": 81.72,
+     "end": 81.72,
+     "p": 1.0
+    },
+    {
+     "w": "turn",
+     "start": 81.72,
+     "end": 82.36,
+     "p": 0.97
+    },
+    {
+     "w": "around",
+     "start": 82.36,
+     "end": 82.52,
+     "p": 0.98
+    },
+    {
+     "w": "and",
+     "start": 82.52,
+     "end": 83.0,
+     "p": 0.98
+    },
+    {
+     "w": "I'm",
+     "start": 83.0,
+     "end": 83.0,
+     "p": 0.99
+    },
+    {
+     "w": "going",
+     "start": 83.0,
+     "end": 83.0,
+     "p": 0.99
+    },
+    {
+     "w": "to",
+     "start": 83.0,
+     "end": 83.0,
+     "p": 1.0
+    },
+    {
+     "w": "turn",
+     "start": 83.0,
+     "end": 83.0,
+     "p": 0.98
+    },
+    {
+     "w": "around",
+     "start": 83.0,
+     "end": 83.56,
+     "p": 0.99
+    },
+    {
+     "w": "and",
+     "start": 83.56,
+     "end": 83.7,
+     "p": 0.99
+    },
+    {
+     "w": "I'm",
+     "start": 83.7,
+     "end": 84.0,
+     "p": 0.99
+    },
+    {
+     "w": "going",
+     "start": 84.0,
+     "end": 84.34,
+     "p": 0.99
+    },
+    {
+     "w": "to",
+     "start": 84.34,
+     "end": 84.34,
+     "p": 1.0
+    },
+    {
+     "w": "turn",
+     "start": 84.34,
+     "end": 85.3,
+     "p": 0.98
+    },
+    {
+     "w": "around",
+     "start": 85.3,
+     "end": 85.3,
+     "p": 0.99
+    },
+    {
+     "w": "and",
+     "start": 85.3,
+     "end": 85.5,
+     "p": 0.98
+    },
+    {
+     "w": "I'm",
+     "start": 85.5,
+     "end": 85.5,
+     "p": 0.99
+    },
+    {
+     "w": "going",
+     "start": 85.5,
+     "end": 86.2,
+     "p": 0.99
+    },
+    {
+     "w": "to",
+     "start": 86.2,
+     "end": 86.22,
+     "p": 1.0
+    },
+    {
+     "w": "turn",
+     "start": 86.22,
+     "end": 86.22,
+     "p": 0.98
+    },
+    {
+     "w": "around",
+     "start": 86.22,
+     "end": 86.22,
+     "p": 0.98
+    },
+    {
+     "w": "and",
+     "start": 86.22,
+     "end": 86.22,
+     "p": 0.99
+    },
+    {
+     "w": "I'm",
+     "start": 86.22,
+     "end": 86.22,
+     "p": 0.99
+    },
+    {
+     "w": "going",
+     "start": 86.22,
+     "end": 86.22,
+     "p": 0.99
+    },
+    {
+     "w": "to",
+     "start": 86.22,
+     "end": 86.22,
+     "p": 1.0
+    },
+    {
+     "w": "turn",
+     "start": 86.22,
+     "end": 86.22,
+     "p": 0.98
+    },
+    {
+     "w": "around",
+     "start": 86.22,
+     "end": 86.22,
+     "p": 0.99
+    },
+    {
+     "w": "and",
+     "start": 86.22,
+     "end": 86.22,
+     "p": 0.99
+    },
+    {
+     "w": "I'm",
+     "start": 86.22,
+     "end": 86.22,
+     "p": 0.99
+    },
+    {
+     "w": "going",
+     "start": 86.22,
+     "end": 86.22,
+     "p": 0.99
+    },
+    {
+     "w": "to",
+     "start": 86.22,
+     "end": 86.22,
+     "p": 1.0
+    },
+    {
+     "w": "turn",
+     "start": 86.22,
+     "end": 86.22,
+     "p": 0.98
+    },
+    {
+     "w": "around",
+     "start": 86.22,
+     "end": 86.22,
+     "p": 0.99
+    },
+    {
+     "w": "and",
+     "start": 86.22,
+     "end": 86.22,
+     "p": 0.99
+    },
+    {
+     "w": "I'm",
+     "start": 86.22,
+     "end": 86.36,
+     "p": 0.99
+    },
+    {
+     "w": "going",
+     "start": 86.36,
+     "end": 86.36,
+     "p": 1.0
+    },
+    {
+     "w": "to",
+     "start": 86.36,
+     "end": 86.36,
+     "p": 1.0
+    },
+    {
+     "w": "turn",
+     "start": 86.36,
+     "end": 86.36,
+     "p": 0.98
+    },
+    {
+     "w": "around",
+     "start": 86.36,
+     "end": 86.36,
+     "p": 0.99
+    },
+    {
+     "w": "and",
+     "start": 86.36,
+     "end": 86.36,
+     "p": 0.99
+    },
+    {
+     "w": "I'm",
+     "start": 86.36,
+     "end": 86.36,
+     "p": 0.99
+    },
+    {
+     "w": "going",
+     "start": 86.36,
+     "end": 86.36,
+     "p": 1.0
+    },
+    {
+     "w": "to",
+     "start": 86.36,
+     "end": 86.36,
+     "p": 1.0
+    },
+    {
+     "w": "turn",
+     "start": 86.36,
+     "end": 86.36,
+     "p": 0.98
+    },
+    {
+     "w": "around",
+     "start": 86.36,
+     "end": 86.36,
+     "p": 0.99
+    },
+    {
+     "w": "and",
+     "start": 86.36,
+     "end": 86.36,
+     "p": 0.99
+    },
+    {
+     "w": "I'm",
+     "start": 86.36,
+     "end": 86.36,
+     "p": 0.99
+    },
+    {
+     "w": "going",
+     "start": 86.36,
+     "end": 86.38,
+     "p": 0.99
+    },
+    {
+     "w": "to",
+     "start": 86.38,
+     "end": 86.38,
+     "p": 1.0
+    },
+    {
+     "w": "turn",
+     "start": 86.38,
+     "end": 86.38,
+     "p": 0.99
+    },
+    {
+     "w": "around",
+     "start": 86.38,
+     "end": 86.38,
+     "p": 0.99
+    },
+    {
+     "w": "and",
+     "start": 86.38,
+     "end": 86.38,
+     "p": 0.99
+    },
+    {
+     "w": "I'm",
+     "start": 86.38,
+     "end": 86.38,
+     "p": 1.0
+    },
+    {
+     "w": "going",
+     "start": 86.38,
+     "end": 86.38,
+     "p": 1.0
+    },
+    {
+     "w": "to",
+     "start": 86.38,
+     "end": 86.38,
+     "p": 1.0
+    },
+    {
+     "w": "turn",
+     "start": 86.38,
+     "end": 86.38,
+     "p": 0.99
+    },
+    {
+     "w": "around",
+     "start": 86.38,
+     "end": 86.38,
+     "p": 0.99
+    },
+    {
+     "w": "and",
+     "start": 86.38,
+     "end": 86.38,
+     "p": 0.99
+    },
+    {
+     "w": "I'm",
+     "start": 86.38,
+     "end": 86.38,
+     "p": 1.0
+    },
+    {
+     "w": "going",
+     "start": 86.38,
+     "end": 86.38,
+     "p": 1.0
+    },
+    {
+     "w": "to",
+     "start": 86.38,
+     "end": 86.38,
+     "p": 1.0
+    },
+    {
+     "w": "turn",
+     "start": 86.38,
+     "end": 86.38,
+     "p": 0.99
+    },
+    {
+     "w": "around",
+     "start": 86.38,
+     "end": 86.38,
+     "p": 0.99
+    },
+    {
+     "w": "and",
+     "start": 86.38,
+     "end": 86.38,
+     "p": 0.99
+    },
+    {
+     "w": "I'm",
+     "start": 86.38,
+     "end": 86.38,
+     "p": 1.0
+    },
+    {
+     "w": "going",
+     "start": 86.38,
+     "end": 86.38,
+     "p": 1.0
+    },
+    {
+     "w": "to",
+     "start": 86.38,
+     "end": 86.38,
+     "p": 1.0
+    },
+    {
+     "w": "turn",
+     "start": 86.38,
+     "end": 86.38,
+     "p": 0.99
+    },
+    {
+     "w": "around",
+     "start": 86.38,
+     "end": 86.38,
+     "p": 0.99
+    },
+    {
+     "w": "and",
+     "start": 86.38,
+     "end": 86.38,
+     "p": 0.99
+    },
+    {
+     "w": "I'm",
+     "start": 86.38,
+     "end": 86.38,
+     "p": 1.0
+    },
+    {
+     "w": "going",
+     "start": 86.38,
+     "end": 86.38,
+     "p": 1.0
+    },
+    {
+     "w": "to",
+     "start": 86.38,
+     "end": 86.38,
+     "p": 1.0
+    },
+    {
+     "w": "turn",
+     "start": 86.38,
+     "end": 86.38,
+     "p": 0.99
+    },
+    {
+     "w": "around",
+     "start": 86.38,
+     "end": 86.38,
+     "p": 0.99
+    },
+    {
+     "w": "and",
+     "start": 86.38,
+     "end": 86.38,
+     "p": 0.99
+    },
+    {
+     "w": "I'm",
+     "start": 86.38,
+     "end": 86.38,
+     "p": 0.99
+    },
+    {
+     "w": "going",
+     "start": 86.38,
+     "end": 86.38,
+     "p": 1.0
+    },
+    {
+     "w": "to",
+     "start": 86.38,
+     "end": 86.38,
+     "p": 1.0
+    },
+    {
+     "w": "turn",
+     "start": 86.38,
+     "end": 86.38,
+     "p": 0.99
+    },
+    {
+     "w": "around",
+     "start": 86.38,
+     "end": 86.38,
+     "p": 0.99
+    },
+    {
+     "w": "and",
+     "start": 86.38,
+     "end": 86.38,
+     "p": 0.99
+    },
+    {
+     "w": "I'm",
+     "start": 86.38,
+     "end": 86.38,
+     "p": 0.99
+    },
+    {
+     "w": "going",
+     "start": 86.38,
+     "end": 86.38,
+     "p": 1.0
+    },
+    {
+     "w": "to",
+     "start": 86.38,
+     "end": 86.38,
+     "p": 0.99
+    },
+    {
+     "w": "turn",
+     "start": 86.38,
+     "end": 86.38,
+     "p": 0.99
+    },
+    {
+     "w": "around",
+     "start": 86.38,
+     "end": 86.38,
+     "p": 0.99
+    },
+    {
+     "w": "and",
+     "start": 86.38,
+     "end": 86.38,
+     "p": 0.99
+    },
+    {
+     "w": "I'm",
+     "start": 86.38,
+     "end": 86.38,
+     "p": 0.99
+    },
+    {
+     "w": "going",
+     "start": 86.38,
+     "end": 86.38,
+     "p": 1.0
+    },
+    {
+     "w": "to",
+     "start": 86.38,
+     "end": 86.38,
+     "p": 1.0
+    },
+    {
+     "w": "turn",
+     "start": 86.38,
+     "end": 86.38,
+     "p": 0.98
+    },
+    {
+     "w": "around",
+     "start": 86.38,
+     "end": 86.38,
+     "p": 0.99
+    },
+    {
+     "w": "and",
+     "start": 86.38,
+     "end": 86.38,
+     "p": 0.99
+    },
+    {
+     "w": "I'm",
+     "start": 86.38,
+     "end": 86.38,
+     "p": 0.99
+    },
+    {
+     "w": "going",
+     "start": 86.38,
+     "end": 86.38,
+     "p": 1.0
+    },
+    {
+     "w": "to",
+     "start": 86.38,
+     "end": 86.38,
+     "p": 1.0
+    },
+    {
+     "w": "turn",
+     "start": 86.38,
+     "end": 86.38,
+     "p": 0.98
+    },
+    {
+     "w": "around",
+     "start": 86.38,
+     "end": 86.38,
+     "p": 0.99
+    },
+    {
+     "w": "and",
+     "start": 86.38,
+     "end": 86.38,
+     "p": 0.99
+    },
+    {
+     "w": "I'm",
+     "start": 86.38,
+     "end": 86.38,
+     "p": 0.99
+    },
+    {
+     "w": "going",
+     "start": 86.38,
+     "end": 86.38,
+     "p": 1.0
+    },
+    {
+     "w": "to",
+     "start": 86.38,
+     "end": 86.38,
+     "p": 0.99
+    },
+    {
+     "w": "turn",
+     "start": 86.38,
+     "end": 86.38,
+     "p": 0.98
+    },
+    {
+     "w": "around",
+     "start": 86.38,
+     "end": 86.38,
+     "p": 0.99
+    },
+    {
+     "w": "and",
+     "start": 86.38,
+     "end": 86.38,
+     "p": 0.99
+    },
+    {
+     "w": "I'm",
+     "start": 86.38,
+     "end": 86.38,
+     "p": 0.99
+    },
+    {
+     "w": "going",
+     "start": 86.38,
+     "end": 86.38,
+     "p": 1.0
+    },
+    {
+     "w": "to",
+     "start": 86.38,
+     "end": 86.38,
+     "p": 0.99
+    },
+    {
+     "w": "turn",
+     "start": 86.38,
+     "end": 86.38,
+     "p": 0.99
+    },
+    {
+     "w": "around",
+     "start": 86.38,
+     "end": 86.38,
+     "p": 0.99
+    },
+    {
+     "w": "and",
+     "start": 86.38,
+     "end": 86.38,
+     "p": 0.99
+    },
+    {
+     "w": "I'm",
+     "start": 86.38,
+     "end": 86.38,
+     "p": 0.99
+    },
+    {
+     "w": "going",
+     "start": 86.38,
+     "end": 86.44,
+     "p": 1.0
+    },
+    {
+     "w": "to",
+     "start": 86.44,
+     "end": 86.44,
+     "p": 0.99
+    },
+    {
+     "w": "turn",
+     "start": 86.44,
+     "end": 86.44,
+     "p": 0.99
+    },
+    {
+     "w": "around",
+     "start": 86.44,
+     "end": 86.44,
+     "p": 0.99
+    },
+    {
+     "w": "and",
+     "start": 86.44,
+     "end": 88.26,
+     "p": 0.99
+    },
+    {
+     "w": "I'm",
+     "start": 88.26,
+     "end": 88.26,
+     "p": 0.99
+    },
+    {
+     "w": "going",
+     "start": 88.26,
+     "end": 88.26,
+     "p": 1.0
+    },
+    {
+     "w": "to",
+     "start": 88.26,
+     "end": 88.26,
+     "p": 0.99
+    },
+    {
+     "w": "turn",
+     "start": 88.26,
+     "end": 88.46,
+     "p": 0.98
+    },
+    {
+     "w": "around",
+     "start": 88.46,
+     "end": 88.46,
+     "p": 0.99
+    },
+    {
+     "w": "and",
+     "start": 88.46,
+     "end": 88.46,
+     "p": 0.99
+    },
+    {
+     "w": "I'm",
+     "start": 88.46,
+     "end": 88.46,
+     "p": 0.99
+    },
+    {
+     "w": "going",
+     "start": 88.46,
+     "end": 88.64,
+     "p": 1.0
+    },
+    {
+     "w": "to",
+     "start": 88.64,
+     "end": 89.1,
+     "p": 0.99
+    },
+    {
+     "w": "turn",
+     "start": 89.1,
+     "end": 89.3,
+     "p": 0.98
+    }
+   ]
+  },
+  {
+   "start": 110.26,
+   "end": 113.08,
+   "text": "Good morning, can I delete it?",
+   "words": [
+    {
+     "w": "Good",
+     "start": 110.26,
+     "end": 110.88,
+     "p": 0.37
+    },
+    {
+     "w": "morning,",
+     "start": 110.88,
+     "end": 111.12,
+     "p": 0.97
+    },
+    {
+     "w": "can",
+     "start": 111.38,
+     "end": 111.54,
+     "p": 0.26
+    },
+    {
      "w": "I",
-     "start": 111.2,
-     "end": 111.36,
+     "start": 111.54,
+     "end": 112.28,
      "p": 0.97
     },
     {
      "w": "delete",
-     "start": 111.36,
-     "end": 111.66,
+     "start": 112.28,
+     "end": 112.58,
      "p": 0.99
     },
     {
      "w": "it?",
-     "start": 111.66,
-     "end": 112.46,
-     "p": 0.99
+     "start": 112.58,
+     "end": 113.08,
+     "p": 0.98
     }
    ]
   },
   {
-   "start": 125.18,
-   "end": 128.5,
+   "start": 126.14,
+   "end": 129.56,
    "text": "default on default on",
    "words": [
     {
      "w": "default",
-     "start": 125.18,
-     "end": 126.58,
-     "p": 0.25
+     "start": 126.14,
+     "end": 127.54,
+     "p": 0.2
     },
     {
      "w": "on",
-     "start": 126.58,
-     "end": 127.58,
-     "p": 0.5
+     "start": 127.54,
+     "end": 128.48,
+     "p": 0.79
     },
     {
      "w": "default",
-     "start": 127.58,
-     "end": 128.34,
-     "p": 0.95
-    },
-    {
-     "w": "on",
-     "start": 128.34,
-     "end": 129.04,
-     "p": 0.95
-    }
-   ]
-  },
-  {
-   "start": 129.04,
-   "end": 129.54,
-   "text": "Aha.",
-   "words": [
-    {
-     "w": "Aha.",
-     "start": 129.04,
-     "end": 129.54,
-     "p": 0.14
-    }
-   ]
-  },
-  {
-   "start": 200.5,
-   "end": 204.04,
-   "text": "Thank you very much.",
-   "words": [
-    {
-     "w": "Thank",
-     "start": 200.5,
-     "end": 201.9,
-     "p": 0.0
-    },
-    {
-     "w": "you",
-     "start": 201.9,
-     "end": 203.3,
-     "p": 0.98
-    },
-    {
-     "w": "very",
-     "start": 203.3,
-     "end": 203.32,
-     "p": 0.21
-    },
-    {
-     "w": "much.",
-     "start": 203.32,
-     "end": 204.04,
-     "p": 0.99
-    }
-   ]
-  },
-  {
-   "start": 204.04,
-   "end": 208.22,
-   "text": "We get it.",
-   "words": [
-    {
-     "w": "We",
-     "start": 204.04,
-     "end": 204.58,
-     "p": 0.12
-    },
-    {
-     "w": "get",
-     "start": 204.58,
-     "end": 207.36,
-     "p": 0.18
-    },
-    {
-     "w": "it.",
-     "start": 207.36,
-     "end": 208.22,
-     "p": 0.07
-    }
-   ]
-  },
-  {
-   "start": 208.22,
-   "end": 208.58,
-   "text": "We get it.",
-   "words": [
-    {
-     "w": "We",
-     "start": 208.22,
-     "end": 208.22,
-     "p": 0.36
-    },
-    {
-     "w": "get",
-     "start": 208.22,
-     "end": 208.58,
-     "p": 0.84
-    },
-    {
-     "w": "it.",
-     "start": 208.58,
-     "end": 208.58,
-     "p": 0.92
-    }
-   ]
-  },
-  {
-   "start": 208.58,
-   "end": 208.8,
-   "text": "We get it.",
-   "words": [
-    {
-     "w": "We",
-     "start": 208.58,
-     "end": 208.58,
-     "p": 0.62
-    },
-    {
-     "w": "get",
-     "start": 208.58,
-     "end": 208.58,
-     "p": 0.91
-    },
-    {
-     "w": "it.",
-     "start": 208.58,
-     "end": 208.8,
-     "p": 0.97
-    }
-   ]
-  },
-  {
-   "start": 209.92,
-   "end": 210.48,
-   "text": "We get it.",
-   "words": [
-    {
-     "w": "We",
-     "start": 209.92,
-     "end": 210.16,
-     "p": 0.62
-    },
-    {
-     "w": "get",
-     "start": 210.16,
-     "end": 210.48,
-     "p": 0.94
-    },
-    {
-     "w": "it.",
-     "start": 210.48,
-     "end": 210.48,
-     "p": 0.98
-    }
-   ]
-  },
-  {
-   "start": 211.38,
-   "end": 214.52,
-   "text": "We get it.",
-   "words": [
-    {
-     "w": "We",
-     "start": 211.38,
-     "end": 211.38,
-     "p": 0.67
-    },
-    {
-     "w": "get",
-     "start": 211.38,
-     "end": 214.52,
-     "p": 0.95
-    },
-    {
-     "w": "it.",
-     "start": 214.52,
-     "end": 214.52,
-     "p": 0.98
-    }
-   ]
-  },
-  {
-   "start": 214.52,
-   "end": 216.94,
-   "text": "We get it.",
-   "words": [
-    {
-     "w": "We",
-     "start": 214.52,
-     "end": 214.52,
-     "p": 0.75
-    },
-    {
-     "w": "get",
-     "start": 214.52,
-     "end": 216.94,
+     "start": 128.48,
+     "end": 129.3,
      "p": 0.96
     },
     {
-     "w": "it.",
-     "start": 216.94,
-     "end": 216.94,
-     "p": 0.99
+     "w": "on",
+     "start": 129.3,
+     "end": 130.0,
+     "p": 0.98
     }
    ]
   },
   {
-   "start": 216.94,
-   "end": 218.28,
-   "text": "We get it.",
+   "start": 137.36,
+   "end": 140.16,
+   "text": "default on",
    "words": [
     {
-     "w": "We",
-     "start": 216.94,
-     "end": 218.24,
-     "p": 0.81
+     "w": "default",
+     "start": 137.36,
+     "end": 138.76,
+     "p": 0.27
     },
     {
-     "w": "get",
-     "start": 218.24,
-     "end": 218.24,
+     "w": "on",
+     "start": 138.76,
+     "end": 140.16,
+     "p": 0.89
+    }
+   ]
+  },
+  {
+   "start": 200.16,
+   "end": 205.64,
+   "text": "default on default on",
+   "words": [
+    {
+     "w": "default",
+     "start": 200.16,
+     "end": 201.54,
+     "p": 0.52
+    },
+    {
+     "w": "on",
+     "start": 201.54,
+     "end": 202.36,
+     "p": 0.77
+    },
+    {
+     "w": "default",
+     "start": 202.36,
+     "end": 203.24,
+     "p": 0.79
+    },
+    {
+     "w": "on",
+     "start": 203.24,
+     "end": 205.64,
      "p": 0.97
-    },
-    {
-     "w": "it.",
-     "start": 218.24,
-     "end": 218.28,
-     "p": 0.99
-    }
-   ]
-  },
-  {
-   "start": 218.58,
-   "end": 219.68,
-   "text": "We get it.",
-   "words": [
-    {
-     "w": "We",
-     "start": 218.58,
-     "end": 219.5,
-     "p": 0.86
-    },
-    {
-     "w": "get",
-     "start": 219.5,
-     "end": 219.6,
-     "p": 0.97
-    },
-    {
-     "w": "it.",
-     "start": 219.6,
-     "end": 219.68,
-     "p": 0.99
-    }
-   ]
-  },
-  {
-   "start": 219.68,
-   "end": 220.58,
-   "text": "We get it.",
-   "words": [
-    {
-     "w": "We",
-     "start": 219.68,
-     "end": 219.68,
-     "p": 0.88
-    },
-    {
-     "w": "get",
-     "start": 219.68,
-     "end": 219.68,
-     "p": 0.97
-    },
-    {
-     "w": "it.",
-     "start": 219.68,
-     "end": 220.58,
-     "p": 0.99
-    }
-   ]
-  },
-  {
-   "start": 220.58,
-   "end": 221.5,
-   "text": "We get it.",
-   "words": [
-    {
-     "w": "We",
-     "start": 220.58,
-     "end": 221.26,
-     "p": 0.91
-    },
-    {
-     "w": "get",
-     "start": 221.26,
-     "end": 221.26,
-     "p": 0.98
-    },
-    {
-     "w": "it.",
-     "start": 221.26,
-     "end": 221.5,
-     "p": 0.99
-    }
-   ]
-  },
-  {
-   "start": 222.0,
-   "end": 223.4,
-   "text": "We get it.",
-   "words": [
-    {
-     "w": "We",
-     "start": 222.0,
-     "end": 223.4,
-     "p": 0.92
-    },
-    {
-     "w": "get",
-     "start": 223.4,
-     "end": 223.4,
-     "p": 0.98
-    },
-    {
-     "w": "it.",
-     "start": 223.4,
-     "end": 223.4,
-     "p": 0.99
-    }
-   ]
-  },
-  {
-   "start": 225.42,
-   "end": 226.82,
-   "text": "We get it.",
-   "words": [
-    {
-     "w": "We",
-     "start": 225.42,
-     "end": 226.82,
-     "p": 0.93
-    },
-    {
-     "w": "get",
-     "start": 226.82,
-     "end": 226.82,
-     "p": 0.98
-    },
-    {
-     "w": "it.",
-     "start": 226.82,
-     "end": 226.82,
-     "p": 0.99
-    }
-   ]
-  },
-  {
-   "start": 226.82,
-   "end": 228.54,
-   "text": "We get it.",
-   "words": [
-    {
-     "w": "We",
-     "start": 226.82,
-     "end": 226.82,
-     "p": 0.92
-    },
-    {
-     "w": "get",
-     "start": 226.82,
-     "end": 226.82,
-     "p": 0.98
-    },
-    {
-     "w": "it.",
-     "start": 226.82,
-     "end": 228.54,
-     "p": 0.99
-    }
-   ]
-  },
-  {
-   "start": 228.54,
-   "end": 233.94,
-   "text": "We get it.",
-   "words": [
-    {
-     "w": "We",
-     "start": 228.54,
-     "end": 228.54,
-     "p": 0.93
-    },
-    {
-     "w": "get",
-     "start": 228.54,
-     "end": 228.54,
-     "p": 0.98
-    },
-    {
-     "w": "it.",
-     "start": 228.54,
-     "end": 233.94,
-     "p": 0.99
-    }
-   ]
-  },
-  {
-   "start": 247.78,
-   "end": 249.18,
-   "text": ".",
-   "words": [
-    {
-     "w": ".",
-     "start": 247.78,
-     "end": 249.18,
-     "p": 0.12
     }
    ]
   }

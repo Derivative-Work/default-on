@@ -6,10 +6,10 @@
 
 **A swung 1970s educational-cartoon video for "Default On," cut to a locked master. The Narrator is generated; Switch is sung by the human's six-year-old son.** Animation can start now from the master and stems; Switch's recordings slot into fixed gaps as they arrive.
 
-- **Locked:** the chosen generation, its stems and its timing. Nothing is regenerated. Every shot is cued by lyric; the timing map turns cues into frames.
-- **Lyrics:** Draft 2 (swung) in the Default On doc is the reference. The master as sung is the source of truth; M1 transcribes it and logs every difference.
+- **Locked:** the chosen generation, its stems and its timing. Beyond the replaces listed under Lyrics, nothing is regenerated. Every shot is cued by lyric; the timing map turns cues into frames.
+- **Lyrics:** Draft 3 in the Default On doc is the reference. "Hi, grown-ups!" has been regenerated, and the Gmail stanza (cues for S25–S28) was replaced in Suno Studio. Replaces of S45 and S47 failed, so those keep Draft 2 wording and their captions carry the fixes. M1 checks the replaced spans kept their length. The master as sung is the source of truth; M1 transcribes it and logs every difference.
 - **The one human voice is the point.** Everything in the song is "default on." The only voice asking for an off switch is a real person's, and the outro shows that.
-- **Ending:** the cartoon's off-screen hand finally hesitates. The last frame is a real light switch on a real wall, turned off by a small hand, and it stays off.
+- **Ending:** the cartoon's off-screen hand finally hesitates. The last frame is a real light switch on a real wall, turned off by a small hand, and it stays off. Just before it, Switch asks whether the AI that wrote the song had its switch on too (V21), and the first fact card answers.
 
 ## Production rules, guardrails and logging
 
@@ -27,12 +27,12 @@
 **Protecting the child**
 
 - His face, name, school and home never appear. The reveal shows hands, a phone or mic, a waveform and a light switch, framed tight so no room details identify the house.
-- Credit him as you choose; the default is "Switch: voiced by a real kid."
+- Credit him as you choose; the default is "Switch: voiced by a real kid." Record your consent as his guardian in the intervention log.
 - Raw takes stay out of the public repo by default. Publish only the comped, processed lines that are in the final mix, and note in the log that the raw takes are withheld.
 
 ## Recording plan for Switch
 
-**Nineteen short lines**** plus an optional sing-along****, most under three seconds, recorded over two or three 15-minute sessions.** Spoken lines count as finished takes; only the pre-chorus and the outro need real singing, and talk-singing is fine for both.
+**Twenty short lines****, most under three seconds, recorded over two or three 15-minute sessions.** Spoken lines count as finished takes; only the pre-chorus and the outro need real singing, and talk-singing is fine for both.
 
 | ID | Section | Line | Delivery |
 | --- | --- | --- | --- |
@@ -55,7 +55,7 @@
 | V17 | Bridge | "What's that mean?" | Spoken, genuinely asking |
 | V18 | Outro | "I've got two sides. / …Guess one of 'em was just for show." | Quiet, alone; the emotional line |
 | V19 | Outro | "Hey, who wrote this song, anyway?" | Spoken, curious |
-| V20 | Final chorus (optional) | Sings along with the chorus | Loose and joyful; mixed low under the master's kids' voices |
+| V21 | Outro, after the Narrator's last line | "Hey… was its switch on, too?" | Spoken, genuinely curious, not a gotcha. Lands over the band's last bars; the generation dropped the old V20 sing-along |
 
 **Session tips**
 
@@ -90,7 +90,7 @@
 
 ## Shot list
 
-**67 shots plus fact cards, each cued by a lyric line; the timing map in M1 turns cues into frames.** Switch's lines are marked with their recording IDs, so shots can be animated against the gap and lip-synced when the take lands.
+**6****8 shots (S00–S67)**** plus fact cards, each cued by a lyric line; the timing map in M1 turns cues into frames.** Switch's lines are marked with their recording IDs, so shots can be animated against the gap and lip-synced when the take lands.
 
 **Source key:** **A** animated in Remotion · **R** real screen capture · **H** real footage the human shoots · **E** sound or edit event.
 
@@ -98,8 +98,9 @@
 
 | ID | Cue | Picture | Source |
 | --- | --- | --- | --- |
+| S00 | Before the audio starts (about 2 s of room tone, added in the edit) | Pre-roll card on cream paper: "A cartoon for grown-ups about tech settings." Plain sans, warm dark-brown ink, film layer on, no bubble letters and no characters, so it reads as a label rather than a title. Cut straight to S01's countdown | A |
 | S01 | Downbeat, before the first line | Film-leader countdown, then the title card "DEFAULT ON" in bubble letters on mustard. A small toggle under the title flips itself from OFF to ON | A |
-| S02 | "Hi, kids! Today we're learning how an opt-out works." | Narrator on a stool by a chalkboard reading "TODAY: HOW AN OPT-OUT WORKS" | A |
+| S02 | "Hi, grown-ups! Today we're learning how an opt-out works." (regenerated) | Narrator on a stool by a chalkboard reading "TODAY: HOW AN OPT-OUT WORKS" | A |
 | S03 | "Say hello to Little Switch!" | Pan right along the wall to a wall plate; Switch's eyes open | A |
 | S04 | V01 "Hi! I've got two sides…" | Switch waves, then demonstrates: toggle up, an "ON" label pops; toggle down, "OFF" | A |
 
@@ -147,10 +148,10 @@
 
 | ID | Cue | Picture | Source |
 | --- | --- | --- | --- |
-| S25 | "Now your inbox has a helper…" | An envelope with eyes reads over a cartoon person's shoulder | A |
-| S26 | "A lawsuit says it flipped itself last fall…" | A calendar flips to an autumn page; while everyone looks away, a tiny switch in the inbox's corner flips ON. Caption: "Alleged in a lawsuit" | A |
+| S25 | "Now your inbox got a helper…" (replaced) | An envelope with eyes reads over a cartoon person's shoulder | A |
+| S26 | "A lawsuit says it flipped itself last fall…" | A calendar flips to an autumn page; while everyone looks away, a tiny switch in the inbox's corner flips ON. Caption, held through S28: "Alleged in a lawsuit. Google denies changing settings." | A |
 | S27 | V07 "And what's the company say?" | Switch knocks on a door marked "SETTINGS" | A |
-| S28 | "That it's fine, and here's the door: / Just a menu, then a menu…" | The door opens on a menu, which opens on a menu, which opens on another, zooming in each time. Fine print scrolls past too fast to read: "on or about October 10" | A |
+| S28 | "That they didn't, and here's the door: / Just a menu, then a menu…" (replaced) | The door opens on a menu, which opens on a menu, which opens on another, zooming in each time. Fine print scrolls past too fast to read: "on or about October 10" | A |
 | S29 | "Then the TV got an update in the middle of the night," | A living room at night: a TV with a progress bar, the moon in the window | A |
 | S30 | "And a brand-new tile was waiting…" | Sunrise. A new tile sits among generic tiles on the TV's home screen, and winks | A |
 | S31 | V08 "Can I delete it?" | Switch drags the tile toward a trash can | A |
@@ -177,8 +178,8 @@
 | S42 | V12 "I'll uninstall it!" / "Nope!" | Wrong-answer honk, big red X | A, E |
 | S43 | V13 "I'll mute it, then?" / "That's not so bad!" | Half-credit chime; the ring puts on earmuffs and stays put | A, E |
 | S44 | "Now your phone has got an update…" | A phone screen with one enormous button, "Continue," and nothing else | A |
-| S45 | V14 "Where's the 'No'?" / "There isn't one!…" | Switch searches the phone's edges with a magnifying glass; a setting on the phone slides to ON by itself | A |
-| S46 | "In Australia, office software went up forty-five percent…" | A map card of Australia; a price tag inflates like a balloon to "+45%" | A |
+| S45 | V14 "Where's the 'No'?" / "There isn't one!…" | Switch searches the phone's edges with a magnifying glass. Pull back to a row of phones: on some of them, a setting slides to ON by itself. Caption: "Some iPhones, iOS 18.3.2, March 2025" | A |
+| S46 | "In Australia, office software went up forty-five percent…" | A map card of Australia; a price tag inflates like a balloon to "+45%". Caption: "Microsoft 365 Personal. Alleged by Australia's ACCC." | A |
 | S47 | V15 "Was there one without the robot?" / "Only once you tried to leave!" | Switch walks toward a door marked "CANCEL"; a cheaper price tag peeks out from behind it, then the door slams | A, E |
 
 ### Bridge
@@ -199,7 +200,7 @@
 
 | ID | Cue | Picture | Source |
 | --- | --- | --- | --- |
-| S57 | Final chorus, through the second-to-last line | A classroom of cartoon kids, each with a little toggle on the desk; the toggles flick ON in rhythm. Bubble-letter lyrics with a bouncing ball. Switch in the front row, mouthing along (lip-synced to V20 if recorded) | A |
+| S57 | Final chorus, through the second-to-last line | A classroom of cartoon kids, each with a little toggle on the desk; the toggles flick ON in rhythm. Bubble-letter lyrics with a bouncing ball. Switch in the front row, mouthing along | A |
 | S58 | Last "Default on!" | Pull back: the classroom is on the TV from S29, with the winking tile from S30 | A |
 
 ### Outro and reveal
@@ -214,12 +215,12 @@
 | S64 | V19 "Hey, who wrote this song, anyway?" | Switch shoves the summary box out of frame | A |
 | S65 | "An AI did." | Film layer drops to zero. Real screen capture of the generation screen: style prompt, lyrics, take list | R |
 | S66 | "…But somebody asked it to." | Split frame. Left: the generation screen. Right: the editing timeline with the Switch track labelled "Switch: recorded at home," its waveform playing | R |
-| S67 | The audio ends (the band plays to the end of the file; there is no silence after the last word) | Real close-up: a small hand flips a real light switch to OFF. It stays off. Hold two seconds on room tone, then cut to black | H |
+| S67 | V21 "Hey… was its switch on, too?" over the band's last bars, then the audio ends (the band plays to the end of the file; there is no silence after the last word) | Real close-up of a light switch on a plain wall. On V21, a small hand reaches in and waits; on the band's last note it flips the switch OFF. It stays off. Hold two seconds on room tone after the audio ends, then cut to fact card G | H |
 
 ### End card and fact cards
 
-- **End card:** lyrics drafted by Claude (Anthropic) and audited by another lab's model; music by the generator, with take ID; Narrator generated; Switch voiced by a real kid; animation by Claude Code; the count of human interventions, with a link to the log.
-- **Fact cards:** one per row of the Default On fact card, in that order, about four seconds each, in plain type with the source under each. Allegations say so.
+- **End card:** lyrics drafted by Claude (Anthropic) and audited by another lab's model; music by the generator, with take ID; Narrator generated; Switch voiced by a real kid; animation by Claude Code; the human chose, edited and fact-checked every claim, with audits by Gemini, ChatGPT and Copilot; the count of human interventions, with a link to the log.
+- **Fact cards:** card G (who wrote this, and Anthropic's own default-on toggle) first, answering V21; then one per row of the Default On fact card, in that order, about four seconds each, in plain type with the source under each. Allegations say so.
 
 **Thumbnail:** Switch mid-flip with the grey hand reaching in. Never the real hand, the generation screen or the timeline, which would spoil the reveal.
 
@@ -233,14 +234,14 @@
 
 - The locked master and its stems (Narrator vocal, instrumental, and any others the generator gave), with the take ID, prompt and settings.
 - A screen capture of the generation screen showing the style prompt, lyrics and take list (for S65–S66).
-- Switch's takes V01–V20, the 20 real-switch clicks and 10 seconds of room tone (see the recording plan).
+- Switch's takes V01–V19 and V21, the 20 real-switch clicks and 10 seconds of room tone (see the recording plan).
 - About ten seconds of real footage for S67: a close-up of a small hand flipping a light switch off, shot tight on plain wall, phone held still, 4K if possible.
 - The Default On doc (lyrics, fact card) and this brief.
 
 **Pipeline**
 
 1. **Audio.** Draft: the generated mix as is, for animation until the recordings are in. Final: the human mixes the stems, the Switch comp and the real clicks (M1 gate), with the generated Switch muted on both vocal stems over the timing map's mute spans. Master to −14 LUFS integrated.
-2. **Timing map.** Build `timing/map.json` from the master: section boundaries, every Narrator line's start and end, the beat grid, and a named slot for each Switch line (V01–V20) where the generated vocal left space.
+2. **Timing map.** Build `timing/map.json` from the master: section boundaries, every Narrator line's start and end, the beat grid, and a named slot for each Switch line (V01–V19) where the generated vocal left space, plus V21 over the band's tail after the last Narrator line.
 3. **Graphics.** One Remotion project, one composition per section, sharing the theme and film-layer modules. Characters are SVG rigs; mouth shapes come from the Narrator stem and the Switch comp.
 4. **Review aids.** For every render, write a contact sheet to `review/<shot>.jpg`.
 
@@ -262,7 +263,7 @@ default-on/
 | M4 | Final renders, section by section, with Narrator lip sync and contact sheets | Approve each section |
 | M5 | Fact cards, end card, captions, thumbnail and vertical cut | Approve the closing materials |
 | M6 | Switch comp: align and process the takes into their slots, log every choice, then lip-sync his shots. The human supplies the final mix | Approve the comp by ear |
-| M7 | Reveal: S59–S67 checked frame by frame against the final mix, including the real footage | Approve the reveal |
+| M7 | Reveal: S59–S67 checked frame by frame against the final mix, including the real footage. Also listen through the whole song for melodic similarity to any known children's TV theme | Approve the reveal |
 | M8 | Fact check of every on-screen claim by another lab's model against the Default On fact card | Resolve every flag before release |
 
 **Done when**

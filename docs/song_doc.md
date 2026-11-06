@@ -1,6 +1,6 @@
 # Default On (song doc): mirrored sections
 
-Source: Claude Doc https://claude.ai/artifact/CZ4NPoVgNhxTUwRisQ9JBP ("Default On (forced AI features)"), rev 16, read 2026-11-06. Partial mirror: the style prompt, the fact card and the conflict-of-interest note, which this repo depends on. The lyrics (Draft 2, swung) are in `lyrics/draft2.txt` verbatim. The doc is the reference; re-read it before the M5 fact cards and the M8 audit.
+Source: Claude Doc https://claude.ai/artifact/CZ4NPoVgNhxTUwRisQ9JBP ("Default On (forced AI features)"), rev 16, read 2026-11-06. **Superseded:** the full mirror at rev 38 is `docs/song_doc_full.md` (Draft 3, updated fact card, audit log); this file is kept for the record.
 
 ## Style prompt
 

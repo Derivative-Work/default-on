@@ -1,6 +1,8 @@
-// Switch: a cream wall plate with a toggle for a nose, big round eyes, stubby arms and no legs (brief, Characters).
-// A cutout rig: the pose sets eyes, brows and arm angles; `toggle` (0 down/OFF .. 1 up/ON) and `mouth` are driven
-// separately so the click and the lip sync can move on their own. Drawn around the plate's centre, 240 x 360 units.
+// Switch: a cream flat-plate (rocker) wall switch with big round eyes, stubby arms and no legs (brief, Characters;
+// a flat paddle, not a lever, at the human's request on 2026-11-06). The paddle sits flush in the middle of the plate
+// and rocks: top pressed in = ON, bottom pressed in = OFF; a small pilot light at its top glows when ON. A cutout rig:
+// the pose sets eyes, brows and arm angles; `toggle` (0 OFF .. 1 ON) and `mouth` are driven separately so the click
+// and the lip sync move on their own. Drawn around the plate's centre, 250 x 390 units.
 import React from "react";
 import { C } from "../theme/palette";
 import { Mouth, MouthShape } from "./Mouth";
@@ -28,6 +30,7 @@ const POSES: Record<SwitchPose, PoseSpec> = {
 };
 
 export const PLATE = { w: 250, h: 390 };
+const PRESSED = "#c4ab7c"; // the pressed half of the paddle, in shadow
 
 const Arm: React.FC<{ side: -1 | 1; angle: number; wave?: number }> = ({ side, angle, wave = 0 }) => {
   // shoulder at the plate's edge, mid-height; a short bent tube and a round mitten
@@ -48,12 +51,12 @@ const Arm: React.FC<{ side: -1 | 1; angle: number; wave?: number }> = ({ side, a
 const Eye: React.FC<{ x: number; spec: PoseSpec; look: [number, number]; blink: number; side: -1 | 1 }> = ({
   x, spec, look, blink, side,
 }) => {
-  const r = 50 * spec.eyeScale;
+  const r = 46 * spec.eyeScale;
   const lid = Math.min(1, spec.lid + blink * (1 - spec.lid));
   const [lx, ly] = look;
   const clip = `eye${React.useId().replace(/:/g, "")}`;
   return (
-    <g transform={`translate(${x}, -92)`}>
+    <g transform={`translate(${x}, -108)`}>
       <clipPath id={clip}><circle r={r} /></clipPath>
       <circle r={r} fill={C.white} stroke={C.ink} strokeWidth={6} />
       <g clipPath={`url(#${clip})`}>
@@ -74,7 +77,7 @@ const Eye: React.FC<{ x: number; spec: PoseSpec; look: [number, number]; blink: 
 
 export type SwitchProps = {
   pose?: SwitchPose;
-  toggle?: number; // 0 OFF (down) .. 1 ON (up); defaults from the pose
+  toggle?: number; // 0 OFF (bottom in) .. 1 ON (top in); defaults from the pose
   mouth?: MouthShape;
   blink?: number;
   look?: [number, number]; // pupils, -1..1 each way
@@ -91,10 +94,7 @@ export const Switch: React.FC<SwitchProps> = ({
 }) => {
   const spec = POSES[pose];
   const on = toggle ?? (pose === "relaxed" || pose === "sad" ? 0 : 1);
-  // the lever: a tapered block from the slot, swung up (ON) or down (OFF); foreshortened through the middle
-  const swing = (on - 0.5) * 2; // -1 down .. 1 up
-  const lev = 50 * Math.abs(swing) + 8;
-  const dir = swing >= 0 ? -1 : 1;
+  const rock = (on - 0.5) * 2; // -1 bottom pressed (OFF) .. 1 top pressed (ON)
   return (
     <g transform={`rotate(${tilt})`}>
       {arms && <Arm side={-1} angle={armL ?? spec.armL} />}
@@ -104,21 +104,29 @@ export const Switch: React.FC<SwitchProps> = ({
       <rect x={-PLATE.w / 2 + 16} y={-PLATE.h / 2 + 16} width={PLATE.w - 32} height={PLATE.h - 32} rx={22} fill="none" stroke={C.creamShade} strokeWidth={6} />
       {/* screws */}
       {[-1, 1].map((s) => (
-        <g key={s} transform={`translate(0, ${s * (PLATE.h / 2 - 30)})`}>
-          <circle r={10} fill={C.creamShade} stroke={C.ink} strokeWidth={4} />
-          <line x1={-6} y1={-3} x2={6} y2={3} stroke={C.ink} strokeWidth={3.5} />
+        <g key={s} transform={`translate(0, ${s * (PLATE.h / 2 - 24)})`}>
+          <circle r={8} fill={C.creamShade} stroke={C.ink} strokeWidth={3.5} />
+          <line x1={-5} y1={-2} x2={5} y2={2} stroke={C.ink} strokeWidth={3} />
         </g>
       ))}
       <Eye x={-58} spec={spec} look={look} blink={blink} side={-1} />
       <Eye x={58} spec={spec} look={look} blink={blink} side={1} />
-      {/* the toggle: slot, then lever */}
-      <rect x={-22} y={-14} width={44} height={56} rx={8} fill={C.inkSoft} stroke={C.ink} strokeWidth={5} />
+      {/* the rocker paddle: a flush rounded rectangle split at the pivot; the pressed half is shaded and sits
+          in, the raised half is lit and shows a sliver of its side */}
       <g transform="translate(0, 14)">
-        <path d={`M-15,0 L-11,${dir * lev} Q0,${dir * (lev + 9)} 11,${dir * lev} L15,0 Z`} fill={C.white} stroke={C.ink} strokeWidth={5} strokeLinejoin="round" />
-        <path d={`M-8,${dir * lev * 0.3} L-6,${dir * lev * 0.85}`} stroke={C.creamShade} strokeWidth={4} strokeLinecap="round" />
+        <rect x={-58} y={-70} width={116} height={140} rx={16} fill={PRESSED} stroke={C.ink} strokeWidth={6} />
+        <path d={`M-48,-60 h96 v${60 - rock * 4} h-96 Z`} fill={rock > 0 ? PRESSED : C.white} />
+        <path d={`M-48,${-rock * 4} h96 v${60 + rock * 4} h-96 Z`} fill={rock > 0 ? C.white : PRESSED} />
+        {/* the raised half's lower lip casts a little shadow onto the pressed half */}
+        <rect x={-48} y={rock > 0 ? -rock * 4 - 8 : -rock * 4} width={96} height={8 * Math.abs(rock)} fill={C.ink} opacity={0.25} />
+        <line x1={-48} x2={48} y1={-rock * 4} y2={-rock * 4} stroke={C.ink} strokeWidth={4} />
+        <rect x={-58} y={-70} width={116} height={140} rx={16} fill="none" stroke={C.ink} strokeWidth={6} />
+        {/* pilot light */}
+        <circle cx={0} cy={-44} r={8} fill={on > 0.5 ? C.mustard : PRESSED} stroke={C.ink} strokeWidth={3} />
+        {on > 0.5 && <circle cx={0} cy={-44} r={16} fill={C.mustard} opacity={0.3} />}
       </g>
-      <g transform="translate(0, 122)">
-        <Mouth shape={mouth} w={74} smile={spec.smile} />
+      <g transform="translate(0, 132)">
+        <Mouth shape={mouth} w={66} smile={spec.smile} />
       </g>
     </g>
   );

@@ -14,3 +14,9 @@ Every render: timestamp, shot ID, composition, props, commit hash, output, conta
 - **Compositions and props:** `RigSheet` (1 frame); `StyleBoard` frames 0–4 = S04 at local frame 92, S16 at 18, S28 at 10, S53 at 12, S61 at 24 (`remotion/src/compositions/StyleBoard.tsx`); `MotionTest` = S04's 198 frames (map frames 437–635) with the mix from 11.57 s, a splice at its head. 1920x1080, 30 fps, JPEG frames; `npx remotion still src/index.ts StyleBoard ../review/m2/<shot>.jpg --frame=<i>`, `npx remotion render src/index.ts MotionTest ../renders/m2/m2_motion_S04.mp4 --concurrency=6` (58 s, about 3.4 fps on this box).
 - **Commit:** built on a6fcf73 + the M2 code (committed with this entry).
 - **Outputs:** `review/m2/{rig_sheet,S04,S16,S28,S53,S61}.jpg`, `renders/m2/m2_motion_S04.mp4`. Mouths in the motion test are a placeholder flap on the aligned words (M4 does the lip sync).
+
+## 2026-11-06T09:05 — M2 revised: rig sheet, style board, motion test (flat-plate Switch, new Narrator, v2 audio); M1 preview on v2
+
+- **Shots and compositions:** as at 08:20 (`RigSheet`, `StyleBoard` frames 0–4, `MotionTest` = S04 on v2: map frames 506 - 707, the mix from 11.85 s). `scripts/m1_preview.sh` on v2 (counter now adds the 150-frame pre-roll).
+- **Commit:** built on 88cfa92 + the changes committed with this entry.
+- **Outputs (replacing the 08:20 renders, which are in git history and regenerable from 88cfa92):** `review/m2/*.jpg`, `renders/m2/m2_motion_S04.mp4`, `renders/m1/m1_preview.mp4`.

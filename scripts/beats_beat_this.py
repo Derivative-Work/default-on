@@ -13,7 +13,7 @@ import soundfile as sf
 from beat_this.inference import Audio2Beats
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
-from song import STEM, TRACK  # noqa: E402
+from song import DRUMS, STEM, TRACK  # noqa: E402
 
 
 def run(a2b, path):
@@ -26,7 +26,7 @@ def run(a2b, path):
 
 def main():
     a2b = Audio2Beats(checkpoint_path="final0", device="cpu", dbn=False)
-    out = {"model": "beat_this final0 @ b95c8ab, dbn=False", "mix": run(a2b, TRACK), "drums": run(a2b, STEM.format("2 Drums"))}
+    out = {"model": "beat_this final0 @ b95c8ab, dbn=False", "mix": run(a2b, TRACK), "drums": run(a2b, STEM.format(DRUMS))}
     Path("timing/beat_this.json").write_text(json.dumps(out) + "\n")
     for k in ("mix", "drums"):
         r = out[k]

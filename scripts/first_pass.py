@@ -10,10 +10,10 @@ import librosa
 from faster_whisper import WhisperModel
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
-from song import STEM  # noqa: E402
+from song import BACKING, STEM, VOCALS  # noqa: E402
 
 model = WhisperModel("medium.en", device="cpu", compute_type="int8")
-for stem, tag in (("0 Lead Vocals", "vocals"), ("1 Backing Vocals", "backing")):
+for stem, tag in ((VOCALS, "vocals"), (BACKING, "backing")):
     # decoded here, not by faster-whisper: its PyAV call breaks on the installed PyAV (metadata_errors)
     audio = librosa.load(STEM.format(stem), sr=16000, mono=True)[0]
     segs, info = model.transcribe(audio, beam_size=5, temperature=0, word_timestamps=True,
