@@ -1,0 +1,204 @@
+[Script Info]
+ScriptType: v4.00+
+PlayResX: 640
+PlayResY: 360
+
+[V4+ Styles]
+Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
+Style: Shot,DejaVu Sans,14,&H00FFFFFF,&H00FFFFFF,&H00000000,&H00000000,0,0,0,0,100,100,0,0,1,1,0,7,12,12,10,1
+Style: Event,DejaVu Sans,15,&H0000FFFF,&H0000FFFF,&H00000000,&H00000000,1,0,0,0,100,100,0,0,1,1,0,9,12,12,10,1
+Style: Lyric,DejaVu Sans,18,&H0000C8FF,&H00FFFFFF,&H00000000,&H00000000,1,0,0,0,100,100,0,0,1,1,0,2,20,20,24,1
+Style: Switch,DejaVu Sans,18,&H0060E060,&H00FFFFFF,&H00000000,&H00000000,1,0,0,0,100,100,0,0,1,1,0,2,20,20,24,1
+Style: Room,DejaVu Sans,15,&H00A0A0A0,&H00A0A0A0,&H00000000,&H00000000,0,0,0,0,100,100,0,0,1,1,0,5,20,20,20,1
+Style: Slot,DejaVu Sans,20,&H0060E060,&H0060E060,&H00000000,&H00000000,1,0,0,0,100,100,0,0,1,1,0,5,20,20,20,1
+
+[Events]
+Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
+Dialogue: 0,0:00:00.00,0:00:03.16,Shot,,0,0,0,,S01  Downbeat, before the first line
+Dialogue: 0,0:00:03.16,0:00:08.14,Shot,,0,0,0,,S02  "Hi, kids! Today we're learning how an opt-out works."
+Dialogue: 0,0:00:08.14,0:00:11.57,Shot,,0,0,0,,S03  "Say hello to Little Switch!"
+Dialogue: 0,0:00:11.57,0:00:18.16,Shot,,0,0,0,,S04  V01 "Hi! I've got two sides…"
+Dialogue: 0,0:00:18.16,0:00:21.62,Shot,,0,0,0,,S05  "You typed a little question…"
+Dialogue: 0,0:00:21.62,0:00:25.24,Shot,,0,0,0,,S06  "And an answer hopped on top of it…"
+Dialogue: 0,0:00:25.24,0:00:28.44,Shot,,0,0,0,,S07  V02 "That's neat, but what if I would rather read the page myself?"
+Dialogue: 0,0:00:28.44,0:00:32.58,Shot,,0,0,0,,S08  "Well, there's a tiny tab marked 'Web'…"
+Dialogue: 0,0:00:32.58,0:00:36.11,Shot,,0,0,0,,S09  V03 "I've only got two sides…"
+Dialogue: 0,0:00:36.11,0:00:37.62,Shot,,0,0,0,,S10  "You push me down for off…"
+Dialogue: 0,0:00:37.62,0:00:37.89,Shot,,0,0,0,,S11  [click]
+Dialogue: 0,0:00:37.89,0:00:39.85,Shot,,0,0,0,,S12  "…so how'd I just return?"
+Dialogue: 0,0:00:39.85,0:00:42.91,Shot,,0,0,0,,S13  "Default on! Default on!"
+Dialogue: 0,0:00:42.91,0:00:46.45,Shot,,0,0,0,,S14  "It was there when you woke up…"
+Dialogue: 0,0:00:46.45,0:00:50.01,Shot,,0,0,0,,S15  "You can hide it, you can mute it…"
+Dialogue: 0,0:00:50.01,0:00:53.57,Shot,,0,0,0,,S16  "But the switch is just a picture…"
+Dialogue: 0,0:00:53.57,0:00:56.80,Shot,,0,0,0,,S17  "Default on!" / V04 "(On, on, on…)"
+Dialogue: 0,0:00:56.80,0:01:00.74,Shot,,0,0,0,,S18  Flute and scat fill
+Dialogue: 0,0:01:00.74,0:01:08.38,Shot,,0,0,0,,S19  "Now, 'opt-in' means somebody asks you…"
+Dialogue: 0,0:01:08.38,0:01:15.13,Shot,,0,0,0,,S20  V05 "And 'opt-out' means that no one asked you…"
+Dialogue: 0,0:01:15.13,0:01:20.61,Shot,,0,0,0,,S21  "And 'default' is the setting that they picked…"
+Dialogue: 0,0:01:20.61,0:01:22.23,Shot,,0,0,0,,S22  "…they'll say you picked the same."
+Dialogue: 0,0:01:22.23,0:01:27.11,Shot,,0,0,0,,S23  "Got that? Opt-in, opt-out, default. There'll be a test."
+Dialogue: 0,0:01:27.11,0:01:29.36,Shot,,0,0,0,,S24  V06 "There's always a test."
+Dialogue: 0,0:01:29.36,0:01:33.46,Shot,,0,0,0,,S25  "Now your inbox has a helper…"
+Dialogue: 0,0:01:33.46,0:01:37.06,Shot,,0,0,0,,S26  "A lawsuit says it flipped itself last fall…"
+Dialogue: 0,0:01:37.06,0:01:38.30,Shot,,0,0,0,,S27  V07 "And what's the company say?"
+Dialogue: 0,0:01:38.30,0:01:44.15,Shot,,0,0,0,,S28  "That it's fine, and here's the door: / Just a menu, then a menu…"
+Dialogue: 0,0:01:44.15,0:01:47.63,Shot,,0,0,0,,S29  "Then the TV got an update in the middle of the night,"
+Dialogue: 0,0:01:47.63,0:01:51.03,Shot,,0,0,0,,S30  "And a brand-new tile was waiting…"
+Dialogue: 0,0:01:51.03,0:01:52.39,Shot,,0,0,0,,S31  V08 "Can I delete it?"
+Dialogue: 0,0:01:52.39,0:01:53.63,Shot,,0,0,0,,S32  "You can hide it!"
+Dialogue: 0,0:01:53.63,0:01:56.11,Shot,,0,0,0,,S33  V09 "Is that the same?"
+Dialogue: 0,0:01:56.11,0:01:58.80,Shot,,0,0,0,,S34  "…Next verse!"
+Dialogue: 0,0:01:58.80,0:02:03.84,Shot,,0,0,0,,S35  V10 "I've only got two sides…"
+Dialogue: 0,0:02:03.84,0:02:06.08,Shot,,0,0,0,,S36  [click]
+Dialogue: 0,0:02:06.08,0:02:16.29,Shot,,0,0,0,,S37  Chorus 2, first three lines
+Dialogue: 0,0:02:16.29,0:02:20.90,Shot,,0,0,0,,S38  "But the switch is just a picture…"
+Dialogue: 0,0:02:20.90,0:02:24.31,Shot,,0,0,0,,S39  V11 "(On, on, on…)"
+Dialogue: 0,0:02:24.31,0:02:27.18,Shot,,0,0,0,,S40  "Pop quiz!"
+Dialogue: 0,0:02:27.18,0:02:30.74,Shot,,0,0,0,,S41  "There's a blue ring in the chat app…"
+Dialogue: 0,0:02:30.74,0:02:32.70,Shot,,0,0,0,,S42  V12 "I'll uninstall it!" / "Nope!"
+Dialogue: 0,0:02:32.70,0:02:34.82,Shot,,0,0,0,,S43  V13 "I'll mute it, then?" / "That's not so bad!"
+Dialogue: 0,0:02:34.82,0:02:37.90,Shot,,0,0,0,,S44  "Now your phone has got an update…"
+Dialogue: 0,0:02:37.90,0:02:42.06,Shot,,0,0,0,,S45  V14 "Where's the 'No'?" / "There isn't one!…"
+Dialogue: 0,0:02:42.06,0:02:45.52,Shot,,0,0,0,,S46  "In Australia, office software went up forty-five percent…"
+Dialogue: 0,0:02:45.52,0:02:48.99,Shot,,0,0,0,,S47  V15 "Was there one without the robot?" / "Only once you tried to leave!"
+Dialogue: 0,0:02:48.99,0:02:52.78,Shot,,0,0,0,,S48  "Now the school's the place for learning…"
+Dialogue: 0,0:02:52.78,0:02:56.44,Shot,,0,0,0,,S49  "So the school said, 'No AI, please'…"
+Dialogue: 0,0:02:56.44,0:02:59.93,Shot,,0,0,0,,S50  "And the giant said, 'We hear you!'…"
+Dialogue: 0,0:02:59.93,0:03:03.68,Shot,,0,0,0,,S51  "Take the robot with your search, or else there's no search there!"
+Dialogue: 0,0:03:03.68,0:03:06.54,Shot,,0,0,0,,S52  [record scratch, tape rewind]
+Dialogue: 0,0:03:06.54,0:03:12.82,Shot,,0,0,0,,S53  "Ahem! Correction, boys and girls!…"
+Dialogue: 0,0:03:12.82,0:03:15.22,Shot,,0,0,0,,S54  V16 "And the answer box on top?"
+Dialogue: 0,0:03:15.22,0:03:17.18,Shot,,0,0,0,,S55  "…That one's 'deeply integrated.'"
+Dialogue: 0,0:03:17.18,0:03:20.38,Shot,,0,0,0,,S56  V17 "What's that mean?" / "It means it stays."
+Dialogue: 0,0:03:20.38,0:03:37.49,Shot,,0,0,0,,S57  Final chorus, through the second-to-last line
+Dialogue: 0,0:03:37.49,0:03:39.40,Shot,,0,0,0,,S58  Last "Default on!"
+Dialogue: 0,0:03:39.40,0:03:40.84,Shot,,0,0,0,,S59  V18 "I've got two sides."
+Dialogue: 0,0:03:40.84,0:03:42.44,Shot,,0,0,0,,S60  [click] [click] [click]
+Dialogue: 0,0:03:42.44,0:03:46.00,Shot,,0,0,0,,S61  "…Guess one of 'em was just for show."
+Dialogue: 0,0:03:46.00,0:03:51.94,Shot,,0,0,0,,S62  "And that's how an opt-out works! Join us next week…"
+Dialogue: 0,0:03:51.94,0:03:55.23,Shot,,0,0,0,,S63  [pop-up chime] / "Huh. Who asked for that?"
+Dialogue: 0,0:03:55.23,0:03:58.88,Shot,,0,0,0,,S64  V19 "Hey, who wrote this song, anyway?"
+Dialogue: 0,0:03:58.88,0:04:01.34,Shot,,0,0,0,,S65  "An AI did."
+Dialogue: 0,0:04:01.34,0:04:09.17,Shot,,0,0,0,,S66  "…But somebody asked it to."
+Dialogue: 0,0:04:09.17,0:04:12.17,Shot,,0,0,0,,S67  Silence after the last word
+Dialogue: 0,0:00:10.12,0:00:18.16,Room,,0,0,0,,{\pos(320,150)}V01 room 8.04 s
+Dialogue: 1,0:00:11.49,0:00:15.22,Slot,,0,0,0,,{\pos(320,180)}V01 MUTED
+Dialogue: 0,0:00:24.95,0:00:28.44,Room,,0,0,0,,{\pos(320,150)}V02 room 3.49 s
+Dialogue: 1,0:00:25.16,0:00:28.39,Slot,,0,0,0,,{\pos(320,180)}V02 MUTED
+Dialogue: 0,0:00:31.99,0:00:39.85,Room,,0,0,0,,{\pos(320,150)}V03 room 7.86 s
+Dialogue: 1,0:00:32.50,0:00:35.70,Slot,,0,0,0,,{\pos(320,180)}V03 MUTED
+Dialogue: 1,0:00:36.03,0:00:39.24,Slot,,0,0,0,,{\pos(320,180)}V03 MUTED
+Dialogue: 0,0:00:54.30,0:01:00.74,Room,,0,0,0,,{\pos(320,150)}V04 room 6.44 s
+Dialogue: 1,0:00:54.40,0:00:56.80,Slot,,0,0,0,,{\pos(320,180)}V04 PROPOSED
+Dialogue: 0,0:01:06.73,0:01:15.13,Room,,0,0,0,,{\pos(320,150)}V05 room 8.40 s
+Dialogue: 1,0:01:08.30,0:01:14.19,Slot,,0,0,0,,{\pos(320,180)}V05 MUTED
+Dialogue: 0,0:01:25.88,0:01:29.36,Room,,0,0,0,,{\pos(320,150)}V06 room 3.48 s
+Dialogue: 1,0:01:27.03,0:01:28.67,Slot,,0,0,0,,{\pos(320,180)}V06 MUTED
+Dialogue: 0,0:01:36.53,0:01:38.30,Room,,0,0,0,,{\pos(320,150)}V07 room 1.77 s
+Dialogue: 1,0:01:36.98,0:01:38.21,Slot,,0,0,0,,{\pos(320,180)}V07 MUTED
+Dialogue: 0,0:01:50.60,0:01:52.39,Room,,0,0,0,,{\pos(320,150)}V08 room 1.79 s
+Dialogue: 1,0:01:50.95,0:01:51.96,Slot,,0,0,0,,{\pos(320,180)}V08 MUTED
+Dialogue: 0,0:01:53.02,0:01:56.11,Room,,0,0,0,,{\pos(320,150)}V09 room 3.09 s
+Dialogue: 1,0:01:53.55,0:01:54.58,Slot,,0,0,0,,{\pos(320,180)}V09 MUTED
+Dialogue: 0,0:01:56.94,0:02:06.08,Room,,0,0,0,,{\pos(320,150)}V10 room 9.14 s
+Dialogue: 1,0:01:58.72,0:02:01.97,Slot,,0,0,0,,{\pos(320,180)}V10 MUTED
+Dialogue: 1,0:02:02.24,0:02:05.47,Slot,,0,0,0,,{\pos(320,180)}V10 MUTED
+Dialogue: 0,0:02:20.80,0:02:24.31,Room,,0,0,0,,{\pos(320,150)}V11 room 3.51 s
+Dialogue: 1,0:02:20.90,0:02:23.30,Slot,,0,0,0,,{\pos(320,180)}V11 PROPOSED
+Dialogue: 0,0:02:30.19,0:02:31.68,Room,,0,0,0,,{\pos(320,150)}V12 room 1.49 s
+Dialogue: 1,0:02:30.66,0:02:31.68,Slot,,0,0,0,,{\pos(320,180)}V12 MUTED
+Dialogue: 0,0:02:31.95,0:02:33.60,Room,,0,0,0,,{\pos(320,150)}V13 room 1.65 s
+Dialogue: 1,0:02:32.62,0:02:33.49,Slot,,0,0,0,,{\pos(320,180)}V13 MUTED
+Dialogue: 0,0:02:37.75,0:02:38.96,Room,,0,0,0,,{\pos(320,150)}V14 room 1.21 s
+Dialogue: 1,0:02:37.82,0:02:38.53,Slot,,0,0,0,,{\pos(320,180)}V14 MUTED
+Dialogue: 0,0:02:45.05,0:02:47.28,Room,,0,0,0,,{\pos(320,150)}V15 room 2.23 s
+Dialogue: 1,0:02:45.44,0:02:46.97,Slot,,0,0,0,,{\pos(320,180)}V15 MUTED
+Dialogue: 0,0:03:12.73,0:03:15.22,Room,,0,0,0,,{\pos(320,150)}V16 room 2.49 s
+Dialogue: 1,0:03:12.74,0:03:14.29,Slot,,0,0,0,,{\pos(320,180)}V16 MUTED
+Dialogue: 0,0:03:16.81,0:03:18.86,Room,,0,0,0,,{\pos(320,150)}V17 room 2.05 s
+Dialogue: 1,0:03:17.10,0:03:17.87,Slot,,0,0,0,,{\pos(320,180)}V17 MUTED
+Dialogue: 0,0:03:38.89,0:03:46.00,Room,,0,0,0,,{\pos(320,150)}V18 room 7.11 s
+Dialogue: 1,0:03:39.32,0:03:40.63,Slot,,0,0,0,,{\pos(320,180)}V18 MUTED
+Dialogue: 1,0:03:42.36,0:03:44.09,Slot,,0,0,0,,{\pos(320,180)}V18 MUTED
+Dialogue: 0,0:03:54.14,0:03:58.88,Room,,0,0,0,,{\pos(320,150)}V19 room 4.74 s
+Dialogue: 1,0:03:55.15,0:03:57.22,Slot,,0,0,0,,{\pos(320,180)}V19 MUTED
+Dialogue: 0,0:03:19.87,0:03:46.00,Room,,0,0,0,,{\pos(320,150)}V20 room 26.13 s
+Dialogue: 0,0:00:37.62,0:00:37.97,Event,,0,0,0,,CLICK
+Dialogue: 0,0:02:03.84,0:02:04.19,Event,,0,0,0,,CLICK
+Dialogue: 0,0:03:40.84,0:03:41.19,Event,,0,0,0,,CLICK
+Dialogue: 0,0:03:41.30,0:03:41.65,Event,,0,0,0,,CLICK
+Dialogue: 0,0:03:41.76,0:03:42.11,Event,,0,0,0,,CLICK
+Dialogue: 0,0:03:03.68,0:03:04.03,Event,,0,0,0,,SCRATCH
+Dialogue: 0,0:03:51.94,0:03:52.29,Event,,0,0,0,,CHIME
+Dialogue: 0,0:04:02.40,0:04:02.75,Event,,0,0,0,,LAST WORD
+Dialogue: 0,0:00:02.86,0:00:07.13,Lyric,,0,0,0,,{\k0}{\kf21}Hi, {\k7}{\kf41}kids! {\k93}{\kf25}Today {\k7}{\kf13}we're {\k3}{\kf29}learning {\k3}{\kf15}how {\k3}{\kf9}an {\k5}{\kf41}opt-out {\k5}{\kf37}works. 
+Dialogue: 0,0:00:07.84,0:00:10.52,Lyric,,0,0,0,,{\k0}{\kf17}Say {\k5}{\kf23}hello {\k48}{\kf11}to {\k7}{\kf23}Little {\k17}{\kf47}Switch! 
+Dialogue: 0,0:00:11.27,0:00:15.50,Switch,,0,0,0,,{\k0}{\kf27}Hi! {\k68}{\kf6}I've {\k0}{\kf17}got {\k11}{\kf17}two {\k9}{\kf55}sides: {\k33}{\kf25}on, {\k43}{\kf11}and {\k5}{\kf27}off! 
+Dialogue: 0,0:00:17.86,0:00:21.79,Lyric,,0,0,0,,{\k0}{\kf11}You {\k5}{\kf33}typed {\k5}{\kf2}a {\k8}{\kf21}little {\k5}{\kf51}question {\k15}{\kf9}in {\k5}{\kf2}a {\k8}{\kf23}little {\k17}{\kf27}search {\k7}{\kf21}box {\k13}{\kf35}line, 
+Dialogue: 0,0:00:21.32,0:00:25.35,Lyric,,0,0,0,,{\k0}{\kf11}And {\k1}{\kf9}an {\k7}{\kf27}answer {\k5}{\kf25}hopped {\k9}{\kf9}on {\k9}{\kf23}top {\k3}{\kf9}of {\k3}{\kf9}it {\k3}{\kf11}and {\k7}{\kf23}said, {\k21}{\kf9}"I'll {\k11}{\kf27}save {\k1}{\kf9}you {\k5}{\kf47}time!" 
+Dialogue: 0,0:00:24.94,0:00:28.67,Switch,,0,0,0,,{\k0}{\kf19}That's {\k7}{\kf25}neat, {\k29}{\kf11}but {\k1}{\kf13}what {\k1}{\kf9}if {\k11}{\kf2}I {\k2}{\kf13}would {\k5}{\kf23}rather {\k7}{\kf19}read {\k1}{\kf9}the {\k5}{\kf31}page {\k5}{\kf55}myself? 
+Dialogue: 0,0:00:28.14,0:00:32.39,Lyric,,0,0,0,,{\k0}{\kf23}Well, {\k7}{\kf17}there's {\k4}{\kf2}a {\k5}{\kf27}tiny {\k7}{\kf27}tab {\k5}{\kf29}marked {\k5}{\kf29}"Web," {\k17}{\kf17}way {\k5}{\kf11}up {\k5}{\kf9}on {\k3}{\kf9}the {\k5}{\kf41}highest {\k7}{\kf39}shelf! 
+Dialogue: 0,0:00:32.28,0:00:35.98,Switch,,0,0,0,,{\k0}{\kf15}I've {\k5}{\kf29}only {\k5}{\kf17}got {\k11}{\kf19}two {\k11}{\kf65}sides, {\k3}{\kf11}it {\k5}{\kf23}isn't {\k3}{\kf21}much {\k6}{\kf6}to {\k9}{\kf36}learn: 
+Dialogue: 0,0:00:35.81,0:00:39.52,Switch,,0,0,0,,{\k0}{\kf8}You {\k6}{\kf23}push {\k5}{\kf9}me {\k9}{\kf25}down {\k3}{\kf11}for {\k12}{\kf22}off... {\k45}{\kf9}...so {\k7}{\kf17}how'd {\k9}{\kf2}I {\k4}{\kf21}just {\k3}{\kf51}return? 
+Dialogue: 0,0:00:39.55,0:00:43.12,Lyric,,0,0,0,,{\k0}{\kf77}Default {\k7}{\kf27}on! {\k69}{\kf77}Default {\k5}{\kf25}on! 
+Dialogue: 0,0:00:42.61,0:00:46.82,Lyric,,0,0,0,,{\k0}{\kf9}It {\k3}{\kf19}was {\k7}{\kf33}there {\k11}{\kf13}when {\k5}{\kf9}you {\k3}{\kf23}woke {\k1}{\kf15}up, {\k41}{\kf23}it'll {\k3}{\kf9}be {\k7}{\kf21}there {\k7}{\kf15}when {\k3}{\kf17}you're {\k9}{\kf45}gone! 
+Dialogue: 0,0:00:46.15,0:00:50.20,Lyric,,0,0,0,,{\k0}{\kf11}You {\k3}{\kf17}can {\k9}{\kf49}hide {\k1}{\kf11}it, {\k3}{\kf11}you {\k1}{\kf15}can {\k1}{\kf25}mute {\k1}{\kf11}it, {\k25}{\kf11}you {\k3}{\kf15}can {\k13}{\kf21}tuck {\k3}{\kf11}it {\k5}{\kf13}out {\k4}{\kf6}of {\k9}{\kf27}view, 
+Dialogue: 0,0:00:49.71,0:00:53.70,Lyric,,0,0,0,,{\k0}{\kf13}But {\k3}{\kf9}the {\k11}{\kf55}switch {\k4}{\kf4}is {\k5}{\kf33}just {\k2}{\kf2}a {\k7}{\kf45}picture {\k0}{\kf19}that {\k7}{\kf41}somebody {\k7}{\kf21}drew {\k7}{\kf11}for {\k7}{\kf17}you. 
+Dialogue: 0,0:00:53.27,0:00:54.70,Lyric,,0,0,0,,{\k0}{\kf49}Default {\k5}{\kf19}on! 
+Dialogue: 0,0:01:00.44,0:01:07.13,Lyric,,0,0,0,,{\k0}{\kf33}Now, {\k33}{\kf43}"opt-in" {\k9}{\kf25}means {\k5}{\kf35}somebody {\k15}{\kf31}asks {\k1}{\kf15}you, {\k69}{\kf11}and {\k3}{\kf11}you {\k7}{\kf23}say, {\k13}{\kf29}"Well, {\k47}{\kf35}sure, {\k59}{\kf17}why {\k7}{\kf23}not." 
+Dialogue: 0,0:01:08.08,0:01:14.47,Switch,,0,0,0,,{\k0}{\kf13}And {\k3}{\kf45}"opt-out" {\k5}{\kf23}means {\k3}{\kf13}that {\k9}{\kf9}no {\k11}{\kf15}one {\k5}{\kf29}asked {\k3}{\kf15}you, {\k113}{\kf15}and {\k3}{\kf27}you're {\k9}{\kf43}hunting {\k45}{\kf32}for {\k13}{\kf10}the {\k13}{\kf45}spot! 
+Dialogue: 0,0:01:14.83,0:01:18.90,Lyric,,0,0,0,,{\k0}{\kf35}And {\k19}{\kf53}"default" {\k3}{\kf9}is {\k3}{\kf9}the {\k19}{\kf35}setting {\k1}{\kf13}that {\k3}{\kf13}they {\k7}{\kf27}picked {\k0}{\kf35}before {\k3}{\kf11}you {\k5}{\kf35}came, 
+Dialogue: 0,0:01:18.87,0:01:22.48,Lyric,,0,0,0,,{\k0}{\kf11}And {\k3}{\kf9}if {\k3}{\kf11}you {\k3}{\kf23}never {\k9}{\kf25}touch {\k1}{\kf9}it, {\k5}{\kf31}friend, {\k1}{\kf21}they'll {\k3}{\kf17}say {\k5}{\kf11}you {\k9}{\kf27}picked {\k0}{\kf6}the {\k9}{\kf39}same. 
+Dialogue: 0,0:01:21.93,0:01:26.28,Lyric,,0,0,0,,{\k0}{\kf15}Got {\k5}{\kf19}that? {\k27}{\kf43}Opt-in, {\k47}{\kf47}opt-out, {\k19}{\kf40}default. {\k6}{\kf19}There'll {\k0}{\kf6}be {\k8}{\kf2}a {\k13}{\kf49}test. 
+Dialogue: 0,0:01:26.81,0:01:28.95,Switch,,0,0,0,,{\k0}{\kf21}There's {\k7}{\kf39}always {\k6}{\kf2}a {\k13}{\kf56}test. 
+Dialogue: 0,0:01:29.06,0:01:33.27,Lyric,,0,0,0,,{\k0}{\kf27}Now {\k9}{\kf17}your {\k7}{\kf47}inbox {\k7}{\kf15}has {\k5}{\kf2}a {\k6}{\kf33}helper, {\k43}{\kf9}and {\k3}{\kf9}it {\k5}{\kf23}reads {\k1}{\kf11}your {\k3}{\kf29}mail {\k5}{\kf15}with {\k5}{\kf15}you! 
+Dialogue: 0,0:01:33.16,0:01:36.93,Lyric,,0,0,0,,{\k0}{\kf2}A {\k12}{\kf47}lawsuit {\k3}{\kf17}says {\k3}{\kf9}it {\k7}{\kf29}flipped {\k3}{\kf37}itself {\k3}{\kf33}last {\k5}{\kf25}fall, {\k7}{\kf19}while {\k1}{\kf11}out {\k3}{\kf9}of {\k1}{\kf21}view. 
+Dialogue: 0,0:01:36.76,0:01:38.49,Switch,,0,0,0,,{\k0}{\kf9}And {\k1}{\kf17}what's {\k0}{\kf9}the {\k1}{\kf35}company {\k11}{\kf21}say? 
+Dialogue: 0,0:01:38.00,0:01:40.21,Lyric,,0,0,0,,{\k0}{\kf13}That {\k3}{\kf11}it's {\k7}{\kf41}fine, {\k1}{\kf9}and {\k1}{\kf21}here's {\k1}{\kf9}the {\k5}{\kf29}door: 
+Dialogue: 0,0:01:39.90,0:01:44.10,Lyric,,0,0,0,,{\k0}{\kf21}Just {\k4}{\kf2}a {\k19}{\kf47}menu, {\k11}{\kf13}then {\k4}{\kf2}a {\k11}{\kf55}menu, {\k5}{\kf13}then {\k4}{\kf2}a {\k9}{\kf35}menu, {\k7}{\kf18}then {\k13}{\kf15}one {\k3}{\kf37}more! 
+Dialogue: 0,0:01:43.85,0:01:47.50,Lyric,,0,0,0,,{\k0}{\kf13}Then {\k1}{\kf9}the {\k5}{\kf23}TV {\k13}{\kf17}got {\k1}{\kf9}an {\k3}{\kf49}update {\k45}{\kf6}in {\k4}{\kf9}the {\k3}{\kf25}middle {\k3}{\kf6}of {\k4}{\kf9}the {\k7}{\kf31}night, 
+Dialogue: 0,0:01:47.33,0:01:51.00,Lyric,,0,0,0,,{\k0}{\kf11}And {\k1}{\kf2}a {\k10}{\kf47}brand-new {\k11}{\kf47}tile {\k1}{\kf13}was {\k7}{\kf31}waiting {\k3}{\kf6}in {\k2}{\kf6}the {\k8}{\kf21}early {\k7}{\kf29}morning {\k5}{\kf29}light! 
+Dialogue: 0,0:01:50.73,0:01:52.24,Switch,,0,0,0,,{\k0}{\kf15}Can {\k12}{\kf2}I {\k5}{\kf35}delete {\k1}{\kf11}it? 
+Dialogue: 0,0:01:52.09,0:01:53.42,Lyric,,0,0,0,,{\k0}{\kf9}You {\k0}{\kf13}can {\k5}{\kf27}hide {\k1}{\kf9}it! 
+Dialogue: 0,0:01:53.33,0:01:54.86,Switch,,0,0,0,,{\k0}{\kf9}Is {\k1}{\kf13}that {\k4}{\kf6}the {\k11}{\kf39}same? 
+Dialogue: 0,0:01:55.81,0:01:57.34,Lyric,,0,0,0,,{\k0}{\kf29}...Next {\k7}{\kf47}verse! 
+Dialogue: 0,0:01:58.50,0:02:02.25,Switch,,0,0,0,,{\k0}{\kf11}I've {\k5}{\kf29}only {\k7}{\kf17}got {\k9}{\kf19}two {\k13}{\kf63}sides, {\k5}{\kf11}it {\k5}{\kf27}isn't {\k5}{\kf21}much {\k5}{\kf9}to {\k9}{\kf35}learn: 
+Dialogue: 0,0:02:02.02,0:02:05.75,Switch,,0,0,0,,{\k0}{\kf9}You {\k5}{\kf23}push {\k7}{\kf9}me {\k7}{\kf25}down {\k1}{\kf21}for {\k7}{\kf21}off... {\k44}{\kf6}...so {\k9}{\kf17}how'd {\k7}{\kf2}I {\k3}{\kf19}just {\k3}{\kf57}return? 
+Dialogue: 0,0:02:05.78,0:02:09.39,Lyric,,0,0,0,,{\k0}{\kf75}Default {\k7}{\kf27}on! {\k55}{\kf91}Default {\k7}{\kf29}on! 
+Dialogue: 0,0:02:08.85,0:02:13.10,Lyric,,0,0,0,,{\k0}{\kf6}It {\k5}{\kf17}was {\k7}{\kf37}there {\k9}{\kf16}when {\k3}{\kf11}you {\k2}{\kf23}woke {\k2}{\kf10}up, {\k31}{\kf23}it'll {\k14}{\kf9}be {\k11}{\kf23}there {\k7}{\kf13}when {\k5}{\kf19}you're {\k7}{\kf45}gone! 
+Dialogue: 0,0:02:12.43,0:02:16.52,Lyric,,0,0,0,,{\k0}{\kf11}You {\k3}{\kf17}can {\k11}{\kf49}hide {\k3}{\kf11}it, {\k3}{\kf9}you {\k1}{\kf13}can {\k3}{\kf21}mute {\k3}{\kf9}it, {\k29}{\kf9}you {\k1}{\kf15}can {\k15}{\kf23}tuck {\k3}{\kf9}it {\k5}{\kf15}out {\k1}{\kf17}of {\k0}{\kf31}view, 
+Dialogue: 0,0:02:15.99,0:02:20.06,Lyric,,0,0,0,,{\k0}{\kf15}But {\k5}{\kf9}the {\k11}{\kf39}switch {\k17}{\kf11}is {\k3}{\kf31}just {\k4}{\kf2}a {\k6}{\kf45}picture {\k1}{\kf17}that {\k9}{\kf41}somebody {\k7}{\kf21}drew {\k7}{\kf13}for {\k7}{\kf17}you. 
+Dialogue: 0,0:02:19.63,0:02:21.20,Lyric,,0,0,0,,{\k0}{\kf47}Default {\k5}{\kf35}on! 
+Dialogue: 0,0:02:24.01,0:02:25.41,Lyric,,0,0,0,,{\k0}{\kf22}Pop {\k6}{\kf42}quiz! 
+Dialogue: 0,0:02:26.88,0:02:30.59,Lyric,,0,0,0,,{\k0}{\kf19}There's {\k5}{\kf2}a {\k10}{\kf25}blue {\k7}{\kf21}ring {\k3}{\kf6}in {\k2}{\kf9}the {\k9}{\kf25}chat {\k7}{\kf15}app {\k3}{\kf13}where {\k1}{\kf9}you {\k5}{\kf23}talk {\k3}{\kf6}to {\k4}{\kf21}Mom {\k1}{\kf11}and {\k3}{\kf33}Dad. 
+Dialogue: 0,0:02:30.44,0:02:31.98,Switch,,0,0,0,,{\k0}{\kf11}I'll {\k1}{\kf61}uninstall {\k5}{\kf6}it! 
+Dialogue: 0,0:02:31.38,0:02:32.35,Lyric,,0,0,0,,{\k0}{\kf27}Nope! 
+Dialogue: 0,0:02:32.40,0:02:33.77,Switch,,0,0,0,,{\k0}{\kf9}I'll {\k3}{\kf25}mute {\k0}{\kf9}it, {\k3}{\kf19}then? 
+Dialogue: 0,0:02:33.30,0:02:34.85,Lyric,,0,0,0,,{\k0}{\kf19}That's {\k5}{\kf13}not {\k5}{\kf9}so {\k7}{\kf27}bad! 
+Dialogue: 0,0:02:34.52,0:02:38.15,Lyric,,0,0,0,,{\k0}{\kf13}Now {\k3}{\kf13}your {\k3}{\kf27}phone {\k0}{\kf9}has {\k3}{\kf15}got {\k1}{\kf9}an {\k3}{\kf39}update, {\k1}{\kf9}and {\k1}{\kf9}it {\k5}{\kf25}asks {\k1}{\kf11}you {\k1}{\kf9}to {\k19}{\kf65}"Continue." 
+Dialogue: 0,0:02:37.60,0:02:38.81,Switch,,0,0,0,,{\k0}{\kf23}Where's {\k4}{\kf6}the {\k7}{\kf11}"No"? 
+Dialogue: 0,0:02:38.66,0:02:41.59,Lyric,,0,0,0,,{\k0}{\kf17}There {\k3}{\kf23}isn't {\k9}{\kf21}one! {\k34}{\kf6}It {\k5}{\kf27}turned {\k1}{\kf21}back {\k9}{\kf13}on {\k3}{\kf11}for {\k5}{\kf15}you! 
+Dialogue: 0,0:02:41.76,0:02:45.45,Lyric,,0,0,0,,{\k0}{\kf9}In {\k1}{\kf61}Australia, {\k11}{\kf33}office {\k7}{\kf47}software {\k1}{\kf13}went {\k0}{\kf9}up {\k7}{\kf53}forty-five {\k3}{\kf45}percent... 
+Dialogue: 0,0:02:45.22,0:02:47.25,Switch,,0,0,0,,{\k0}{\kf13}Was {\k1}{\kf15}there {\k7}{\kf15}one {\k1}{\kf27}without {\k1}{\kf9}the {\k5}{\kf39}robot? 
+Dialogue: 0,0:02:46.98,0:02:49.28,Lyric,,0,0,0,,{\k0}{\kf19}Only {\k15}{\kf19}once {\k0}{\kf11}you {\k3}{\kf29}tried {\k2}{\kf6}to {\k7}{\kf50}leave! 
+Dialogue: 0,0:02:48.69,0:02:52.77,Lyric,,0,0,0,,{\k0}{\kf17}Now {\k1}{\kf10}the {\k11}{\kf37}school's {\k3}{\kf9}the {\k3}{\kf29}place {\k3}{\kf11}for {\k7}{\kf35}learning, {\k27}{\kf9}and {\k1}{\kf6}the {\k6}{\kf27}school {\k5}{\kf21}picks {\k1}{\kf13}what {\k1}{\kf11}you {\k3}{\kf31}learn, 
+Dialogue: 0,0:02:52.48,0:02:56.43,Lyric,,0,0,0,,{\k0}{\kf6}So {\k6}{\kf6}the {\k6}{\kf27}school {\k7}{\kf19}said, {\k9}{\kf11}"No {\k11}{\kf37}AI, {\k7}{\kf51}please," {\k1}{\kf9}and {\k5}{\kf29}waited {\k1}{\kf15}for {\k5}{\kf17}its {\k7}{\kf33}turn. 
+Dialogue: 0,0:02:56.14,0:02:59.98,Lyric,,0,0,0,,{\k0}{\kf9}And {\k2}{\kf6}the {\k5}{\kf37}giant {\k8}{\kf17}said, {\k3}{\kf9}"We {\k9}{\kf21}hear {\k9}{\kf13}you! {\k35}{\kf17}Here's {\k3}{\kf2}a {\k8}{\kf25}deal {\k3}{\kf17}that's {\k1}{\kf21}very {\k7}{\kf27}fair: 
+Dialogue: 0,0:02:59.63,0:03:04.08,Lyric,,0,0,0,,{\k0}{\kf23}Take {\k7}{\kf6}the {\k9}{\kf41}robot {\k5}{\kf13}with {\k1}{\kf11}your {\k7}{\kf35}search, {\k47}{\kf9}or {\k7}{\kf21}else {\k1}{\kf23}there's {\k7}{\kf11}no {\k17}{\kf33}search {\k5}{\kf35}there!" 
+Dialogue: 0,0:03:06.24,0:03:10.69,Lyric,,0,0,0,,{\k0}{\kf59}Correction, {\k5}{\kf33}boys {\k3}{\kf11}and {\k1}{\kf47}girls! {\k63}{\kf9}You {\k3}{\kf11}can {\k5}{\kf25}switch {\k5}{\kf9}the {\k7}{\kf49}chatbot {\k9}{\kf21}off, 
+Dialogue: 0,0:03:10.70,0:03:13.13,Lyric,,0,0,0,,{\k0}{\kf11}And {\k1}{\kf9}you {\k5}{\kf23}keep {\k5}{\kf13}your {\k11}{\kf31}search {\k3}{\kf9}and {\k3}{\kf49}everything! 
+Dialogue: 0,0:03:12.52,0:03:14.57,Switch,,0,0,0,,{\k0}{\kf9}And {\k1}{\kf6}the {\k12}{\kf29}answer {\k3}{\kf21}box {\k15}{\kf9}on {\k5}{\kf25}top? 
+Dialogue: 0,0:03:14.92,0:03:17.21,Lyric,,0,0,0,,{\k0}{\kf15}...That {\k7}{\kf21}one's {\k21}{\kf33}"deeply {\k9}{\kf53}integrated." 
+Dialogue: 0,0:03:16.88,0:03:18.15,Switch,,0,0,0,,{\k0}{\kf19}What's {\k0}{\kf15}that {\k3}{\kf21}mean? 
+Dialogue: 0,0:03:18.56,0:03:20.27,Lyric,,0,0,0,,{\k0}{\kf9}It {\k3}{\kf23}means {\k1}{\kf9}it {\k7}{\kf49}stays. 
+Dialogue: 0,0:03:20.08,0:03:23.78,Lyric,,0,0,0,,{\k0}{\kf77}Default {\k5}{\kf27}on! {\k58}{\kf93}Default {\k7}{\kf33}on! 
+Dialogue: 0,0:03:23.17,0:03:27.40,Lyric,,0,0,0,,{\k0}{\kf11}It {\k3}{\kf17}was {\k7}{\kf39}there {\k7}{\kf13}when {\k3}{\kf9}we {\k7}{\kf23}woke {\k1}{\kf13}up, {\k27}{\kf21}it'll {\k17}{\kf9}be {\k11}{\kf23}there {\k5}{\kf19}when {\k3}{\kf19}we're {\k5}{\kf41}gone! 
+Dialogue: 0,0:03:26.75,0:03:30.60,Lyric,,0,0,0,,{\k0}{\kf9}We {\k5}{\kf15}can {\k11}{\kf53}hide {\k1}{\kf9}it, {\k3}{\kf6}we {\k6}{\kf11}can {\k3}{\kf31}mute {\k3}{\kf4}it, {\k10}{\kf11}we {\k5}{\kf15}can {\k13}{\kf21}tuck {\k5}{\kf9}it {\k5}{\kf13}out {\k3}{\kf11}of {\k5}{\kf19}view, 
+Dialogue: 0,0:03:30.35,0:03:34.64,Lyric,,0,0,0,,{\k0}{\kf17}But {\k1}{\kf9}the {\k11}{\kf41}switch {\k19}{\kf9}is {\k5}{\kf29}just {\k8}{\kf2}a {\k5}{\kf45}picture {\k1}{\kf21}that {\k7}{\kf41}somebody {\k7}{\kf27}drew {\k15}{\kf15}for {\k5}{\kf19}you! 
+Dialogue: 0,0:03:37.19,0:03:39.29,Lyric,,0,0,0,,{\k0}{\kf93}Default {\k7}{\kf40}on! 
+Dialogue: 0,0:03:39.10,0:03:40.91,Switch,,0,0,0,,{\k0}{\kf9}I've {\k0}{\kf13}got {\k11}{\kf17}two {\k7}{\kf55}sides. 
+Dialogue: 0,0:03:42.14,0:03:44.37,Switch,,0,0,0,,{\k0}{\kf19}...Guess {\k11}{\kf11}one {\k1}{\kf6}of {\k4}{\kf9}'em {\k3}{\kf13}was {\k7}{\kf21}just {\k1}{\kf11}for {\k7}{\kf29}show. 
+Dialogue: 0,0:03:45.70,0:03:50.87,Lyric,,0,0,0,,{\k0}{\kf11}And {\k0}{\kf19}that's {\k1}{\kf11}how {\k3}{\kf9}an {\k5}{\kf37}opt-out {\k3}{\kf39}works! {\k107}{\kf23}Join {\k5}{\kf11}us {\k7}{\kf25}next {\k5}{\kf23}week, {\k23}{\kf13}when {\k4}{\kf6}we {\k7}{\kf19}learn {\k3}{\kf29}about... 
+Dialogue: 0,0:03:53.12,0:03:54.54,Lyric,,0,0,0,,{\k0}{\kf8}Who {\k9}{\kf21}asked {\k1}{\kf9}for {\k1}{\kf23}that? 
+Dialogue: 0,0:03:54.93,0:03:57.50,Switch,,0,0,0,,{\k0}{\kf21}Hey, {\k47}{\kf9}who {\k5}{\kf25}wrote {\k1}{\kf15}this {\k3}{\kf25}song, {\k3}{\kf33}anyway? 
+Dialogue: 0,0:03:58.58,0:04:02.80,Lyric,,0,0,0,,{\k0}{\kf6}An {\k5}{\kf31}AI {\k5}{\kf25}did. {\k174}{\kf10}...But {\k5}{\kf29}somebody {\k13}{\kf25}asked {\k4}{\kf6}it {\k3}{\kf11}to. 

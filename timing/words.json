@@ -1,0 +1,4417 @@
+{
+ "aligner": "torchaudio MMS_FA",
+ "torchaudio": "2.8.0+cpu",
+ "lines": [
+  {
+   "id": "L01",
+   "section": "Intro",
+   "stem": "0 Lead Vocals",
+   "singer": "narrator",
+   "text": "Hi, kids! Today we're learning how an opt-out works.",
+   "start": 3.16,
+   "end": 6.73,
+   "words": [
+    {
+     "w": "Hi,",
+     "start": 3.16,
+     "end": 3.37,
+     "score": 0.941
+    },
+    {
+     "w": "kids!",
+     "start": 3.44,
+     "end": 3.85,
+     "score": 0.988
+    },
+    {
+     "w": "Today",
+     "start": 4.78,
+     "end": 5.03,
+     "score": 0.998
+    },
+    {
+     "w": "we're",
+     "start": 5.1,
+     "end": 5.23,
+     "score": 0.968
+    },
+    {
+     "w": "learning",
+     "start": 5.26,
+     "end": 5.55,
+     "score": 0.977
+    },
+    {
+     "w": "how",
+     "start": 5.58,
+     "end": 5.73,
+     "score": 0.998
+    },
+    {
+     "w": "an",
+     "start": 5.76,
+     "end": 5.85,
+     "score": 0.926
+    },
+    {
+     "w": "opt-out",
+     "start": 5.9,
+     "end": 6.31,
+     "score": 0.471
+    },
+    {
+     "w": "works.",
+     "start": 6.36,
+     "end": 6.73,
+     "score": 0.995
+    }
+   ]
+  },
+  {
+   "id": "L02",
+   "section": "Intro",
+   "stem": "0 Lead Vocals",
+   "singer": "narrator",
+   "text": "Say hello to Little Switch!",
+   "start": 8.14,
+   "end": 10.12,
+   "words": [
+    {
+     "w": "Say",
+     "start": 8.14,
+     "end": 8.31,
+     "score": 0.948
+    },
+    {
+     "w": "hello",
+     "start": 8.36,
+     "end": 8.59,
+     "score": 0.809
+    },
+    {
+     "w": "to",
+     "start": 9.07,
+     "end": 9.18,
+     "score": 0.684
+    },
+    {
+     "w": "Little",
+     "start": 9.25,
+     "end": 9.48,
+     "score": 0.727
+    },
+    {
+     "w": "Switch!",
+     "start": 9.65,
+     "end": 10.12,
+     "score": 0.922
+    }
+   ]
+  },
+  {
+   "id": "L03",
+   "section": "Intro",
+   "stem": "0 Lead Vocals",
+   "singer": "switch",
+   "text": "Hi! I've got two sides: on, and off!",
+   "start": 11.57,
+   "end": 15.1,
+   "words": [
+    {
+     "w": "Hi!",
+     "start": 11.57,
+     "end": 11.84,
+     "score": 0.935
+    },
+    {
+     "w": "I've",
+     "start": 12.515,
+     "end": 12.575,
+     "score": 0.331
+    },
+    {
+     "w": "got",
+     "start": 12.57,
+     "end": 12.74,
+     "score": 0.767
+    },
+    {
+     "w": "two",
+     "start": 12.85,
+     "end": 13.02,
+     "score": 0.995
+    },
+    {
+     "w": "sides:",
+     "start": 13.11,
+     "end": 13.66,
+     "score": 0.992
+    },
+    {
+     "w": "on,",
+     "start": 13.99,
+     "end": 14.24,
+     "score": 0.986
+    },
+    {
+     "w": "and",
+     "start": 14.67,
+     "end": 14.78,
+     "score": 0.731
+    },
+    {
+     "w": "off!",
+     "start": 14.83,
+     "end": 15.1,
+     "score": 0.888
+    }
+   ]
+  },
+  {
+   "id": "L04",
+   "section": "Verse 1",
+   "stem": "0 Lead Vocals",
+   "singer": "narrator",
+   "text": "You typed a little question in a little search box line,",
+   "start": 18.16,
+   "end": 21.39,
+   "words": [
+    {
+     "w": "You",
+     "start": 18.16,
+     "end": 18.27,
+     "score": 0.903
+    },
+    {
+     "w": "typed",
+     "start": 18.32,
+     "end": 18.65,
+     "score": 0.785
+    },
+    {
+     "w": "a",
+     "start": 18.701,
+     "end": 18.721,
+     "score": 0.97
+    },
+    {
+     "w": "little",
+     "start": 18.8,
+     "end": 19.01,
+     "score": 0.974
+    },
+    {
+     "w": "question",
+     "start": 19.06,
+     "end": 19.57,
+     "score": 0.983
+    },
+    {
+     "w": "in",
+     "start": 19.72,
+     "end": 19.81,
+     "score": 0.633
+    },
+    {
+     "w": "a",
+     "start": 19.862,
+     "end": 19.882,
+     "score": 0.985
+    },
+    {
+     "w": "little",
+     "start": 19.96,
+     "end": 20.19,
+     "score": 0.934
+    },
+    {
+     "w": "search",
+     "start": 20.36,
+     "end": 20.63,
+     "score": 0.952
+    },
+    {
+     "w": "box",
+     "start": 20.7,
+     "end": 20.91,
+     "score": 0.994
+    },
+    {
+     "w": "line,",
+     "start": 21.04,
+     "end": 21.39,
+     "score": 0.741
+    }
+   ]
+  },
+  {
+   "id": "L05",
+   "section": "Verse 1",
+   "stem": "0 Lead Vocals",
+   "singer": "narrator",
+   "text": "And an answer hopped on top of it and said, \"I'll save you time!\"",
+   "start": 21.62,
+   "end": 24.95,
+   "words": [
+    {
+     "w": "And",
+     "start": 21.62,
+     "end": 21.73,
+     "score": 0.67
+    },
+    {
+     "w": "an",
+     "start": 21.74,
+     "end": 21.83,
+     "score": 0.004
+    },
+    {
+     "w": "answer",
+     "start": 21.9,
+     "end": 22.17,
+     "score": 0.786
+    },
+    {
+     "w": "hopped",
+     "start": 22.22,
+     "end": 22.47,
+     "score": 0.344
+    },
+    {
+     "w": "on",
+     "start": 22.56,
+     "end": 22.65,
+     "score": 0.909
+    },
+    {
+     "w": "top",
+     "start": 22.74,
+     "end": 22.97,
+     "score": 0.997
+    },
+    {
+     "w": "of",
+     "start": 23.0,
+     "end": 23.09,
+     "score": 0.991
+    },
+    {
+     "w": "it",
+     "start": 23.12,
+     "end": 23.21,
+     "score": 0.983
+    },
+    {
+     "w": "and",
+     "start": 23.24,
+     "end": 23.35,
+     "score": 0.626
+    },
+    {
+     "w": "said,",
+     "start": 23.42,
+     "end": 23.65,
+     "score": 0.909
+    },
+    {
+     "w": "\"I'll",
+     "start": 23.86,
+     "end": 23.95,
+     "score": 0.255
+    },
+    {
+     "w": "save",
+     "start": 24.06,
+     "end": 24.33,
+     "score": 0.998
+    },
+    {
+     "w": "you",
+     "start": 24.34,
+     "end": 24.43,
+     "score": 0.992
+    },
+    {
+     "w": "time!\"",
+     "start": 24.48,
+     "end": 24.95,
+     "score": 0.979
+    }
+   ]
+  },
+  {
+   "id": "L06",
+   "section": "Verse 1",
+   "stem": "0 Lead Vocals",
+   "singer": "switch",
+   "text": "That's neat, but what if I would rather read the page myself?",
+   "start": 25.24,
+   "end": 28.27,
+   "words": [
+    {
+     "w": "That's",
+     "start": 25.24,
+     "end": 25.43,
+     "score": 0.656
+    },
+    {
+     "w": "neat,",
+     "start": 25.5,
+     "end": 25.75,
+     "score": 0.583
+    },
+    {
+     "w": "but",
+     "start": 26.04,
+     "end": 26.15,
+     "score": 0.992
+    },
+    {
+     "w": "what",
+     "start": 26.16,
+     "end": 26.29,
+     "score": 0.93
+    },
+    {
+     "w": "if",
+     "start": 26.3,
+     "end": 26.39,
+     "score": 0.995
+    },
+    {
+     "w": "I",
+     "start": 26.505,
+     "end": 26.525,
+     "score": 0.998
+    },
+    {
+     "w": "would",
+     "start": 26.54,
+     "end": 26.67,
+     "score": 0.945
+    },
+    {
+     "w": "rather",
+     "start": 26.72,
+     "end": 26.95,
+     "score": 0.657
+    },
+    {
+     "w": "read",
+     "start": 27.02,
+     "end": 27.21,
+     "score": 0.996
+    },
+    {
+     "w": "the",
+     "start": 27.22,
+     "end": 27.31,
+     "score": 0.876
+    },
+    {
+     "w": "page",
+     "start": 27.36,
+     "end": 27.67,
+     "score": 0.999
+    },
+    {
+     "w": "myself?",
+     "start": 27.72,
+     "end": 28.27,
+     "score": 0.997
+    }
+   ]
+  },
+  {
+   "id": "L07",
+   "section": "Verse 1",
+   "stem": "0 Lead Vocals",
+   "singer": "narrator",
+   "text": "Well, there's a tiny tab marked \"Web,\" way up on the highest shelf!",
+   "start": 28.44,
+   "end": 31.99,
+   "words": [
+    {
+     "w": "Well,",
+     "start": 28.44,
+     "end": 28.67,
+     "score": 0.497
+    },
+    {
+     "w": "there's",
+     "start": 28.74,
+     "end": 28.91,
+     "score": 0.821
+    },
+    {
+     "w": "a",
+     "start": 28.946,
+     "end": 28.966,
+     "score": 0.986
+    },
+    {
+     "w": "tiny",
+     "start": 29.02,
+     "end": 29.29,
+     "score": 0.955
+    },
+    {
+     "w": "tab",
+     "start": 29.36,
+     "end": 29.63,
+     "score": 0.994
+    },
+    {
+     "w": "marked",
+     "start": 29.68,
+     "end": 29.97,
+     "score": 0.669
+    },
+    {
+     "w": "\"Web,\"",
+     "start": 30.02,
+     "end": 30.31,
+     "score": 0.997
+    },
+    {
+     "w": "way",
+     "start": 30.48,
+     "end": 30.65,
+     "score": 0.948
+    },
+    {
+     "w": "up",
+     "start": 30.7,
+     "end": 30.81,
+     "score": 0.997
+    },
+    {
+     "w": "on",
+     "start": 30.86,
+     "end": 30.95,
+     "score": 0.997
+    },
+    {
+     "w": "the",
+     "start": 30.98,
+     "end": 31.07,
+     "score": 0.652
+    },
+    {
+     "w": "highest",
+     "start": 31.12,
+     "end": 31.53,
+     "score": 0.93
+    },
+    {
+     "w": "shelf!",
+     "start": 31.6,
+     "end": 31.99,
+     "score": 0.989
+    }
+   ]
+  },
+  {
+   "id": "L08",
+   "section": "Pre-chorus 1",
+   "stem": "0 Lead Vocals",
+   "singer": "switch",
+   "text": "I've only got two sides, it isn't much to learn:",
+   "start": 32.58,
+   "end": 35.58,
+   "words": [
+    {
+     "w": "I've",
+     "start": 32.58,
+     "end": 32.73,
+     "score": 0.583
+    },
+    {
+     "w": "only",
+     "start": 32.78,
+     "end": 33.07,
+     "score": 0.955
+    },
+    {
+     "w": "got",
+     "start": 33.12,
+     "end": 33.29,
+     "score": 0.976
+    },
+    {
+     "w": "two",
+     "start": 33.4,
+     "end": 33.59,
+     "score": 0.966
+    },
+    {
+     "w": "sides,",
+     "start": 33.7,
+     "end": 34.35,
+     "score": 0.968
+    },
+    {
+     "w": "it",
+     "start": 34.38,
+     "end": 34.49,
+     "score": 0.966
+    },
+    {
+     "w": "isn't",
+     "start": 34.54,
+     "end": 34.77,
+     "score": 0.844
+    },
+    {
+     "w": "much",
+     "start": 34.8,
+     "end": 35.01,
+     "score": 0.995
+    },
+    {
+     "w": "to",
+     "start": 35.069,
+     "end": 35.129,
+     "score": 0.991
+    },
+    {
+     "w": "learn:",
+     "start": 35.22,
+     "end": 35.58,
+     "score": 0.905
+    }
+   ]
+  },
+  {
+   "id": "L09",
+   "section": "Pre-chorus 1",
+   "stem": "0 Lead Vocals",
+   "singer": "switch",
+   "text": "You push me down for off... ...so how'd I just return?",
+   "start": 36.11,
+   "end": 39.12,
+   "words": [
+    {
+     "w": "You",
+     "start": 36.11,
+     "end": 36.19,
+     "score": 0.561
+    },
+    {
+     "w": "push",
+     "start": 36.25,
+     "end": 36.48,
+     "score": 0.999
+    },
+    {
+     "w": "me",
+     "start": 36.53,
+     "end": 36.62,
+     "score": 0.994
+    },
+    {
+     "w": "down",
+     "start": 36.71,
+     "end": 36.96,
+     "score": 0.992
+    },
+    {
+     "w": "for",
+     "start": 36.99,
+     "end": 37.1,
+     "score": 0.654
+    },
+    {
+     "w": "off...",
+     "start": 37.22,
+     "end": 37.44,
+     "score": 0.642
+    },
+    {
+     "w": "...so",
+     "start": 37.89,
+     "end": 37.98,
+     "score": 0.975
+    },
+    {
+     "w": "how'd",
+     "start": 38.05,
+     "end": 38.22,
+     "score": 0.675
+    },
+    {
+     "w": "I",
+     "start": 38.311,
+     "end": 38.331,
+     "score": 0.955
+    },
+    {
+     "w": "just",
+     "start": 38.37,
+     "end": 38.58,
+     "score": 0.824
+    },
+    {
+     "w": "return?",
+     "start": 38.61,
+     "end": 39.12,
+     "score": 0.972
+    }
+   ]
+  },
+  {
+   "id": "L10",
+   "section": "Chorus 1",
+   "stem": "0 Lead Vocals",
+   "singer": "narrator",
+   "text": "Default on! Default on!",
+   "start": 39.85,
+   "end": 42.72,
+   "words": [
+    {
+     "w": "Default",
+     "start": 39.85,
+     "end": 40.62,
+     "score": 0.595
+    },
+    {
+     "w": "on!",
+     "start": 40.69,
+     "end": 40.96,
+     "score": 0.666
+    },
+    {
+     "w": "Default",
+     "start": 41.65,
+     "end": 42.42,
+     "score": 0.578
+    },
+    {
+     "w": "on!",
+     "start": 42.47,
+     "end": 42.72,
+     "score": 0.761
+    }
+   ]
+  },
+  {
+   "id": "L11",
+   "section": "Chorus 1",
+   "stem": "0 Lead Vocals",
+   "singer": "narrator",
+   "text": "It was there when you woke up, it'll be there when you're gone!",
+   "start": 42.91,
+   "end": 46.42,
+   "words": [
+    {
+     "w": "It",
+     "start": 42.91,
+     "end": 43.0,
+     "score": 0.102
+    },
+    {
+     "w": "was",
+     "start": 43.03,
+     "end": 43.22,
+     "score": 0.945
+    },
+    {
+     "w": "there",
+     "start": 43.29,
+     "end": 43.62,
+     "score": 0.739
+    },
+    {
+     "w": "when",
+     "start": 43.73,
+     "end": 43.86,
+     "score": 0.741
+    },
+    {
+     "w": "you",
+     "start": 43.91,
+     "end": 44.0,
+     "score": 0.937
+    },
+    {
+     "w": "woke",
+     "start": 44.03,
+     "end": 44.26,
+     "score": 0.96
+    },
+    {
+     "w": "up,",
+     "start": 44.27,
+     "end": 44.42,
+     "score": 0.921
+    },
+    {
+     "w": "it'll",
+     "start": 44.83,
+     "end": 45.06,
+     "score": 0.954
+    },
+    {
+     "w": "be",
+     "start": 45.09,
+     "end": 45.18,
+     "score": 0.982
+    },
+    {
+     "w": "there",
+     "start": 45.25,
+     "end": 45.46,
+     "score": 0.742
+    },
+    {
+     "w": "when",
+     "start": 45.53,
+     "end": 45.68,
+     "score": 0.744
+    },
+    {
+     "w": "you're",
+     "start": 45.71,
+     "end": 45.88,
+     "score": 0.503
+    },
+    {
+     "w": "gone!",
+     "start": 45.97,
+     "end": 46.42,
+     "score": 0.741
+    }
+   ]
+  },
+  {
+   "id": "L12",
+   "section": "Chorus 1",
+   "stem": "0 Lead Vocals",
+   "singer": "narrator",
+   "text": "You can hide it, you can mute it, you can tuck it out of view,",
+   "start": 46.45,
+   "end": 49.8,
+   "words": [
+    {
+     "w": "You",
+     "start": 46.45,
+     "end": 46.56,
+     "score": 0.983
+    },
+    {
+     "w": "can",
+     "start": 46.59,
+     "end": 46.76,
+     "score": 0.953
+    },
+    {
+     "w": "hide",
+     "start": 46.85,
+     "end": 47.34,
+     "score": 0.71
+    },
+    {
+     "w": "it,",
+     "start": 47.35,
+     "end": 47.46,
+     "score": 0.987
+    },
+    {
+     "w": "you",
+     "start": 47.49,
+     "end": 47.6,
+     "score": 0.989
+    },
+    {
+     "w": "can",
+     "start": 47.61,
+     "end": 47.76,
+     "score": 0.929
+    },
+    {
+     "w": "mute",
+     "start": 47.77,
+     "end": 48.02,
+     "score": 0.078
+    },
+    {
+     "w": "it,",
+     "start": 48.03,
+     "end": 48.14,
+     "score": 0.955
+    },
+    {
+     "w": "you",
+     "start": 48.39,
+     "end": 48.5,
+     "score": 0.991
+    },
+    {
+     "w": "can",
+     "start": 48.53,
+     "end": 48.68,
+     "score": 0.889
+    },
+    {
+     "w": "tuck",
+     "start": 48.81,
+     "end": 49.02,
+     "score": 0.498
+    },
+    {
+     "w": "it",
+     "start": 49.05,
+     "end": 49.16,
+     "score": 0.963
+    },
+    {
+     "w": "out",
+     "start": 49.21,
+     "end": 49.34,
+     "score": 0.986
+    },
+    {
+     "w": "of",
+     "start": 49.376,
+     "end": 49.437,
+     "score": 0.018
+    },
+    {
+     "w": "view,",
+     "start": 49.53,
+     "end": 49.8,
+     "score": 0.694
+    }
+   ]
+  },
+  {
+   "id": "L13",
+   "section": "Chorus 1",
+   "stem": "0 Lead Vocals",
+   "singer": "narrator",
+   "text": "But the switch is just a picture that somebody drew for you.",
+   "start": 50.01,
+   "end": 53.3,
+   "words": [
+    {
+     "w": "But",
+     "start": 50.01,
+     "end": 50.14,
+     "score": 0.525
+    },
+    {
+     "w": "the",
+     "start": 50.17,
+     "end": 50.26,
+     "score": 0.506
+    },
+    {
+     "w": "switch",
+     "start": 50.37,
+     "end": 50.92,
+     "score": 0.673
+    },
+    {
+     "w": "is",
+     "start": 50.957,
+     "end": 50.997,
+     "score": 0.042
+    },
+    {
+     "w": "just",
+     "start": 51.05,
+     "end": 51.38,
+     "score": 0.863
+    },
+    {
+     "w": "a",
+     "start": 51.397,
+     "end": 51.417,
+     "score": 0.845
+    },
+    {
+     "w": "picture",
+     "start": 51.49,
+     "end": 51.94,
+     "score": 0.98
+    },
+    {
+     "w": "that",
+     "start": 51.93,
+     "end": 52.12,
+     "score": 0.865
+    },
+    {
+     "w": "somebody",
+     "start": 52.19,
+     "end": 52.6,
+     "score": 0.997
+    },
+    {
+     "w": "drew",
+     "start": 52.67,
+     "end": 52.88,
+     "score": 0.942
+    },
+    {
+     "w": "for",
+     "start": 52.95,
+     "end": 53.06,
+     "score": 0.658
+    },
+    {
+     "w": "you.",
+     "start": 53.13,
+     "end": 53.3,
+     "score": 0.9
+    }
+   ]
+  },
+  {
+   "id": "L14",
+   "section": "Chorus 1",
+   "stem": "0 Lead Vocals",
+   "singer": "narrator",
+   "text": "Default on!",
+   "start": 53.57,
+   "end": 54.3,
+   "words": [
+    {
+     "w": "Default",
+     "start": 53.57,
+     "end": 54.06,
+     "score": 0.69
+    },
+    {
+     "w": "on!",
+     "start": 54.11,
+     "end": 54.3,
+     "score": 0.874
+    }
+   ]
+  },
+  {
+   "id": "L15",
+   "section": "Lesson",
+   "stem": "0 Lead Vocals",
+   "singer": "narrator",
+   "text": "Now, \"opt-in\" means somebody asks you, and you say, \"Well, sure, why not.\"",
+   "start": 60.74,
+   "end": 66.73,
+   "words": [
+    {
+     "w": "Now,",
+     "start": 60.74,
+     "end": 61.07,
+     "score": 0.564
+    },
+    {
+     "w": "\"opt-in\"",
+     "start": 61.4,
+     "end": 61.83,
+     "score": 0.625
+    },
+    {
+     "w": "means",
+     "start": 61.92,
+     "end": 62.17,
+     "score": 0.894
+    },
+    {
+     "w": "somebody",
+     "start": 62.22,
+     "end": 62.57,
+     "score": 0.994
+    },
+    {
+     "w": "asks",
+     "start": 62.72,
+     "end": 63.03,
+     "score": 0.948
+    },
+    {
+     "w": "you,",
+     "start": 63.04,
+     "end": 63.19,
+     "score": 0.973
+    },
+    {
+     "w": "and",
+     "start": 63.88,
+     "end": 63.99,
+     "score": 0.659
+    },
+    {
+     "w": "you",
+     "start": 64.02,
+     "end": 64.13,
+     "score": 0.912
+    },
+    {
+     "w": "say,",
+     "start": 64.2,
+     "end": 64.43,
+     "score": 0.998
+    },
+    {
+     "w": "\"Well,",
+     "start": 64.56,
+     "end": 64.85,
+     "score": 0.963
+    },
+    {
+     "w": "sure,",
+     "start": 65.32,
+     "end": 65.67,
+     "score": 0.983
+    },
+    {
+     "w": "why",
+     "start": 66.26,
+     "end": 66.43,
+     "score": 0.983
+    },
+    {
+     "w": "not.\"",
+     "start": 66.5,
+     "end": 66.73,
+     "score": 0.966
+    }
+   ]
+  },
+  {
+   "id": "L16",
+   "section": "Lesson",
+   "stem": "0 Lead Vocals",
+   "singer": "switch",
+   "text": "And \"opt-out\" means that no one asked you, and you're hunting for the spot!",
+   "start": 68.38,
+   "end": 74.07,
+   "words": [
+    {
+     "w": "And",
+     "start": 68.38,
+     "end": 68.51,
+     "score": 0.655
+    },
+    {
+     "w": "\"opt-out\"",
+     "start": 68.54,
+     "end": 68.99,
+     "score": 0.363
+    },
+    {
+     "w": "means",
+     "start": 69.04,
+     "end": 69.27,
+     "score": 0.997
+    },
+    {
+     "w": "that",
+     "start": 69.3,
+     "end": 69.43,
+     "score": 0.932
+    },
+    {
+     "w": "no",
+     "start": 69.52,
+     "end": 69.61,
+     "score": 0.997
+    },
+    {
+     "w": "one",
+     "start": 69.72,
+     "end": 69.87,
+     "score": 0.998
+    },
+    {
+     "w": "asked",
+     "start": 69.92,
+     "end": 70.21,
+     "score": 0.61
+    },
+    {
+     "w": "you,",
+     "start": 70.24,
+     "end": 70.39,
+     "score": 0.955
+    },
+    {
+     "w": "and",
+     "start": 71.52,
+     "end": 71.67,
+     "score": 0.658
+    },
+    {
+     "w": "you're",
+     "start": 71.7,
+     "end": 71.97,
+     "score": 0.624
+    },
+    {
+     "w": "hunting",
+     "start": 72.06,
+     "end": 72.49,
+     "score": 0.596
+    },
+    {
+     "w": "for",
+     "start": 72.94,
+     "end": 73.26,
+     "score": 0.7
+    },
+    {
+     "w": "the",
+     "start": 73.39,
+     "end": 73.49,
+     "score": 0.489
+    },
+    {
+     "w": "spot!",
+     "start": 73.62,
+     "end": 74.07,
+     "score": 0.986
+    }
+   ]
+  },
+  {
+   "id": "L17",
+   "section": "Lesson",
+   "stem": "0 Lead Vocals",
+   "singer": "narrator",
+   "text": "And \"default\" is the setting that they picked before you came,",
+   "start": 75.13,
+   "end": 78.5,
+   "words": [
+    {
+     "w": "And",
+     "start": 75.13,
+     "end": 75.48,
+     "score": 0.64
+    },
+    {
+     "w": "\"default\"",
+     "start": 75.67,
+     "end": 76.2,
+     "score": 0.784
+    },
+    {
+     "w": "is",
+     "start": 76.23,
+     "end": 76.32,
+     "score": 0.941
+    },
+    {
+     "w": "the",
+     "start": 76.35,
+     "end": 76.44,
+     "score": 0.369
+    },
+    {
+     "w": "setting",
+     "start": 76.63,
+     "end": 76.98,
+     "score": 0.982
+    },
+    {
+     "w": "that",
+     "start": 76.99,
+     "end": 77.12,
+     "score": 0.878
+    },
+    {
+     "w": "they",
+     "start": 77.15,
+     "end": 77.28,
+     "score": 0.867
+    },
+    {
+     "w": "picked",
+     "start": 77.35,
+     "end": 77.62,
+     "score": 0.666
+    },
+    {
+     "w": "before",
+     "start": 77.61,
+     "end": 77.96,
+     "score": 0.958
+    },
+    {
+     "w": "you",
+     "start": 77.99,
+     "end": 78.1,
+     "score": 0.984
+    },
+    {
+     "w": "came,",
+     "start": 78.15,
+     "end": 78.5,
+     "score": 0.985
+    }
+   ]
+  },
+  {
+   "id": "L18",
+   "section": "Lesson",
+   "stem": "0 Lead Vocals",
+   "singer": "narrator",
+   "text": "And if you never touch it, friend, they'll say you picked the same.",
+   "start": 79.17,
+   "end": 82.08,
+   "words": [
+    {
+     "w": "And",
+     "start": 79.17,
+     "end": 79.28,
+     "score": 0.663
+    },
+    {
+     "w": "if",
+     "start": 79.31,
+     "end": 79.4,
+     "score": 0.998
+    },
+    {
+     "w": "you",
+     "start": 79.43,
+     "end": 79.54,
+     "score": 0.987
+    },
+    {
+     "w": "never",
+     "start": 79.57,
+     "end": 79.8,
+     "score": 0.604
+    },
+    {
+     "w": "touch",
+     "start": 79.89,
+     "end": 80.14,
+     "score": 0.955
+    },
+    {
+     "w": "it,",
+     "start": 80.15,
+     "end": 80.24,
+     "score": 0.92
+    },
+    {
+     "w": "friend,",
+     "start": 80.29,
+     "end": 80.6,
+     "score": 0.756
+    },
+    {
+     "w": "they'll",
+     "start": 80.61,
+     "end": 80.82,
+     "score": 0.415
+    },
+    {
+     "w": "say",
+     "start": 80.85,
+     "end": 81.02,
+     "score": 0.994
+    },
+    {
+     "w": "you",
+     "start": 81.07,
+     "end": 81.18,
+     "score": 0.916
+    },
+    {
+     "w": "picked",
+     "start": 81.27,
+     "end": 81.54,
+     "score": 0.643
+    },
+    {
+     "w": "the",
+     "start": 81.535,
+     "end": 81.595,
+     "score": 0.05
+    },
+    {
+     "w": "same.",
+     "start": 81.69,
+     "end": 82.08,
+     "score": 0.993
+    }
+   ]
+  },
+  {
+   "id": "L19",
+   "section": "Lesson",
+   "stem": "0 Lead Vocals",
+   "singer": "narrator",
+   "text": "Got that? Opt-in, opt-out, default. There'll be a test.",
+   "start": 82.23,
+   "end": 85.88,
+   "words": [
+    {
+     "w": "Got",
+     "start": 82.23,
+     "end": 82.38,
+     "score": 0.893
+    },
+    {
+     "w": "that?",
+     "start": 82.43,
+     "end": 82.62,
+     "score": 0.537
+    },
+    {
+     "w": "Opt-in,",
+     "start": 82.89,
+     "end": 83.32,
+     "score": 0.613
+    },
+    {
+     "w": "opt-out,",
+     "start": 83.79,
+     "end": 84.26,
+     "score": 0.351
+    },
+    {
+     "w": "default.",
+     "start": 84.45,
+     "end": 84.85,
+     "score": 0.797
+    },
+    {
+     "w": "There'll",
+     "start": 84.91,
+     "end": 85.1,
+     "score": 0.213
+    },
+    {
+     "w": "be",
+     "start": 85.097,
+     "end": 85.157,
+     "score": 0.995
+    },
+    {
+     "w": "a",
+     "start": 85.238,
+     "end": 85.258,
+     "score": 0.989
+    },
+    {
+     "w": "test.",
+     "start": 85.39,
+     "end": 85.88,
+     "score": 0.998
+    }
+   ]
+  },
+  {
+   "id": "L20",
+   "section": "Lesson",
+   "stem": "0 Lead Vocals",
+   "singer": "switch",
+   "text": "There's always a test.",
+   "start": 87.11,
+   "end": 88.55,
+   "words": [
+    {
+     "w": "There's",
+     "start": 87.11,
+     "end": 87.32,
+     "score": 0.928
+    },
+    {
+     "w": "always",
+     "start": 87.39,
+     "end": 87.78,
+     "score": 0.994
+    },
+    {
+     "w": "a",
+     "start": 87.839,
+     "end": 87.859,
+     "score": 0.991
+    },
+    {
+     "w": "test.",
+     "start": 87.99,
+     "end": 88.55,
+     "score": 0.995
+    }
+   ]
+  },
+  {
+   "id": "L21",
+   "section": "Verse 2",
+   "stem": "0 Lead Vocals",
+   "singer": "narrator",
+   "text": "Now your inbox has a helper, and it reads your mail with you!",
+   "start": 89.36,
+   "end": 92.87,
+   "words": [
+    {
+     "w": "Now",
+     "start": 89.36,
+     "end": 89.63,
+     "score": 0.999
+    },
+    {
+     "w": "your",
+     "start": 89.72,
+     "end": 89.89,
+     "score": 0.998
+    },
+    {
+     "w": "inbox",
+     "start": 89.96,
+     "end": 90.43,
+     "score": 0.994
+    },
+    {
+     "w": "has",
+     "start": 90.5,
+     "end": 90.65,
+     "score": 0.972
+    },
+    {
+     "w": "a",
+     "start": 90.701,
+     "end": 90.721,
+     "score": 0.996
+    },
+    {
+     "w": "helper,",
+     "start": 90.78,
+     "end": 91.11,
+     "score": 0.966
+    },
+    {
+     "w": "and",
+     "start": 91.54,
+     "end": 91.63,
+     "score": 0.818
+    },
+    {
+     "w": "it",
+     "start": 91.66,
+     "end": 91.75,
+     "score": 0.995
+    },
+    {
+     "w": "reads",
+     "start": 91.8,
+     "end": 92.03,
+     "score": 0.965
+    },
+    {
+     "w": "your",
+     "start": 92.04,
+     "end": 92.15,
+     "score": 0.938
+    },
+    {
+     "w": "mail",
+     "start": 92.18,
+     "end": 92.47,
+     "score": 0.975
+    },
+    {
+     "w": "with",
+     "start": 92.52,
+     "end": 92.67,
+     "score": 0.997
+    },
+    {
+     "w": "you!",
+     "start": 92.72,
+     "end": 92.87,
+     "score": 0.954
+    }
+   ]
+  },
+  {
+   "id": "L22",
+   "section": "Verse 2",
+   "stem": "0 Lead Vocals",
+   "singer": "narrator",
+   "text": "A lawsuit says it flipped itself last fall, while out of view.",
+   "start": 93.463,
+   "end": 96.53,
+   "words": [
+    {
+     "w": "A",
+     "start": 93.463,
+     "end": 93.483,
+     "score": 0.845
+    },
+    {
+     "w": "lawsuit",
+     "start": 93.6,
+     "end": 94.07,
+     "score": 0.68
+    },
+    {
+     "w": "says",
+     "start": 94.1,
+     "end": 94.27,
+     "score": 0.989
+    },
+    {
+     "w": "it",
+     "start": 94.3,
+     "end": 94.39,
+     "score": 0.994
+    },
+    {
+     "w": "flipped",
+     "start": 94.46,
+     "end": 94.75,
+     "score": 0.97
+    },
+    {
+     "w": "itself",
+     "start": 94.78,
+     "end": 95.15,
+     "score": 0.996
+    },
+    {
+     "w": "last",
+     "start": 95.18,
+     "end": 95.51,
+     "score": 0.816
+    },
+    {
+     "w": "fall,",
+     "start": 95.56,
+     "end": 95.81,
+     "score": 0.921
+    },
+    {
+     "w": "while",
+     "start": 95.88,
+     "end": 96.07,
+     "score": 0.974
+    },
+    {
+     "w": "out",
+     "start": 96.08,
+     "end": 96.19,
+     "score": 0.988
+    },
+    {
+     "w": "of",
+     "start": 96.22,
+     "end": 96.31,
+     "score": 0.991
+    },
+    {
+     "w": "view.",
+     "start": 96.32,
+     "end": 96.53,
+     "score": 0.0
+    }
+   ]
+  },
+  {
+   "id": "L23",
+   "section": "Verse 2",
+   "stem": "0 Lead Vocals",
+   "singer": "switch",
+   "text": "And what's the company say?",
+   "start": 97.06,
+   "end": 98.09,
+   "words": [
+    {
+     "w": "And",
+     "start": 97.06,
+     "end": 97.15,
+     "score": 0.882
+    },
+    {
+     "w": "what's",
+     "start": 97.16,
+     "end": 97.33,
+     "score": 0.978
+    },
+    {
+     "w": "the",
+     "start": 97.32,
+     "end": 97.41,
+     "score": 0.94
+    },
+    {
+     "w": "company",
+     "start": 97.42,
+     "end": 97.77,
+     "score": 0.964
+    },
+    {
+     "w": "say?",
+     "start": 97.88,
+     "end": 98.09,
+     "score": 0.999
+    }
+   ]
+  },
+  {
+   "id": "L24",
+   "section": "Verse 2",
+   "stem": "0 Lead Vocals",
+   "singer": "narrator",
+   "text": "That it's fine, and here's the door:",
+   "start": 98.3,
+   "end": 99.81,
+   "words": [
+    {
+     "w": "That",
+     "start": 98.3,
+     "end": 98.43,
+     "score": 0.968
+    },
+    {
+     "w": "it's",
+     "start": 98.46,
+     "end": 98.57,
+     "score": 0.977
+    },
+    {
+     "w": "fine,",
+     "start": 98.64,
+     "end": 99.05,
+     "score": 0.9
+    },
+    {
+     "w": "and",
+     "start": 99.06,
+     "end": 99.15,
+     "score": 0.191
+    },
+    {
+     "w": "here's",
+     "start": 99.16,
+     "end": 99.37,
+     "score": 0.777
+    },
+    {
+     "w": "the",
+     "start": 99.38,
+     "end": 99.47,
+     "score": 0.994
+    },
+    {
+     "w": "door:",
+     "start": 99.52,
+     "end": 99.81,
+     "score": 0.978
+    }
+   ]
+  },
+  {
+   "id": "L25",
+   "section": "Verse 2",
+   "stem": "0 Lead Vocals",
+   "singer": "narrator",
+   "text": "Just a menu, then a menu, then a menu, then one more!",
+   "start": 100.2,
+   "end": 103.7,
+   "words": [
+    {
+     "w": "Just",
+     "start": 100.2,
+     "end": 100.41,
+     "score": 0.856
+    },
+    {
+     "w": "a",
+     "start": 100.448,
+     "end": 100.468,
+     "score": 0.932
+    },
+    {
+     "w": "menu,",
+     "start": 100.66,
+     "end": 101.13,
+     "score": 0.818
+    },
+    {
+     "w": "then",
+     "start": 101.24,
+     "end": 101.37,
+     "score": 0.105
+    },
+    {
+     "w": "a",
+     "start": 101.409,
+     "end": 101.429,
+     "score": 0.048
+    },
+    {
+     "w": "menu,",
+     "start": 101.54,
+     "end": 102.09,
+     "score": 0.238
+    },
+    {
+     "w": "then",
+     "start": 102.14,
+     "end": 102.27,
+     "score": 0.617
+    },
+    {
+     "w": "a",
+     "start": 102.309,
+     "end": 102.329,
+     "score": 0.879
+    },
+    {
+     "w": "menu,",
+     "start": 102.42,
+     "end": 102.77,
+     "score": 0.932
+    },
+    {
+     "w": "then",
+     "start": 102.84,
+     "end": 103.02,
+     "score": 0.966
+    },
+    {
+     "w": "one",
+     "start": 103.15,
+     "end": 103.3,
+     "score": 0.908
+    },
+    {
+     "w": "more!",
+     "start": 103.33,
+     "end": 103.7,
+     "score": 0.834
+    }
+   ]
+  },
+  {
+   "id": "L26",
+   "section": "Verse 2",
+   "stem": "0 Lead Vocals",
+   "singer": "narrator",
+   "text": "Then the TV got an update in the middle of the night,",
+   "start": 104.15,
+   "end": 107.1,
+   "words": [
+    {
+     "w": "Then",
+     "start": 104.15,
+     "end": 104.28,
+     "score": 0.989
+    },
+    {
+     "w": "the",
+     "start": 104.29,
+     "end": 104.38,
+     "score": 0.954
+    },
+    {
+     "w": "TV",
+     "start": 104.43,
+     "end": 104.66,
+     "score": 0.498
+    },
+    {
+     "w": "got",
+     "start": 104.79,
+     "end": 104.96,
+     "score": 0.993
+    },
+    {
+     "w": "an",
+     "start": 104.97,
+     "end": 105.06,
+     "score": 0.979
+    },
+    {
+     "w": "update",
+     "start": 105.09,
+     "end": 105.58,
+     "score": 0.962
+    },
+    {
+     "w": "in",
+     "start": 106.032,
+     "end": 106.092,
+     "score": 0.998
+    },
+    {
+     "w": "the",
+     "start": 106.13,
+     "end": 106.22,
+     "score": 0.996
+    },
+    {
+     "w": "middle",
+     "start": 106.25,
+     "end": 106.5,
+     "score": 0.946
+    },
+    {
+     "w": "of",
+     "start": 106.532,
+     "end": 106.592,
+     "score": 0.997
+    },
+    {
+     "w": "the",
+     "start": 106.63,
+     "end": 106.72,
+     "score": 0.985
+    },
+    {
+     "w": "night,",
+     "start": 106.79,
+     "end": 107.1,
+     "score": 0.971
+    }
+   ]
+  },
+  {
+   "id": "L27",
+   "section": "Verse 2",
+   "stem": "0 Lead Vocals",
+   "singer": "narrator",
+   "text": "And a brand-new tile was waiting in the early morning light!",
+   "start": 107.63,
+   "end": 110.6,
+   "words": [
+    {
+     "w": "And",
+     "start": 107.63,
+     "end": 107.74,
+     "score": 0.933
+    },
+    {
+     "w": "a",
+     "start": 107.753,
+     "end": 107.773,
+     "score": 0.992
+    },
+    {
+     "w": "brand-new",
+     "start": 107.87,
+     "end": 108.34,
+     "score": 0.992
+    },
+    {
+     "w": "tile",
+     "start": 108.45,
+     "end": 108.92,
+     "score": 0.603
+    },
+    {
+     "w": "was",
+     "start": 108.93,
+     "end": 109.06,
+     "score": 0.988
+    },
+    {
+     "w": "waiting",
+     "start": 109.13,
+     "end": 109.44,
+     "score": 0.988
+    },
+    {
+     "w": "in",
+     "start": 109.474,
+     "end": 109.534,
+     "score": 0.993
+    },
+    {
+     "w": "the",
+     "start": 109.554,
+     "end": 109.614,
+     "score": 0.932
+    },
+    {
+     "w": "early",
+     "start": 109.69,
+     "end": 109.9,
+     "score": 0.994
+    },
+    {
+     "w": "morning",
+     "start": 109.97,
+     "end": 110.26,
+     "score": 0.999
+    },
+    {
+     "w": "light!",
+     "start": 110.31,
+     "end": 110.6,
+     "score": 0.964
+    }
+   ]
+  },
+  {
+   "id": "L28",
+   "section": "Verse 2",
+   "stem": "0 Lead Vocals",
+   "singer": "switch",
+   "text": "Can I delete it?",
+   "start": 111.03,
+   "end": 111.84,
+   "words": [
+    {
+     "w": "Can",
+     "start": 111.03,
+     "end": 111.18,
+     "score": 0.998
+    },
+    {
+     "w": "I",
+     "start": 111.296,
+     "end": 111.316,
+     "score": 0.998
+    },
+    {
+     "w": "delete",
+     "start": 111.37,
+     "end": 111.72,
+     "score": 0.664
+    },
+    {
+     "w": "it?",
+     "start": 111.73,
+     "end": 111.84,
+     "score": 0.997
+    }
+   ]
+  },
+  {
+   "id": "L29",
+   "section": "Verse 2",
+   "stem": "0 Lead Vocals",
+   "singer": "narrator",
+   "text": "You can hide it!",
+   "start": 112.39,
+   "end": 113.02,
+   "words": [
+    {
+     "w": "You",
+     "start": 112.39,
+     "end": 112.48,
+     "score": 0.989
+    },
+    {
+     "w": "can",
+     "start": 112.47,
+     "end": 112.6,
+     "score": 0.998
+    },
+    {
+     "w": "hide",
+     "start": 112.65,
+     "end": 112.92,
+     "score": 0.9
+    },
+    {
+     "w": "it!",
+     "start": 112.93,
+     "end": 113.02,
+     "score": 0.99
+    }
+   ]
+  },
+  {
+   "id": "L30",
+   "section": "Verse 2",
+   "stem": "0 Lead Vocals",
+   "singer": "switch",
+   "text": "Is that the same?",
+   "start": 113.63,
+   "end": 114.46,
+   "words": [
+    {
+     "w": "Is",
+     "start": 113.63,
+     "end": 113.72,
+     "score": 0.476
+    },
+    {
+     "w": "that",
+     "start": 113.73,
+     "end": 113.86,
+     "score": 0.904
+    },
+    {
+     "w": "the",
+     "start": 113.897,
+     "end": 113.957,
+     "score": 0.803
+    },
+    {
+     "w": "same?",
+     "start": 114.07,
+     "end": 114.46,
+     "score": 0.89
+    }
+   ]
+  },
+  {
+   "id": "L31",
+   "section": "Verse 2",
+   "stem": "0 Lead Vocals",
+   "singer": "narrator",
+   "text": "...Next verse!",
+   "start": 116.11,
+   "end": 116.94,
+   "words": [
+    {
+     "w": "...Next",
+     "start": 116.11,
+     "end": 116.4,
+     "score": 0.183
+    },
+    {
+     "w": "verse!",
+     "start": 116.47,
+     "end": 116.94,
+     "score": 0.134
+    }
+   ]
+  },
+  {
+   "id": "L32",
+   "section": "Pre-chorus 2",
+   "stem": "0 Lead Vocals",
+   "singer": "switch",
+   "text": "I've only got two sides, it isn't much to learn:",
+   "start": 118.8,
+   "end": 121.85,
+   "words": [
+    {
+     "w": "I've",
+     "start": 118.8,
+     "end": 118.91,
+     "score": 0.875
+    },
+    {
+     "w": "only",
+     "start": 118.96,
+     "end": 119.25,
+     "score": 0.976
+    },
+    {
+     "w": "got",
+     "start": 119.32,
+     "end": 119.49,
+     "score": 0.975
+    },
+    {
+     "w": "two",
+     "start": 119.58,
+     "end": 119.77,
+     "score": 0.987
+    },
+    {
+     "w": "sides,",
+     "start": 119.9,
+     "end": 120.53,
+     "score": 0.988
+    },
+    {
+     "w": "it",
+     "start": 120.58,
+     "end": 120.69,
+     "score": 0.98
+    },
+    {
+     "w": "isn't",
+     "start": 120.74,
+     "end": 121.01,
+     "score": 0.925
+    },
+    {
+     "w": "much",
+     "start": 121.06,
+     "end": 121.27,
+     "score": 0.997
+    },
+    {
+     "w": "to",
+     "start": 121.32,
+     "end": 121.41,
+     "score": 0.993
+    },
+    {
+     "w": "learn:",
+     "start": 121.5,
+     "end": 121.85,
+     "score": 0.938
+    }
+   ]
+  },
+  {
+   "id": "L33",
+   "section": "Pre-chorus 2",
+   "stem": "0 Lead Vocals",
+   "singer": "switch",
+   "text": "You push me down for off... ...so how'd I just return?",
+   "start": 122.32,
+   "end": 125.35,
+   "words": [
+    {
+     "w": "You",
+     "start": 122.32,
+     "end": 122.41,
+     "score": 0.941
+    },
+    {
+     "w": "push",
+     "start": 122.46,
+     "end": 122.69,
+     "score": 0.999
+    },
+    {
+     "w": "me",
+     "start": 122.76,
+     "end": 122.85,
+     "score": 0.89
+    },
+    {
+     "w": "down",
+     "start": 122.92,
+     "end": 123.17,
+     "score": 0.939
+    },
+    {
+     "w": "for",
+     "start": 123.18,
+     "end": 123.39,
+     "score": 0.977
+    },
+    {
+     "w": "off...",
+     "start": 123.46,
+     "end": 123.67,
+     "score": 0.743
+    },
+    {
+     "w": "...so",
+     "start": 124.105,
+     "end": 124.165,
+     "score": 0.972
+    },
+    {
+     "w": "how'd",
+     "start": 124.26,
+     "end": 124.43,
+     "score": 0.789
+    },
+    {
+     "w": "I",
+     "start": 124.505,
+     "end": 124.525,
+     "score": 0.959
+    },
+    {
+     "w": "just",
+     "start": 124.56,
+     "end": 124.75,
+     "score": 0.773
+    },
+    {
+     "w": "return?",
+     "start": 124.78,
+     "end": 125.35,
+     "score": 0.912
+    }
+   ]
+  },
+  {
+   "id": "L34",
+   "section": "Chorus 2",
+   "stem": "0 Lead Vocals",
+   "singer": "narrator",
+   "text": "Default on! Default on!",
+   "start": 126.08,
+   "end": 128.99,
+   "words": [
+    {
+     "w": "Default",
+     "start": 126.08,
+     "end": 126.83,
+     "score": 0.349
+    },
+    {
+     "w": "on!",
+     "start": 126.9,
+     "end": 127.17,
+     "score": 0.235
+    },
+    {
+     "w": "Default",
+     "start": 127.72,
+     "end": 128.63,
+     "score": 0.262
+    },
+    {
+     "w": "on!",
+     "start": 128.7,
+     "end": 128.99,
+     "score": 0.328
+    }
+   ]
+  },
+  {
+   "id": "L35",
+   "section": "Chorus 2",
+   "stem": "0 Lead Vocals",
+   "singer": "narrator",
+   "text": "It was there when you woke up, it'll be there when you're gone!",
+   "start": 129.149,
+   "end": 132.7,
+   "words": [
+    {
+     "w": "It",
+     "start": 129.149,
+     "end": 129.209,
+     "score": 0.672
+    },
+    {
+     "w": "was",
+     "start": 129.26,
+     "end": 129.43,
+     "score": 0.854
+    },
+    {
+     "w": "there",
+     "start": 129.5,
+     "end": 129.87,
+     "score": 0.52
+    },
+    {
+     "w": "when",
+     "start": 129.96,
+     "end": 130.12,
+     "score": 0.722
+    },
+    {
+     "w": "you",
+     "start": 130.15,
+     "end": 130.26,
+     "score": 0.964
+    },
+    {
+     "w": "woke",
+     "start": 130.28,
+     "end": 130.51,
+     "score": 0.959
+    },
+    {
+     "w": "up,",
+     "start": 130.53,
+     "end": 130.63,
+     "score": 0.988
+    },
+    {
+     "w": "it'll",
+     "start": 130.94,
+     "end": 131.17,
+     "score": 0.66
+    },
+    {
+     "w": "be",
+     "start": 131.31,
+     "end": 131.4,
+     "score": 0.983
+    },
+    {
+     "w": "there",
+     "start": 131.51,
+     "end": 131.74,
+     "score": 0.41
+    },
+    {
+     "w": "when",
+     "start": 131.81,
+     "end": 131.94,
+     "score": 0.744
+    },
+    {
+     "w": "you're",
+     "start": 131.99,
+     "end": 132.18,
+     "score": 0.466
+    },
+    {
+     "w": "gone!",
+     "start": 132.25,
+     "end": 132.7,
+     "score": 0.749
+    }
+   ]
+  },
+  {
+   "id": "L36",
+   "section": "Chorus 2",
+   "stem": "0 Lead Vocals",
+   "singer": "narrator",
+   "text": "You can hide it, you can mute it, you can tuck it out of view,",
+   "start": 132.73,
+   "end": 136.12,
+   "words": [
+    {
+     "w": "You",
+     "start": 132.73,
+     "end": 132.84,
+     "score": 0.987
+    },
+    {
+     "w": "can",
+     "start": 132.87,
+     "end": 133.04,
+     "score": 0.993
+    },
+    {
+     "w": "hide",
+     "start": 133.15,
+     "end": 133.64,
+     "score": 0.68
+    },
+    {
+     "w": "it,",
+     "start": 133.67,
+     "end": 133.78,
+     "score": 0.959
+    },
+    {
+     "w": "you",
+     "start": 133.81,
+     "end": 133.9,
+     "score": 0.982
+    },
+    {
+     "w": "can",
+     "start": 133.91,
+     "end": 134.04,
+     "score": 0.896
+    },
+    {
+     "w": "mute",
+     "start": 134.07,
+     "end": 134.28,
+     "score": 0.506
+    },
+    {
+     "w": "it,",
+     "start": 134.31,
+     "end": 134.4,
+     "score": 0.987
+    },
+    {
+     "w": "you",
+     "start": 134.69,
+     "end": 134.78,
+     "score": 0.993
+    },
+    {
+     "w": "can",
+     "start": 134.79,
+     "end": 134.94,
+     "score": 0.995
+    },
+    {
+     "w": "tuck",
+     "start": 135.09,
+     "end": 135.32,
+     "score": 0.693
+    },
+    {
+     "w": "it",
+     "start": 135.35,
+     "end": 135.44,
+     "score": 0.974
+    },
+    {
+     "w": "out",
+     "start": 135.49,
+     "end": 135.64,
+     "score": 0.986
+    },
+    {
+     "w": "of",
+     "start": 135.65,
+     "end": 135.82,
+     "score": 0.419
+    },
+    {
+     "w": "view,",
+     "start": 135.81,
+     "end": 136.12,
+     "score": 0.145
+    }
+   ]
+  },
+  {
+   "id": "L37",
+   "section": "Chorus 2",
+   "stem": "0 Lead Vocals",
+   "singer": "narrator",
+   "text": "But the switch is just a picture that somebody drew for you.",
+   "start": 136.29,
+   "end": 139.66,
+   "words": [
+    {
+     "w": "But",
+     "start": 136.29,
+     "end": 136.44,
+     "score": 0.332
+    },
+    {
+     "w": "the",
+     "start": 136.49,
+     "end": 136.58,
+     "score": 0.026
+    },
+    {
+     "w": "switch",
+     "start": 136.69,
+     "end": 137.08,
+     "score": 0.873
+    },
+    {
+     "w": "is",
+     "start": 137.25,
+     "end": 137.36,
+     "score": 0.973
+    },
+    {
+     "w": "just",
+     "start": 137.39,
+     "end": 137.7,
+     "score": 0.884
+    },
+    {
+     "w": "a",
+     "start": 137.735,
+     "end": 137.755,
+     "score": 0.662
+    },
+    {
+     "w": "picture",
+     "start": 137.81,
+     "end": 138.26,
+     "score": 0.957
+    },
+    {
+     "w": "that",
+     "start": 138.27,
+     "end": 138.44,
+     "score": 0.563
+    },
+    {
+     "w": "somebody",
+     "start": 138.53,
+     "end": 138.94,
+     "score": 0.997
+    },
+    {
+     "w": "drew",
+     "start": 139.01,
+     "end": 139.22,
+     "score": 0.951
+    },
+    {
+     "w": "for",
+     "start": 139.29,
+     "end": 139.42,
+     "score": 0.661
+    },
+    {
+     "w": "you.",
+     "start": 139.49,
+     "end": 139.66,
+     "score": 0.933
+    }
+   ]
+  },
+  {
+   "id": "L38",
+   "section": "Chorus 2",
+   "stem": "0 Lead Vocals",
+   "singer": "narrator",
+   "text": "Default on!",
+   "start": 139.93,
+   "end": 140.8,
+   "words": [
+    {
+     "w": "Default",
+     "start": 139.93,
+     "end": 140.4,
+     "score": 0.514
+    },
+    {
+     "w": "on!",
+     "start": 140.45,
+     "end": 140.8,
+     "score": 0.616
+    }
+   ]
+  },
+  {
+   "id": "L39",
+   "section": "Verse 3: Pop Quiz",
+   "stem": "0 Lead Vocals",
+   "singer": "narrator",
+   "text": "Pop quiz!",
+   "start": 144.31,
+   "end": 145.01,
+   "words": [
+    {
+     "w": "Pop",
+     "start": 144.31,
+     "end": 144.53,
+     "score": 0.894
+    },
+    {
+     "w": "quiz!",
+     "start": 144.59,
+     "end": 145.01,
+     "score": 0.645
+    }
+   ]
+  },
+  {
+   "id": "L40",
+   "section": "Verse 3: Pop Quiz",
+   "stem": "0 Lead Vocals",
+   "singer": "narrator",
+   "text": "There's a blue ring in the chat app where you talk to Mom and Dad.",
+   "start": 147.18,
+   "end": 150.19,
+   "words": [
+    {
+     "w": "There's",
+     "start": 147.18,
+     "end": 147.37,
+     "score": 0.845
+    },
+    {
+     "w": "a",
+     "start": 147.422,
+     "end": 147.442,
+     "score": 0.987
+    },
+    {
+     "w": "blue",
+     "start": 147.54,
+     "end": 147.79,
+     "score": 0.717
+    },
+    {
+     "w": "ring",
+     "start": 147.86,
+     "end": 148.07,
+     "score": 0.939
+    },
+    {
+     "w": "in",
+     "start": 148.102,
+     "end": 148.162,
+     "score": 0.983
+    },
+    {
+     "w": "the",
+     "start": 148.18,
+     "end": 148.27,
+     "score": 0.935
+    },
+    {
+     "w": "chat",
+     "start": 148.36,
+     "end": 148.61,
+     "score": 0.879
+    },
+    {
+     "w": "app",
+     "start": 148.68,
+     "end": 148.83,
+     "score": 0.592
+    },
+    {
+     "w": "where",
+     "start": 148.86,
+     "end": 148.99,
+     "score": 0.695
+    },
+    {
+     "w": "you",
+     "start": 149.0,
+     "end": 149.09,
+     "score": 0.996
+    },
+    {
+     "w": "talk",
+     "start": 149.14,
+     "end": 149.37,
+     "score": 0.999
+    },
+    {
+     "w": "to",
+     "start": 149.402,
+     "end": 149.462,
+     "score": 0.956
+    },
+    {
+     "w": "Mom",
+     "start": 149.5,
+     "end": 149.71,
+     "score": 0.775
+    },
+    {
+     "w": "and",
+     "start": 149.72,
+     "end": 149.83,
+     "score": 0.603
+    },
+    {
+     "w": "Dad.",
+     "start": 149.86,
+     "end": 150.19,
+     "score": 0.992
+    }
+   ]
+  },
+  {
+   "id": "L41",
+   "section": "Verse 3: Pop Quiz",
+   "stem": "0 Lead Vocals",
+   "singer": "switch",
+   "text": "I'll uninstall it!",
+   "start": 150.74,
+   "end": 151.583,
+   "words": [
+    {
+     "w": "I'll",
+     "start": 150.74,
+     "end": 150.85,
+     "score": 0.339
+    },
+    {
+     "w": "uninstall",
+     "start": 150.86,
+     "end": 151.47,
+     "score": 0.857
+    },
+    {
+     "w": "it!",
+     "start": 151.523,
+     "end": 151.583,
+     "score": 0.84
+    }
+   ]
+  },
+  {
+   "id": "L42",
+   "section": "Verse 3: Pop Quiz",
+   "stem": "0 Lead Vocals",
+   "singer": "narrator",
+   "text": "Nope!",
+   "start": 151.68,
+   "end": 151.95,
+   "words": [
+    {
+     "w": "Nope!",
+     "start": 151.68,
+     "end": 151.95,
+     "score": 0.853
+    }
+   ]
+  },
+  {
+   "id": "L43",
+   "section": "Verse 3: Pop Quiz",
+   "stem": "0 Lead Vocals",
+   "singer": "switch",
+   "text": "I'll mute it, then?",
+   "start": 152.7,
+   "end": 153.37,
+   "words": [
+    {
+     "w": "I'll",
+     "start": 152.7,
+     "end": 152.79,
+     "score": 0.001
+    },
+    {
+     "w": "mute",
+     "start": 152.82,
+     "end": 153.07,
+     "score": 0.276
+    },
+    {
+     "w": "it,",
+     "start": 153.06,
+     "end": 153.15,
+     "score": 0.99
+    },
+    {
+     "w": "then?",
+     "start": 153.18,
+     "end": 153.37,
+     "score": 0.949
+    }
+   ]
+  },
+  {
+   "id": "L44",
+   "section": "Verse 3: Pop Quiz",
+   "stem": "0 Lead Vocals",
+   "singer": "narrator",
+   "text": "That's not so bad!",
+   "start": 153.6,
+   "end": 154.45,
+   "words": [
+    {
+     "w": "That's",
+     "start": 153.6,
+     "end": 153.79,
+     "score": 0.632
+    },
+    {
+     "w": "not",
+     "start": 153.84,
+     "end": 153.97,
+     "score": 0.999
+    },
+    {
+     "w": "so",
+     "start": 154.02,
+     "end": 154.11,
+     "score": 0.999
+    },
+    {
+     "w": "bad!",
+     "start": 154.18,
+     "end": 154.45,
+     "score": 1.0
+    }
+   ]
+  },
+  {
+   "id": "L45",
+   "section": "Verse 3: Pop Quiz",
+   "stem": "0 Lead Vocals",
+   "singer": "narrator",
+   "text": "Now your phone has got an update, and it asks you to \"Continue.\"",
+   "start": 154.82,
+   "end": 157.75,
+   "words": [
+    {
+     "w": "Now",
+     "start": 154.82,
+     "end": 154.95,
+     "score": 0.715
+    },
+    {
+     "w": "your",
+     "start": 154.98,
+     "end": 155.11,
+     "score": 0.987
+    },
+    {
+     "w": "phone",
+     "start": 155.14,
+     "end": 155.41,
+     "score": 0.852
+    },
+    {
+     "w": "has",
+     "start": 155.4,
+     "end": 155.49,
+     "score": 0.942
+    },
+    {
+     "w": "got",
+     "start": 155.52,
+     "end": 155.67,
+     "score": 0.998
+    },
+    {
+     "w": "an",
+     "start": 155.68,
+     "end": 155.77,
+     "score": 0.948
+    },
+    {
+     "w": "update,",
+     "start": 155.8,
+     "end": 156.19,
+     "score": 0.964
+    },
+    {
+     "w": "and",
+     "start": 156.2,
+     "end": 156.29,
+     "score": 0.796
+    },
+    {
+     "w": "it",
+     "start": 156.3,
+     "end": 156.39,
+     "score": 0.984
+    },
+    {
+     "w": "asks",
+     "start": 156.44,
+     "end": 156.69,
+     "score": 0.845
+    },
+    {
+     "w": "you",
+     "start": 156.7,
+     "end": 156.81,
+     "score": 0.989
+    },
+    {
+     "w": "to",
+     "start": 156.82,
+     "end": 156.91,
+     "score": 0.965
+    },
+    {
+     "w": "\"Continue.\"",
+     "start": 157.1,
+     "end": 157.75,
+     "score": 0.963
+    }
+   ]
+  },
+  {
+   "id": "L46",
+   "section": "Verse 3: Pop Quiz",
+   "stem": "0 Lead Vocals",
+   "singer": "switch",
+   "text": "Where's the \"No\"?",
+   "start": 157.9,
+   "end": 158.41,
+   "words": [
+    {
+     "w": "Where's",
+     "start": 157.9,
+     "end": 158.13,
+     "score": 0.891
+    },
+    {
+     "w": "the",
+     "start": 158.166,
+     "end": 158.226,
+     "score": 0.841
+    },
+    {
+     "w": "\"No\"?",
+     "start": 158.3,
+     "end": 158.41,
+     "score": 0.919
+    }
+   ]
+  },
+  {
+   "id": "L47",
+   "section": "Verse 3: Pop Quiz",
+   "stem": "0 Lead Vocals",
+   "singer": "narrator",
+   "text": "There isn't one! It turned back on for you!",
+   "start": 158.96,
+   "end": 161.19,
+   "words": [
+    {
+     "w": "There",
+     "start": 158.96,
+     "end": 159.13,
+     "score": 0.991
+    },
+    {
+     "w": "isn't",
+     "start": 159.16,
+     "end": 159.39,
+     "score": 0.937
+    },
+    {
+     "w": "one!",
+     "start": 159.48,
+     "end": 159.69,
+     "score": 0.998
+    },
+    {
+     "w": "It",
+     "start": 160.027,
+     "end": 160.087,
+     "score": 0.998
+    },
+    {
+     "w": "turned",
+     "start": 160.14,
+     "end": 160.41,
+     "score": 0.896
+    },
+    {
+     "w": "back",
+     "start": 160.42,
+     "end": 160.63,
+     "score": 0.999
+    },
+    {
+     "w": "on",
+     "start": 160.72,
+     "end": 160.85,
+     "score": 0.998
+    },
+    {
+     "w": "for",
+     "start": 160.88,
+     "end": 160.99,
+     "score": 0.994
+    },
+    {
+     "w": "you!",
+     "start": 161.04,
+     "end": 161.19,
+     "score": 0.996
+    }
+   ]
+  },
+  {
+   "id": "L48",
+   "section": "Verse 3: Pop Quiz",
+   "stem": "0 Lead Vocals",
+   "singer": "narrator",
+   "text": "In Australia, office software went up forty-five percent...",
+   "start": 162.06,
+   "end": 165.05,
+   "words": [
+    {
+     "w": "In",
+     "start": 162.06,
+     "end": 162.15,
+     "score": 0.926
+    },
+    {
+     "w": "Australia,",
+     "start": 162.16,
+     "end": 162.77,
+     "score": 0.968
+    },
+    {
+     "w": "office",
+     "start": 162.88,
+     "end": 163.21,
+     "score": 0.955
+    },
+    {
+     "w": "software",
+     "start": 163.28,
+     "end": 163.75,
+     "score": 0.854
+    },
+    {
+     "w": "went",
+     "start": 163.76,
+     "end": 163.89,
+     "score": 0.484
+    },
+    {
+     "w": "up",
+     "start": 163.88,
+     "end": 163.97,
+     "score": 0.992
+    },
+    {
+     "w": "forty-five",
+     "start": 164.04,
+     "end": 164.57,
+     "score": 0.017
+    },
+    {
+     "w": "percent...",
+     "start": 164.6,
+     "end": 165.05,
+     "score": 0.877
+    }
+   ]
+  },
+  {
+   "id": "L49",
+   "section": "Verse 3: Pop Quiz",
+   "stem": "0 Lead Vocals",
+   "singer": "switch",
+   "text": "Was there one without the robot?",
+   "start": 165.52,
+   "end": 166.85,
+   "words": [
+    {
+     "w": "Was",
+     "start": 165.52,
+     "end": 165.65,
+     "score": 0.997
+    },
+    {
+     "w": "there",
+     "start": 165.66,
+     "end": 165.81,
+     "score": 0.996
+    },
+    {
+     "w": "one",
+     "start": 165.88,
+     "end": 166.03,
+     "score": 0.998
+    },
+    {
+     "w": "without",
+     "start": 166.04,
+     "end": 166.31,
+     "score": 0.998
+    },
+    {
+     "w": "the",
+     "start": 166.32,
+     "end": 166.41,
+     "score": 0.885
+    },
+    {
+     "w": "robot?",
+     "start": 166.46,
+     "end": 166.85,
+     "score": 0.958
+    }
+   ]
+  },
+  {
+   "id": "L50",
+   "section": "Verse 3: Pop Quiz",
+   "stem": "0 Lead Vocals",
+   "singer": "narrator",
+   "text": "Only once you tried to leave!",
+   "start": 167.28,
+   "end": 168.88,
+   "words": [
+    {
+     "w": "Only",
+     "start": 167.28,
+     "end": 167.47,
+     "score": 0.959
+    },
+    {
+     "w": "once",
+     "start": 167.62,
+     "end": 167.81,
+     "score": 0.99
+    },
+    {
+     "w": "you",
+     "start": 167.8,
+     "end": 167.91,
+     "score": 0.973
+    },
+    {
+     "w": "tried",
+     "start": 167.94,
+     "end": 168.23,
+     "score": 0.785
+    },
+    {
+     "w": "to",
+     "start": 168.25,
+     "end": 168.31,
+     "score": 0.988
+    },
+    {
+     "w": "leave!",
+     "start": 168.38,
+     "end": 168.88,
+     "score": 0.953
+    }
+   ]
+  },
+  {
+   "id": "L51",
+   "section": "Bridge",
+   "stem": "0 Lead Vocals",
+   "singer": "narrator",
+   "text": "Now the school's the place for learning, and the school picks what you learn,",
+   "start": 168.99,
+   "end": 172.37,
+   "words": [
+    {
+     "w": "Now",
+     "start": 168.99,
+     "end": 169.16,
+     "score": 0.997
+    },
+    {
+     "w": "the",
+     "start": 169.17,
+     "end": 169.27,
+     "score": 0.943
+    },
+    {
+     "w": "school's",
+     "start": 169.38,
+     "end": 169.75,
+     "score": 0.973
+    },
+    {
+     "w": "the",
+     "start": 169.78,
+     "end": 169.87,
+     "score": 0.997
+    },
+    {
+     "w": "place",
+     "start": 169.9,
+     "end": 170.19,
+     "score": 1.0
+    },
+    {
+     "w": "for",
+     "start": 170.22,
+     "end": 170.33,
+     "score": 0.996
+    },
+    {
+     "w": "learning,",
+     "start": 170.4,
+     "end": 170.75,
+     "score": 0.976
+    },
+    {
+     "w": "and",
+     "start": 171.02,
+     "end": 171.11,
+     "score": 0.885
+    },
+    {
+     "w": "the",
+     "start": 171.123,
+     "end": 171.183,
+     "score": 0.989
+    },
+    {
+     "w": "school",
+     "start": 171.24,
+     "end": 171.51,
+     "score": 0.999
+    },
+    {
+     "w": "picks",
+     "start": 171.56,
+     "end": 171.77,
+     "score": 0.998
+    },
+    {
+     "w": "what",
+     "start": 171.78,
+     "end": 171.91,
+     "score": 0.999
+    },
+    {
+     "w": "you",
+     "start": 171.92,
+     "end": 172.03,
+     "score": 0.994
+    },
+    {
+     "w": "learn,",
+     "start": 172.06,
+     "end": 172.37,
+     "score": 0.973
+    }
+   ]
+  },
+  {
+   "id": "L52",
+   "section": "Bridge",
+   "stem": "0 Lead Vocals",
+   "singer": "narrator",
+   "text": "So the school said, \"No AI, please,\" and waited for its turn.",
+   "start": 172.785,
+   "end": 176.03,
+   "words": [
+    {
+     "w": "So",
+     "start": 172.785,
+     "end": 172.845,
+     "score": 0.998
+    },
+    {
+     "w": "the",
+     "start": 172.905,
+     "end": 172.965,
+     "score": 0.997
+    },
+    {
+     "w": "school",
+     "start": 173.02,
+     "end": 173.29,
+     "score": 0.983
+    },
+    {
+     "w": "said,",
+     "start": 173.36,
+     "end": 173.55,
+     "score": 0.996
+    },
+    {
+     "w": "\"No",
+     "start": 173.64,
+     "end": 173.75,
+     "score": 0.993
+    },
+    {
+     "w": "AI,",
+     "start": 173.86,
+     "end": 174.23,
+     "score": 0.921
+    },
+    {
+     "w": "please,\"",
+     "start": 174.3,
+     "end": 174.81,
+     "score": 0.92
+    },
+    {
+     "w": "and",
+     "start": 174.82,
+     "end": 174.91,
+     "score": 0.969
+    },
+    {
+     "w": "waited",
+     "start": 174.96,
+     "end": 175.25,
+     "score": 0.629
+    },
+    {
+     "w": "for",
+     "start": 175.26,
+     "end": 175.41,
+     "score": 0.998
+    },
+    {
+     "w": "its",
+     "start": 175.46,
+     "end": 175.63,
+     "score": 0.997
+    },
+    {
+     "w": "turn.",
+     "start": 175.7,
+     "end": 176.03,
+     "score": 0.964
+    }
+   ]
+  },
+  {
+   "id": "L53",
+   "section": "Bridge",
+   "stem": "0 Lead Vocals",
+   "singer": "narrator",
+   "text": "And the giant said, \"We hear you! Here's a deal that's very fair:",
+   "start": 176.44,
+   "end": 179.58,
+   "words": [
+    {
+     "w": "And",
+     "start": 176.44,
+     "end": 176.53,
+     "score": 0.906
+    },
+    {
+     "w": "the",
+     "start": 176.55,
+     "end": 176.61,
+     "score": 0.994
+    },
+    {
+     "w": "giant",
+     "start": 176.66,
+     "end": 177.03,
+     "score": 0.646
+    },
+    {
+     "w": "said,",
+     "start": 177.11,
+     "end": 177.28,
+     "score": 0.999
+    },
+    {
+     "w": "\"We",
+     "start": 177.31,
+     "end": 177.4,
+     "score": 0.996
+    },
+    {
+     "w": "hear",
+     "start": 177.49,
+     "end": 177.7,
+     "score": 0.975
+    },
+    {
+     "w": "you!",
+     "start": 177.79,
+     "end": 177.92,
+     "score": 0.999
+    },
+    {
+     "w": "Here's",
+     "start": 178.27,
+     "end": 178.44,
+     "score": 0.634
+    },
+    {
+     "w": "a",
+     "start": 178.472,
+     "end": 178.492,
+     "score": 0.993
+    },
+    {
+     "w": "deal",
+     "start": 178.57,
+     "end": 178.82,
+     "score": 0.996
+    },
+    {
+     "w": "that's",
+     "start": 178.85,
+     "end": 179.02,
+     "score": 0.996
+    },
+    {
+     "w": "very",
+     "start": 179.03,
+     "end": 179.24,
+     "score": 1.0
+    },
+    {
+     "w": "fair:",
+     "start": 179.31,
+     "end": 179.58,
+     "score": 0.958
+    }
+   ]
+  },
+  {
+   "id": "L54",
+   "section": "Bridge",
+   "stem": "0 Lead Vocals",
+   "singer": "narrator",
+   "text": "Take the robot with your search, or else there's no search there!\"",
+   "start": 179.93,
+   "end": 183.68,
+   "words": [
+    {
+     "w": "Take",
+     "start": 179.93,
+     "end": 180.16,
+     "score": 1.0
+    },
+    {
+     "w": "the",
+     "start": 180.234,
+     "end": 180.295,
+     "score": 0.994
+    },
+    {
+     "w": "robot",
+     "start": 180.39,
+     "end": 180.8,
+     "score": 0.929
+    },
+    {
+     "w": "with",
+     "start": 180.85,
+     "end": 180.98,
+     "score": 0.998
+    },
+    {
+     "w": "your",
+     "start": 180.99,
+     "end": 181.1,
+     "score": 0.997
+    },
+    {
+     "w": "search,",
+     "start": 181.17,
+     "end": 181.52,
+     "score": 0.957
+    },
+    {
+     "w": "or",
+     "start": 181.99,
+     "end": 182.08,
+     "score": 0.999
+    },
+    {
+     "w": "else",
+     "start": 182.15,
+     "end": 182.36,
+     "score": 0.949
+    },
+    {
+     "w": "there's",
+     "start": 182.37,
+     "end": 182.6,
+     "score": 0.936
+    },
+    {
+     "w": "no",
+     "start": 182.67,
+     "end": 182.78,
+     "score": 0.968
+    },
+    {
+     "w": "search",
+     "start": 182.95,
+     "end": 183.28,
+     "score": 0.947
+    },
+    {
+     "w": "there!\"",
+     "start": 183.33,
+     "end": 183.68,
+     "score": 0.939
+    }
+   ]
+  },
+  {
+   "id": "L55",
+   "section": "Bridge redub",
+   "stem": "0 Lead Vocals",
+   "singer": "narrator",
+   "text": "Correction, boys and girls! You can switch the chatbot off,",
+   "start": 186.54,
+   "end": 190.29,
+   "words": [
+    {
+     "w": "Correction,",
+     "start": 186.54,
+     "end": 187.13,
+     "score": 0.979
+    },
+    {
+     "w": "boys",
+     "start": 187.18,
+     "end": 187.51,
+     "score": 0.956
+    },
+    {
+     "w": "and",
+     "start": 187.54,
+     "end": 187.65,
+     "score": 0.948
+    },
+    {
+     "w": "girls!",
+     "start": 187.66,
+     "end": 188.13,
+     "score": 0.966
+    },
+    {
+     "w": "You",
+     "start": 188.76,
+     "end": 188.85,
+     "score": 0.993
+    },
+    {
+     "w": "can",
+     "start": 188.88,
+     "end": 188.99,
+     "score": 0.995
+    },
+    {
+     "w": "switch",
+     "start": 189.04,
+     "end": 189.29,
+     "score": 0.936
+    },
+    {
+     "w": "the",
+     "start": 189.34,
+     "end": 189.43,
+     "score": 0.575
+    },
+    {
+     "w": "chatbot",
+     "start": 189.5,
+     "end": 189.99,
+     "score": 0.7
+    },
+    {
+     "w": "off,",
+     "start": 190.08,
+     "end": 190.29,
+     "score": 0.906
+    }
+   ]
+  },
+  {
+   "id": "L56",
+   "section": "Bridge redub",
+   "stem": "0 Lead Vocals",
+   "singer": "narrator",
+   "text": "And you keep your search and everything!",
+   "start": 191.0,
+   "end": 192.73,
+   "words": [
+    {
+     "w": "And",
+     "start": 191.0,
+     "end": 191.11,
+     "score": 0.714
+    },
+    {
+     "w": "you",
+     "start": 191.12,
+     "end": 191.21,
+     "score": 0.966
+    },
+    {
+     "w": "keep",
+     "start": 191.26,
+     "end": 191.49,
+     "score": 0.998
+    },
+    {
+     "w": "your",
+     "start": 191.54,
+     "end": 191.67,
+     "score": 0.989
+    },
+    {
+     "w": "search",
+     "start": 191.78,
+     "end": 192.09,
+     "score": 0.919
+    },
+    {
+     "w": "and",
+     "start": 192.12,
+     "end": 192.21,
+     "score": 0.414
+    },
+    {
+     "w": "everything!",
+     "start": 192.24,
+     "end": 192.73,
+     "score": 0.969
+    }
+   ]
+  },
+  {
+   "id": "L57",
+   "section": "Bridge redub",
+   "stem": "0 Lead Vocals",
+   "singer": "switch",
+   "text": "And the answer box on top?",
+   "start": 192.82,
+   "end": 194.17,
+   "words": [
+    {
+     "w": "And",
+     "start": 192.82,
+     "end": 192.91,
+     "score": 0.802
+    },
+    {
+     "w": "the",
+     "start": 192.924,
+     "end": 192.984,
+     "score": 0.952
+    },
+    {
+     "w": "answer",
+     "start": 193.1,
+     "end": 193.39,
+     "score": 0.986
+    },
+    {
+     "w": "box",
+     "start": 193.42,
+     "end": 193.63,
+     "score": 0.63
+    },
+    {
+     "w": "on",
+     "start": 193.78,
+     "end": 193.87,
+     "score": 0.995
+    },
+    {
+     "w": "top?",
+     "start": 193.92,
+     "end": 194.17,
+     "score": 0.997
+    }
+   ]
+  },
+  {
+   "id": "L58",
+   "section": "Bridge redub",
+   "stem": "0 Lead Vocals",
+   "singer": "narrator",
+   "text": "...That one's \"deeply integrated.\"",
+   "start": 195.22,
+   "end": 196.81,
+   "words": [
+    {
+     "w": "...That",
+     "start": 195.22,
+     "end": 195.37,
+     "score": 0.837
+    },
+    {
+     "w": "one's",
+     "start": 195.44,
+     "end": 195.65,
+     "score": 0.969
+    },
+    {
+     "w": "\"deeply",
+     "start": 195.86,
+     "end": 196.19,
+     "score": 0.994
+    },
+    {
+     "w": "integrated.\"",
+     "start": 196.28,
+     "end": 196.81,
+     "score": 0.997
+    }
+   ]
+  },
+  {
+   "id": "L59",
+   "section": "Bridge redub",
+   "stem": "0 Lead Vocals",
+   "singer": "switch",
+   "text": "What's that mean?",
+   "start": 197.18,
+   "end": 197.75,
+   "words": [
+    {
+     "w": "What's",
+     "start": 197.18,
+     "end": 197.37,
+     "score": 0.848
+    },
+    {
+     "w": "that",
+     "start": 197.36,
+     "end": 197.51,
+     "score": 0.757
+    },
+    {
+     "w": "mean?",
+     "start": 197.54,
+     "end": 197.75,
+     "score": 0.989
+    }
+   ]
+  },
+  {
+   "id": "L60",
+   "section": "Bridge redub",
+   "stem": "0 Lead Vocals",
+   "singer": "narrator",
+   "text": "It means it stays.",
+   "start": 198.86,
+   "end": 199.87,
+   "words": [
+    {
+     "w": "It",
+     "start": 198.86,
+     "end": 198.95,
+     "score": 0.988
+    },
+    {
+     "w": "means",
+     "start": 198.98,
+     "end": 199.21,
+     "score": 0.96
+    },
+    {
+     "w": "it",
+     "start": 199.22,
+     "end": 199.31,
+     "score": 0.984
+    },
+    {
+     "w": "stays.",
+     "start": 199.38,
+     "end": 199.87,
+     "score": 0.824
+    }
+   ]
+  },
+  {
+   "id": "L61",
+   "section": "Final chorus",
+   "stem": "0 Lead Vocals",
+   "singer": "narrator",
+   "text": "Default on! Default on!",
+   "start": 200.38,
+   "end": 203.38,
+   "words": [
+    {
+     "w": "Default",
+     "start": 200.38,
+     "end": 201.15,
+     "score": 0.364
+    },
+    {
+     "w": "on!",
+     "start": 201.2,
+     "end": 201.47,
+     "score": 0.216
+    },
+    {
+     "w": "Default",
+     "start": 202.05,
+     "end": 202.98,
+     "score": 0.395
+    },
+    {
+     "w": "on!",
+     "start": 203.05,
+     "end": 203.38,
+     "score": 0.285
+    }
+   ]
+  },
+  {
+   "id": "L62",
+   "section": "Final chorus",
+   "stem": "0 Lead Vocals",
+   "singer": "narrator",
+   "text": "It was there when we woke up, it'll be there when we're gone!",
+   "start": 203.47,
+   "end": 207.0,
+   "words": [
+    {
+     "w": "It",
+     "start": 203.47,
+     "end": 203.58,
+     "score": 0.663
+    },
+    {
+     "w": "was",
+     "start": 203.61,
+     "end": 203.78,
+     "score": 0.842
+    },
+    {
+     "w": "there",
+     "start": 203.85,
+     "end": 204.24,
+     "score": 0.851
+    },
+    {
+     "w": "when",
+     "start": 204.31,
+     "end": 204.44,
+     "score": 0.73
+    },
+    {
+     "w": "we",
+     "start": 204.47,
+     "end": 204.56,
+     "score": 0.916
+    },
+    {
+     "w": "woke",
+     "start": 204.63,
+     "end": 204.86,
+     "score": 0.971
+    },
+    {
+     "w": "up,",
+     "start": 204.87,
+     "end": 205.0,
+     "score": 0.992
+    },
+    {
+     "w": "it'll",
+     "start": 205.27,
+     "end": 205.48,
+     "score": 0.828
+    },
+    {
+     "w": "be",
+     "start": 205.65,
+     "end": 205.74,
+     "score": 0.97
+    },
+    {
+     "w": "there",
+     "start": 205.85,
+     "end": 206.08,
+     "score": 0.9
+    },
+    {
+     "w": "when",
+     "start": 206.13,
+     "end": 206.32,
+     "score": 0.731
+    },
+    {
+     "w": "we're",
+     "start": 206.35,
+     "end": 206.54,
+     "score": 0.963
+    },
+    {
+     "w": "gone!",
+     "start": 206.59,
+     "end": 207.0,
+     "score": 0.757
+    }
+   ]
+  },
+  {
+   "id": "L63",
+   "section": "Final chorus",
+   "stem": "0 Lead Vocals",
+   "singer": "narrator",
+   "text": "We can hide it, we can mute it, we can tuck it out of view,",
+   "start": 207.05,
+   "end": 210.2,
+   "words": [
+    {
+     "w": "We",
+     "start": 207.05,
+     "end": 207.14,
+     "score": 0.975
+    },
+    {
+     "w": "can",
+     "start": 207.19,
+     "end": 207.34,
+     "score": 0.972
+    },
+    {
+     "w": "hide",
+     "start": 207.45,
+     "end": 207.98,
+     "score": 0.576
+    },
+    {
+     "w": "it,",
+     "start": 207.99,
+     "end": 208.08,
+     "score": 0.744
+    },
+    {
+     "w": "we",
+     "start": 208.113,
+     "end": 208.173,
+     "score": 0.53
+    },
+    {
+     "w": "can",
+     "start": 208.23,
+     "end": 208.34,
+     "score": 0.602
+    },
+    {
+     "w": "mute",
+     "start": 208.37,
+     "end": 208.68,
+     "score": 0.676
+    },
+    {
+     "w": "it,",
+     "start": 208.714,
+     "end": 208.754,
+     "score": 0.025
+    },
+    {
+     "w": "we",
+     "start": 208.85,
+     "end": 208.96,
+     "score": 0.909
+    },
+    {
+     "w": "can",
+     "start": 209.01,
+     "end": 209.16,
+     "score": 0.012
+    },
+    {
+     "w": "tuck",
+     "start": 209.29,
+     "end": 209.5,
+     "score": 0.502
+    },
+    {
+     "w": "it",
+     "start": 209.55,
+     "end": 209.64,
+     "score": 0.966
+    },
+    {
+     "w": "out",
+     "start": 209.69,
+     "end": 209.82,
+     "score": 0.977
+    },
+    {
+     "w": "of",
+     "start": 209.85,
+     "end": 209.96,
+     "score": 0.949
+    },
+    {
+     "w": "view,",
+     "start": 210.01,
+     "end": 210.2,
+     "score": 0.002
+    }
+   ]
+  },
+  {
+   "id": "L64",
+   "section": "Final chorus",
+   "stem": "0 Lead Vocals",
+   "singer": "narrator",
+   "text": "But the switch is just a picture that somebody drew for you!",
+   "start": 210.65,
+   "end": 214.24,
+   "words": [
+    {
+     "w": "But",
+     "start": 210.65,
+     "end": 210.82,
+     "score": 0.995
+    },
+    {
+     "w": "the",
+     "start": 210.83,
+     "end": 210.92,
+     "score": 0.93
+    },
+    {
+     "w": "switch",
+     "start": 211.03,
+     "end": 211.44,
+     "score": 0.949
+    },
+    {
+     "w": "is",
+     "start": 211.63,
+     "end": 211.72,
+     "score": 0.994
+    },
+    {
+     "w": "just",
+     "start": 211.77,
+     "end": 212.06,
+     "score": 0.993
+    },
+    {
+     "w": "a",
+     "start": 212.136,
+     "end": 212.156,
+     "score": 0.977
+    },
+    {
+     "w": "picture",
+     "start": 212.21,
+     "end": 212.66,
+     "score": 0.997
+    },
+    {
+     "w": "that",
+     "start": 212.67,
+     "end": 212.88,
+     "score": 0.861
+    },
+    {
+     "w": "somebody",
+     "start": 212.95,
+     "end": 213.36,
+     "score": 0.967
+    },
+    {
+     "w": "drew",
+     "start": 213.43,
+     "end": 213.7,
+     "score": 0.942
+    },
+    {
+     "w": "for",
+     "start": 213.85,
+     "end": 214.0,
+     "score": 0.89
+    },
+    {
+     "w": "you!",
+     "start": 214.05,
+     "end": 214.24,
+     "score": 0.956
+    }
+   ]
+  },
+  {
+   "id": "L65",
+   "section": "Final chorus",
+   "stem": "0 Lead Vocals",
+   "singer": "narrator",
+   "text": "Default on!",
+   "start": 217.49,
+   "end": 218.89,
+   "words": [
+    {
+     "w": "Default",
+     "start": 217.49,
+     "end": 218.42,
+     "score": 0.033
+    },
+    {
+     "w": "on!",
+     "start": 218.49,
+     "end": 218.89,
+     "score": 0.024
+    }
+   ]
+  },
+  {
+   "id": "L66",
+   "section": "Outro",
+   "stem": "0 Lead Vocals",
+   "singer": "switch",
+   "text": "I've got two sides.",
+   "start": 219.4,
+   "end": 220.51,
+   "words": [
+    {
+     "w": "I've",
+     "start": 219.4,
+     "end": 219.49,
+     "score": 0.355
+    },
+    {
+     "w": "got",
+     "start": 219.48,
+     "end": 219.61,
+     "score": 0.545
+    },
+    {
+     "w": "two",
+     "start": 219.72,
+     "end": 219.89,
+     "score": 0.872
+    },
+    {
+     "w": "sides.",
+     "start": 219.96,
+     "end": 220.51,
+     "score": 0.934
+    }
+   ]
+  },
+  {
+   "id": "L67",
+   "section": "Outro",
+   "stem": "0 Lead Vocals",
+   "singer": "switch",
+   "text": "...Guess one of 'em was just for show.",
+   "start": 222.44,
+   "end": 223.97,
+   "words": [
+    {
+     "w": "...Guess",
+     "start": 222.44,
+     "end": 222.63,
+     "score": 0.687
+    },
+    {
+     "w": "one",
+     "start": 222.74,
+     "end": 222.85,
+     "score": 0.913
+    },
+    {
+     "w": "of",
+     "start": 222.863,
+     "end": 222.923,
+     "score": 0.99
+    },
+    {
+     "w": "'em",
+     "start": 222.96,
+     "end": 223.05,
+     "score": 0.5
+    },
+    {
+     "w": "was",
+     "start": 223.08,
+     "end": 223.21,
+     "score": 0.996
+    },
+    {
+     "w": "just",
+     "start": 223.28,
+     "end": 223.49,
+     "score": 0.876
+    },
+    {
+     "w": "for",
+     "start": 223.5,
+     "end": 223.61,
+     "score": 0.667
+    },
+    {
+     "w": "show.",
+     "start": 223.68,
+     "end": 223.97,
+     "score": 0.96
+    }
+   ]
+  },
+  {
+   "id": "L68",
+   "section": "Outro",
+   "stem": "0 Lead Vocals",
+   "singer": "narrator",
+   "text": "And that's how an opt-out works! Join us next week, when we learn about...",
+   "start": 226.0,
+   "end": 230.47,
+   "words": [
+    {
+     "w": "And",
+     "start": 226.0,
+     "end": 226.11,
+     "score": 0.666
+    },
+    {
+     "w": "that's",
+     "start": 226.1,
+     "end": 226.29,
+     "score": 0.687
+    },
+    {
+     "w": "how",
+     "start": 226.3,
+     "end": 226.41,
+     "score": 0.739
+    },
+    {
+     "w": "an",
+     "start": 226.44,
+     "end": 226.53,
+     "score": 0.604
+    },
+    {
+     "w": "opt-out",
+     "start": 226.58,
+     "end": 226.95,
+     "score": 0.893
+    },
+    {
+     "w": "works!",
+     "start": 226.98,
+     "end": 227.37,
+     "score": 0.998
+    },
+    {
+     "w": "Join",
+     "start": 228.44,
+     "end": 228.67,
+     "score": 0.961
+    },
+    {
+     "w": "us",
+     "start": 228.72,
+     "end": 228.83,
+     "score": 0.998
+    },
+    {
+     "w": "next",
+     "start": 228.9,
+     "end": 229.15,
+     "score": 0.963
+    },
+    {
+     "w": "week,",
+     "start": 229.2,
+     "end": 229.43,
+     "score": 0.98
+    },
+    {
+     "w": "when",
+     "start": 229.66,
+     "end": 229.79,
+     "score": 0.793
+    },
+    {
+     "w": "we",
+     "start": 229.829,
+     "end": 229.889,
+     "score": 0.998
+    },
+    {
+     "w": "learn",
+     "start": 229.96,
+     "end": 230.15,
+     "score": 0.973
+    },
+    {
+     "w": "about...",
+     "start": 230.18,
+     "end": 230.47,
+     "score": 0.998
+    }
+   ]
+  },
+  {
+   "id": "L69",
+   "section": "Outro",
+   "stem": "0 Lead Vocals",
+   "singer": "narrator",
+   "text": "Who asked for that?",
+   "start": 233.42,
+   "end": 234.14,
+   "words": [
+    {
+     "w": "Who",
+     "start": 233.42,
+     "end": 233.5,
+     "score": 0.917
+    },
+    {
+     "w": "asked",
+     "start": 233.59,
+     "end": 233.8,
+     "score": 0.786
+    },
+    {
+     "w": "for",
+     "start": 233.81,
+     "end": 233.9,
+     "score": 0.709
+    },
+    {
+     "w": "that?",
+     "start": 233.91,
+     "end": 234.14,
+     "score": 0.976
+    }
+   ]
+  },
+  {
+   "id": "L70",
+   "section": "Outro",
+   "stem": "0 Lead Vocals",
+   "singer": "switch",
+   "text": "Hey, who wrote this song, anyway?",
+   "start": 235.23,
+   "end": 237.1,
+   "words": [
+    {
+     "w": "Hey,",
+     "start": 235.23,
+     "end": 235.44,
+     "score": 0.556
+    },
+    {
+     "w": "who",
+     "start": 235.91,
+     "end": 236.0,
+     "score": 0.981
+    },
+    {
+     "w": "wrote",
+     "start": 236.05,
+     "end": 236.3,
+     "score": 0.884
+    },
+    {
+     "w": "this",
+     "start": 236.31,
+     "end": 236.46,
+     "score": 0.99
+    },
+    {
+     "w": "song,",
+     "start": 236.49,
+     "end": 236.74,
+     "score": 0.998
+    },
+    {
+     "w": "anyway?",
+     "start": 236.77,
+     "end": 237.1,
+     "score": 0.999
+    }
+   ]
+  },
+  {
+   "id": "L71",
+   "section": "Outro",
+   "stem": "0 Lead Vocals",
+   "singer": "narrator",
+   "text": "An AI did. ...But somebody asked it to.",
+   "start": 238.876,
+   "end": 242.4,
+   "words": [
+    {
+     "w": "An",
+     "start": 238.876,
+     "end": 238.936,
+     "score": 0.971
+    },
+    {
+     "w": "AI",
+     "start": 238.99,
+     "end": 239.3,
+     "score": 0.615
+    },
+    {
+     "w": "did.",
+     "start": 239.35,
+     "end": 239.6,
+     "score": 0.998
+    },
+    {
+     "w": "...But",
+     "start": 241.34,
+     "end": 241.44,
+     "score": 0.998
+    },
+    {
+     "w": "somebody",
+     "start": 241.49,
+     "end": 241.78,
+     "score": 0.991
+    },
+    {
+     "w": "asked",
+     "start": 241.91,
+     "end": 242.16,
+     "score": 0.86
+    },
+    {
+     "w": "it",
+     "start": 242.199,
+     "end": 242.259,
+     "score": 0.976
+    },
+    {
+     "w": "to.",
+     "start": 242.29,
+     "end": 242.4,
+     "score": 0.984
+    }
+   ]
+  }
+ ]
+}
