@@ -26,8 +26,8 @@
 
 **Protecting the child**
 
-- His face, name, school and home never appear. The reveal shows hands, a phone or mic, a waveform and a light switch, framed tight so no room details identify the house.
-- Credit him as you choose; the credit is "Switch: voiced by a child of two ex-Googlers and ex-Microsofties." Record your consent as his guardian in the intervention log.
+- His face, school and home never appear, and his name never appears in the video, filenames or logs, except in his guardians' signed consent statements in the intervention log. The reveal shows hands, a phone or mic, a waveform and a light switch, framed tight so no room details identify the house.
+- Credit him as you choose; the credit is "Switch: voiced by a child of two ex-Googlers and ex-Microsofties." Record your consent as his guardian in the intervention log (done 2026-11-06; his mother adds hers by pull request before release).
 - Raw takes stay out of the public repo by default. Publish only the comped, processed lines that are in the final mix, and note in the log that the raw takes are withheld.
 
 ## Recording plan for Switch

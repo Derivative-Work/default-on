@@ -107,3 +107,13 @@ Every human action: timestamp, what, why, and which rule allows it. The brief al
   - "the classroom scene where the kids are trying to turn it off is not reading right and needs more detail"
   - "put a reasonable \"Summary of this song\", written like what YouTube will actually put on it once uploaded"
 - **Rule:** H2 (section notes at the M4 gate).
+
+## 2026-11-06T17:45 — Guardian consent for Switch's voice — H3
+
+- **Consent (verbatim, as the human gave it):**
+
+  > I, Albert Armea, father of Ismet Ogutveren-Armea, hereby provide consent for his recordings and for his likeness to be used in this video.
+
+- **Also:** the human: "I will have his mother add a similar line below via pull request to the repository prior to release."
+- **Decision:** asked whether to keep the child's name out of the repo (the brief's rule), the human chose to record the line verbatim. The rule now allows his name only in his guardians' signed consent statements here; the brief (rev 66), its mirror and `CLAUDE.md` were changed to say so. His face, school and home still never appear, and his name stays out of the video, filenames, commit messages and other logs.
+- **Rule:** H3 (the brief asks for the guardian's consent in this log).

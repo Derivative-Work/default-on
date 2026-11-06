@@ -6,7 +6,7 @@ A swung 1970s educational-cartoon video for "Default On", cut to a locked genera
 
 Rules that apply to every step:
 - **Human role:** the human (H1) picks takes, (H2) approves gates and (H3) supplies the real inputs listed under Inputs. Switch's voice is the declared exception: one entry per recorded line in `log/human_interventions.md`, with the take chosen and its processing. Anything else is an EXCEPTION.
-- **Protecting the child:** his face, name, school and home never appear, in frames, logs, commits or filenames. Raw takes stay in `audio/switch/raw/` (git-ignored, out of the manifest, never published); only the comped, processed lines in the final mix are published.
+- **Protecting the child:** his face, school and home never appear, in frames, logs, commits or filenames. His name appears only in his guardians' signed consent statements in `log/human_interventions.md` (the human's decision, 2026-11-06), never in frames, filenames, commit messages or other logs. Raw takes stay in `audio/switch/raw/` (git-ignored, out of the manifest, never published); only the comped, processed lines in the final mix are published.
 - **Locked audio:** the master, its stems and its timing are never regenerated. Words and timing are locked for everything but Switch's lines. The video is cut to the generated mix (`audio/track/Default On.wav`) as a draft; the human supplies the final mix once the recordings are in (M1 gate).
 - **Logs:** append to `log/production_log.md` for every action; every render in `log/renders.md` (shot ID, composition, props, commit); every Switch comp decision in `log/switch_takes.md`.
 - **Gates:** stop at the end of each milestone until the human approves.
