@@ -61,3 +61,8 @@ Every render: timestamp, shot ID, composition, props, commit hash, output, conta
 ## 2026-11-06T12:52 — M4 section 6, Verse 2
 
 - **Shots:** S25–S33 (S34 runs into section 7). **Composition:** `Sec06-Verse2`, 836 frames. **Command:** `scripts/m4_section.sh Sec06-Verse2 sec06_verse2`. **Commit:** built on 3748113 + this entry's changes.
+
+## 2026-11-06T14:35 — M4 sections 1–11 and the full cut
+
+- **Compositions:** `Sec01-Intro` … `Sec11-Outroandreveal` (`Cut`), 1920x1080; sections 1–8 bundled from 83ede8e, 9–11 from 3ef3e38 (End.tsx edits between them touch only sections 7's S34 hand-off and 9–11). **Command:** `scripts/m4_section.sh <comp> <stem>` each.
+- **Full cut:** `renders/m4/m4_full.mp4` (concat + one continuous master track; see the production log). Review copy `renders/m4/review/m4_full_review_720p.mp4` (26 MB). **Commit:** 3ef3e38.

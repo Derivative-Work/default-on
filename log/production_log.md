@@ -183,3 +183,10 @@ Append-only. One entry per action: timestamp, step (shot ID where relevant), wha
 - **Final chorus:** the classroom gains an alphabet strip, a clock, windows, a floor and desk grain; S57a–b an alphabet strip, grain and pencils; S57c grain. S58 now pulls back into the living room of S29–S30 (same room by day): the classroom shrinks into the TV's screen and the new tile winks in the screen's corner.
 - **Outro:** the dark wall (S59–S61) has a faint printed wallpaper, a skirting, a floor, and a pool of light under the spotlight. S62 and S64 are in the classroom set.
 - **Checked:** twelve stills across sections 9–11.
+
+## 2026-11-06T14:40:00-05:00 — M4: all eleven sections rendered in the final look; the full cut assembled
+
+- **What:** Re-rendered sections 1–8 in the reference-driven look with the pen-detail layer, rendered sections 9–11, and assembled the full M4 cut: the eleven section videos concatenated (stream copy, 7,954 frames), with the audio replaced by one continuous track from the master (5 s pre-roll delay, padded), because per-section AAC encodes added padding at each join (the concatenated audio ran 265.28 s against 265.15 s). Sync checked by cross-correlation at 30 s and 220 s into the song: +0.0000 s at both.
+- **Checked:** the rendered contact sheets for the quiz fixes (S43 on the studio screen; S45's phones clipped to the screen, its caption above the audience), S38's self-peel and S58's pull-back.
+- **Commands:** `scripts/m4_section.sh` for each section; `ffmpeg -f concat … -c copy`; `ffmpeg -i <concat> -i "audio/track/Default On.wav" -map 0:v -map 1:a -c:v copy -af "adelay=5000|5000,apad" -c:a aac -b:a 256k -shortest renders/m4/m4_full.mp4`; a 720p CRF 27 review copy.
+- **Outputs:** `renders/m4/sec01…sec11*.mp4`, `renders/m4/m4_full.mp4` (1080p, 4:25), `renders/m4/review/m4_full_review_720p.mp4`, `review/S00…S68.jpg` and `FG.jpg`.
