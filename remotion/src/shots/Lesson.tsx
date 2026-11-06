@@ -5,9 +5,10 @@ import { Wash } from "../film/Paper";
 import { Caption, Chalkboard, Door, Envelope, Person, Kid, Slate, TV, Tile } from "../components/props";
 import { Floorboards, Grain, Lamp, Picture, Plant, Rug, Window } from "../components/sets";
 import { Narrator } from "../rigs/Narrator";
+import { Hand } from "../rigs/Hand";
 import { Switch } from "../rigs/Switch";
 import { BUBBLE, SANS } from "../theme/fonts";
-import { C, H, W, lw } from "../theme/palette";
+import { C, H, PEN, W, lw } from "../theme/palette";
 import { FPS, mouthAt } from "../timing";
 import { ChalkTray, Clock, Pennant, Wallpaper, breath } from "../components/sets";
 import { S28 as S28Key } from "../scenes/KeyFrames";
@@ -50,69 +51,168 @@ export const S19: ShotC = ({ f, g }) => {
       {f > 40 && <text x={760} y={400} fontFamily={BUBBLE} fontSize={60} fill={C.white} opacity={0.85}>sure!</text>}
       <g transform="translate(1180, 780)"><ellipse rx={170} ry={40} fill={C.white} stroke={C.ink} strokeWidth={lw(5)} />
         {[-90, -30, 30, 90, -60, 0, 60].map((x, i) => <g key={i} transform={`translate(${x}, ${i < 4 ? -14 : -44})`}><circle r={34} fill={C.mustard} stroke={C.ink} strokeWidth={lw(4)} />{[[-10, -8], [8, 6], [-4, 12]].map(([cx, cy], k) => <circle key={k} cx={cx} cy={cy} r={5} fill={C.cardigan} />)}</g>)}</g>
-      <g transform={`translate(${1300 - offer * 260}, 560)`}>
-        <path d="M120,30 L-40,30" stroke={C.sleeve} strokeWidth={60} strokeLinecap="round" />
-        <circle cx={-70} cy={20} r={50} fill={C.mustard} stroke={C.ink} strokeWidth={lw(6)} />
-        {[-88, -60, -76].map((x, i) => <circle key={i} cx={x} cy={8 + i * 12} r={6} fill={C.cardigan} />)}
+      {/* someone asks: a hand in a teal sleeve (not the grey off-screen one) offers a cookie on its fingertip */}
+      <g transform={`translate(${W + 40}, 600) scale(-1, 1)`}>
+        <Hand reach={0.45 + offer * 0.45} length={W + 40 - 840} sleeve={[C.teal, "#2b6f96"]} curl={0.15} />
+        <g transform={`translate(${-(W + 40 - 840) * (1 - (0.45 + offer * 0.45)) + (W + 40 - 840) - 30}, -58)`}>
+          <circle r={44} fill={C.mustard} stroke={C.ink} strokeWidth={lw(6)} />
+          {[[-14, -10], [12, 8], [-6, 18], [16, -16]].map(([cx, cy], k) => <circle key={k} cx={cx} cy={cy} r={6} fill={C.cardigan} />)}
+        </g>
       </g>
+      {offer > 0.6 && f < 46 && <g transform="translate(1180, 380)">
+        <path d="M-150,-60 h300 a30,30 0 0 1 30,30 v60 a30,30 0 0 1 -30,30 h-170 l-40,40 l6,-40 h-96 a30,30 0 0 1 -30,-30 v-60 a30,30 0 0 1 30,-30 Z" fill={C.white} stroke={C.ink} strokeWidth={lw(5)} />
+        <text x={0} y={16} textAnchor="middle" fontFamily={BUBBLE} fontSize={54} fill={C.ink}>Cookie?</text>
+      </g>}
     </Board>
   );
 };
 
 // S20: V05 "And 'opt-out' means that no one asked you…": the kid already has a cookie stuck to his hand and wanders a
-// maze of menus looking for the exit
-export const S20: ShotC = ({ f, g }) => {
-  const path = [[420, 700], [420, 420], [880, 420], [880, 640], [1240, 640], [1240, 360], [1540, 360]];
-  const p = Math.min(path.length - 1.001, f / 28);
-  const k = Math.floor(p), u = p - k;
-  const x = path[k][0] + (path[k + 1][0] - path[k][0]) * u, y = path[k][1] + (path[k + 1][1] - path[k][1]) * u;
+// maze of menus looking for the exit. The maze is a grid of settings windows that never overlap, each titled clearly
+// on its own title bar, with arrows that send you round in circles; the kid's path winds and doubles back (dotted
+// trail); EXIT? is greyed out and its arrow points back to the start (the human's note, 2026-11-06)
+const MENUS = [
+  ["Settings", "More ›"], ["Privacy", "See all ›"], ["More…", "‹ Back"], ["Advanced", "More ›"],
+  ["Personalize", "‹ Back"], ["Data & AI", "Manage ›"], ["Manage", "Settings ›"], ["Other", "Help ›"],
+  ["Help", "Privacy ›"], ["See all", "‹ Back"], ["Account", "More ›"], ["Smart features", "managed for you"],
+];
+const MX = 190, MY = 300, CW = 250, CH = 120, GX = 70, GY = 44; // the grid on the board (inside it, EXIT? included)
+const cell = (i: number) => [MX + (i % 4) * (CW + GX), MY + Math.floor(i / 4) * (CH + GY)];
+// the kid's route through the gaps (gap centres), winding and doubling back
+const ROUTE: [number, number][] = [
+  [MX - 34, MY + CH + GY / 2 + 300], [MX - 34, MY + CH + GY / 2], [MX + CW + GX / 2, MY + CH + GY / 2], [MX + CW + GX / 2, MY - 26],
+  [MX + 2 * CW + GX * 1.5, MY - 26], [MX + 2 * CW + GX * 1.5, MY + 2 * (CH + GY) - GY / 2], [MX + CW + GX / 2, MY + 2 * (CH + GY) - GY / 2],
+  [MX + CW + GX / 2, MY + CH + GY / 2], [MX + 3 * CW + GX * 2.5, MY + CH + GY / 2], [MX + 3 * CW + GX * 2.5, MY + 3 * (CH + GY) - GY / 2 + 10],
+];
+const routeAt = (u: number): [number, number] => {
+  const seg = Math.min(ROUTE.length - 2, Math.floor(u * (ROUTE.length - 1)));
+  const v = u * (ROUTE.length - 1) - seg;
+  return [ROUTE[seg][0] + (ROUTE[seg + 1][0] - ROUTE[seg][0]) * v, ROUTE[seg][1] + (ROUTE[seg + 1][1] - ROUTE[seg][1]) * v];
+};
+export const S20: ShotC = ({ f, g, len }) => {
+  const u = ez(f, 6, len - 6);
+  const [kx, ky] = routeAt(u);
+  const trail = Array.from({ length: 40 }, (_, k) => routeAt((u * k) / 40));
   return (
     <Board word="OPT-OUT" g={g} f={f}>
-      {/* the maze's walls are menu panels, each labelled like a settings page */}
-      {[[300, 300, 1100, 0, "Settings"], [300, 300, 0, 500, "Privacy"], [300, 780, 900, 0, "More"], [600, 520, 0, 260, "Advanced"], [1050, 300, 0, 420, "Personalize"], [1400, 330, 0, 470, "Other"], [600, 520, 300, 0, "Help"]].map(([a, b, w, h, t], i) => (
-        <g key={i}>
-          <rect x={a as number} y={b as number} width={Math.max(w as number, 30)} height={Math.max(h as number, 30)} rx={10} fill={C.white} stroke={C.ink} strokeWidth={lw(5)} opacity={0.92} />
-          <text x={(a as number) + 12} y={(b as number) + ((w as number) > 0 ? 22 : 24)} fontFamily={SANS} fontSize={20} fontWeight={600} fill={C.inkSoft} transform={(w as number) > 0 ? undefined : `rotate(90, ${(a as number) + 12}, ${(b as number) + 24})`}>{t}</text>
-        </g>
-      ))}
-      <g transform={`translate(${x}, ${y}) scale(0.5)`}><Kid seed={1} look={[1, 0]} /></g>
-      <circle cx={x + 55} cy={y + 80} r={22} fill={C.mustard} stroke={C.ink} strokeWidth={lw(4)} />
-      <text x={1300} y={280} fontFamily={BUBBLE} fontSize={44} fill={C.white} opacity={0.9}>EXIT?</text>
-      <path d="M1300,300 l60,0 l-12,-12 M1360,300 l-12,12" stroke={C.white} strokeWidth={4} fill="none" opacity={0.8} />
-      <g transform="translate(1380, 770) scale(0.3)"><Switch pose="proud" mouth={mouthAt(g, "switch")} blink={blink(g, 3)} /></g>
+      {MENUS.map(([title, link], i) => {
+        const [x, y] = cell(i);
+        const managed = link === "managed for you";
+        return (
+          <g key={title} transform={`translate(${x}, ${y})`}>
+            <rect width={CW} height={CH} rx={10} fill={C.white} stroke={C.ink} strokeWidth={lw(4)} />
+            <rect width={CW} height={38} rx={10} fill={managed ? C.creamShade : C.teal} stroke={C.ink} strokeWidth={lw(4)} />
+            <text x={14} y={28} fontFamily={SANS} fontWeight={600} fontSize={25} fill={managed ? C.ink : C.white}>{title}</text>
+            {[0, 1].map((r) => <rect key={r} x={14} y={52 + r * 22} width={CW - 90 - r * 40} height={10} rx={4} fill={C.creamShade} />)}
+            {managed
+              ? <text x={14} y={108} fontFamily={SANS} fontStyle="italic" fontSize={16} fill={C.inkSoft}>This setting is managed for you</text>
+              : <text x={CW - 12} y={108} textAnchor="end" fontFamily={SANS} fontWeight={600} fontSize={19} fill={C.teal}>{link}</text>}
+            {!managed && <g transform={`translate(${CW - 30}, 62)`}><rect width={22} height={22} rx={4} fill={C.avocado} stroke={C.ink} strokeWidth={lw(2.5)} /></g>}
+          </g>
+        );
+      })}
+      {/* arrows between windows that loop: More → Back → Settings → More */}
+      <g stroke={C.white} strokeWidth={4} fill="none" opacity={0.75} strokeDasharray="10 8">
+        <path d={`M${cell(0)[0] + CW},${cell(0)[1] + CH * 0.8} q35,20 70,0`} />
+        <path d={`M${cell(2)[0] + CW / 2},${cell(2)[1] + CH} q-40,40 -${CW + GX},${GY + 10}`} />
+        <path d={`M${cell(6)[0]},${cell(6)[1] + CH / 2} q-200,-180 -${2 * (CW + GX) - 40},-${CH + GY}`} />
+      </g>
+      {/* the trail and the kid, cookie stuck to his hand */}
+      {trail.map(([x, y], k) => k % 2 === 0 && <circle key={k} cx={x} cy={y} r={4} fill={C.white} opacity={0.6} />)}
+      <g transform={`translate(${kx}, ${ky - 60}) scale(0.42)`}><Kid seed={1} look={[Math.sin(f / 9), 0]} mouth={f % 50 < 25 ? "E" : "X"} /></g>
+      <circle cx={kx + 34} cy={ky - 6} r={16} fill={C.mustard} stroke={C.ink} strokeWidth={lw(3)} />
+      {/* EXIT?, greyed out, its arrow pointing back to the start */}
+      <g transform={`translate(${MX + 3 * (CW + GX) + 30}, ${MY + 3 * (CH + GY) + 10})`}>
+        <rect x={-60} y={-40} width={190} height={70} rx={8} fill={C.creamShade} stroke={C.ink} strokeWidth={lw(4)} opacity={0.75} />
+        <text x={35} y={10} textAnchor="middle" fontFamily={BUBBLE} fontSize={40} fill={C.inkSoft}>EXIT?</text>
+        <path d="M-70,0 q-120,30 -260,0" stroke={C.white} strokeWidth={4} fill="none" opacity={0.75} />
+        <path d="M-330,0 l16,-10 M-330,0 l16,10" stroke={C.white} strokeWidth={4} opacity={0.75} />
+      </g>
+      <g transform="translate(1380, 770) scale(0.28)"><Switch pose="proud" mouth={mouthAt(g, "switch")} blink={blink(g, 3)} /></g>
     </Board>
   );
 };
 
-// S21: "And 'default' is the setting that they picked…": the kid sits down to a plate already piled with broccoli
-// S22: "…they'll say you picked the same.": a rubber stamp slams "YOU CHOSE THIS" onto the plate
-const Plate: React.FC<{ f: number; g: number; stamp?: boolean }> = ({ f, g, stamp }) => {
-  const s = stamp ? ez(f, 4, 10) * (1 - ez(f, 18, 30)) : 0; // down hard, then lifted away
-  const printed = stamp && f >= 10;
+// S21: "And 'default' is the setting that they picked…": a lunch tray glides in by itself, a plate already piled with
+// steaming broccoli, a CHEF'S PICK flag, a milk carton, a spoon, and a tag whose checkbox is already ticked
+// ("pre-selected"); the kid scoots in on a chair, looks it over and frowns
+// S22: "…they'll say you picked the same.": the kid pushes the tray away, it slides right back, the stamp slams down
+// YOU CHOSE THIS on the plate (the frame shakes, ink flecks), and the kid slumps
+const Tray: React.FC<{ f: number }> = ({ f }) => (
+  <g>
+    <rect x={-330} y={-40} width={660} height={130} rx={18} fill={C.orange} stroke={C.ink} strokeWidth={lw(6)} />
+    <rect x={-310} y={-26} width={620} height={102} rx={12} {...PEN} />
+    {/* the plate and its broccoli, with steam */}
+    <ellipse cx={-40} cy={20} rx={190} ry={46} fill={C.white} stroke={C.ink} strokeWidth={lw(5)} />
+    <ellipse cx={-40} cy={20} rx={150} ry={32} {...PEN} opacity={0.5} />
+    {Array.from({ length: 11 }, (_, i) => {
+      const bx = -170 + (i % 6) * 50 + (i > 5 ? 25 : 0), by = i > 5 ? -46 : -14;
+      return <g key={i} transform={`translate(${bx}, ${by})`}>
+        <rect x={-8} y={4} width={16} height={34} rx={6} fill="#a8c46a" stroke={C.ink} strokeWidth={lw(3)} />
+        {[[-16, 0], [0, -10], [16, 0], [-6, 6], [8, 6]].map(([x, y], k) => <circle key={k} cx={x} cy={y} r={16} fill={C.avocado} stroke={C.ink} strokeWidth={lw(3)} />)}
+        <path d="M-8,-4 q4,-4 8,0" {...PEN} opacity={0.6} />
+      </g>;
+    })}
+    {[0, 1, 2].map((k) => <path key={k} d={`M${-120 + k * 70},-80 q-14,-24 0,-44 q14,-20 0,-40`} fill="none" stroke={C.white} strokeWidth={5} opacity={0.4 + 0.3 * Math.sin(f / 7 + k)} />)}
+    {/* the flag */}
+    <line x1={40} y1={-50} x2={40} y2={-150} stroke={C.ink} strokeWidth={4} />
+    <path d="M40,-150 L150,-130 L40,-110 Z" fill={C.red} stroke={C.ink} strokeWidth={lw(3)} />
+    <text x={48} y={-124} fontFamily={SANS} fontWeight={600} fontSize={15} fill={C.white}>CHEF'S PICK</text>
+    {/* milk carton and spoon */}
+    <g transform="translate(240, -30)">
+      <path d="M-34,-80 L34,-80 L34,40 L-34,40 Z" fill={C.white} stroke={C.ink} strokeWidth={lw(4)} />
+      <path d="M-34,-80 L0,-112 L34,-80 Z" fill={C.teal} stroke={C.ink} strokeWidth={lw(4)} />
+      <text x={0} y={-30} textAnchor="middle" fontFamily={BUBBLE} fontSize={22} fill={C.teal}>MILK</text>
+    </g>
+    <g transform="translate(-260, 40) rotate(-20)"><ellipse rx={24} ry={14} fill={C.sleeve} stroke={C.ink} strokeWidth={lw(3)} /><rect x={18} y={-5} width={90} height={10} rx={5} fill={C.sleeve} stroke={C.ink} strokeWidth={lw(3)} /></g>
+    {/* the tag: the box is already ticked */}
+    <g transform="translate(140, 70) rotate(6)">
+      <line x1={-40} y1={-30} x2={0} y2={0} stroke={C.ink} strokeWidth={2} />
+      <rect x={0} y={-6} width={190} height={56} rx={6} fill={C.cream} stroke={C.ink} strokeWidth={lw(3)} />
+      <rect x={12} y={8} width={26} height={26} fill={C.white} stroke={C.ink} strokeWidth={lw(3)} />
+      <path d="M16,20 l8,9 l14,-20" stroke={C.red} strokeWidth={5} fill="none" strokeLinecap="round" />
+      <text x={48} y={30} fontFamily={SANS} fontWeight={600} fontSize={19} fill={C.ink}>pre-selected</text>
+    </g>
+  </g>
+);
+const DefaultScene: React.FC<{ f: number; g: number; len: number; stamp?: boolean }> = ({ f, g, len, stamp }) => {
+  // S21: the tray glides in, the kid scoots in; S22: push away and back, then the stamp
+  const trayIn = stamp ? 1 : ez(f, 0, 22);
+  const push = stamp ? ez(f, 0, 6) * (1 - ez(f, 8, 14)) : 0;
+  const kidIn = stamp ? 1 : ez(f, 12, 30);
+  const st0 = stamp ? Math.max(16, len * 0.45) : 1e9;
+  const s = ez(f, st0, st0 + 6) * (1 - ez(f, st0 + 14, st0 + 26));
+  const printed = f >= st0 + 6;
+  const shake = printed ? Math.sin(f * 3) * 8 * bump(f, st0 + 7, 8) : 0;
+  const slump = printed ? ez(f, st0 + 10, st0 + 24) : 0;
   return (
     <Board word="DEFAULT" g={g} f={stamp ? 99 : f}>
-      <g transform={`translate(${stamp ? Math.sin(f * 3) * 8 * bump(f, 10, 8) : 0}, 0)`}>
-      <g transform="translate(900, 460)"><Kid seed={1} mouth={stamp ? "E" : "X"} look={[0, 1]} /></g>
-      <g transform="translate(560, 730) rotate(-10)"><rect x={-20} y={-90} width={40} height={180} rx={8} fill={C.cream} stroke={C.ink} strokeWidth={lw(4)} />{[-12, 0, 12].map((x) => <line key={x} x1={x} y1={-90} x2={x} y2={-140} stroke={C.ink} strokeWidth={lw(6)} />)}</g>
-      <path d="M1180,700 l120,-20 l20,110 l-120,20 Z" fill={C.red} stroke={C.ink} strokeWidth={lw(4)} opacity={0.85} />
-      <g transform="translate(900, 720)">
-        <ellipse rx={300} ry={70} fill={C.white} stroke={C.ink} strokeWidth={lw(7)} />
-        {Array.from({ length: 9 }, (_, i) => <circle key={i} cx={-160 + i * 40} cy={-30 - (i % 3) * 22} r={34} fill={C.avocado} stroke={C.ink} strokeWidth={lw(5)} />)}
-      </g>
-      {stamp && (
-        <g transform={`translate(900, ${300 + s * 400})`}>
-          <rect x={-40} y={-200} width={80} height={140} rx={20} fill={C.cardigan} stroke={C.ink} strokeWidth={lw(6)} />
-          <rect x={-150} y={-60} width={300} height={70} rx={10} fill={C.red} stroke={C.ink} strokeWidth={lw(6)} />
+      <g transform={`translate(${shake}, 0)`}>
+        {/* the kid on a chair, scooting in from the left */}
+        <g transform={`translate(${380 + kidIn * 260}, ${470 + slump * 30})`}>
+          <rect x={-90} y={150} width={180} height={30} rx={8} fill={C.cardigan} stroke={C.ink} strokeWidth={lw(5)} />
+          {[-70, 70].map((x) => <line key={x} x1={x} y1={180} x2={x} y2={330} stroke={C.ink} strokeWidth={8} />)}
+          <rect x={-90} y={-20} width={24} height={180} rx={8} fill={C.cardigan} stroke={C.ink} strokeWidth={lw(5)} />
+          <g transform={`rotate(${slump * -6})`}><Kid seed={1} mouth={printed ? "E" : f > 34 ? "A" : "X"} look={[0.6, 0.8]} /></g>
+          {!stamp && f > 34 && <text x={60} y={-90} fontFamily={BUBBLE} fontSize={70} fill={C.white} opacity={0.9}>?</text>}
+          {printed && <g transform="translate(-20, -110)" opacity={1 - ez(f, st0 + 30, st0 + 40)}>{[0, 1, 2].map((k) => <circle key={k} cx={-k * 26} cy={-k * 8} r={12 + k * 4} fill={C.white} stroke={C.ink} strokeWidth={lw(3)} />)}</g>}
         </g>
-      )}
-      {printed && <text x={900} y={745} textAnchor="middle" fontFamily={BUBBLE} fontSize={54} fill={C.red} transform="rotate(-6, 900, 745)" opacity={0.92}>YOU CHOSE THIS</text>}
-      {printed && [[640, 700], [1160, 720], [700, 790], [1120, 790], [980, 680]].map(([x, y], i) => <circle key={i} cx={x} cy={y} r={6 + (i % 3) * 3} fill={C.red} opacity={0.7} />)}
+        {/* the tray, gliding in from the right by itself */}
+        <g transform={`translate(${1060 + (1 - trayIn) * 700 + push * 300}, 700)`}><Tray f={f} /></g>
+        {stamp && (
+          <g transform={`translate(1020, ${300 + s * 360})`}>
+            <rect x={-40} y={-200} width={80} height={140} rx={20} fill={C.cardigan} stroke={C.ink} strokeWidth={lw(6)} />
+            <rect x={-150} y={-60} width={300} height={70} rx={10} fill={C.red} stroke={C.ink} strokeWidth={lw(6)} />
+          </g>
+        )}
+        {printed && <text x={1020} y={735} textAnchor="middle" fontFamily={BUBBLE} fontSize={50} fill={C.red} transform="rotate(-6, 1020, 735)" opacity={0.92}>YOU CHOSE THIS</text>}
+        {printed && [[800, 690], [1240, 700], [860, 770], [1200, 770], [1080, 660]].map(([x, y], i) => <circle key={i} cx={x} cy={y} r={6 + (i % 3) * 3} fill={C.red} opacity={0.7} />)}
       </g>
     </Board>
   );
 };
-export const S21: ShotC = ({ f, g }) => <Plate f={f} g={g} />;
-export const S22: ShotC = ({ f, g }) => <Plate f={f} g={g} stamp />;
+export const S21: ShotC = ({ f, g, len }) => <DefaultScene f={f} g={g} len={len} />;
+export const S22: ShotC = ({ f, g, len }) => <DefaultScene f={f} g={g} len={len} stamp />;
 
 // S23: "Got that? Opt-in, opt-out, default. There'll be a test.": the Narrator taps the three words; a stack of test
 // papers thuds onto the desk

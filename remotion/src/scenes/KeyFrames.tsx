@@ -85,7 +85,7 @@ export const S16: Scene = ({ f }) => {
             return (
               <>
                 <clipPath id="s16-peel"><path d={`M${-R},${-R} L${R},${-R} L${R},${c - R} L${c - R},${R} L${-R},${R} Z`} /></clipPath>
-                <g clipPath="url(#s16-peel)"><Switch pose="startled" mouth="E" look={[0.6, 0.6]} /></g>
+                <g clipPath="url(#s16-peel)"><Switch pose="startled" mouth="E" look={[0.6, 0.6]} flat /></g>
                 <path d={`M${fx},${fy - d} L${fx - d},${fy} L${fx - d + 14},${fy - d + 14} Z`} fill={C.ink} opacity={0.18} transform="translate(-10, -6)" />
                 <path d={`M${fx},${fy - d} L${fx - d},${fy} Q${fx - d * 0.92},${fy - d * 0.9} ${fx - d},${fy - d} Q${fx - d * 0.9},${fy - d * 0.92} ${fx},${fy - d} Z`}
                   fill={C.white} stroke={C.ink} strokeWidth={lw(6)} strokeLinejoin="round" />
@@ -220,7 +220,7 @@ export const S61: Scene = ({ f }) => {
         <g transform={`translate(${W / 2}, 540)`}>
           <Switch pose="sad" toggle={1} mouth="X" look={[-0.9, 0.1]} armL={30} armR={8} />
         </g>
-        <g transform="translate(-40, 520) rotate(4)"><Hand reach={reach} length={720} curl={curl} /></g>
+        <g transform={`translate(-40, ${540 + 48 + 24})`}><Hand reach={reach * (0.84 / 0.86)} length={W / 2 + 40} curl={curl} /></g>
       </Paper>
     </AbsoluteFill>
   );

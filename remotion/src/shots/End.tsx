@@ -13,35 +13,146 @@ import { S61 as S61Key } from "../scenes/KeyFrames";
 import { NarratorSet } from "./Intro";
 import { Living } from "./Lesson";
 import { Bookshelf, Clock, Floorboards, Grain, Wallpaper, Window } from "../components/sets";
-import { Lyric } from "./Chorus";
+import { FLIP_LEN, FLIP_Y, Lyric } from "./Chorus";
 import { Bg, ShotC, Stand, blink, bump, ez } from "./common";
 
-// S48: "Now the school's the place for learning…": a one-room schoolhouse at dusk, slow pan (Rhodes only): clapboard
-// siding and shingles in pen, a bell in the tower, a picket fence and a path, trees, glowing windows, the first stars,
-// a pair of birds heading home
-export const S48: ShotC = ({ f, len }) => (
-  <Bg id="s48" seed={48} base={C.orange}>
-    <Wash id="s48" color={C.night} opacity={0.55}><rect x={-40} y={-40} width={W + 80} height={520} /></Wash>
-    {[[220, 120], [520, 70], [1500, 90], [1760, 180], [980, 50]].map(([x, y], i) => <circle key={i} cx={x} cy={y} r={2 + (Math.sin(f / 9 + i) + 1) * 1.5} fill={C.cream} opacity={ez(f, i * 12, i * 12 + 30)} />)}
-    {[0, 1].map((k) => <path key={k} transform={`translate(${300 + f * 1.6 + k * 50}, ${220 - k * 20})`} d={`M0,0 q12,${-10 + Math.sin(f / 3 + k) * 6} 24,0 q12,${-10 + Math.sin(f / 3 + k) * 6} 24,0`} fill="none" stroke={C.ink} strokeWidth={2.4} />)}
-    <Wash id="s48" color={C.avocado} opacity={0.8}><path d="M-40,760 Q600,700 1100,740 Q1600,780 1960,720 L1960,1120 L-40,1120 Z" /></Wash>
-    {[180, 1640, 1820].map((x, i) => <g key={x} transform={`translate(${x - ez(f, 0, len) * 140}, 760)`}><rect x={-14} y={-160} width={28} height={160} fill={C.cardigan} stroke={C.ink} strokeWidth={lw(4)} /><circle cy={-220} r={110 - i * 20} fill="#5f7d3a" stroke={C.ink} strokeWidth={lw(5)} /><path d="M-60,-240 q20,-20 40,0 M10,-200 q20,-20 40,0 M-30,-170 q16,-14 32,0" {...PEN} /></g>)}
-    <g transform={`translate(${1100 - ez(f, 0, len) * 260}, 760)`}>
-      <rect x={-260} y={-300} width={520} height={300} fill={C.red} stroke={C.ink} strokeWidth={lw(8)} />
-      {Array.from({ length: 11 }, (_, i) => <line key={i} x1={-258} x2={258} y1={-278 + i * 26} y2={-278 + i * 26} {...PEN} opacity={0.6} />)}
-      <path d="M-300,-300 L0,-500 L300,-300 Z" fill={C.cardigan} stroke={C.ink} strokeWidth={lw(8)} strokeLinejoin="round" />
-      <path d="M-300,-300 L0,-500 L300,-300 Z" fill="url(#pen-cross)" opacity={0.5} />
-      <rect x={-40} y={-620} width={80} height={140} fill={C.cream} stroke={C.ink} strokeWidth={lw(6)} />
-      <path d="M-22,-560 q22,-30 44,0 l-6,20 h-32 Z" fill={C.mustard} stroke={C.ink} strokeWidth={lw(3)} />
-      <path d="M-40,-620 L0,-680 L40,-620 Z" fill={C.cardigan} stroke={C.ink} strokeWidth={lw(6)} />
-      <rect x={-50} y={-160} width={100} height={160} fill={C.cardiganShade} stroke={C.ink} strokeWidth={lw(6)} />
-      <Grain x={-46} y={-156} w={92} h={150} n={3} seed={2} vertical />
-      {[-170, 170].map((x) => <g key={x}><rect x={x - 50} y={-230} width={100} height={90} fill={C.mustard} stroke={C.ink} strokeWidth={lw(6)} /><path d={`M${x},-230 v90 M${x - 50},-185 h100`} stroke={C.ink} strokeWidth={lw(4)} /></g>)}
-      <path d="M-30,0 Q-60,120 -200,330 M30,0 Q60,120 140,330" stroke={C.ink} strokeWidth={lw(4)} fill="none" />
-      {Array.from({ length: 14 }, (_, i) => <g key={i} transform={`translate(${-640 + i * 46}, 40)`}><path d="M-8,0 v-50 l8,-12 l8,12 v50 Z" fill={C.cream} stroke={C.ink} strokeWidth={lw(3)} /></g>)}
-      <line x1={-660} x2={-20} y1={10} y2={10} stroke={C.ink} strokeWidth={lw(4)} />
+// S48: "Now the school's the place for learning…": a one-room schoolhouse at dusk, slow pan (Rhodes only), drawn in
+// full (the human's note, 2026-11-06: "the school exterior could use a lot more detail"): sky, moon, clouds and stars;
+// layered hills with tiny houses; the schoolhouse (chimney and smoke, scalloped shingles, belfry, bell and rope,
+// weathervane, clapboard, trim, porch, steps, railing, panelled double doors, fanlight, SCHOOL plaque, shuttered lit
+// windows with curtains and flower boxes, a stone foundation); the yard (picket fence and gate, stone path, flagpole
+// with a plain pennant, bike rack and bicycle, a tree with a tire swing, a mailbox, shrubs, grass)
+const Shrub: React.FC<{ x: number; y: number; s?: number }> = ({ x, y, s = 1 }) => (
+  <g transform={`translate(${x}, ${y}) scale(${s})`}>
+    <path d="M-60,0 q-10,-40 20,-50 q10,-30 40,-14 q30,-20 46,10 q30,4 14,54 Z" fill="#5f7d3a" stroke={C.ink} strokeWidth={lw(4)} />
+    <path d="M-30,-20 q8,-8 16,0 M6,-34 q8,-8 16,0 M20,-10 q8,-8 16,0" {...PEN} />
+  </g>
+);
+const Schoolhouse: React.FC<{ f: number }> = ({ f }) => (
+  <g>
+    {/* chimney and smoke */}
+    <rect x={150} y={-560} width={60} height={140} fill={C.red} stroke={C.ink} strokeWidth={lw(5)} />
+    {Array.from({ length: 6 }, (_, i) => <line key={i} x1={150} x2={210} y1={-540 + i * 22} y2={-540 + i * 22} {...PEN} opacity={0.6} />)}
+    {[0, 1, 2].map((k) => { const t = ((f + k * 30) % 90) / 90; return <circle key={k} cx={180 + t * 60} cy={-580 - t * 140} r={18 + t * 26} fill={C.cream} stroke={C.ink} strokeWidth={1.5} opacity={0.6 * (1 - t)} />; })}
+    {/* roof: scalloped shingles in rows */}
+    <path d="M-340,-300 L0,-520 L340,-300 Z" fill={C.cardigan} stroke={C.ink} strokeWidth={lw(8)} strokeLinejoin="round" />
+    <clipPath id="roof-clip"><path d="M-340,-300 L0,-520 L340,-300 Z" /></clipPath>
+    <g clipPath="url(#roof-clip)">
+      {Array.from({ length: 8 }, (_, r) => Array.from({ length: 24 }, (_, i) => (
+        <path key={`${r}${i}`} d={`M${-360 + i * 32 + (r % 2) * 16},${-500 + r * 28} q16,20 32,0`} {...PEN} opacity={0.7} />
+      )))}
     </g>
-  </Bg>
+    {/* belfry, bell, rope, weathervane */}
+    <rect x={-46} y={-640} width={92} height={130} fill={C.cream} stroke={C.ink} strokeWidth={lw(6)} />
+    <path d="M-30,-640 v-0 q30,-30 60,0 v70 h-60 Z" fill="#3a3466" stroke={C.ink} strokeWidth={lw(4)} />
+    <path d={`M-18,-600 q18,-30 36,0 l4,14 h-44 Z`} fill={C.mustard} stroke={C.ink} strokeWidth={lw(3)} transform={`rotate(${Math.sin(f / 12) * 6}, 0, -620)`} />
+    <path d="M-60,-640 L0,-700 L60,-640 Z" fill={C.cardigan} stroke={C.ink} strokeWidth={lw(6)} />
+    <line x1={0} y1={-700} x2={0} y2={-770} stroke={C.ink} strokeWidth={4} />
+    <path d="M-34,-760 h60 l-10,-8 M26,-760 l-10,8 M-34,-760 l-10,-6 v12 Z" stroke={C.ink} strokeWidth={3} fill={C.ink} />
+    {/* walls: clapboard and corner trim */}
+    <rect x={-300} y={-300} width={600} height={300} fill={C.red} stroke={C.ink} strokeWidth={lw(8)} />
+    {Array.from({ length: 13 }, (_, i) => <line key={i} x1={-296} x2={296} y1={-280 + i * 22} y2={-280 + i * 22} {...PEN} opacity={0.55} />)}
+    {[-300, 282].map((x) => <rect key={x} x={x} y={-300} width={18} height={300} fill={C.cream} stroke={C.ink} strokeWidth={lw(3)} />)}
+    {/* windows: shutters, mullions, warm light, curtains, flower boxes */}
+    {[-215, 215].map((x) => (
+      <g key={x} transform={`translate(${x}, -170)`}>
+        <rect x={-92} y={-62} width={24} height={124} fill={C.teal} stroke={C.ink} strokeWidth={lw(3)} />
+        <rect x={68} y={-62} width={24} height={124} fill={C.teal} stroke={C.ink} strokeWidth={lw(3)} />
+        {[-50, -10, 30].map((y) => <line key={y} x1={-88} x2={-72} y1={y} y2={y} {...PEN} />)}
+        <rect x={-62} y={-62} width={124} height={124} fill="#f7d27a" stroke={C.ink} strokeWidth={lw(5)} />
+        <path d="M-62,-62 q20,60 0,124 M62,-62 q-20,60 0,124" fill="#f2a65a" stroke={C.ink} strokeWidth={lw(2.5)} />
+        <path d="M0,-62 v124 M-62,0 h124" stroke={C.ink} strokeWidth={lw(4)} />
+        <rect x={-70} y={62} width={140} height={22} fill={C.cardigan} stroke={C.ink} strokeWidth={lw(3)} />
+        {[-50, -20, 10, 40].map((fx, k) => <circle key={fx} cx={fx} cy={58} r={9} fill={[C.red, C.mustard, C.orange, C.red][k]} stroke={C.ink} strokeWidth={lw(2)} />)}
+      </g>
+    ))}
+    {/* porch: roof, posts, steps, railing; double doors with a fanlight; the plaque */}
+    <path d="M-120,-200 L0,-262 L120,-200 Z" fill={C.cardigan} stroke={C.ink} strokeWidth={lw(5)} />
+    <text x={0} y={-215} textAnchor="middle" fontFamily={SANS} fontWeight={600} fontSize={22} fill={C.cream}>SCHOOL</text>
+    {[-104, 92].map((x) => <rect key={x} x={x} y={-200} width={12} height={200} fill={C.cream} stroke={C.ink} strokeWidth={lw(3)} />)}
+    <path d="M-60,-150 a60,40 0 0 1 120,0 Z" fill="#f7d27a" stroke={C.ink} strokeWidth={lw(4)} />
+    {[-30, 0, 30].map((x) => <line key={x} x1={0} y1={-150} x2={x * 2} y2={-184} {...PEN} />)}
+    {[-1, 1].map((k) => <g key={k}><rect x={k < 0 ? -60 : 0} y={-150} width={60} height={150} fill={C.cardiganShade} stroke={C.ink} strokeWidth={lw(4)} />
+      <rect x={(k < 0 ? -60 : 0) + 12} y={-136} width={36} height={56} {...PEN} /><rect x={(k < 0 ? -60 : 0) + 12} y={-68} width={36} height={56} {...PEN} />
+      <circle cx={k * 8} cy={-74} r={5} fill={C.mustard} stroke={C.ink} strokeWidth={lw(2)} /></g>)}
+    {[0, 1, 2].map((k) => <rect key={k} x={-90 - k * 14} y={k * 18} width={180 + k * 28} height={18} fill={C.sleeve} stroke={C.ink} strokeWidth={lw(3)} />)}
+    {[-150, 150].map((x) => <g key={x}><line x1={x} y1={-60} x2={x} y2={0} stroke={C.cream} strokeWidth={8} />{[0, 1, 2, 3].map((k) => <line key={k} x1={x + (x < 0 ? 10 + k * 12 : -10 - k * 12)} y1={-56} x2={x + (x < 0 ? 10 + k * 12 : -10 - k * 12)} y2={0} stroke={C.cream} strokeWidth={4} />)}<line x1={x} y1={-60} x2={x < 0 ? -104 : 104} y2={-60} stroke={C.cream} strokeWidth={8} /></g>)}
+    {/* stone foundation */}
+    <rect x={-320} y={0} width={640} height={36} fill={C.sleeve} stroke={C.ink} strokeWidth={lw(4)} />
+    {Array.from({ length: 12 }, (_, i) => <line key={i} x1={-300 + i * 54} y1={0} x2={-296 + i * 54} y2={36} {...PEN} />)}
+  </g>
+);
+export const S48: ShotC = ({ f, len }) => {
+  const pan = ez(f, 0, len);
+  return (
+    <Bg id="s48" seed={48} base={C.orange}>
+      <Wash id="s48" color={C.night} opacity={0.55}><rect x={-40} y={-40} width={W + 80} height={440} /></Wash>
+      <Wash id="s48" color="#f2a65a" opacity={0.5}><rect x={-40} y={380} width={W + 80} height={240} /></Wash>
+      <circle cx={1660 - pan * 40} cy={190 - pan * 30} r={56} fill={C.cream} stroke={C.ink} strokeWidth={lw(4)} />
+      {[[230, 110], [520, 60], [980, 40], [1380, 120], [760, 150]].map(([x, y], i) => (
+        <path key={i} transform={`translate(${x}, ${y}) scale(${0.5 + 0.5 * ez(f, i * 10, i * 10 + 30)})`} d="M0,-10 L3,-3 L10,0 L3,3 L0,10 L-3,3 L-10,0 L-3,-3 Z" fill={C.cream} />
+      ))}
+      {[[400, 260], [1180, 220]].map(([x, y], i) => (
+        <g key={i} transform={`translate(${x + f * (0.3 + i * 0.2)}, ${y})`}>
+          <path d="M-120,0 q0,-40 40,-40 q10,-40 60,-30 q30,-30 70,0 q50,-6 50,40 Z" fill="#e8b8a8" stroke={C.ink} strokeWidth={lw(3)} opacity={0.85} />
+        </g>
+      ))}
+      {[0, 1].map((k) => <path key={k} transform={`translate(${300 + f * 1.6 + k * 50}, ${300 - k * 20})`} d={`M0,0 q12,${-10 + Math.sin(f / 3 + k) * 6} 24,0 q12,${-10 + Math.sin(f / 3 + k) * 6} 24,0`} fill="none" stroke={C.ink} strokeWidth={2.4} />)}
+      <g transform={`translate(${-pan * 200}, 0)`}>
+        {/* far hills and their tiny houses */}
+        <Wash id="s48" color="#8aa86a" opacity={0.8}><path d="M-40,620 Q300,520 700,580 Q1100,520 1500,590 Q1900,540 2300,600 L2300,800 L-40,800 Z" /></Wash>
+        {[[340, 560], [1300, 556], [1900, 572]].map(([x, y], i) => <g key={i} transform={`translate(${x}, ${y})`}><rect x={-14} y={-14} width={28} height={18} fill={C.cream} stroke={C.ink} strokeWidth={lw(2)} /><path d="M-18,-14 L0,-28 L18,-14 Z" fill={C.red} stroke={C.ink} strokeWidth={lw(2)} /><rect x={-4} y={-8} width={8} height={8} fill="#f7d27a" /></g>)}
+        <Wash id="s48" color={C.avocado} opacity={0.9}><path d="M-40,760 Q600,700 1100,740 Q1600,780 2300,720 L2300,1120 L-40,1120 Z" /></Wash>
+        {Array.from({ length: 30 }, (_, i) => <path key={i} d={`M${60 + i * 74},${840 + (i % 4) * 40} l6,-14 l6,14 l6,-12`} {...PEN} opacity={0.6} />)}
+        {/* the tree with a tire swing, left */}
+        <g transform="translate(330, 800)">
+          <path d="M-20,0 L-14,-260 L14,-260 L20,0 Z" fill={C.cardigan} stroke={C.ink} strokeWidth={lw(5)} />
+          <path d="M-14,-200 q-60,-20 -110,-60" stroke={C.cardigan} strokeWidth={18} fill="none" strokeLinecap="round" />
+          <circle cx={-10} cy={-330} r={150} fill="#5f7d3a" stroke={C.ink} strokeWidth={lw(5)} />
+          {[[-80, -380], [20, -420], [60, -320], [-60, -280], [-10, -350]].map(([x, y], i) => <path key={i} d={`M${x},${y} q14,-14 28,0`} {...PEN} />)}
+          <line x1={-110} y1={-258} x2={-110} y2={-90} stroke={C.ink} strokeWidth={3} />
+          <ellipse cx={-110} cy={-70} rx={34} ry={22} fill="none" stroke={C.ink} strokeWidth={14} transform={`rotate(${Math.sin(f / 15) * 6}, -110, -258)`} />
+        </g>
+        {/* flagpole with a plain pennant */}
+        <g transform="translate(560, 800)">
+          <line x1={0} y1={0} x2={0} y2={-420} stroke={C.sleeve} strokeWidth={8} />
+          <circle cx={0} cy={-424} r={8} fill={C.mustard} stroke={C.ink} strokeWidth={lw(2)} />
+          <path d={`M4,-414 Q60,${-404 + Math.sin(f / 6) * 8} 120,-390 Q60,${-376 + Math.sin(f / 6) * 8} 4,-366 Z`} fill={C.teal} stroke={C.ink} strokeWidth={lw(3)} />
+        </g>
+        {/* the schoolhouse */}
+        <g transform="translate(1180, 800)"><Schoolhouse f={f} /></g>
+        <Shrub x={820} y={800} s={1.1} /><Shrub x={1540} y={800} /><Shrub x={1600} y={808} s={0.8} />
+        {/* stone path and the picket fence with its gate */}
+        {Array.from({ length: 7 }, (_, i) => <ellipse key={i} cx={1180 + Math.sin(i) * 18} cy={860 + i * 34} rx={40 - i * 1} ry={12} fill={C.sleeve} stroke={C.ink} strokeWidth={lw(2.5)} />)}
+        {Array.from({ length: 34 }, (_, i) => {
+          const x = 700 + i * 30; if (x > 1140 && x < 1220) return null;
+          return <path key={i} d={`M${x - 8},902 v-56 l8,-12 l8,12 v56 Z`} fill={C.cream} stroke={C.ink} strokeWidth={lw(2.5)} />;
+        })}
+        <line x1={690} x2={1140} y1={866} y2={866} stroke={C.ink} strokeWidth={3} /><line x1={1220} x2={1720} y1={866} y2={866} stroke={C.ink} strokeWidth={3} />
+        <g transform="translate(1140, 902) rotate(-28)"><rect x={0} y={-60} width={60} height={60} fill="none" stroke={C.cream} strokeWidth={6} /><line x1={0} y1={-60} x2={60} y2={0} stroke={C.cream} strokeWidth={5} /></g>
+        {/* bike rack and bicycle, mailbox */}
+        <g transform="translate(1660, 900)">
+          {[0, 1, 2].map((k) => <path key={k} d={`M${k * 40},0 v-40 q16,-20 32,0 v40`} stroke={C.sleeve} strokeWidth={6} fill="none" />)}
+          <circle cx={-10} cy={-24} r={26} fill="none" stroke={C.ink} strokeWidth={4} /><circle cx={70} cy={-24} r={26} fill="none" stroke={C.ink} strokeWidth={4} />
+          <path d="M-10,-24 L20,-62 L56,-62 L70,-24 M20,-62 L40,-24 L-10,-24 M56,-62 L50,-78 h16 M20,-62 l-6,-12 h-14" stroke={C.red} strokeWidth={5} fill="none" strokeLinejoin="round" />
+        </g>
+        <g transform="translate(1930, 900)"><line x1={0} y1={0} x2={0} y2={-80} stroke={C.cardigan} strokeWidth={8} /><path d="M-30,-80 h50 a20,20 0 0 1 20,20 v20 h-70 Z" fill={C.teal} stroke={C.ink} strokeWidth={lw(3)} /><rect x={30} y={-100} width={6} height={30} fill={C.red} /></g>
+      </g>
+    </Bg>
+  );
+};
+
+// the school's note: ruled paper with a red margin line; the handwriting fits the sheet and sits on the rules (the
+// human's note, 2026-11-06: it overflowed and floated between the lines)
+const Note: React.FC = () => (
+  <g>
+    <rect x={-320} y={-200} width={640} height={300} fill={C.white} stroke={C.ink} strokeWidth={lw(6)} />
+    {[-110, -34, 42].map((y) => <line key={y} x1={-310} x2={310} y1={y} y2={y} stroke={C.teal} strokeWidth={2} opacity={0.45} />)}
+    <line x1={-260} x2={-260} y1={-196} y2={96} stroke={C.red} strokeWidth={2} opacity={0.5} />
+    <text x={-246} y={-114} fontFamily={SANS} fontStyle="italic" fontSize={58} fill={C.inkSoft} textLength={430} lengthAdjust="spacingAndGlyphs">No AI, please.</text>
+    <text x={-246} y={-38} fontFamily={SANS} fontStyle="italic" fontSize={40} fill={C.inkSoft} textLength={500} lengthAdjust="spacingAndGlyphs">Thank you! — the school</text>
+    <path d="M150,30 q20,-20 40,0 q20,20 40,0" {...PEN} />
+  </g>
 );
 
 // S49: "So the school said, 'No AI, please'…": a teacher's desk at dusk with a polite handwritten note on it, an ink
@@ -54,13 +165,7 @@ export const S49: ShotC = ({ g }) => (
     <g transform="translate(1180, 120)"><Clock t={(16 * 60 + 52) * 60 + g / 30} r={50} /></g>
     <rect x={0} y={640} width={W} height={440} fill={C.cardigan} stroke={C.ink} strokeWidth={lw(8)} />
     <Grain x={0} y={650} w={W} h={420} n={7} seed={6} />
-    <g transform="translate(960, 640) rotate(-4)">
-      <rect x={-320} y={-200} width={640} height={300} fill={C.white} stroke={C.ink} strokeWidth={lw(6)} />
-      {[-120, -40, 40].map((y) => <line key={y} x1={-300} x2={300} y1={y} y2={y} stroke={C.teal} strokeWidth={2} opacity={0.4} />)}
-      <text x={-270} y={-90} fontFamily={SANS} fontStyle="italic" fontSize={72} fill={C.inkSoft}>No AI, please.</text>
-      <text x={-270} y={10} fontFamily={SANS} fontStyle="italic" fontSize={52} fill={C.inkSoft}>Thank you! — the school</text>
-      <path d="M140,40 q20,-20 40,0 q20,20 40,0" {...PEN} />
-    </g>
+    <g transform="translate(960, 640) rotate(-4)"><Note /></g>
     <g transform="translate(1500, 560)"><circle r={60} fill={C.red} stroke={C.ink} strokeWidth={lw(6)} /><path d="M0,-60 q10,-30 30,-30" stroke={C.ink} strokeWidth={lw(6)} fill="none" /><path d="M-30,-20 q10,-14 24,-10" stroke={C.white} strokeWidth={5} fill="none" opacity={0.6} /></g>
     <g transform="translate(420, 600)"><rect x={-40} y={-50} width={80} height={60} rx={10} fill={C.night} stroke={C.ink} strokeWidth={lw(5)} /><line x1={10} y1={-50} x2={50} y2={-150} stroke={C.ink} strokeWidth={6} /></g>
     {[0, 1, 2, 3].map((i) => <rect key={i} x={1600 - i * 4} y={600 - i * 24} width={220} height={24} fill={[C.teal, C.mustard, C.orange, C.red][i]} stroke={C.ink} strokeWidth={lw(4)} />)}
@@ -75,10 +180,7 @@ const Giant: React.FC<{ slide: number; boxes: string[] }> = ({ slide, boxes }) =
     <Wallpaper id="s50" kind="stripe" a={C.avocado} b={C.cream} opacity={0.18} />
     <rect x={0} y={640} width={W} height={440} fill={C.cardigan} stroke={C.ink} strokeWidth={lw(8)} />
     <Grain x={0} y={650} w={W} h={420} n={7} seed={6} />
-    <g transform="translate(400, 640) rotate(-6) scale(0.8)" opacity={0.9}>
-      <rect x={-320} y={-200} width={640} height={300} fill={C.white} stroke={C.ink} strokeWidth={lw(6)} />
-      <text x={-270} y={-90} fontFamily={SANS} fontStyle="italic" fontSize={72} fill={C.inkSoft}>No AI, please.</text>
-    </g>
+    <g transform="translate(400, 640) rotate(-6) scale(0.8)" opacity={0.9}><Note /></g>
     <g transform={`translate(${1500 - slide * 560}, 640) rotate(-3)`}><g transform="scale(0.9)"><Contract boxes={boxes} /></g></g>
     <g transform={`translate(${2400 - slide * 560}, 560)`}>
       <rect x={-200} y={-120} width={1200} height={240} fill="#3b3f52" stroke={C.ink} strokeWidth={lw(8)} />
@@ -272,7 +374,7 @@ export const S57c: ShotC = ({ f, g, len }) => {
       {[260, 1660].map((x, i) => <g key={x} transform={`translate(${x}, 560) scale(1.1)`} opacity={0.85}><Kid seed={8 + i} mouth={mouthAt(g + i * 3, "narrator")} /></g>)}
       <g transform="translate(960, 520) scale(1.25)">
         <clipPath id="s57c-peel"><path d={`M-600,-600 L600,-600 L600,${fx + fy - d - 600} L${fx + fy - d - 600},600 L-600,600 Z`} /></clipPath>
-        <g clipPath="url(#s57c-peel)"><Switch pose={lift > 0.3 ? "startled" : "neutral"} mouth={mouthAt(g, "narrator")} armR={lift > 0.5 ? 60 : 25} look={lift > 0.3 ? [0.6, 0.7] : [0, 0]} blink={blink(g, 11)} /></g>
+        <g clipPath="url(#s57c-peel)"><Switch pose={lift > 0.3 ? "startled" : "neutral"} mouth={mouthAt(g, "narrator")} armR={lift > 0.5 ? 60 : 25} look={lift > 0.3 ? [0.6, 0.7] : [0, 0]} blink={blink(g, 11)} flat /></g>
         <path d={`M${fx},${fy - d} L${fx - d},${fy} L${fx - d},${fy - d} Z`} fill={C.white} stroke={C.ink} strokeWidth={lw(5)} strokeLinejoin="round" />
       </g>
       <Lyric id="L64" f={f} g={g} y={1030} size={58} />
@@ -329,7 +431,7 @@ export const S60: ShotC = ({ f, g }) => {
   return (
     <Alone>
       <g transform={`translate(${W / 2}, 540)`}><Switch pose={pressed ? "relaxed" : "sad"} toggle={pressed ? 0 : 1} armL={pressed ? 70 : 20} armR={pressed ? 70 : 20} /></g>
-      {k >= 3 && <g transform="translate(-40, 520) rotate(4)"><Hand reach={ez(f, clicks[2], clicks[2] + 8) * 0.86} length={720} /></g>}
+      {k >= 3 && <g transform={`translate(-40, ${FLIP_Y})`}><Hand reach={ez(f, clicks[2], clicks[2] + 8) * 0.84} length={FLIP_LEN} /></g>}
     </Alone>
   );
 };

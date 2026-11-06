@@ -157,7 +157,8 @@ export const Rug: React.FC<{ w?: number; color?: string }> = ({ w = 900, color =
 export const Pennant: React.FC<{ text: string; color?: string }> = ({ text, color = C.teal }) => (
   <g>
     <path d="M0,0 L320,50 L0,100 Z" fill={color} {...ink} />
-    <text x={30} y={62} fontFamily={BUBBLE} fontSize={32} fill={C.cream} transform="rotate(4, 30, 62)">{text}</text>
+    {/* on the pennant's centre line, small enough to stay inside the taper */}
+    <text x={24} y={59} fontFamily={BUBBLE} fontSize={27} fill={C.cream} textLength={Math.min(170, text.length * 24)} lengthAdjust="spacingAndGlyphs">{text}</text>
   </g>
 );
 

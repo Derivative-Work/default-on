@@ -4,7 +4,7 @@ import { BUBBLE, SANS } from "../theme/fonts";
 import { Caption, Door, Phone, PriceTag } from "../components/props";
 import { Narrator } from "../rigs/Narrator";
 import { Switch } from "../rigs/Switch";
-import { C, W, lw } from "../theme/palette";
+import { C, PEN, W, lw } from "../theme/palette";
 import { mouthAt } from "../timing";
 import { Floorboards, Grain, breath } from "../components/sets";
 import { Bg, ShotC, blink, bump, ez } from "./common";
@@ -196,21 +196,62 @@ export const S45: ShotC = ({ f, g, len }) => {
   );
 };
 
-// S46: "In Australia, office software went up forty-five percent…": a map card of Australia; a price tag inflates like
-// a balloon to "+45%". Caption: "Microsoft 365 Personal. Alleged by Australia's ACCC."
+// S46: "In Australia, office software went up forty-five percent…": a map card of Australia (a hand-drawn outline:
+// Cape York, Arnhem Land, the Gulf, the Bight, Tasmania; ocean with wave lines; a compass rose; the name); on the east
+// coast a generic boxed office suite (no logo), whose price tag is a balloon on a string that swells to "+45%" and
+// tugs the box off the map. Caption: "Microsoft 365 Personal. Alleged by Australia's ACCC."
+const OZ: [number, number][] = [
+  [0.05, 0.36], [0.14, 0.26], [0.27, 0.19], [0.34, 0.09], [0.42, 0.13], [0.47, 0.05], [0.55, 0.09], [0.59, 0.02], [0.65, 0.11],
+  [0.70, 0.10], [0.72, 0.30], [0.76, 0.24], [0.78, 0.0], [0.82, 0.12], [0.86, 0.30], [0.92, 0.40], [0.97, 0.55], [0.98, 0.68],
+  [0.93, 0.80], [0.85, 0.88], [0.78, 0.85], [0.70, 0.79], [0.66, 0.71], [0.62, 0.76], [0.58, 0.71], [0.52, 0.67], [0.40, 0.65],
+  [0.30, 0.70], [0.18, 0.78], [0.08, 0.75], [0.03, 0.64], [0.01, 0.48],
+];
+const ozPath = (w: number, h: number) => OZ.map(([x, y], i) => `${i ? "L" : "M"}${(x - 0.5) * w},${(y - 0.45) * h}`).join(" ") + " Z";
 export const S46: ShotC = ({ f, len }) => {
-  const inflate = ez(f, len * 0.3, len * 0.85);
+  const inflate = ez(f, len * 0.25, len * 0.8);
+  const lift = ez(f, len * 0.75, len);
+  const MW = 560, MH = 470; // the continent's drawing box
+  const CX = 1000, CY = 560; // the map card's centre, clear of the Q3 card
+  const bx = CX + 60 + (0.9 - 0.5) * MW * 0.95, by = CY + 30 + (0.62 - 0.45) * MH * 0.95; // the box sits on the east coast
+  const r = 50 + inflate * 90; // the balloon tag's radius
+  const tx = 1310, ty = 420 - inflate * 60 - lift * 40;
   return (
     <QuizScreen f={f} q="Q3">
-      <g transform="translate(700, 540) scale(0.85)">
-        <rect x={-380} y={-330} width={760} height={600} rx={20} fill={C.paper} stroke={C.ink} strokeWidth={lw(7)} />
-        {/* a hand-drawn continent outline: a simple blob, not a traced map */}
-        <path d="M-260,-60 Q-250,-170 -120,-190 Q-40,-260 40,-200 Q120,-230 170,-150 Q260,-120 270,-10 Q300,90 220,150 Q140,210 60,170 Q-10,220 -80,170 Q-200,170 -240,80 Q-290,10 -260,-60 Z" fill={C.orange} stroke={C.ink} strokeWidth={lw(6)} opacity={0.85} />
-        <path d="M140,230 q20,-10 30,10 q-10,20 -30,-10" fill={C.orange} stroke={C.ink} strokeWidth={lw(4)} />
+      {/* the map card */}
+      <g transform={`translate(${CX}, ${CY})`}>
+        <rect x={-430} y={-330} width={760} height={640} rx={16} fill="#bfe0ec" stroke={C.ink} strokeWidth={lw(7)} />
+        {Array.from({ length: 9 }, (_, i) => <path key={i} d={`M${-400 + (i % 3) * 250},${-260 + Math.floor(i / 3) * 210} q16,-10 32,0 t32,0`} {...PEN} stroke={C.teal} opacity={0.7} />)}
+        <text x={-100} y={-262} textAnchor="middle" fontFamily={BUBBLE} fontSize={56} fill={C.ink}>AUSTRALIA</text>
+        <g transform="translate(60, 30) scale(0.95)">
+          <path d={ozPath(MW, MH)} fill={C.orange} stroke={C.ink} strokeWidth={lw(6)} strokeLinejoin="round" />
+          <path d={ozPath(MW, MH)} fill="url(#pen-dots)" opacity={0.6} />
+          <ellipse cx={(0.86 - 0.5) * MW} cy={(1.0 - 0.45) * MH} rx={34} ry={26} fill={C.orange} stroke={C.ink} strokeWidth={lw(5)} />
+          {/* a few inland pen marks: ranges and a dry lake */}
+          <path d={`M${0.25 * MW - 0.5 * MW},${0.05 * MH} l14,-18 l14,18 l14,-18 l14,18`} {...PEN} />
+          <path d={`M${0.85 * MW - 0.5 * MW},${-0.05 * MH} l12,-16 l12,16 l12,-16 l12,16`} {...PEN} />
+          <ellipse cx={0.05 * MW} cy={0.1 * MH} rx={34} ry={12} {...PEN} />
+        </g>
+        <g transform="translate(250, -250)">
+          <circle r={44} fill={C.cream} stroke={C.ink} strokeWidth={lw(4)} />
+          <path d="M0,-38 L8,0 L0,38 L-8,0 Z" fill={C.red} stroke={C.ink} strokeWidth={lw(2)} />
+          <text y={-48} textAnchor="middle" fontFamily={SANS} fontWeight={600} fontSize={20} fill={C.ink}>N</text>
+        </g>
       </g>
-      <g transform={`translate(1260, ${600 - inflate * 120}) scale(${0.5 + inflate * 0.7}) rotate(${Math.sin(f / 8) * 6})`}>
-        <path d="M-150,70 Q-120,220 -60,330" stroke={C.ink} strokeWidth={lw(4)} fill="none" />
-        <PriceTag text="+45%" />
+      {/* the boxed office suite, tugged up by its balloon */}
+      <g transform={`translate(${bx}, ${by - lift * 70}) rotate(${lift * -8})`}>
+        <path d="M-60,-50 L60,-50 L60,50 L-60,50 Z" fill={C.white} stroke={C.ink} strokeWidth={lw(5)} />
+        <path d="M-60,-50 L-40,-66 L80,-66 L60,-50 Z M60,-50 L80,-66 L80,34 L60,50 Z" fill={C.creamShade} stroke={C.ink} strokeWidth={lw(4)} />
+        <rect x={-50} y={-38} width={100} height={30} fill={C.teal} />
+        <text x={0} y={-17} textAnchor="middle" fontFamily={BUBBLE} fontSize={20} fill={C.white}>OFFICE</text>
+        {[0, 1, 2].map((k) => <rect key={k} x={-46} y={2 + k * 14} width={80 - k * 16} height={6} fill={C.creamShade} />)}
+      </g>
+      <path d={`M${bx + 60},${by - 40 - lift * 70} Q${(bx + tx) / 2 + 40},${(by + ty) / 2 + 80} ${tx - r * 0.2},${ty + r * 0.95}`} stroke={C.ink} strokeWidth={3} fill="none" />
+      {/* the tag as a balloon: a rounded tag shape with a punched hole, swelling */}
+      <g transform={`translate(${tx}, ${ty}) rotate(${Math.sin(f / 9) * 5})`}>
+        <path d={`M${-r},${-r * 0.75} Q0,${-r * 1.15} ${r},${-r * 0.75} Q${r * 1.2},0 ${r},${r * 0.75} Q0,${r * 1.1} ${-r},${r * 0.75} Q${-r * 1.25},0 ${-r},${-r * 0.75} Z`} fill={C.mustard} stroke={C.ink} strokeWidth={lw(6)} />
+        <path d={`M${-r * 0.6},${-r * 0.6} q${r * 0.3},${-r * 0.16} ${r * 0.6},${-r * 0.1}`} stroke={C.white} strokeWidth={6} fill="none" strokeLinecap="round" opacity={0.7} />
+        <circle cx={-r * 0.7} cy={0} r={Math.max(6, r * 0.09)} fill={C.paper} stroke={C.ink} strokeWidth={lw(3)} />
+        <text x={r * 0.1} y={r * 0.2} textAnchor="middle" fontFamily={BUBBLE} fontSize={r * 0.55} fill={C.ink}>+45%</text>
       </g>
       <Caption text="Microsoft 365 Personal. Alleged by Australia's ACCC." />
     </QuizScreen>

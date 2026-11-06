@@ -138,7 +138,8 @@ export const MiniRocker: React.FC<{ on: number; s?: number }> = ({ on, s = 1 }) 
   <g transform={`scale(${s})`}>
     <rect x={-40} y={-56} width={80} height={112} rx={12} fill={C.cream} {...ink} strokeWidth={lw(5)} />
     <rect x={-22} y={-34} width={44} height={68} rx={6} fill="#c4ab7c" stroke={C.ink} strokeWidth={lw(4)} />
-    <rect x={-18} y={on > 0.5 ? 2 : -30} width={36} height={28} fill={C.white} />
+    {/* the raised (lit) half shows the state: top for ON, as on Switch */}
+    <rect x={-18} y={on > 0.5 ? -30 : 2} width={36} height={28} fill={C.white} />
     <circle cx={0} cy={-44} r={5} fill={on > 0.5 ? C.mustard : "#c4ab7c"} stroke={C.ink} strokeWidth={lw(2)} />
   </g>
 );

@@ -292,7 +292,7 @@ export const S07: ShotC = ({ f, g }) => {
 export const S08: ShotC = ({ f, g, len }) => {
   const climb = ez(f, 6, len - 10);
   const step = Math.floor(climb * 8);
-  const wob = Math.sin(f / 3) * 3 + (f % 10 < 2 ? 1.5 : 0);
+  const wob = Math.sin(f / 5) * 1.1 + (f % 18 < 2 ? 0.5 : 0); // shaky, not wild (the human's note, 2026-11-06)
   return (
     <Bg id="s08" seed={8} base={C.mustard}>
       <Wallpaper id="s08" kind="stripe" a={C.mustard} b={C.cream} opacity={0.2} />

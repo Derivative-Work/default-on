@@ -3,14 +3,18 @@ import React from "react";
 import { Wash } from "../film/Paper";
 import { BallLyric } from "../components/kit";
 import { AnswerBox, MiniRocker, Spotlight } from "../components/props";
-import { Hand } from "../rigs/Hand";
-import { PLATE, Switch } from "../rigs/Switch";
+import { Hand, PencilHand, TIP_Y } from "../rigs/Hand";
+import { PADDLE, PLATE, Switch } from "../rigs/Switch";
 import { C, H, W, lw } from "../theme/palette";
 import { BUBBLE, SANS } from "../theme/fonts";
 import { Bookshelf, Clock, Floorboards, Grain, Lamp, Plant, Rug, Sunburst, Wallpaper, Window, breath } from "../components/sets";
 import { at, downbeats, line, mouthAt } from "../timing";
-import { S16 as S16Key } from "../scenes/KeyFrames";
 import { Bg, ShotC, blink, bump, ez } from "./common";
+
+// the flip: the hand comes in from frame left along one line and its fingertip presses Switch's bottom half (the half
+// that goes in when he turns ON); Switch stands at (W/2, 540) in every flip shot (S10-S12, S35-S36, S60-S61)
+export const FLIP_Y = 540 + PADDLE.bottom.y - TIP_Y;
+export const FLIP_LEN = W / 2 + 40;
 
 // one lyric line as bouncing-ball words, timed from the aligned words (local frames of the shot starting at g0)
 export const Lyric: React.FC<{ id: string; f: number; g: number; y?: number; size?: number }> = ({ id, f, g, y, size }) => {
@@ -19,7 +23,6 @@ export const Lyric: React.FC<{ id: string; f: number; g: number; y?: number; siz
   return <BallLyric f={f} syl={syl} y={y} size={size} />;
 };
 
-// (the sleeve's fingertip meets the paddle: hand at y 560-600, length 990)
 // the pre-chorus set: the living room at night, night blue: a curtained window with the moon and twinkling stars,
 // a dark bookshelf, a lamp switched off, a clock reading late, the floor; one spotlight on Switch, with a moth
 // circling it; `dim` for the second time round (S35-S36)
@@ -62,7 +65,7 @@ const Lament: React.FC<{ g: number; f: number; dim?: number; hand?: boolean }> =
     <g transform={`translate(${W / 2}, 540) rotate(${Math.sin(f / 22) * 2}) scale(1, ${breath(g, 4)})`}>
       <Switch pose="sad" toggle={1} mouth={mouthAt(g, "switch")} look={[0, -0.3]} blink={blink(g, 3)} />
     </g>
-    {hand && <g transform="translate(-40, 470) rotate(2)"><Hand reach={0.12} length={600} curl={0.4} /></g>}
+    {hand && <g transform={`translate(-40, ${FLIP_Y})`}><Hand reach={0.16} length={FLIP_LEN} curl={0.3} /></g>}
   </Night>
 );
 export const S09: ShotC = ({ f, g }) => <Lament f={f} g={g} />;
@@ -82,7 +85,7 @@ export const S10: ShotC = ({ f, g, len }) => {
       <g transform={`translate(${W / 2}, ${540 + off * 8})`}>
         <Switch pose={off > 0.5 ? "relaxed" : "sad"} toggle={1 - off} mouth={mouthAt(g, "switch")} armL={60 - off * 50} armR={60 - off * 50} blink={off > 0.9 ? 1 : 0} />
       </g>
-      {reach > 0 && <g transform="translate(-40, 590)"><Hand reach={reach} length={990} /></g>}
+      {reach > 0 && <g transform={`translate(-40, ${FLIP_Y})`}><Hand reach={reach} length={FLIP_LEN} /></g>}
     </Night>
   );
 };
@@ -96,7 +99,7 @@ const Flip: React.FC<{ f: number; g: number; len: number; fast?: boolean }> = ({
     <Night id="pc" dim={fast ? 1 : 0} g={g}>
       <g transform={`translate(${W / 2}, 540)`}><Switch pose={flipped ? "startled" : "relaxed"} toggle={flipped ? 1 : 0} blink={flipped ? 0 : 1} /></g>
       {flipped && <text x={W / 2 + 200} y={330} fontFamily={BUBBLE} fontSize={90} fill={C.mustard} stroke={C.ink} strokeWidth={lw(5)} paintOrder="stroke" transform={`rotate(-10, ${W / 2 + 200}, 330)`}>click!</text>}
-      <g transform={`translate(-40, ${flipped ? 560 : 600})`}><Hand reach={reach} length={990} /></g>
+      <g transform={`translate(-40, ${FLIP_Y})`}><Hand reach={reach} length={FLIP_LEN} press={flipped ? 1 - ez(f, 2, 6) : 0} /></g>
     </Night>
   );
 };
@@ -114,7 +117,7 @@ export const S12: ShotC = ({ f, g }) => {
       <g transform={`translate(${W / 2}, 540)`}>
         <Switch pose={f < 8 ? "startled" : "curious"} toggle={1} mouth={mouthAt(g, "switch")} look={f < 10 ? [-1, 0] : [Math.sin(f / 9) > 0 ? -1 : 1, 0]} />
       </g>
-      {reach > 0 && <g transform="translate(-40, 560)"><Hand reach={reach} length={990} /></g>}
+      {reach > 0 && <g transform={`translate(-40, ${FLIP_Y})`}><Hand reach={reach} length={FLIP_LEN} /></g>}
     </Night>
   );
 };
@@ -247,7 +250,85 @@ export const Gags: React.FC<{ f: number; g: number; len: number; lineId: string;
 };
 export const S15: ShotC = ({ f, g, len }) => <Gags f={f} g={g} len={len} lineId="L12" set={1} />;
 
-export const S16: ShotC = ({ f }) => <S16Key f={f} />;
+// the redraw in pencil: stage by stage from a bare outline to the whole drawing, then inked into the full Switch
+// (the human's note, 2026-11-06: "have the drawn version eventually get to more detail"). `t` 0..1; returns the
+// drawing and where the pencil's tip is now
+const STAGES = [0.18, 0.32, 0.46, 0.6, 0.72, 0.84]; // outline · bevel+screws · eyes · paddle · mouth+arms · hatching
+const sketchTip = (t: number): [number, number] => {
+  if (t < STAGES[0]) { const u = t / STAGES[0]; return u < 0.5 ? [-125 + u * 500, -195] : [125, -195 + (u - 0.5) * 780]; }
+  if (t < STAGES[1]) return [0, -170];
+  if (t < STAGES[2]) return [-58 + ((t - STAGES[1]) / (STAGES[2] - STAGES[1])) * 116, -108];
+  if (t < STAGES[3]) return [-58, 14];
+  if (t < STAGES[4]) return [0, 132];
+  return [140, 60];
+};
+const PencilSwitch: React.FC<{ t: number }> = ({ t }) => {
+  const k = (i: number) => ez(t * 1000, (i ? STAGES[i - 1] : 0) * 1000, STAGES[i] * 1000);
+  const line = { fill: "none", stroke: C.inkSoft, strokeWidth: 4, strokeLinecap: "round" as const, strokeLinejoin: "round" as const, pathLength: 1 };
+  const draw = (p: number) => ({ strokeDasharray: `${p} 1` });
+  const ink = ez(t * 1000, STAGES[5] * 1000, 1000);
+  return (
+    <g>
+      <g opacity={1 - ink * 0.85} filter="url(#s16p-ink)">
+        <rect x={-PLATE.w / 2} y={-PLATE.h / 2} width={PLATE.w} height={PLATE.h} rx={34} {...line} {...draw(k(0))} />
+        <rect x={-PLATE.w / 2 + 16} y={-PLATE.h / 2 + 16} width={PLATE.w - 32} height={PLATE.h - 32} rx={22} {...line} strokeWidth={2.5} {...draw(k(1))} />
+        {[-1, 1].map((sd) => <circle key={sd} cy={sd * (PLATE.h / 2 - 24)} r={8} {...line} {...draw(k(1))} />)}
+        {[-58, 58].map((x) => <g key={x}><circle cx={x} cy={-108} r={46} {...line} {...draw(k(2))} /><circle cx={x} cy={-104} r={18} {...line} {...draw(k(2))} /></g>)}
+        <rect x={-58} y={-56} width={116} height={140} rx={16} {...line} {...draw(k(3))} />
+        <line x1={-48} x2={48} y1={14} y2={14} {...line} {...draw(k(3))} />
+        <circle cy={-30} r={8} {...line} {...draw(k(3))} />
+        <path d="M-30,132 Q0,152 30,132" {...line} {...draw(k(4))} />
+        {[-1, 1].map((sd) => <path key={sd} d={`M${sd * 119},20 q${sd * 40},30 ${sd * 30},80`} {...line} {...draw(k(4))} />)}
+        <rect x={PLATE.w / 2 - 10} y={-PLATE.h / 2 + 30} width={22} height={PLATE.h - 20} fill="url(#pen-hatch)" opacity={k(5)} />
+        <rect x={-58} y={14} width={116} height={56} fill="url(#pen-hatch)" opacity={k(5) * 0.7} />
+      </g>
+      {/* inked: the whole Switch, fully detailed, fades up over the pencil */}
+      <g opacity={ink}><Switch pose="neutral" toggle={1} mouth="X" /></g>
+    </g>
+  );
+};
+
+// S16: "But the switch is just a picture…": Switch peels off the wall and turns out to be a sticker (flat: a sticker
+// has no thickness); beside him a pencil draws him back on, stage by stage, until the drawing is the whole Switch
+export const S16: ShotC = ({ f, g, len }) => {
+  const peel = ez(f, 0, Math.min(30, len * 0.3));
+  const d = 70 + peel * 190;
+  const t = ez(f, 4, len - 6);
+  const [tx, ty] = sketchTip(t);
+  const DX = W / 2 + 250, DY = 470; // the drawing's centre
+  const fx = PLATE.w / 2, fy = PLATE.h / 2, c = fx + fy - d, R = 600;
+  return (
+    <Bg id="s16" seed={16} base={C.mustard}>
+      <defs>
+        <filter id="s16p-ink" x="-5%" y="-5%" width="110%" height="110%">
+          <feTurbulence type="fractalNoise" baseFrequency="0.05" numOctaves={2} seed={7} result="n" />
+          <feDisplacementMap in="SourceGraphic" in2="n" scale={3} xChannelSelector="R" yChannelSelector="G" />
+        </filter>
+      </defs>
+      <Wallpaper id="s16" kind="daisy" a={C.cream} b={C.orange} opacity={0.3} />
+      <rect x={-10} y={860} width={W + 20} height={26} fill={C.creamShade} stroke={C.ink} strokeWidth={lw(5)} />
+      <g transform={`translate(${DX}, ${DY})`}><PencilSwitch t={t} /></g>
+      {t < 0.9 && (
+        <g transform={`translate(${DX + tx}, ${DY + ty}) rotate(-35)`}>
+          <path d="M0,0 L22,-7 L22,7 Z" fill={C.ink} />
+          <path d="M22,-7 L54,-14 L54,14 L22,7 Z" fill="#e8c9a0" stroke={C.ink} strokeWidth={lw(3)} />
+          <rect x={54} y={-14} width={300} height={28} fill={C.mustard} stroke={C.ink} strokeWidth={lw(4)} />
+          <rect x={354} y={-14} width={26} height={28} fill={C.sleeve} stroke={C.ink} strokeWidth={lw(3)} />
+          <rect x={380} y={-14} width={36} height={28} rx={8} fill="#e8a0a0" stroke={C.ink} strokeWidth={lw(4)} />
+        </g>
+      )}
+      {/* Switch the sticker, left: the corner beyond the fold is gone and its white backing lies folded over the front */}
+      <g transform={`translate(${W / 2 - 330}, 470) rotate(-4)`}>
+        <clipPath id="s16-peel2"><path d={`M${-R},${-R} L${R},${-R} L${R},${c - R} L${c - R},${R} L${-R},${R} Z`} /></clipPath>
+        <g clipPath="url(#s16-peel2)"><Switch pose="startled" mouth="E" look={[0.6, 0.6]} flat /></g>
+        <path d={`M${fx},${fy - d} L${fx - d},${fy} Q${fx - d * 0.92},${fy - d * 0.9} ${fx - d},${fy - d} Q${fx - d * 0.9},${fy - d * 0.92} ${fx},${fy - d} Z`}
+          fill={C.white} stroke={C.ink} strokeWidth={lw(6)} strokeLinejoin="round" />
+        <path d={`M${fx - d * 0.3},${fy - d * 0.8} L${fx - d * 0.8},${fy - d * 0.3}`} stroke={C.creamShade} strokeWidth={6} strokeLinecap="round" />
+      </g>
+      <Lyric id="L13" f={f} g={g} y={1000} size={74} />
+    </Bg>
+  );
+};
 
 // S17 / S39: "Default on!" / V04 / V11 "(On, on, on…)": Switch, redrawn slightly crooked, echoes quietly
 const Echo: React.FC<{ f: number; g: number; tired?: boolean }> = ({ f, g, tired }) => (
@@ -289,10 +370,9 @@ export const S18: ShotC = ({ f, g }) => {
       ))}
       {[[700, 520], [1100, 420], [900, 700]].map(([x, y], i) => i < n / 3 && <path key={i} d={`M${x},${y} l10,24 l26,4 l-20,16 l6,26 l-22,-14 l-22,14 l6,-26 l-20,-16 l26,-4 Z`} fill="none" stroke={C.inkSoft} strokeWidth={3} opacity={0.7} />)}
       {/* the hand, with a pencil, scribbling the latest switch */}
-      <g transform={`translate(${px - 520 + scrib}, ${py + 360}) rotate(-35)`}>
-        <Hand reach={1} length={640} curl={0.5} />
-        <g transform="translate(560, -40) rotate(-50)"><rect x={0} y={-10} width={160} height={20} fill={C.mustard} stroke={C.ink} strokeWidth={lw(4)} /><path d="M0,-10 L-30,0 L0,10 Z" fill={C.cream} stroke={C.ink} strokeWidth={lw(3)} /></g>
-      </g>
+      {/* the hand holds the pencil like a hand does: tip on the page at the latest doodle, the pencil running down to
+          the right between thumb and index, the fist and sleeve off past the frame's bottom edge */}
+      <g transform={`translate(${px + 40 + scrib}, ${py + 50})`}><PencilHand angle={52} /></g>
     </Bg>
   );
 };
@@ -321,7 +401,7 @@ export const S38: ShotC = ({ f, g, len }) => {
       <rect x={W / 2 - fx + 30} y={470 - fy + 20} width={PLATE.w} height={PLATE.h} rx={34} fill={C.cream} opacity={0.35 * peel} />
       <g transform={`translate(${W / 2}, 470) rotate(${-4 - peel * 6})`}>
         <clipPath id="s38-peel"><path d={`M${-R},${-R} L${R},${-R} L${R},${c - R} L${c - R},${R} L${-R},${R} Z`} /></clipPath>
-        <g clipPath="url(#s38-peel)"><Switch pose="sad" mouth={mouthAt(g, "narrator")} armL={20} armR={150} look={[0.7, 0.8]} blink={sigh > 0.3 ? 1 : 0} /></g>
+        <g clipPath="url(#s38-peel)"><Switch pose="sad" mouth={mouthAt(g, "narrator")} armL={20} armR={150} look={[0.7, 0.8]} blink={sigh > 0.3 ? 1 : 0} flat /></g>
         <path d={`M${fx},${fy - d} L${fx - d},${fy} Q${fx - d * 0.92},${fy - d * 0.9} ${fx - d},${fy - d} Q${fx - d * 0.9},${fy - d * 0.92} ${fx},${fy - d} Z`}
           fill={C.white} stroke={C.ink} strokeWidth={lw(6)} strokeLinejoin="round" />
         <circle cx={fx - d * 0.98} cy={fy - d * 0.98} r={21} fill={C.cream} stroke={C.ink} strokeWidth={lw(5)} />

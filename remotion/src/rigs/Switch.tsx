@@ -30,6 +30,8 @@ const POSES: Record<SwitchPose, PoseSpec> = {
 };
 
 export const PLATE = { w: 250, h: 390 };
+// where a fingertip meets the paddle, relative to the plate's centre: the middle of each half
+export const PADDLE = { top: { x: 0, y: 14 - 34 }, bottom: { x: 0, y: 14 + 34 } };
 const PRESSED = "#c4ab7c"; // the pressed half of the paddle, in shadow
 
 const Arm: React.FC<{ side: -1 | 1; angle: number; wave?: number }> = ({ side, angle, wave = 0 }) => {
@@ -94,22 +96,27 @@ export type SwitchProps = {
   tilt?: number; // degrees; the redrawn, crooked Switch of S17
   arms?: boolean;
   outline?: number; // 0..1: how much of the outline is drawn (S16's pencil)
+  flat?: boolean; // a sticker: no plate thickness or edge shadow (the peels, S16/S38/S57c)
 };
 
 export const Switch: React.FC<SwitchProps> = ({
-  pose = "neutral", toggle, mouth = "X", blink = 0, look = [0, 0], wave = 0, armL, armR, tilt = 0, arms = true,
+  pose = "neutral", toggle, mouth = "X", blink = 0, look = [0, 0], wave = 0, armL, armR, tilt = 0, arms = true, flat = false,
 }) => {
   const spec = POSES[pose];
   const on = toggle ?? (pose === "relaxed" || pose === "sad" ? 0 : 1);
-  const rock = (on - 0.5) * 2; // -1 bottom pressed (OFF) .. 1 top pressed (ON)
+  // the paddle reads as it looks: ON shows the top half raised and lit, the bottom pressed in (the human's note,
+  // 2026-11-06: the first version read backwards); `rock` is the pressed half: +1 bottom pressed (ON), -1 top (OFF)
+  const rock = (on - 0.5) * 2;
   return (
     <g transform={`rotate(${tilt})`}>
       {arms && <Arm side={-1} angle={armL ?? spec.armL} />}
       {arms && <Arm side={1} angle={armR ?? spec.armR} wave={wave} />}
       {/* plate: a soft-cornered rectangle with a bevel */}
+      {!flat && (<>
       {/* the plate's thickness: a hatched edge to the right and below, like a raised plate on the wall */}
       <path d={`M${PLATE.w / 2 - 20},${-PLATE.h / 2 + 8} Q${PLATE.w / 2 + 14},${-PLATE.h / 2 + 4} ${PLATE.w / 2 + 12},${-PLATE.h / 2 + 40} L${PLATE.w / 2 + 12},${PLATE.h / 2 - 6} Q${PLATE.w / 2 + 10},${PLATE.h / 2 + 12} ${PLATE.w / 2 - 30},${PLATE.h / 2 + 12} L${-PLATE.w / 2 + 30},${PLATE.h / 2 + 12} Z`} fill={C.creamShade} stroke={C.ink} strokeWidth={lw(6)} />
       <path d={`M${PLATE.w / 2 - 20},${-PLATE.h / 2 + 8} Q${PLATE.w / 2 + 14},${-PLATE.h / 2 + 4} ${PLATE.w / 2 + 12},${-PLATE.h / 2 + 40} L${PLATE.w / 2 + 12},${PLATE.h / 2 - 6} Q${PLATE.w / 2 + 10},${PLATE.h / 2 + 12} ${PLATE.w / 2 - 30},${PLATE.h / 2 + 12} L${-PLATE.w / 2 + 30},${PLATE.h / 2 + 12} Z`} fill="url(#pen-hatch)" />
+      </>)}
       <rect x={-PLATE.w / 2} y={-PLATE.h / 2} width={PLATE.w} height={PLATE.h} rx={34} fill={C.cream} stroke={C.ink} strokeWidth={lw(8)} />
       {/* pen detail: a highlight along the bevel, two faint scuffs */}
       <path d={`M${-PLATE.w / 2 + 26},${-PLATE.h / 2 + 60} Q${-PLATE.w / 2 + 22},${-PLATE.h / 2 + 22} ${-PLATE.w / 2 + 62},${-PLATE.h / 2 + 20}`} stroke={C.white} strokeWidth={5} fill="none" strokeLinecap="round" />
@@ -129,17 +136,18 @@ export const Switch: React.FC<SwitchProps> = ({
           in, the raised half is lit and shows a sliver of its side */}
       <g transform="translate(0, 14)">
         <rect x={-58} y={-70} width={116} height={140} rx={16} fill={PRESSED} stroke={C.ink} strokeWidth={lw(6)} />
-        <path d={`M-48,-60 h96 v${60 - rock * 4} h-96 Z`} fill={rock > 0 ? PRESSED : C.white} />
-        <path d={`M-48,${-rock * 4} h96 v${60 + rock * 4} h-96 Z`} fill={rock > 0 ? C.white : PRESSED} />
-        {/* the raised half's lower lip casts a little shadow onto the pressed half */}
-        <rect x={-48} y={rock > 0 ? -rock * 4 - 8 : -rock * 4} width={96} height={8 * Math.abs(rock)} fill={C.ink} opacity={0.25} />
-        <line x1={-48} x2={48} y1={-rock * 4} y2={-rock * 4} stroke={C.ink} strokeWidth={lw(4)} />
-        {/* grip lines on the raised half */}
-        {[0, 1, 2].map((k) => <line key={k} x1={-26} x2={26} y1={(rock > 0 ? 22 : -38) + k * 8} y2={(rock > 0 ? 22 : -38) + k * 8} {...PEN} opacity={0.45} />)}
+        <path d={`M-48,-60 h96 v${60 + rock * 4} h-96 Z`} fill={rock > 0 ? C.white : PRESSED} />
+        <path d={`M-48,${rock * 4} h96 v${60 - rock * 4} h-96 Z`} fill={rock > 0 ? PRESSED : C.white} />
+        {/* the raised half's edge casts a little shadow onto the pressed half */}
+        <rect x={-48} y={rock > 0 ? rock * 4 : rock * 4 - 8} width={96} height={8 * Math.abs(rock)} fill={C.ink} opacity={0.25} />
+        <line x1={-48} x2={48} y1={rock * 4} y2={rock * 4} stroke={C.ink} strokeWidth={lw(4)} />
+        {/* printed marks: ON on the top half, OFF on the bottom; the raised half's mark is the one that reads */}
+        <text x={0} y={-8} textAnchor="middle" fontFamily="'Work Sans', sans-serif" fontWeight={600} fontSize={20} fill={C.ink} opacity={rock > 0 ? 0.85 : 0.3}>ON</text>
+        <text x={0} y={46} textAnchor="middle" fontFamily="'Work Sans', sans-serif" fontWeight={600} fontSize={18} fill={C.ink} opacity={rock > 0 ? 0.3 : 0.85}>OFF</text>
         <rect x={-58} y={-70} width={116} height={140} rx={16} fill="none" stroke={C.ink} strokeWidth={lw(6)} />
         {/* pilot light */}
-        <circle cx={0} cy={-44} r={8} fill={on > 0.5 ? C.mustard : PRESSED} stroke={C.ink} strokeWidth={lw(3)} />
-        {on > 0.5 && <circle cx={0} cy={-44} r={16} fill={C.mustard} opacity={0.3} />}
+        <circle cx={0} cy={-46} r={7} fill={on > 0.5 ? C.mustard : PRESSED} stroke={C.ink} strokeWidth={lw(3)} />
+        {on > 0.5 && <circle cx={0} cy={-46} r={14} fill={C.mustard} opacity={0.3} />}
       </g>
       <g transform="translate(0, 132)">
         <Mouth shape={mouth} w={66} smile={spec.smile} />
