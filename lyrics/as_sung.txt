@@ -1,0 +1,106 @@
+# The as-sung lyrics (M1, approved), one line per caption. Draft 2 except where the master differs
+# (log/production_log.md, M1). "@ start end stem" opens an aligner window (seconds; the M1 first pass places them);
+# "[Section]" names the section; "N:" is the Narrator, "S:" a Switch line (V01-V20 in the brief), sung here by the
+# generator and muted in the final mix. Sound cues ([click], scratch, chime) are not words and are placed in the map.
+
+@ 2.0 16.5 0 Lead Vocals
+[Intro]
+N: Hi, kids! Today we're learning how an opt-out works.
+N: Say hello to Little Switch!
+S: Hi! I've got two sides: on, and off!
+
+@ 16.0 56.5 0 Lead Vocals
+[Verse 1]
+N: You typed a little question in a little search box line,
+N: And an answer hopped on top of it and said, "I'll save you time!"
+S: That's neat, but what if I would rather read the page myself?
+N: Well, there's a tiny tab marked "Web," way up on the highest shelf!
+[Pre-chorus 1]
+S: I've only got two sides, it isn't much to learn:
+S: You push me down for off... ...so how'd I just return?
+[Chorus 1]
+N: Default on! Default on!
+N: It was there when you woke up, it'll be there when you're gone!
+N: You can hide it, you can mute it, you can tuck it out of view,
+N: But the switch is just a picture that somebody drew for you.
+N: Default on!
+
+@ 58.5 89.0 0 Lead Vocals
+[Lesson]
+N: Now, "opt-in" means somebody asks you, and you say, "Well, sure, why not."
+S: And "opt-out" means that no one asked you, and you're hunting for the spot!
+N: And "default" is the setting that they picked before you came,
+N: And if you never touch it, friend, they'll say you picked the same.
+N: Got that? Opt-in, opt-out, default. There'll be a test.
+S: There's always a test.
+
+@ 88.8 117.8 0 Lead Vocals
+[Verse 2]
+N: Now your inbox has a helper, and it reads your mail with you!
+N: A lawsuit says it flipped itself last fall, while out of view.
+S: And what's the company say?
+N: That it's fine, and here's the door:
+N: Just a menu, then a menu, then a menu, then one more!
+N: Then the TV got an update in the middle of the night,
+N: And a brand-new tile was waiting in the early morning light!
+S: Can I delete it?
+N: You can hide it!
+S: Is that the same?
+N: ...Next verse!
+
+@ 117.8 143.6 0 Lead Vocals
+[Pre-chorus 2]
+S: I've only got two sides, it isn't much to learn:
+S: You push me down for off... ...so how'd I just return?
+[Chorus 2]
+N: Default on! Default on!
+N: It was there when you woke up, it'll be there when you're gone!
+N: You can hide it, you can mute it, you can tuck it out of view,
+N: But the switch is just a picture that somebody drew for you.
+N: Default on!
+
+@ 143.4 168.95 0 Lead Vocals
+[Verse 3: Pop Quiz]
+N: Pop quiz!
+N: There's a blue ring in the chat app where you talk to Mom and Dad.
+S: I'll uninstall it!
+N: Nope!
+S: I'll mute it, then?
+N: That's not so bad!
+N: Now your phone has got an update, and it asks you to "Continue."
+S: Where's the "No"?
+N: There isn't one! It turned back on for you!
+N: In Australia, office software went up forty-five percent...
+S: Was there one without the robot?
+N: Only once you tried to leave!
+
+@ 168.8 184.6 0 Lead Vocals
+[Bridge]
+N: Now the school's the place for learning, and the school picks what you learn,
+N: So the school said, "No AI, please," and waited for its turn.
+N: And the giant said, "We hear you! Here's a deal that's very fair:
+N: Take the robot with your search, or else there's no search there!"
+
+@ 185.6 219.4 0 Lead Vocals
+[Bridge redub]
+N: Correction, boys and girls! You can switch the chatbot off,
+N: And you keep your search and everything!
+S: And the answer box on top?
+N: ...That one's "deeply integrated."
+S: What's that mean?
+N: It means it stays.
+[Final chorus]
+N: Default on! Default on!
+N: It was there when we woke up, it'll be there when we're gone!
+N: We can hide it, we can mute it, we can tuck it out of view,
+N: But the switch is just a picture that somebody drew for you!
+N: Default on!
+
+@ 218.6 243.6 0 Lead Vocals
+[Outro]
+S: I've got two sides.
+S: ...Guess one of 'em was just for show.
+N: And that's how an opt-out works! Join us next week, when we learn about...
+N: Who asked for that?
+S: Hey, who wrote this song, anyway?
+N: An AI did. ...But somebody asked it to.

@@ -6670,12 +6670,12 @@
   {
    "id": "S53",
    "section": "Bridge",
-   "cue": "\"Ahem! Correction, boys and girls!\u2026\"",
+   "cue": "\"Correction, boys and girls!\u2026\" (\"Ahem!\" isn't sung)",
    "picture": "The Narrator redubs with mouth shapes visibly out of sync; a \"CORRECTION\" slate. The contract now has a third box",
    "source": "A",
    "t": 186.54,
    "line": "L55",
-   "how": "cue words (first 1 not sung)",
+   "how": "cue words",
    "frame": 5686,
    "end": 192.82,
    "frame_end": 5875
@@ -6800,7 +6800,7 @@
   {
    "id": "S63",
    "section": "Outro and reveal",
-   "cue": "[pop-up chime] / \"Huh. Who asked for that?\"",
+   "cue": "[pop-up chime] / \"Who asked for that?\" (\"Huh.\" isn't sung)",
    "picture": "A \"Summary of this song\" box pops up over everything; its close button runs from the cursor",
    "source": "A, E",
    "t": 231.945,
@@ -6852,7 +6852,7 @@
   {
    "id": "S67",
    "section": "Outro and reveal",
-   "cue": "Silence after the last word",
+   "cue": "The audio ends (the band plays to the end of the file; there is no silence after the last word)",
    "picture": "Real close-up: a small hand flips a real light switch to OFF. It stays off. Hold two seconds on room tone, then cut to black",
    "source": "H",
    "t": 249.173,

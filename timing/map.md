@@ -115,7 +115,7 @@ Mute = the generator's attempt (muted in the final mix). Room = Narrator's word 
 | S50 | Bridge | "And the giant said, 'We hear you!'…" | 176.44 | 5383 | L53 | cue words |
 | S51 | Bridge | "Take the robot with your search, or else there's no search there!" | 179.93 | 5488 | L54 | cue words |
 | S52 | Bridge | [record scratch, tape rewind] | 183.68 | 5600 | L54 | vocal gap before the redub |
-| S53 | Bridge | "Ahem! Correction, boys and girls!…" | 186.54 | 5686 | L55 | cue words (first 1 not sung) |
+| S53 | Bridge | "Correction, boys and girls!…" ("Ahem!" isn't sung) | 186.54 | 5686 | L55 | cue words |
 | S54 | Bridge | V16 "And the answer box on top?" | 192.82 | 5875 | L57 | cue words |
 | S55 | Bridge | "…That one's 'deeply integrated.'" | 195.22 | 5947 | L58 | cue words |
 | S56 | Bridge | V17 "What's that mean?" / "It means it stays." | 197.18 | 6005 | L59 | cue words |
@@ -125,11 +125,11 @@ Mute = the generator's attempt (muted in the final mix). Room = Narrator's word 
 | S60 | Outro and reveal | [click] [click] [click] | 220.84 | 6715 | L66 | first outro click |
 | S61 | Outro and reveal | "…Guess one of 'em was just for show." | 222.44 | 6763 | L67 | cue words |
 | S62 | Outro and reveal | "And that's how an opt-out works! Join us next week…" | 226.00 | 6870 | L68 | cue words |
-| S63 | Outro and reveal | [pop-up chime] / "Huh. Who asked for that?" | 231.94 | 7048 | L68 | chime in the gap; "Huh." is not sung |
+| S63 | Outro and reveal | [pop-up chime] / "Who asked for that?" ("Huh." isn't sung) | 231.94 | 7048 | L68 | chime in the gap; "Huh." is not sung |
 | S64 | Outro and reveal | V19 "Hey, who wrote this song, anyway?" | 235.23 | 7147 | L70 | cue words |
 | S65 | Outro and reveal | "An AI did." | 238.88 | 7256 | L71 | cue words |
 | S66 | Outro and reveal | "…But somebody asked it to." | 241.34 | 7330 | L71 | cue words |
-| S67 | Outro and reveal | Silence after the last word | 249.17 | 7565 | L71 | the music ends (M1 gate) |
+| S67 | Outro and reveal | The audio ends (the band plays to the end of the file; there is no silence after the last word) | 249.17 | 7565 | L71 | the music ends (M1 gate) |
 
 ## Lines
 

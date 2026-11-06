@@ -60,7 +60,7 @@
 **Session tips**
 
 - **Call and response.** Say each line in his ear, then he says it back. Record three to five takes per line, and keep the giggles: a laughing take of V09 or V17 may be the best one.
-- **Headphones on, track playing.** For the sung lines (V02–V05, V10, V18), play the instrumental plus the Narrator stem from two bars before the gap. For spoken lines, timing doesn't matter; the comp handles it.
+- **Headphones on, track playing.** For the sung lines (V02–V05, V10, V18), play the instrumental plus the Narrator stem from two bars before the gap. Spoken lines don't need to land on the beat, but five have little room before the Narrator comes back: V14 1.2 s, V12 1.5 s, V13 1.7 s, V07 and V08 1.8 s. Keep those quick. V04 and V11 weren't generated; each gets 2.4 s right after the chorus's last "Default on!"
 - **Let him change words.** If he says "Is that the same thing?", keep it and log it as a lyric change. A six-year-old's phrasing is better than the script.
 - **Record the click for real.** Have him flip an actual light switch near the mic, 20 times. These become every [click] in the song and match the closing shot.
 - **Setup.** A phone or USB mic about 15 cm away, in a closet or among coats to deaden the room, recording at 48 kHz WAV. A sock over the mic works as a pop filter. Record 10 seconds of room silence for noise reduction.
@@ -190,7 +190,7 @@
 | S50 | "And the giant said, 'We hear you!'…" | A giant pinstriped cuff (not the grey sleeve) slides a contract across the desk | A |
 | S51 | "Take the robot with your search, or else there's no search there!" | The contract has two boxes, "Search + AI" and "No search" | A |
 | S52 | [record scratch, tape rewind] | The film burns from the centre, the frame jitters, and the shot rewinds at speed to S50 | A, E |
-| S53 | "Ahem! Correction, boys and girls!…" | The Narrator redubs with mouth shapes visibly out of sync; a "CORRECTION" slate. The contract now has a third box | A |
+| S53 | "Correction, boys and girls!…" ("Ahem!" isn't sung) | The Narrator redubs with mouth shapes visibly out of sync; a "CORRECTION" slate. The contract now has a third box | A |
 | S54 | V16 "And the answer box on top?" | Tilt up: the answer box is bolted to the top of the frame, unchanged through the rewind | A |
 | S55 | "…That one's 'deeply integrated.'" | The bolts tighten themselves; a small label plate reads "deeply integrated" | A, E |
 | S56 | V17 "What's that mean?" / "It means it stays." | Switch looks up at the Narrator; the Narrator looks away | A |
@@ -210,11 +210,11 @@
 | S60 | [click] [click] [click] | He flips himself off three times and springs back on each time. On the third, the grey hand enters to flip him back… | A, E |
 | S61 | "…Guess one of 'em was just for show." | …and stops mid-frame, hesitates, and withdraws. Switch is still ON, looking where it was | A |
 | S62 | "And that's how an opt-out works! Join us next week…" | The Narrator wraps up; an end slate starts to slide in | A |
-| S63 | [pop-up chime] / "Huh. Who asked for that?" | A "Summary of this song" box pops up over everything; its close button runs from the cursor | A, E |
+| S63 | [pop-up chime] / "Who asked for that?" ("Huh." isn't sung) | A "Summary of this song" box pops up over everything; its close button runs from the cursor | A, E |
 | S64 | V19 "Hey, who wrote this song, anyway?" | Switch shoves the summary box out of frame | A |
 | S65 | "An AI did." | Film layer drops to zero. Real screen capture of the generation screen: style prompt, lyrics, take list | R |
 | S66 | "…But somebody asked it to." | Split frame. Left: the generation screen. Right: the editing timeline with the Switch track labelled "Switch: recorded at home," its waveform playing | R |
-| S67 | Silence after the last word | Real close-up: a small hand flips a real light switch to OFF. It stays off. Hold two seconds on room tone, then cut to black | H |
+| S67 | The audio ends (the band plays to the end of the file; there is no silence after the last word) | Real close-up: a small hand flips a real light switch to OFF. It stays off. Hold two seconds on room tone, then cut to black | H |
 
 ### End card and fact cards
 
@@ -239,7 +239,7 @@
 
 **Pipeline**
 
-1. **Audio.** Final mix = instrumental + Narrator stem + Switch comp + real clicks. Mute any generated attempt at Switch in the stems. Master to −14 LUFS integrated.
+1. **Audio.** Draft: the generated mix as is, for animation until the recordings are in. Final: the human mixes the stems, the Switch comp and the real clicks (M1 gate), with the generated Switch muted on both vocal stems over the timing map's mute spans. Master to −14 LUFS integrated.
 2. **Timing map.** Build `timing/map.json` from the master: section boundaries, every Narrator line's start and end, the beat grid, and a named slot for each Switch line (V01–V20) where the generated vocal left space.
 3. **Graphics.** One Remotion project, one composition per section, sharing the theme and film-layer modules. Characters are SVG rigs; mouth shapes come from the Narrator stem and the Switch comp.
 4. **Review aids.** For every render, write a contact sheet to `review/<shot>.jpg`.
@@ -261,7 +261,7 @@ default-on/
 | M3 | Animatic of every shot at low resolution, cut to the track. Switch's slots show the line as a text slate | Approve framing and timing |
 | M4 | Final renders, section by section, with Narrator lip sync and contact sheets | Approve each section |
 | M5 | Fact cards, end card, captions, thumbnail and vertical cut | Approve the closing materials |
-| M6 | Switch comp: align and process the takes into their slots, log every choice, then lip-sync his shots | Approve the comp by ear |
+| M6 | Switch comp: align and process the takes into their slots, log every choice, then lip-sync his shots. The human supplies the final mix | Approve the comp by ear |
 | M7 | Reveal: S59–S67 checked frame by frame against the final mix, including the real footage | Approve the reveal |
 | M8 | Fact check of every on-screen claim by another lab's model against the Default On fact card | Resolve every flag before release |
 

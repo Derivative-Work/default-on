@@ -18,3 +18,9 @@ Every human action: timestamp, what, why, and which rule allows it. The brief al
 
 - **What:** The human: "oh also here is the Suno link for retrieving the take and potentially a screen grab if needed later https://suno.com/s/h5g20uJMykgSH4pn".
 - **Rule:** H3 (take ID, prompt and settings). The generation-screen capture for S65–S66 is still the human's to supply.
+
+## 2026-11-06T07:58 — M1 gate: lyrics, slots, S67 and pre-roll approved; the human will mix — H2, EXCEPTION (declared)
+
+- **What:** The agent asked five questions (the "stays"/"stayed" word, the V04/V11 tag placement, a hybrid final mix, S67 starting when the audio ends, a 3 s pre-roll). The human: "everything but #3 -- use the existing mix for now as a draft; I'll supply a human mix once I have the recordings".
+- **Why:** M1 gate (confirm the lyrics and slot times), plus the questions M1 raised.
+- **Rule:** H2 for the approvals. The human mixing the final audio is outside H1–H3: a declared EXCEPTION, like Switch's voice. The brief was edited to say so (rev 15). The mix itself will be logged here, with what was done, when it is supplied.

@@ -66,7 +66,7 @@ Dialogue: 0,0:02:52.78,0:02:56.44,Shot,,0,0,0,,S49  "So the school said, 'No AI,
 Dialogue: 0,0:02:56.44,0:02:59.93,Shot,,0,0,0,,S50  "And the giant said, 'We hear you!'…"
 Dialogue: 0,0:02:59.93,0:03:03.68,Shot,,0,0,0,,S51  "Take the robot with your search, or else there's no search there!"
 Dialogue: 0,0:03:03.68,0:03:06.54,Shot,,0,0,0,,S52  [record scratch, tape rewind]
-Dialogue: 0,0:03:06.54,0:03:12.82,Shot,,0,0,0,,S53  "Ahem! Correction, boys and girls!…"
+Dialogue: 0,0:03:06.54,0:03:12.82,Shot,,0,0,0,,S53  "Correction, boys and girls!…" ("Ahem!" isn't sung)
 Dialogue: 0,0:03:12.82,0:03:15.22,Shot,,0,0,0,,S54  V16 "And the answer box on top?"
 Dialogue: 0,0:03:15.22,0:03:17.18,Shot,,0,0,0,,S55  "…That one's 'deeply integrated.'"
 Dialogue: 0,0:03:17.18,0:03:20.38,Shot,,0,0,0,,S56  V17 "What's that mean?" / "It means it stays."
@@ -76,11 +76,11 @@ Dialogue: 0,0:03:39.40,0:03:40.84,Shot,,0,0,0,,S59  V18 "I've got two sides."
 Dialogue: 0,0:03:40.84,0:03:42.44,Shot,,0,0,0,,S60  [click] [click] [click]
 Dialogue: 0,0:03:42.44,0:03:46.00,Shot,,0,0,0,,S61  "…Guess one of 'em was just for show."
 Dialogue: 0,0:03:46.00,0:03:51.94,Shot,,0,0,0,,S62  "And that's how an opt-out works! Join us next week…"
-Dialogue: 0,0:03:51.94,0:03:55.23,Shot,,0,0,0,,S63  [pop-up chime] / "Huh. Who asked for that?"
+Dialogue: 0,0:03:51.94,0:03:55.23,Shot,,0,0,0,,S63  [pop-up chime] / "Who asked for that?" ("Huh." isn't sung)
 Dialogue: 0,0:03:55.23,0:03:58.88,Shot,,0,0,0,,S64  V19 "Hey, who wrote this song, anyway?"
 Dialogue: 0,0:03:58.88,0:04:01.34,Shot,,0,0,0,,S65  "An AI did."
 Dialogue: 0,0:04:01.34,0:04:09.17,Shot,,0,0,0,,S66  "…But somebody asked it to."
-Dialogue: 0,0:04:09.17,0:04:12.17,Shot,,0,0,0,,S67  Silence after the last word
+Dialogue: 0,0:04:09.17,0:04:12.17,Shot,,0,0,0,,S67  The audio ends (the band plays to the end of the file; there is no silence aft
 Dialogue: 0,0:00:10.12,0:00:18.16,Room,,0,0,0,,{\pos(320,150)}V01 room 8.04 s
 Dialogue: 1,0:00:11.49,0:00:15.22,Slot,,0,0,0,,{\pos(320,180)}V01 MUTED
 Dialogue: 0,0:00:24.95,0:00:28.44,Room,,0,0,0,,{\pos(320,150)}V02 room 3.49 s
