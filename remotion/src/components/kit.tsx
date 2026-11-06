@@ -2,6 +2,7 @@
 import React from "react";
 import { interpolate, spring } from "remotion";
 import { Wash } from "../film/Paper";
+import { Floorboards } from "./sets";
 import { BUBBLE, SANS } from "../theme/fonts";
 import { C, H, W, lw } from "../theme/palette";
 
@@ -14,8 +15,10 @@ export const Wall: React.FC<{ id: string; color: string; band?: string; floor?: 
   <g>
     <Wash id={id} color={color} opacity={0.4}><rect x={-60} y={-60} width={w + 120} height={floor + 60} /></Wash>
     <Wash id={id} color={band} opacity={0.45}><rect x={-60} y={floor - 170} width={w + 120} height={150} /></Wash>
+    <rect x={-60} y={floor - 70} width={w + 120} height={48} fill="url(#pen-hatch)" opacity={0.3} />
     <rect x={-10} y={floor - 22} width={w + 20} height={26} fill={C.creamShade} stroke={C.ink} strokeWidth={lw(5)} />
-    <Wash id={id} color={C.inkSoft} opacity={0.55}><rect x={-60} y={floor + 4} width={w + 120} height={H - floor + 60} /></Wash>
+    <Wash id={id} color="#b98a5a" opacity={0.75}><rect x={-60} y={floor + 4} width={w + 120} height={H - floor + 60} /></Wash>
+    <g transform={`scale(${w / W}, 1)`}><Floorboards y={floor + 4} h={H - floor - 4} boards={2} /></g>
   </g>
 );
 

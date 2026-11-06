@@ -4,10 +4,10 @@ import { Wash } from "../film/Paper";
 import { BallLyric } from "../components/kit";
 import { AnswerBox, MiniRocker, Spotlight } from "../components/props";
 import { Hand } from "../rigs/Hand";
-import { Switch } from "../rigs/Switch";
+import { PLATE, Switch } from "../rigs/Switch";
 import { C, H, W, lw } from "../theme/palette";
 import { BUBBLE, SANS } from "../theme/fonts";
-import { Bookshelf, Clock, Lamp, Plant, Rug, Sunburst, Wallpaper, Window, breath } from "../components/sets";
+import { Bookshelf, Clock, Floorboards, Grain, Lamp, Plant, Rug, Sunburst, Wallpaper, Window, breath } from "../components/sets";
 import { at, downbeats, line, mouthAt } from "../timing";
 import { S16 as S16Key } from "../scenes/KeyFrames";
 import { Bg, ShotC, blink, bump, ez } from "./common";
@@ -35,7 +35,9 @@ const Night: React.FC<{ id: string; dim?: number; g?: number; children: React.Re
     <g transform="translate(1790, 1000)" opacity={0.5}><Bookshelf w={240} shelves={4} seed={9} /></g>
     <g transform="translate(1560, 620)" opacity={0.5}><Lamp on={false} /></g>
     <g transform="translate(700, 180)" opacity={0.7}><Clock t={(23 * 60 + 47) * 60 + g / 30} r={54} /></g>
+    <rect x={-20} y={854} width={W + 40} height={46} fill="url(#pen-hatch)" opacity={0.32} />
     <rect x={-20} y={900} width={W + 40} height={200} fill="#1b2440" stroke={C.ink} strokeWidth={lw(6)} />
+    <Floorboards y={900} h={200} boards={3} />
     {Array.from({ length: 8 }, (_, i) => <line key={i} x1={i * 280} y1={900} x2={i * 300 - 120} y2={H} stroke={C.ink} strokeWidth={lw(3)} opacity={0.5} />)}
     {/* the dark: everything outside the spotlight falls away, so he is alone on the wall */}
     <defs>
@@ -144,7 +146,9 @@ const Bedroom_: React.FC<{ id: string; night: boolean; g: number; drawer?: numbe
   <Bg id={id} seed={14} base={night ? C.night : C.cream}>
     <Wallpaper id={id} kind="daisy" a={night ? "#3a4a70" : C.mustard} b={night ? "#2c3d63" : C.orange} opacity={night ? 0.35 : 0.3} />
     <g transform="translate(1620, 280)"><Window w={300} h={320} sky={night ? "#16203a" : "#f2c98a"} sun={night ? "moon" : "sun"} curtain={night ? "#4a3a5a" : C.teal} /></g>
+    <rect x={-20} y={814} width={W + 40} height={46} fill="url(#pen-hatch)" opacity={0.32} />
     <rect x={-20} y={860} width={W + 40} height={240} fill={night ? "#1b2440" : "#b98a5a"} stroke={C.ink} strokeWidth={lw(6)} />
+    <Floorboards y={860} h={240} boards={3} />
     <g transform="translate(1450, 990)"><Rug w={520} color={night ? "#4a3a5a" : C.avocado} /></g>
     {/* the dresser, right: three drawers; the top one can slide open */}
     <g transform="translate(1620, 700)">
@@ -302,6 +306,31 @@ export const S37: ShotC = ({ f, g, len }) => {
   return <Gags f={f - b} g={g} len={len - b} lineId="L36" set={2} />;
 };
 
-// S38: "But the switch is just a picture…": the sticker reveal again; this time Switch peels himself off first, and sighs
-export const S38: ShotC = ({ f }) => <S16Key f={f + 10} />;
+// S38: "But the switch is just a picture…": the sticker reveal again, but this time Switch peels himself off before
+// anyone else can, his own hand at the curling corner, and sighs; nobody comes with a pencil
+export const S38: ShotC = ({ f, g, len }) => {
+  const peel = ez(f, 8, len * 0.6);
+  const d = 40 + peel * 210;
+  const fx = PLATE.w / 2, fy = PLATE.h / 2, R = 600, c = fx + fy - d;
+  const sigh = ez(f, len * 0.62, len * 0.9);
+  return (
+    <Bg id="s38" seed={38} base={C.mustard}>
+      <Wallpaper id="s38" kind="daisy" a={C.cream} b={C.orange} opacity={0.3} />
+      <rect x={-10} y={860} width={W + 20} height={26} fill={C.creamShade} stroke={C.ink} strokeWidth={lw(5)} />
+      {/* the bare wall shows where he was, a pale rectangle with two screw holes */}
+      <rect x={W / 2 - fx + 30} y={470 - fy + 20} width={PLATE.w} height={PLATE.h} rx={34} fill={C.cream} opacity={0.35 * peel} />
+      <g transform={`translate(${W / 2}, 470) rotate(${-4 - peel * 6})`}>
+        <clipPath id="s38-peel"><path d={`M${-R},${-R} L${R},${-R} L${R},${c - R} L${c - R},${R} L${-R},${R} Z`} /></clipPath>
+        <g clipPath="url(#s38-peel)"><Switch pose="sad" mouth={mouthAt(g, "narrator")} armL={20} armR={150} look={[0.7, 0.8]} blink={sigh > 0.3 ? 1 : 0} /></g>
+        <path d={`M${fx},${fy - d} L${fx - d},${fy} Q${fx - d * 0.92},${fy - d * 0.9} ${fx - d},${fy - d} Q${fx - d * 0.9},${fy - d * 0.92} ${fx},${fy - d} Z`}
+          fill={C.white} stroke={C.ink} strokeWidth={lw(6)} strokeLinejoin="round" />
+        <circle cx={fx - d * 0.98} cy={fy - d * 0.98} r={21} fill={C.cream} stroke={C.ink} strokeWidth={lw(5)} />
+      </g>
+      {sigh > 0 && sigh < 1 && <g transform={`translate(${W / 2 - 160 - sigh * 120}, ${560 - sigh * 80})`} opacity={1 - sigh}>
+        {[0, 1, 2].map((k) => <circle key={k} cx={-k * 34} cy={-k * 10} r={18 + k * 6} fill={C.white} stroke={C.ink} strokeWidth={lw(3)} />)}
+      </g>}
+      <Lyric id="L37" f={f} g={g} y={1000} size={74} />
+    </Bg>
+  );
+};
 

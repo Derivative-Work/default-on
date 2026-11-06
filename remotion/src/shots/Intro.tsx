@@ -4,7 +4,7 @@ import { AbsoluteFill, spring } from "remotion";
 import { PaperDefs, Wash } from "../film/Paper";
 import { AnswerBox, Chalkboard, Links, MiniRocker, SearchBox, Stool } from "../components/props";
 import { Pop, Wall } from "../components/kit";
-import { Bookshelf, ChalkDoodles, ChalkTray, Clock, Globe, Lamp, Outlet, Pennant, Picture, Plant, Rug, Sunburst, Wallpaper, Window, breath, sway } from "../components/sets";
+import { Bookshelf, ChalkDoodles, ChalkTray, Clock, Floorboards, Globe, Grain, Lamp, Outlet, Pennant, Picture, Plant, Rug, Sunburst, Wallpaper, Window, breath, sway } from "../components/sets";
 import { Narrator } from "../rigs/Narrator";
 import { Switch } from "../rigs/Switch";
 import { BUBBLE, SANS } from "../theme/fonts";
@@ -71,7 +71,9 @@ export const NarratorSet: React.FC<{ g: number; board: string[]; arm?: "open" | 
     <Wallpaper id="narr" kind="stripe" a={C.avocado} b={C.cream} opacity={0.18} />
     <Wash id="narr" color={C.cardigan} opacity={0.85}><rect x={-40} y={880} width={W + 80} height={240} /></Wash>
     {Array.from({ length: 9 }, (_, i) => <line key={i} x1={-40 + i * 260} y1={880} x2={-120 + i * 300} y2={H} stroke={C.ink} strokeWidth={lw(3)} opacity={0.35} />)}
+    <rect x={-20} y={820} width={W + 40} height={46} fill="url(#pen-hatch)" opacity={0.3} />
     <rect x={-10} y={866} width={W + 20} height={22} fill={C.cardiganShade} stroke={C.ink} strokeWidth={lw(5)} />
+    <Floorboards y={888} h={192} boards={2} />
     <Chalkboard lines={board} size={size} />
     <ChalkTray x={160} y={632} w={900} />
     {board.length < 3 && <ChalkDoodles x={560} y={420} />}
@@ -195,6 +197,7 @@ const Study: React.FC<{ g: number; children: React.ReactNode; keys?: number }> =
     <g transform="translate(240, 540)"><Lamp /></g>
     {/* the desktop */}
     <rect x={-20} y={760} width={W + 40} height={340} fill="#a8703e" stroke={C.ink} strokeWidth={lw(8)} />
+    <Grain x={0} y={770} w={W} h={280} n={5} seed={1} />
     {Array.from({ length: 7 }, (_, i) => <path key={i} d={`M-20,${800 + i * 42} q${400 + i * 30},${-14 + (i % 2) * 28} ${960},0 t${980},0`} stroke={C.cardiganShade} strokeWidth={3} fill="none" opacity={0.5} />)}
     {/* keyboard: three rows of round keys; the one being typed dips */}
     <g transform="translate(960, 900)">
@@ -307,7 +310,9 @@ export const S08: ShotC = ({ f, g, len }) => {
       <g transform={`translate(${1180 + wob}, ${900 - step * 80 - (climb * 8 - step) * 30}) scale(0.5) rotate(${wob})`}>
         <Switch pose="curious" look={[0.6, -0.9]} armL={step % 2 ? 165 : 140} armR={step % 2 ? 140 : 165} blink={blink(g, 2)} />
       </g>
+      <rect x={-20} y={954} width={W + 40} height={46} fill="url(#pen-hatch)" opacity={0.32} />
       <rect x={-20} y={1000} width={W + 40} height={100} fill={C.cardigan} stroke={C.ink} strokeWidth={lw(6)} />
+      <Floorboards y={1000} h={100} boards={2} />
       {/* the Narrator framed from the chest up, cropped by the frame's bottom edge */}
       <g transform={`translate(430, ${850 - (breath(g) - 1) * 200}) scale(0.9)`}><Narrator mouth={mouthAt(g, "narrator")} armR="point" head={1} blink={blink(g)} /></g>
     </Bg>

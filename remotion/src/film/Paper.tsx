@@ -11,6 +11,18 @@ export const PaperDefs: React.FC<{ id: string; seed?: number }> = ({ id, seed = 
       <feTurbulence type="fractalNoise" baseFrequency="0.02" numOctaves={2} seed={seed} result="n" />
       <feDisplacementMap in="SourceGraphic" in2="n" scale={6} xChannelSelector="R" yChannelSelector="G" />
     </filter>
+    {/* pen hatching, shared by every shot (ids repeat across svgs; their content is identical): diagonal lines,
+        cross-hatching, and a stipple, all in the ink */}
+    <pattern id="pen-hatch" width={9} height={9} patternUnits="userSpaceOnUse" patternTransform="rotate(40)">
+      <line x1={0} y1={0} x2={0} y2={9} stroke={C.ink} strokeWidth={1.6} opacity={0.6} />
+    </pattern>
+    <pattern id="pen-cross" width={10} height={10} patternUnits="userSpaceOnUse" patternTransform="rotate(40)">
+      <line x1={0} y1={0} x2={0} y2={10} stroke={C.ink} strokeWidth={1.4} opacity={0.55} />
+      <line x1={0} y1={0} x2={10} y2={0} stroke={C.ink} strokeWidth={1.4} opacity={0.55} />
+    </pattern>
+    <pattern id="pen-dots" width={12} height={12} patternUnits="userSpaceOnUse">
+      <circle cx={3} cy={3} r={1.3} fill={C.ink} opacity={0.5} /><circle cx={9} cy={8} r={1.1} fill={C.ink} opacity={0.4} />
+    </pattern>
     {/* paper tooth */}
     <filter id={`${id}-tooth`}>
       <feTurbulence type="fractalNoise" baseFrequency="0.6" numOctaves={3} seed={seed + 11} />

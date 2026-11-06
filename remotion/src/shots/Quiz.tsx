@@ -6,29 +6,102 @@ import { Narrator } from "../rigs/Narrator";
 import { Switch } from "../rigs/Switch";
 import { C, W, lw } from "../theme/palette";
 import { mouthAt } from "../timing";
+import { Floorboards, Grain, breath } from "../components/sets";
 import { Bg, ShotC, blink, bump, ez } from "./common";
 
-// the game-show set: bulbs round the edge, the sign, Switch at a podium with a buzzer
-const Show: React.FC<{ f: number; g: number; sign?: string; children?: React.ReactNode; light?: string }> = ({ f, g, sign = "POP QUIZ!", children, light }) => (
-  <Bg id="show" seed={40} base={C.orange}>
-    {Array.from({ length: 30 }, (_, i) => {
-      const x = i < 15 ? 60 + i * 129 : 60 + (i - 15) * 129;
-      const y = i < 15 ? 50 : 1030;
-      return <circle key={i} cx={x} cy={y} r={18} fill={(i + Math.floor(f / 4)) % 2 ? C.cream : C.mustard} stroke={C.ink} strokeWidth={lw(4)} />;
+// the game-show studio: swagged curtains, a marquee sign with chasing bulbs, spotlit floor discs, an audience in
+// silhouette along the bottom, a scoreboard, the contestant podium (Switch, with a buzzer) and the host's lectern
+// (the Narrator, with a stick mic and question cards)
+const Curtains: React.FC = () => (
+  <g>
+    {[-1, 1].map((k) => (
+      <g key={k} transform={`translate(${k < 0 ? 0 : W}, 0) scale(${k < 0 ? 1 : -1}, 1)`}>
+        <path d="M0,0 L300,0 Q260,400 330,1080 L0,1080 Z" fill={C.red} stroke={C.ink} strokeWidth={lw(6)} />
+        {[80, 160, 240].map((x) => <path key={x} d={`M${x},0 Q${x - 30},500 ${x + 20},1080`} stroke="#a8302a" strokeWidth={10} fill="none" />)}
+      </g>
+    ))}
+    <path d={`M0,0 L${W},0 L${W},90 Q${W * 0.75},170 ${W / 2},100 Q${W * 0.25},170 0,90 Z`} fill={C.red} stroke={C.ink} strokeWidth={lw(6)} />
+    {Array.from({ length: 12 }, (_, i) => <circle key={i} cx={80 + i * 160} cy={120 + Math.sin(i * 0.9) * 20} r={14} fill={C.mustard} stroke={C.ink} strokeWidth={lw(3)} />)}
+  </g>
+);
+const Audience: React.FC<{ f: number }> = ({ f }) => (
+  <g>
+    {Array.from({ length: 16 }, (_, i) => {
+      const bob = Math.abs(Math.sin((f + i * 7) / 6)) * 8;
+      return <g key={i} transform={`translate(${60 + i * 125}, ${1060 - bob})`}>
+        <ellipse cx={0} cy={0} rx={62} ry={50} fill="#3b2f3a" />
+        <circle cx={0} cy={-58} r={36} fill="#3b2f3a" />
+      </g>;
     })}
-    <g transform="translate(960, 200)">
-      <rect x={-420} y={-80} width={840} height={160} rx={30} fill={C.teal} stroke={C.ink} strokeWidth={lw(8)} />
-      <text textAnchor="middle" y={36} fontFamily={BUBBLE} fontSize={110} fill={C.cream} stroke={C.ink} strokeWidth={lw(6)} paintOrder="stroke">{sign}</text>
+  </g>
+);
+const Scoreboard: React.FC<{ score: string }> = ({ score }) => (
+  <g transform="translate(1560, 300)">
+    <rect x={-150} y={-60} width={300} height={120} rx={14} fill={C.dark} stroke={C.ink} strokeWidth={lw(6)} />
+    <text x={-120} y={-14} fontFamily={SANS} fontWeight={600} fontSize={26} fill={C.mustard}>SWITCH</text>
+    <text x={120} y={40} textAnchor="end" fontFamily={BUBBLE} fontSize={70} fill={C.mustard}>{score}</text>
+  </g>
+);
+const Show: React.FC<{ f: number; g: number; sign?: string; score?: string; children?: React.ReactNode; light?: string }> = ({ f, g, sign = "POP QUIZ!", score = "0", children, light }) => (
+  <Bg id="show" seed={40} base={C.night}>
+    {[480, 960, 1440].map((x) => <ellipse key={x} cx={x} cy={900} rx={260} ry={50} fill={C.cream} opacity={0.18} />)}
+    <rect x={-20} y={814} width={W + 40} height={46} fill="url(#pen-hatch)" opacity={0.32} />
+    <rect x={-20} y={860} width={W + 40} height={240} fill="#3a3466" stroke={C.ink} strokeWidth={lw(6)} />
+    <Floorboards y={860} h={240} boards={3} />
+    <Curtains />
+    <g transform="translate(960, 260)">
+      <rect x={-440} y={-90} width={880} height={180} rx={30} fill={C.teal} stroke={C.ink} strokeWidth={lw(8)} />
+      {Array.from({ length: 22 }, (_, i) => {
+        const t = i / 22, x = -440 + (t < 0.5 ? t * 2 * 880 : 880 - (t - 0.5) * 2 * 880), y = t < 0.5 ? -90 : 90;
+        return <circle key={i} cx={x} cy={y} r={11} fill={(i + Math.floor(f / 3)) % 3 ? C.cream : C.mustard} stroke={C.ink} strokeWidth={lw(2)} />;
+      })}
+      <text textAnchor="middle" y={38} fontFamily={BUBBLE} fontSize={112} fill={C.cream} stroke={C.ink} strokeWidth={6} paintOrder="stroke">{sign}</text>
     </g>
-    <g transform="translate(1400, 760)">
+    <Scoreboard score={score} />
+    {/* the host's lectern, left */}
+    <g transform={`translate(440, ${700 - (breath(g) - 1) * 200}) scale(0.62)`}><Narrator mouth={mouthAt(g, "narrator")} armR="point" head={1} blink={blink(g)} /></g>
+    <g transform="translate(440, 820)">
+      <path d="M-170,-40 L170,-40 L140,240 L-140,240 Z" fill={C.orange} stroke={C.ink} strokeWidth={lw(7)} />
+      <path d="M0,-40 L0,-150" stroke={C.ink} strokeWidth={6} />
+      <ellipse cx={0} cy={-162} rx={16} ry={22} fill={C.sleeveShade} stroke={C.ink} strokeWidth={lw(4)} />
+      <rect x={-130} y={-70} width={110} height={70} rx={6} fill={C.white} stroke={C.ink} strokeWidth={lw(3)} transform="rotate(-8)" />
+      <path d="M-40,40 l12,26 l28,4 l-20,18 l6,28 l-26,-14 l-26,14 l6,-28 l-20,-18 l28,-4 Z" fill={C.mustard} stroke={C.ink} strokeWidth={lw(3)} />
+    </g>
+    {/* the contestant's podium, right */}
+    <g transform="translate(1400, 790)">
       <path d="M-180,-60 L180,-60 L150,300 L-150,300 Z" fill={C.mustard} stroke={C.ink} strokeWidth={lw(8)} />
+      <text x={0} y={70} textAnchor="middle" fontFamily={BUBBLE} fontSize={56} fill={C.ink}>SWITCH</text>
       <circle cx={0} cy={-70} r={30} fill={light ?? C.red} stroke={C.ink} strokeWidth={lw(6)} />
-      <g transform="translate(0, -270) scale(0.62)"><Switch pose="curious" mouth={mouthAt(g, "switch")} armR={90} blink={blink(g, 5)} /></g>
+      <g transform="translate(0, -290) scale(0.6)"><Switch pose="curious" mouth={mouthAt(g, "switch")} armR={90} blink={blink(g, 5)} /></g>
     </g>
-    <g transform="translate(420, 780) scale(0.7)"><Narrator mouth={mouthAt(g, "narrator")} armR="point" head={1} /></g>
+    <Audience f={f} />
     {children}
   </Bg>
 );
+
+// a question on the studio's big screen, between the curtains: a card label ("Q1") and the screen's content
+const QuizScreen: React.FC<{ f: number; q: string; children: React.ReactNode }> = ({ f, q, children }) => {
+  const kids = React.Children.toArray(children);
+  const isCaption = (c: React.ReactNode) => React.isValidElement(c) && c.type === Caption;
+  return (
+  <Bg id="qscreen" seed={41} base={C.night}>
+    <rect x={-20} y={814} width={W + 40} height={46} fill="url(#pen-hatch)" opacity={0.32} />
+    <rect x={-20} y={860} width={W + 40} height={240} fill="#3a3466" stroke={C.ink} strokeWidth={lw(6)} />
+    <Floorboards y={860} h={240} boards={3} />
+    <Curtains />
+    <rect x={380} y={170} width={1160} height={720} rx={24} fill={C.teal} stroke={C.ink} strokeWidth={lw(8)} opacity={0.9} />
+    <g transform="translate(470, 250) rotate(-6)">
+      <rect x={-70} y={-44} width={140} height={88} rx={10} fill={C.mustard} stroke={C.ink} strokeWidth={lw(5)} />
+      <text textAnchor="middle" y={22} fontFamily={BUBBLE} fontSize={56} fill={C.ink}>{q}</text>
+    </g>
+    <clipPath id="qscreen-clip"><rect x={380} y={170} width={1160} height={720} rx={24} /></clipPath>
+    <g clipPath="url(#qscreen-clip)">{kids.filter((c) => !isCaption(c))}</g>
+    <Audience f={f} />
+    {/* the screen's content stays inside the screen; captions sit on top of the audience */}
+    {kids.filter(isCaption)}
+  </Bg>
+  );
+};
 
 // S40: "Pop quiz!"
 export const S40: ShotC = ({ f, g }) => <Show f={f} g={g} />;
@@ -53,29 +126,34 @@ const Chat: React.FC<{ f: number; ring: number; muffs?: number }> = ({ f, ring, 
 
 // S41: "There's a blue ring in the chat app…": a generic chat thread; a plain glowing ring floats in and parks
 export const S41: ShotC = ({ f, len }) => (
-  <Bg id="s41" seed={41} base={C.orange}>
-    <g transform="translate(960, 560)"><Chat f={f} ring={ez(f, len * 0.4, len * 0.8)} /></g>
-  </Bg>
+  <QuizScreen f={f} q="Q1">
+    <g transform="translate(960, 540) scale(0.85)"><Chat f={f} ring={ez(f, len * 0.4, len * 0.8)} /></g>
+  </QuizScreen>
 );
 
 // S42: V12 "I'll uninstall it!" / "Nope!": wrong-answer honk, big red X
 export const S42: ShotC = ({ f, g, len }) => {
   const x = ez(f, len * 0.55, len * 0.6);
   return (
-    <Show f={f} g={g} light={x > 0 ? C.red : C.cream}>
+    <Show f={f} g={g} light={x > 0 ? C.red : C.cream} score={x > 0 ? "✗" : "0"}>
       {x > 0 && <g transform={`translate(960, 600) scale(${x})`} opacity={0.92}>
         <path d="M-260,-260 L260,260 M260,-260 L-260,260" stroke={C.red} strokeWidth={90} strokeLinecap="round" />
       </g>}
+      {x > 0 && <text x={1180} y={560} fontFamily={BUBBLE} fontSize={110} fill={C.mustard} stroke={C.ink} strokeWidth={6} paintOrder="stroke" transform="rotate(10, 1180, 560)">HONK!</text>}
     </Show>
   );
 };
 
 // S43: V13 "I'll mute it, then?" / "That's not so bad!": half-credit chime; the ring puts on earmuffs and stays put
 export const S43: ShotC = ({ f, len }) => (
-  <Bg id="s41" seed={41} base={C.orange}>
-    <g transform="translate(960, 560)"><Chat f={f} ring={1} muffs={ez(f, len * 0.5, len * 0.65)} /></g>
-    <g transform="translate(1500, 300)"><text textAnchor="middle" fontFamily={BUBBLE} fontSize={90} fill={C.cream} stroke={C.ink} strokeWidth={lw(5)} paintOrder="stroke" opacity={ez(f, len * 0.5, len * 0.6)}>½</text></g>
-  </Bg>
+  <QuizScreen f={f} q="Q1">
+    <g transform="translate(960, 540) scale(0.85)"><Chat f={f} ring={1} muffs={ez(f, len * 0.5, len * 0.65)} /></g>
+    <g transform="translate(1400, 380)" opacity={ez(f, len * 0.5, len * 0.6)}>
+      <text textAnchor="middle" fontFamily={BUBBLE} fontSize={130} fill={C.mustard} stroke={C.ink} strokeWidth={6} paintOrder="stroke">½</text>
+      <text x={20} y={90} textAnchor="middle" fontFamily={BUBBLE} fontSize={56} fill={C.cream} stroke={C.ink} strokeWidth={4} paintOrder="stroke">DING!</text>
+      {[[-120, -80], [110, -110], [140, 30]].map(([x, y], i) => <path key={i} transform={`translate(${x}, ${y}) scale(${0.8 + 0.3 * Math.sin(f / 4 + i)})`} d="M0,-20 L6,-6 L20,0 L6,6 L0,20 L-6,6 L-20,0 L-6,-6 Z" fill={C.cream} stroke={C.ink} strokeWidth={lw(3)} />)}
+    </g>
+  </QuizScreen>
 );
 
 // S44: "Now your phone has got an update…": one enormous button, "Continue," and nothing else
@@ -91,10 +169,10 @@ const ContinuePhone: React.FC<{ on?: number }> = ({ on = 0 }) => (
     </g>
   </Phone>
 );
-export const S44: ShotC = () => (
-  <Bg id="s44" seed={44} base={C.teal}>
-    <g transform="translate(960, 560) scale(1.1)"><ContinuePhone /></g>
-  </Bg>
+export const S44: ShotC = ({ f }) => (
+  <QuizScreen f={f} q="Q2">
+    <g transform={`translate(960, 540) scale(${0.85 + Math.sin(f / 6) * 0.01})`}><ContinuePhone /></g>
+  </QuizScreen>
 );
 
 // S45: V14 "Where's the 'No'?" / "There isn't one!…": Switch searches the phone's edges with a magnifying glass; pull
@@ -103,7 +181,7 @@ export const S45: ShotC = ({ f, g, len }) => {
   const back = ez(f, len * 0.45, len * 0.65);
   const s = 1.1 - back * 0.65;
   return (
-    <Bg id="s44" seed={44} base={C.teal}>
+    <QuizScreen f={f} q="Q2">
       {[-3, -2, -1, 0, 1, 2, 3].map((i) => (
         <g key={i} transform={`translate(${960 + i * 520 * s}, 560) scale(${s})`} opacity={i === 0 ? 1 : back}>
           <ContinuePhone on={i % 3 !== 1 && i !== 0 ? ez(f, len * 0.7 + Math.abs(i) * 4, len * 0.75 + Math.abs(i) * 4) : 0} />
@@ -114,7 +192,7 @@ export const S45: ShotC = ({ f, g, len }) => {
         <g transform="translate(-300, -30)"><circle r={70} fill={C.cream} fillOpacity={0.4} stroke={C.ink} strokeWidth={12} /><line x1={50} y1={50} x2={150} y2={110} stroke={C.ink} strokeWidth={18} strokeLinecap="round" /></g>
       </g>
       <Caption text="Some iPhones, iOS 18.3.2, March 2025" />
-    </Bg>
+    </QuizScreen>
   );
 };
 
@@ -123,19 +201,19 @@ export const S45: ShotC = ({ f, g, len }) => {
 export const S46: ShotC = ({ f, len }) => {
   const inflate = ez(f, len * 0.3, len * 0.85);
   return (
-    <Bg id="s46" seed={46} base={C.cream}>
-      <g transform="translate(560, 520)">
+    <QuizScreen f={f} q="Q3">
+      <g transform="translate(700, 540) scale(0.85)">
         <rect x={-380} y={-330} width={760} height={600} rx={20} fill={C.paper} stroke={C.ink} strokeWidth={lw(7)} />
         {/* a hand-drawn continent outline: a simple blob, not a traced map */}
         <path d="M-260,-60 Q-250,-170 -120,-190 Q-40,-260 40,-200 Q120,-230 170,-150 Q260,-120 270,-10 Q300,90 220,150 Q140,210 60,170 Q-10,220 -80,170 Q-200,170 -240,80 Q-290,10 -260,-60 Z" fill={C.orange} stroke={C.ink} strokeWidth={lw(6)} opacity={0.85} />
         <path d="M140,230 q20,-10 30,10 q-10,20 -30,-10" fill={C.orange} stroke={C.ink} strokeWidth={lw(4)} />
       </g>
-      <g transform={`translate(1360, ${600 - inflate * 120}) scale(${0.6 + inflate * 0.9}) rotate(${Math.sin(f / 8) * 6})`}>
+      <g transform={`translate(1260, ${600 - inflate * 120}) scale(${0.5 + inflate * 0.7}) rotate(${Math.sin(f / 8) * 6})`}>
         <path d="M-150,70 Q-120,220 -60,330" stroke={C.ink} strokeWidth={lw(4)} fill="none" />
         <PriceTag text="+45%" />
       </g>
       <Caption text="Microsoft 365 Personal. Alleged by Australia's ACCC." />
-    </Bg>
+    </QuizScreen>
   );
 };
 
@@ -147,14 +225,18 @@ export const S47: ShotC = ({ f, g, len }) => {
   const peek = ez(f, len * 0.5, len * 0.6) * (1 - ez(f, len * 0.85, len * 0.88));
   const slam = f > len * 0.86;
   return (
-    <Bg id="s47" seed={47} base={C.mustard}>
-      <rect x={-20} y={900} width={W + 40} height={200} fill={C.inkSoft} opacity={0.6} />
+    <Bg id="s47" seed={47} base={C.night}>
+      <rect x={-20} y={814} width={W + 40} height={46} fill="url(#pen-hatch)" opacity={0.32} />
+      <rect x={-20} y={860} width={W + 40} height={240} fill="#3a3466" stroke={C.ink} strokeWidth={lw(6)} />
+      <Floorboards y={860} h={240} boards={3} />
+      <Curtains />
       <g transform="translate(1280, 900)"><Door label="CANCEL" open={slam ? 0 : peek * 0.4} color={C.red} /></g>
       <g transform={`translate(${1480 - (1 - peek) * 220}, 560) scale(0.6)`} opacity={peek}><PriceTag text="CLASSIC" color={C.avocado} s={0.8} /></g>
       <g transform={`translate(${300 + walk * 520}, ${700 - bump(f, len * 0.88, 5) * 30}) scale(0.6)`}>
         <Switch pose={slam ? "startled" : "curious"} mouth={mouthAt(g, "switch")} look={[1, 0]} blink={blink(g, 6)} />
       </g>
-      {slam && f < len * 0.92 && <text x={1100} y={300} fontFamily={BUBBLE} fontSize={110} fill={C.ink}>SLAM!</text>}
+      {slam && f < len * 0.92 && <text x={1100} y={300} fontFamily={BUBBLE} fontSize={110} fill={C.mustard} stroke={C.ink} strokeWidth={6} paintOrder="stroke">SLAM!</text>}
+      <Audience f={f} />
     </Bg>
   );
 };

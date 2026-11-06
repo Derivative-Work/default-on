@@ -4,7 +4,7 @@
 // the pose sets eyes, brows and arm angles; `toggle` (0 OFF .. 1 ON) and `mouth` are driven separately so the click
 // and the lip sync move on their own. Drawn around the plate's centre, 250 x 390 units.
 import React from "react";
-import { C, lw } from "../theme/palette";
+import { C, PEN, lw } from "../theme/palette";
 import { Mouth, MouthShape } from "./Mouth";
 
 export type SwitchPose = "neutral" | "curious" | "proud" | "sad" | "startled" | "relaxed";
@@ -107,12 +107,19 @@ export const Switch: React.FC<SwitchProps> = ({
       {arms && <Arm side={-1} angle={armL ?? spec.armL} />}
       {arms && <Arm side={1} angle={armR ?? spec.armR} wave={wave} />}
       {/* plate: a soft-cornered rectangle with a bevel */}
+      {/* the plate's thickness: a hatched edge to the right and below, like a raised plate on the wall */}
+      <path d={`M${PLATE.w / 2 - 20},${-PLATE.h / 2 + 8} Q${PLATE.w / 2 + 14},${-PLATE.h / 2 + 4} ${PLATE.w / 2 + 12},${-PLATE.h / 2 + 40} L${PLATE.w / 2 + 12},${PLATE.h / 2 - 6} Q${PLATE.w / 2 + 10},${PLATE.h / 2 + 12} ${PLATE.w / 2 - 30},${PLATE.h / 2 + 12} L${-PLATE.w / 2 + 30},${PLATE.h / 2 + 12} Z`} fill={C.creamShade} stroke={C.ink} strokeWidth={lw(6)} />
+      <path d={`M${PLATE.w / 2 - 20},${-PLATE.h / 2 + 8} Q${PLATE.w / 2 + 14},${-PLATE.h / 2 + 4} ${PLATE.w / 2 + 12},${-PLATE.h / 2 + 40} L${PLATE.w / 2 + 12},${PLATE.h / 2 - 6} Q${PLATE.w / 2 + 10},${PLATE.h / 2 + 12} ${PLATE.w / 2 - 30},${PLATE.h / 2 + 12} L${-PLATE.w / 2 + 30},${PLATE.h / 2 + 12} Z`} fill="url(#pen-hatch)" />
       <rect x={-PLATE.w / 2} y={-PLATE.h / 2} width={PLATE.w} height={PLATE.h} rx={34} fill={C.cream} stroke={C.ink} strokeWidth={lw(8)} />
+      {/* pen detail: a highlight along the bevel, two faint scuffs */}
+      <path d={`M${-PLATE.w / 2 + 26},${-PLATE.h / 2 + 60} Q${-PLATE.w / 2 + 22},${-PLATE.h / 2 + 22} ${-PLATE.w / 2 + 62},${-PLATE.h / 2 + 20}`} stroke={C.white} strokeWidth={5} fill="none" strokeLinecap="round" />
+      <path d="M78,90 l14,-6 M84,100 l10,-4 M-92,40 l10,6" {...PEN} opacity={0.5} />
       <rect x={-PLATE.w / 2 + 16} y={-PLATE.h / 2 + 16} width={PLATE.w - 32} height={PLATE.h - 32} rx={22} fill="none" stroke={C.creamShade} strokeWidth={6} />
       {/* screws */}
       {[-1, 1].map((s) => (
         <g key={s} transform={`translate(0, ${s * (PLATE.h / 2 - 24)})`}>
           <circle r={8} fill={C.creamShade} stroke={C.ink} strokeWidth={lw(3.5)} />
+          <path d="M-6,4 A8,8 0 0 0 6,4" {...PEN} />
           <line x1={-5} y1={-2} x2={5} y2={2} stroke={C.ink} strokeWidth={lw(3)} />
         </g>
       ))}
@@ -127,6 +134,8 @@ export const Switch: React.FC<SwitchProps> = ({
         {/* the raised half's lower lip casts a little shadow onto the pressed half */}
         <rect x={-48} y={rock > 0 ? -rock * 4 - 8 : -rock * 4} width={96} height={8 * Math.abs(rock)} fill={C.ink} opacity={0.25} />
         <line x1={-48} x2={48} y1={-rock * 4} y2={-rock * 4} stroke={C.ink} strokeWidth={lw(4)} />
+        {/* grip lines on the raised half */}
+        {[0, 1, 2].map((k) => <line key={k} x1={-26} x2={26} y1={(rock > 0 ? 22 : -38) + k * 8} y2={(rock > 0 ? 22 : -38) + k * 8} {...PEN} opacity={0.45} />)}
         <rect x={-58} y={-70} width={116} height={140} rx={16} fill="none" stroke={C.ink} strokeWidth={lw(6)} />
         {/* pilot light */}
         <circle cx={0} cy={-44} r={8} fill={on > 0.5 ? C.mustard : PRESSED} stroke={C.ink} strokeWidth={lw(3)} />

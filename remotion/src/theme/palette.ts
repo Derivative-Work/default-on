@@ -31,3 +31,6 @@ export const H = 1080;
 // line weight: every ink outline's width goes through lw(), so the whole film's line can be set in one place
 export const LINE = 0.62;
 export const lw = (n: number) => Math.round(n * LINE * 100) / 100;
+
+// the pen layer: thin ink detail lines (hatching, grain, folds, hair), drawn over the flat colour
+export const PEN = { stroke: C.ink, strokeWidth: 2.4, fill: "none", strokeLinecap: "round" as const, strokeLinejoin: "round" as const };

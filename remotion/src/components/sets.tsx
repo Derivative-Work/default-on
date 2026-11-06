@@ -2,7 +2,7 @@
 // generic, all drawn in the house ink. Each piece is drawn around its own origin in 1920x1080 units.
 import React from "react";
 import { BUBBLE, SANS } from "../theme/fonts";
-import { C, H, W, lw } from "../theme/palette";
+import { C, H, PEN, W, lw } from "../theme/palette";
 
 const ink = { stroke: C.ink, strokeWidth: lw(6), strokeLinejoin: "round" as const, strokeLinecap: "round" as const };
 
@@ -10,17 +10,28 @@ const ink = { stroke: C.ink, strokeWidth: lw(6), strokeLinejoin: "round" as cons
 export const Wallpaper: React.FC<{ id: string; kind: "stripe" | "daisy" | "diamond"; a: string; b: string; x?: number; y?: number; w?: number; h?: number; opacity?: number }> = ({
   id, kind, a, b, x = -40, y = -40, w = W + 80, h = H + 80, opacity = 0.32,
 }) => (
-  <g opacity={opacity * 0.5}>
+  <g>
     <defs>
+      {/* the print's colour, faint */}
       <pattern id={`wp-${id}`} width={kind === "stripe" ? 80 : 120} height={kind === "stripe" ? 80 : 120} patternUnits="userSpaceOnUse">
-        {kind === "stripe" && <><rect width={40} height={80} fill={a} /><rect x={40} width={40} height={80} fill={b} /><rect x={36} width={8} height={80} fill={C.cream} opacity={0.5} /></>}
+        {kind === "stripe" && <><rect width={40} height={80} fill={a} /><rect x={40} width={40} height={80} fill={b} /></>}
         {kind === "daisy" && <>{[[30, 30], [90, 90]].map(([cx, cy]) => <g key={cx} transform={`translate(${cx}, ${cy})`}>
           {[0, 60, 120, 180, 240, 300].map((r) => <ellipse key={r} cx={0} cy={-11} rx={6} ry={11} fill={a} transform={`rotate(${r})`} />)}
           <circle r={6} fill={b} /></g>)}</>}
         {kind === "diamond" && <><path d="M60,0 L120,60 L60,120 L0,60 Z" fill="none" stroke={a} strokeWidth={6} /><circle cx={60} cy={60} r={8} fill={b} /></>}
       </pattern>
+      {/* the same print drawn with the pen: thin ink outlines over the colour */}
+      <pattern id={`wpi-${id}`} width={kind === "stripe" ? 80 : 120} height={kind === "stripe" ? 80 : 120} patternUnits="userSpaceOnUse">
+        {kind === "stripe" && <><line x1={40} y1={0} x2={40} y2={80} stroke={C.ink} strokeWidth={1.3} /><line x1={46} y1={0} x2={46} y2={80} stroke={C.ink} strokeWidth={0.9} /></>}
+        {kind === "daisy" && <>{[[30, 30], [90, 90]].map(([cx, cy]) => <g key={cx} transform={`translate(${cx}, ${cy})`}>
+          {[0, 60, 120, 180, 240, 300].map((r) => <ellipse key={r} cx={0} cy={-11} rx={6} ry={11} fill="none" stroke={C.ink} strokeWidth={1.2} transform={`rotate(${r})`} />)}
+          <circle r={2} fill={C.ink} /></g>)}
+          <path d="M60,60 q8,-6 16,0 M0,60 q8,6 16,0" stroke={C.ink} strokeWidth={1} fill="none" /></>}
+        {kind === "diamond" && <><path d="M60,0 L120,60 L60,120 L0,60 Z" fill="none" stroke={C.ink} strokeWidth={1.2} /><circle cx={60} cy={60} r={3} fill={C.ink} /></>}
+      </pattern>
     </defs>
-    <rect x={x} y={y} width={w} height={h} fill={`url(#wp-${id})`} />
+    <rect x={x} y={y} width={w} height={h} fill={`url(#wp-${id})`} opacity={opacity * 0.5} />
+    <rect x={x} y={y} width={w} height={h} fill={`url(#wpi-${id})`} opacity={0.32} />
   </g>
 );
 
@@ -66,6 +77,7 @@ export const Globe: React.FC<{ spin?: number }> = ({ spin = 0 }) => (
         </g>
       ))}
     </g>
+    <path d="M0,-80 Q-40,0 0,80 M0,-80 Q40,0 0,80 M-78,-20 Q0,-6 78,-20 M-78,20 Q0,34 78,20" {...PEN} opacity={0.6} />
     <circle r={80} fill="none" {...ink} />
   </g>
 );
@@ -76,6 +88,8 @@ export const Plant: React.FC<{ sway?: number; s?: number }> = ({ sway = 0, s = 1
       <path key={i} d={`M0,0 Q${a * 0.6 + sway * 6},-60 ${a + sway * 10},${-110 - (i % 2) * 30}`} fill="none" stroke={C.avocado} strokeWidth={14} strokeLinecap="round" />
     ))}
     {[-50, 10, 60].map((a, i) => <ellipse key={i} cx={a + sway * 10} cy={-110 - (i % 2) * 30} rx={22} ry={12} fill={C.avocado} stroke={C.ink} strokeWidth={lw(4)} transform={`rotate(${a}, ${a + sway * 10}, ${-110 - (i % 2) * 30})`} />)}
+    {[-50, 10, 60].map((a, i) => <line key={`v${i}`} x1={a + sway * 10 - 16} y1={-110 - (i % 2) * 30} x2={a + sway * 10 + 16} y2={-110 - (i % 2) * 30} {...PEN} transform={`rotate(${a}, ${a + sway * 10}, ${-110 - (i % 2) * 30})`} />)}
+    <path d="M-40,30 q40,10 80,0 M-36,60 q36,8 72,0" {...PEN} opacity={0.6} />
     <path d="M-55,0 L55,0 L42,90 L-42,90 Z" fill={C.orange} {...ink} />
     <rect x={-62} y={-10} width={124} height={22} rx={6} fill={C.red} {...ink} strokeWidth={lw(5)} />
   </g>
@@ -87,14 +101,20 @@ export const Bookshelf: React.FC<{ w?: number; shelves?: number; seed?: number }
   return (
     <g>
       <rect x={-w / 2 - 14} y={-shelves * 130 - 14} width={w + 28} height={shelves * 130 + 28} fill={C.cardigan} {...ink} />
+      <rect x={-w / 2} y={-shelves * 130} width={w} height={shelves * 130} fill="url(#pen-hatch)" opacity={0.6} />
+      <Grain x={-w / 2 - 14} y={-shelves * 130 - 14} w={14} h={shelves * 130 + 28} n={1} vertical />
       {Array.from({ length: shelves }, (_, r) => {
         let x = -w / 2;
         const books = [];
         for (let i = 0; x < w / 2 - 30; i++) {
           const bw = 22 + ((seed * 13 + r * 7 + i * 11) % 22), bh = 80 + ((seed * 5 + r * 3 + i * 17) % 34);
           const lean = (seed + r + i) % 9 === 0;
-          books.push(<rect key={i} x={x} y={-r * 130 - bh - 6} width={bw} height={bh} fill={cols[(seed + r * 3 + i) % cols.length]}
-            stroke={C.ink} strokeWidth={lw(3)} transform={lean ? `rotate(12, ${x}, ${-r * 130 - 6})` : undefined} />);
+          books.push(<g key={i} transform={lean ? `rotate(12, ${x}, ${-r * 130 - 6})` : undefined}>
+            <rect x={x} y={-r * 130 - bh - 6} width={bw} height={bh} fill={cols[(seed + r * 3 + i) % cols.length]} stroke={C.ink} strokeWidth={lw(3)} />
+            <line x1={x + 3} x2={x + bw - 3} y1={-r * 130 - bh + 10} y2={-r * 130 - bh + 10} {...PEN} />
+            <line x1={x + 3} x2={x + bw - 3} y1={-r * 130 - 22} y2={-r * 130 - 22} {...PEN} />
+            {bw > 30 && <line x1={x + bw / 2} x2={x + bw / 2} y1={-r * 130 - bh + 20} y2={-r * 130 - 34} {...PEN} opacity={0.5} />}
+          </g>);
           x += bw + (lean ? 18 : 2);
         }
         return <g key={r}>{books}<rect x={-w / 2 - 14} y={-r * 130 - 6} width={w + 28} height={14} fill={C.cardiganShade} stroke={C.ink} strokeWidth={lw(3)} /></g>;
@@ -112,12 +132,14 @@ export const Window: React.FC<{ w?: number; h?: number; sky?: string; sun?: "sun
     {sun === "sun" && <circle cx={w * 0.15} cy={-h * 0.15} r={46} fill={C.mustard} opacity={0.9} />}
     {sun === "moon" && <circle cx={w * 0.15} cy={-h * 0.15} r={40} fill={C.cream} />}
     <path d={`M${-w / 2 + 40},${h * 0.3} q60,-40 120,0 t120,0`} fill="none" stroke={C.white} strokeWidth={10} opacity={0.6} />
+    <path d={`M${-w * 0.36},${-h * 0.3} l40,-40 M${-w * 0.3},${-h * 0.2} l26,-26 M${w * 0.12},${h * 0.18} l40,-40`} stroke={C.white} strokeWidth={5} strokeLinecap="round" opacity={0.7} />
     <line x1={0} y1={-h / 2} x2={0} y2={h / 2} stroke={C.ink} strokeWidth={lw(8)} />
     <line x1={-w / 2} y1={0} x2={w / 2} y2={0} stroke={C.ink} strokeWidth={lw(8)} />
     {[-1, 1].map((s) => (
       <path key={s} d={`M${s * (w / 2 + 30)},${-h / 2 - 20} L${s * (w / 2 - 50)},${-h / 2 - 20} Q${s * (w / 2 - 10)},0 ${s * (w / 2 - 30)},${h / 2 + 30} L${s * (w / 2 + 40)},${h / 2 + 30} Z`}
         fill={curtain} {...ink} />
     ))}
+    {[-1, 1].map((s) => [0.3, 0.6].map((k) => <path key={`${s}${k}`} d={`M${s * (w / 2 + 30 - k * 60)},${-h / 2 - 14} q${s * 10},${h * 0.5} ${s * -6},${h + 36}`} {...PEN} />))}
     <rect x={-w / 2 - 60} y={-h / 2 - 34} width={w + 120} height={20} rx={10} fill={C.cardigan} {...ink} strokeWidth={lw(4)} />
     <rect x={-w / 2 - 20} y={h / 2} width={w + 40} height={24} fill={C.creamShade} {...ink} strokeWidth={lw(5)} />
   </g>
@@ -128,6 +150,7 @@ export const Rug: React.FC<{ w?: number; color?: string }> = ({ w = 900, color =
     <ellipse rx={w / 2} ry={w / 9} fill={color} {...ink} />
     <ellipse rx={w / 2 - 40} ry={w / 9 - 14} fill="none" stroke={C.mustard} strokeWidth={10} />
     <ellipse rx={w / 2 - 80} ry={w / 9 - 28} fill="none" stroke={C.cream} strokeWidth={6} opacity={0.7} />
+    {[-1, 1].map((s) => Array.from({ length: 9 }, (_, i) => <line key={`${s}${i}`} x1={s * (w / 2 - 2)} y1={-w / 18 + i * (w / 72)} x2={s * (w / 2 + 16)} y2={-w / 18 + i * (w / 72) + 3} {...PEN} />))}
   </g>
 );
 
@@ -142,6 +165,7 @@ export const Lamp: React.FC<{ on?: boolean }> = ({ on = true }) => (
   <g>
     {on && <path d="M-80,-160 L80,-160 L220,200 L-220,200 Z" fill={C.cream} opacity={0.12} />}
     <path d="M-80,-260 L80,-260 L120,-160 L-120,-160 Z" fill={C.mustard} {...ink} />
+    {[-60, -30, 0, 30, 60].map((x) => <line key={x} x1={x} y1={-256} x2={x * 1.5} y2={-164} {...PEN} />)}
     <line x1={0} y1={-160} x2={0} y2={180} stroke={C.ink} strokeWidth={lw(10)} />
     <ellipse cx={0} cy={190} rx={70} ry={18} fill={C.cardigan} {...ink} />
   </g>
@@ -151,6 +175,7 @@ export const Lamp: React.FC<{ on?: boolean }> = ({ on = true }) => (
 export const Picture: React.FC<{ w?: number; h?: number; kind?: "hills" | "boat" | "flowers" }> = ({ w = 300, h = 220, kind = "hills" }) => (
   <g>
     <rect x={-w / 2 - 18} y={-h / 2 - 18} width={w + 36} height={h + 36} fill={C.cardigan} {...ink} />
+    <path d={`M${-w / 2 - 18},${-h / 2 - 18} l18,18 M${w / 2 + 18},${-h / 2 - 18} l-18,18 M${-w / 2 - 18},${h / 2 + 18} l18,-18 M${w / 2 + 18},${h / 2 + 18} l-18,-18`} {...PEN} />
     <rect x={-w / 2} y={-h / 2} width={w} height={h} fill="#cfe0d4" stroke={C.ink} strokeWidth={lw(4)} />
     {kind === "hills" && <><circle cx={w * 0.2} cy={-h * 0.15} r={h * 0.14} fill={C.mustard} /><path d={`M${-w / 2},${h * 0.2} Q${-w * 0.2},${-h * 0.15} 0,${h * 0.15} Q${w * 0.25},${-h * 0.1} ${w / 2},${h * 0.18} L${w / 2},${h / 2} L${-w / 2},${h / 2} Z`} fill={C.avocado} /></>}
     {kind === "boat" && <><rect x={-w / 2} y={h * 0.1} width={w} height={h * 0.4} fill={C.teal} /><path d={`M${-w * 0.15},${h * 0.1} L${w * 0.15},${h * 0.1} L${w * 0.1},${h * 0.2} L${-w * 0.1},${h * 0.2} Z`} fill={C.red} /><path d={`M0,${h * 0.08} L0,${-h * 0.32} L${w * 0.14},${h * 0.05} Z`} fill={C.cream} stroke={C.ink} strokeWidth={lw(2)} /></>}
@@ -190,3 +215,39 @@ export const ChalkTray: React.FC<{ x: number; y: number; w: number }> = ({ x, y,
 // limited-animation idle: a slow breath (a tiny vertical squash) and sway, per character
 export const breath = (g: number, seed = 0) => 1 + Math.sin((g + seed * 17) / 22) * 0.008;
 export const sway = (g: number, seed = 0) => Math.sin((g + seed * 29) / 41) * 1.2;
+
+// wood grain: wavy pen lines across a rectangle (x, y, w, h), deterministic per seed
+export const Grain: React.FC<{ x: number; y: number; w: number; h: number; n?: number; seed?: number; vertical?: boolean }> = ({ x, y, w, h, n = 4, seed = 1, vertical }) => (
+  <g opacity={0.55}>
+    {Array.from({ length: n }, (_, i) => {
+      const t = (i + 0.5) / n, a = ((seed * 13 + i * 7) % 10) - 5;
+      return vertical
+        ? <path key={i} d={`M${x + w * t},${y + 4} q${a},${h * 0.3} 0,${h * 0.5} t0,${h * 0.45}`} {...PEN} />
+        : <path key={i} d={`M${x + 4},${y + h * t} q${w * 0.25},${a} ${w * 0.5},0 t${w * 0.48},0`} {...PEN} />;
+    })}
+    {seed % 2 === 0 && <ellipse cx={x + w * 0.66} cy={y + h * 0.5} rx={Math.min(18, w * 0.08)} ry={Math.min(7, h * 0.2)} {...PEN} />}
+  </g>
+);
+
+// floorboards: plank lines and nail heads across a floor band starting at y
+export const Floorboards: React.FC<{ y: number; h?: number; boards?: number }> = ({ y, h = H - y, boards = 4 }) => (
+  <g opacity={0.6}>
+    {Array.from({ length: boards }, (_, r) => {
+      const by = y + ((r + 1) / (boards + 1)) * h;
+      return (
+        <g key={r}>
+          <line x1={-20} y1={by} x2={W + 20} y2={by} {...PEN} />
+          {Array.from({ length: 6 }, (_, k) => {
+            const jx = ((k + (r % 2) * 0.5) / 6) * W + 120;
+            return <g key={k}><line x1={jx} y1={by - h / (boards + 1)} x2={jx} y2={by} {...PEN} /><circle cx={jx - 14} cy={by - 10} r={2} fill={C.ink} /></g>;
+          })}
+        </g>
+      );
+    })}
+  </g>
+);
+
+// a hatched contact shadow under something standing on the floor
+export const CastShadow: React.FC<{ cx: number; cy: number; rx: number; ry?: number }> = ({ cx, cy, rx, ry = rx * 0.14 }) => (
+  <ellipse cx={cx} cy={cy} rx={rx} ry={ry} fill="url(#pen-hatch)" />
+);

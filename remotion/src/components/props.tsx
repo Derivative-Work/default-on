@@ -2,8 +2,9 @@
 // product UI. Each prop is drawn around its own origin in 1920x1080 units.
 import React from "react";
 import { BUBBLE, SANS } from "../theme/fonts";
-import { C, H, W, lw } from "../theme/palette";
+import { C, H, PEN, W, lw } from "../theme/palette";
 import { Mouth, MouthShape } from "../rigs/Mouth";
+import { Grain } from "./sets";
 
 const ink = { stroke: C.ink, strokeWidth: lw(7), strokeLinejoin: "round" as const, strokeLinecap: "round" as const };
 
@@ -63,6 +64,9 @@ export const Chalkboard: React.FC<{ x?: number; y?: number; w?: number; h?: numb
 }) => (
   <g>
     <rect x={x} y={y} width={w} height={h} rx={10} fill={C.chalk} stroke={C.cardiganShade} strokeWidth={22} />
+    <rect x={x - 11} y={y - 11} width={w + 22} height={h + 22} rx={14} fill="none" stroke={C.ink} strokeWidth={lw(4)} />
+    <rect x={x + 11} y={y + 11} width={w - 22} height={h - 22} rx={4} fill="none" stroke={C.ink} strokeWidth={lw(3)} />
+    {[0.3, 0.62].map((k) => <path key={k} d={`M${x + w * k},${y + h * 0.6} q60,-20 140,6 q-50,30 -130,10`} fill={C.white} opacity={0.07} />)}
     {lines.map((t, i) => (
       <text key={i} x={x + 50} y={y + 100 + i * size * 1.35} fontFamily={BUBBLE} fontSize={size} fill={C.white} opacity={0.88}>{t}</text>
     ))}
@@ -99,6 +103,7 @@ export const Envelope: React.FC<{ look?: [number, number]; mouth?: MouthShape }>
 export const Person: React.FC<{ shirt?: string; hair?: string; facing?: number }> = ({ shirt = C.teal, hair = C.hair, facing = 1 }) => (
   <g transform={`scale(${facing}, 1)`}>
     <path d="M-150,320 Q-160,120 0,110 Q160,120 150,320 Z" fill={shirt} {...ink} />
+    <path d="M-60,116 q60,30 120,0 M-120,200 q20,40 10,110 M120,200 q-20,40 -10,110" {...PEN} />
     <circle cx={0} cy={20} r={95} fill={C.skin} {...ink} />
     <path d="M-95,10 Q-90,-90 0,-78 Q90,-90 95,10 Q60,-30 0,-34 Q-60,-30 -95,10 Z" fill={hair} {...ink} />
     <ellipse cx={92} cy={24} rx={16} ry={24} fill={C.skin} {...ink} strokeWidth={lw(5)} />
@@ -114,12 +119,16 @@ export const Kid: React.FC<{ seed: number; mouth?: MouthShape; look?: [number, n
   return (
     <g>
       <path d="M-90,230 Q-96,110 0,104 Q96,110 90,230 Z" fill={shirts[k(1)]} {...ink} />
+      <path d="M-34,108 l34,22 l34,-22 M-70,170 q8,30 2,60 M70,170 q-8,30 -2,60" {...PEN} />
       <circle cx={0} cy={20} r={80} fill={skins[k(2)]} {...ink} />
       {seed % 3 === 0 && <path d="M-80,0 Q-90,-80 0,-66 Q90,-80 80,0 Q50,-40 0,-42 Q-50,-40 -80,0 Z" fill={hairs[k(3)]} {...ink} />}
       {seed % 3 === 1 && <g>{[-1, 1].map((s) => <circle key={s} cx={s * 78} cy={-10} r={30} fill={hairs[k(3)]} {...ink} />)}<path d="M-78,-4 Q-70,-76 0,-64 Q70,-76 78,-4 Q40,-36 0,-36 Q-40,-36 -78,-4 Z" fill={hairs[k(3)]} {...ink} /></g>}
       {seed % 3 === 2 && <path d="M-60,-46 l14,-34 l18,26 l16,-34 l16,32 l20,-26 l8,40 Q0,-70 -60,-46 Z" fill={hairs[k(3)]} {...ink} />}
       {[-28, 28].map((x) => <g key={x}><circle cx={x} cy={14} r={16} fill={C.white} stroke={C.ink} strokeWidth={lw(4)} /><circle cx={x + look[0] * 6} cy={16 + look[1] * 5} r={7} fill={C.ink} /></g>)}
       <g transform="translate(0, 58)"><Mouth shape={mouth} w={34} /></g>
+      {/* pen detail: a few hair strands, freckles or cheeks, an ear line */}
+      {seed % 3 !== 2 && [-40, -10, 20].map((x) => <path key={x} d={`M${x},-60 q8,12 4,26`} {...PEN} />)}
+      {seed % 2 === 0 ? [-40, -32, 32, 40].map((x, i) => <circle key={i} cx={x} cy={40 + (i % 2) * 6} r={2.4} fill={C.cardigan} />) : null}
     </g>
   );
 };
@@ -139,6 +148,8 @@ export const TV: React.FC<{ w?: number; children?: React.ReactNode; night?: bool
   return (
     <g>
       <rect x={-w / 2 - 30} y={-h / 2 - 30} width={w + 60} height={h + 60} rx={30} fill={C.cardigan} {...ink} />
+      <Grain x={-w / 2 - 26} y={-h / 2 - 28} w={w + 52} h={26} n={2} seed={3} />
+      <Grain x={-w / 2 - 26} y={h / 2 + 2} w={w + 52} h={26} n={2} seed={4} />
       <rect x={-w / 2} y={-h / 2} width={w} height={h} rx={16} fill={night ? C.night : C.paper} {...ink} />
       <svg x={-w / 2} y={-h / 2} width={w} height={h} viewBox={`0 0 ${W} ${W * 0.58}`}>{children}</svg>
       {[-1, 1].map((s) => <path key={s} d={`M${s * w * 0.3},${h / 2 + 30} l${s * 40},70`} {...ink} strokeWidth={lw(14)} />)}
@@ -172,6 +183,8 @@ export const Phone: React.FC<{ w?: number; children?: React.ReactNode }> = ({ w 
     <g>
       <rect x={-w / 2} y={-h / 2} width={w} height={h} rx={w * 0.14} fill={C.cardiganShade} {...ink} />
       <rect x={-w / 2 + 20} y={-h / 2 + 40} width={w - 40} height={h - 80} rx={w * 0.08} fill={C.paper} {...ink} strokeWidth={lw(4)} />
+      <rect x={-w * 0.12} y={-h / 2 + 16} width={w * 0.24} height={8} rx={4} fill={C.ink} opacity={0.7} />
+      <path d={`M${w / 2 - 34},${-h / 2 + 60} l18,-18 M${w / 2 - 34},${-h / 2 + 90} l18,-18`} stroke={C.white} strokeWidth={4} strokeLinecap="round" opacity={0.6} />
       <svg x={-w / 2 + 20} y={-h / 2 + 40} width={w - 40} height={h - 80} viewBox="0 0 400 860">{children}</svg>
     </g>
   );
@@ -184,6 +197,9 @@ export const Door: React.FC<{ label: string; open?: number; color?: string; w?: 
     <rect x={-w / 2 - 20} y={-h - 20} width={w + 40} height={h + 20} fill={C.dark} {...ink} />
     <g transform={`translate(${-w / 2}, 0) scale(${1 - open * 0.85}, 1)`}>
       <rect x={0} y={-h} width={w} height={h} fill={color} {...ink} />
+      <rect x={w * 0.14} y={-h * 0.92} width={w * 0.72} height={h * 0.36} rx={8} {...PEN} />
+      <rect x={w * 0.14} y={-h * 0.48} width={w * 0.72} height={h * 0.4} rx={8} {...PEN} />
+      <Grain x={w * 0.18} y={-h * 0.88} w={w * 0.64} h={h * 0.28} n={3} seed={5} vertical />
       <circle cx={w - 40} cy={-h / 2} r={14} fill={C.creamShade} {...ink} strokeWidth={lw(4)} />
     </g>
     <rect x={-w / 2 + 20} y={-h - 110} width={w - 40} height={70} rx={10} fill={C.cream} {...ink} strokeWidth={lw(5)} />

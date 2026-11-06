@@ -71,3 +71,8 @@ Every human action: timestamp, what, why, and which rule allows it. The brief al
 
 - **What:** The human: "I downloaded some reference video to ~/Downloads/schoolhouse-rock-reference -- see if you can drive the style towards that as a pastiche (do not directly copy any actual characters, sets, etc.). Looks like the difference is primarily in drawing style and film grading". 27 clips of 1970s educational shorts.
 - **Rule:** H3 (reference material) and H2 (a look direction). The clips are third-party and stay in `~/Downloads`; nothing from them is copied into the repo or the video. The agent looked at sampled stills only for line, colour and grade, and the brief now says so (rev 64).
+
+## 2026-11-06T13:35 — Note on line weight — H2
+
+- **What:** The human, on the thinner-line look: "hm the thinner lines seem to demand more detail".
+- **Rule:** H2 (a look note). The agent stopped the six-section re-render it had started (now out of date) and added a pen-detail layer.

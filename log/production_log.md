@@ -163,3 +163,16 @@ Append-only. One entry per action: timestamp, step (shot ID where relevant), wha
   - **Grade:** no sepia or yellow; saturation +10%, contrast −7%, brightness +3%, a 0.55 px softness; a lavender multiply (#e6def5 at 20%); a pale cool vignette (rgba(105,95,130,0.42) at the edge); finer grain.
 - **Brief:** Look and characters: "cutout characters on flat pastel backgrounds"; the palette line now describes the pastiche (drawing and grading only, never the reference's characters, sets or compositions); the film layer is "graded high-key and a little soft, with whites leaning lavender and a pale, cool vignette". Docs `update`, rev 61 → 64.
 - **Outputs:** `review/m4_look_reference_pastiche.jpg` (six frames in the new look). Sections 1–6 are re-rendered in it next.
+
+## 2026-11-06T13:55:00-05:00 — M4: the pen-detail layer (thin lines carry the detail, as in the reference)
+
+- **Why:** the human's note (13:35). In the reference shorts, the thin pen line carries the detail: hatching in shadow, grain, folds, hair, pattern drawn in ink.
+- **What (shared, so every section has it):**
+  - **Hatching:** pen patterns in every frame's defs (`pen-hatch`, `pen-cross`, `pen-dots`, `film/Paper.tsx`); a `PEN` line style (2.4 px ink, `theme/palette.ts`); helpers `Grain`, `Floorboards`, `CastShadow` (`components/sets.tsx`).
+  - **The Narrator:** cable-knit chevrons and side folds on the cardigan, a stitched pocket, stitched collar edges and a shirt fold, a hem line, a hatched shadow under the chin and neck lines, hair strands, ear curls, laugh lines, a nostril, moustache bristles, a forehead line, elbow creases, cuff ribbing and knuckle lines.
+  - **Switch:** the plate's thickness as a hatched edge to the right and below, a bevel highlight, faint scuffs, grip lines on the raised half of the paddle, shaded screw heads.
+  - **The hand:** sleeve folds, a stitched cuff seam, knuckle creases, a fingernail, lines on the back of the hand.
+  - **People and kids:** collar and shirt seams; hair strands; freckles on some kids.
+  - **Sets and props:** spine bands on every book and a hatched shadow inside bookcases; curtain folds and window glints; lampshade pleats; rug fringes; mitred picture frames; globe meridians; leaf veins; chalkboard frame lines and smudges; TV bezel grain; door panels and grain; a phone's speaker slot and screen glint; wallpaper prints now drawn in ink over their faint colour; floorboards with nail heads on every floor; a hatched shadow band where each wall meets its floor; wood grain on the desktops.
+- **Interrupted:** the 13:20 re-render of sections 1–6 was stopped after three sections (out of date); all are re-rendered below.
+- **Outputs:** `review/m4_pen_detail.jpg` (six frames).

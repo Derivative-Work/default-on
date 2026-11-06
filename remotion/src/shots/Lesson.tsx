@@ -3,7 +3,7 @@
 import React from "react";
 import { Wash } from "../film/Paper";
 import { Caption, Chalkboard, Door, Envelope, Person, Kid, Slate, TV, Tile } from "../components/props";
-import { Picture, Plant, Lamp, Rug, Window } from "../components/sets";
+import { Floorboards, Grain, Lamp, Picture, Plant, Rug, Window } from "../components/sets";
 import { Narrator } from "../rigs/Narrator";
 import { Switch } from "../rigs/Switch";
 import { BUBBLE, SANS } from "../theme/fonts";
@@ -33,7 +33,9 @@ const Board: React.FC<{ word: string; g: number; f?: number; children: React.Rea
       <path d="M160,250 q300,-14 620,4" stroke={C.white} strokeWidth={5} fill="none" opacity={0.5 * write} />
       <ellipse cx={1150} cy={700} rx={180} ry={40} fill={C.white} opacity={0.06} />
       {children}
+      <rect x={-20} y={894} width={W + 40} height={46} fill="url(#pen-hatch)" opacity={0.32} />
       <rect x={-20} y={940} width={W + 40} height={160} fill={C.cardigan} stroke={C.ink} strokeWidth={lw(6)} />
+      <Floorboards y={940} h={160} boards={2} />
       <g transform={`translate(1730, ${880 - (breath(g) - 1) * 200}) scale(0.72)`}><Narrator mouth={mouthAt(g, "narrator")} armR="tap" armL="down" head={-1} blink={blink(g)} /></g>
     </Bg>
   );
@@ -181,6 +183,7 @@ const StudyWall: React.FC<{ id: string; g: number; picture?: boolean; children: 
     <g transform="translate(1700, 300)"><Window w={260} h={320} /></g>
     {picture && <g transform="translate(220, 300)"><Picture kind="flowers" w={200} h={240} /></g>}
     <rect x={-20} y={930} width={W + 40} height={170} fill="#a8703e" stroke={C.ink} strokeWidth={lw(7)} />
+    <Grain x={0} y={940} w={W} h={150} n={5} seed={1} />
     <g transform="translate(1780, 940)"><Plant sway={Math.sin(g / 50)} /></g>
     {children}
   </Bg>
@@ -235,7 +238,9 @@ export const S27: ShotC = ({ f, g }) => {
     <Bg id="s27" seed={27} base={C.mustard}>
       <Wallpaper id="s27" kind="stripe" a={C.mustard} b={C.cream} opacity={0.22} />
       <Wash id="s27" color={C.avocado} opacity={0.6}><rect x={-40} y={620} width={W + 80} height={280} /></Wash>
+      <rect x={-20} y={854} width={W + 40} height={46} fill="url(#pen-hatch)" opacity={0.32} />
       <rect x={-20} y={900} width={W + 40} height={200} fill="#b98a5a" stroke={C.ink} strokeWidth={lw(6)} />
+      <Floorboards y={900} h={200} boards={3} />
       <path d="M200,1080 L560,910 L1700,910 L1900,1080 Z" fill={C.red} stroke={C.ink} strokeWidth={lw(5)} opacity={0.8} />
       <g transform="translate(340, 300)"><Picture kind="hills" w={240} h={180} /></g>
       <g transform="translate(1680, 900)">
@@ -268,7 +273,9 @@ const Living: React.FC<{ id: string; night: boolean; g: number; children: React.
     <g transform="translate(1620, 320)"><Window w={300} h={360} sky={night ? "#16203a" : "#f2c98a"} sun={night ? "moon" : "sun"} curtain={night ? "#4a3a5a" : C.orange} /></g>
     {!night && <path d="M1500,420 L1180,1080 L1500,1080 L1760,500 Z" fill={C.cream} opacity={0.12} />}
     <g transform="translate(1220, 160)" opacity={night ? 0.7 : 1}><Clock t={night ? (2 * 60 + 40) * 60 + g / 30 : (6 * 60 + 45) * 60 + g / 30} r={50} /></g>
+    <rect x={-20} y={834} width={W + 40} height={46} fill="url(#pen-hatch)" opacity={0.32} />
     <rect x={-20} y={880} width={W + 40} height={220} fill={night ? "#1b2440" : "#b98a5a"} stroke={C.ink} strokeWidth={lw(7)} />
+    <Floorboards y={880} h={220} boards={3} />
     <g transform="translate(760, 990)"><Rug w={980} color={night ? "#4a3a5a" : C.orange} /></g>
     {/* the sofa, right of the TV, and the cat */}
     <g transform="translate(1560, 820)">
