@@ -1,0 +1,1171 @@
+{
+ "aligner": "torchaudio MMS_FA",
+ "torchaudio": "2.8.0+cpu",
+ "lines": [
+  {
+   "id": "L03",
+   "section": "Intro",
+   "stem": "audio/switch/comp/Default On (switch only).wav",
+   "singer": "switch",
+   "text": "Hi! I've got two sides: on, and off!",
+   "start": 13.14,
+   "end": 16.64,
+   "words": [
+    {
+     "w": "Hi!",
+     "start": 13.14,
+     "end": 13.25,
+     "score": 0.493
+    },
+    {
+     "w": "I've",
+     "start": 13.58,
+     "end": 13.67,
+     "score": 0.332
+    },
+    {
+     "w": "got",
+     "start": 13.66,
+     "end": 13.83,
+     "score": 0.991
+    },
+    {
+     "w": "two",
+     "start": 13.92,
+     "end": 14.11,
+     "score": 0.919
+    },
+    {
+     "w": "sides:",
+     "start": 14.2,
+     "end": 14.53,
+     "score": 0.994
+    },
+    {
+     "w": "on,",
+     "start": 15.19,
+     "end": 15.4,
+     "score": 0.966
+    },
+    {
+     "w": "and",
+     "start": 16.01,
+     "end": 16.24,
+     "score": 0.673
+    },
+    {
+     "w": "off!",
+     "start": 16.35,
+     "end": 16.64,
+     "score": 0.796
+    }
+   ]
+  },
+  {
+   "id": "L06",
+   "section": "Verse 1",
+   "stem": "audio/switch/comp/Default On (switch only).wav",
+   "singer": "switch",
+   "text": "Yes, but can I please read the page myself?",
+   "start": 26.74,
+   "end": 29.82,
+   "words": [
+    {
+     "w": "Yes,",
+     "start": 26.74,
+     "end": 27.05,
+     "score": 1.0
+    },
+    {
+     "w": "but",
+     "start": 27.18,
+     "end": 27.39,
+     "score": 0.999
+    },
+    {
+     "w": "can",
+     "start": 27.64,
+     "end": 27.81,
+     "score": 0.999
+    },
+    {
+     "w": "I",
+     "start": 27.908,
+     "end": 27.928,
+     "score": 1.0
+    },
+    {
+     "w": "please",
+     "start": 27.96,
+     "end": 28.32,
+     "score": 0.869
+    },
+    {
+     "w": "read",
+     "start": 28.53,
+     "end": 28.78,
+     "score": 0.995
+    },
+    {
+     "w": "the",
+     "start": 28.83,
+     "end": 28.92,
+     "score": 0.998
+    },
+    {
+     "w": "page",
+     "start": 28.95,
+     "end": 29.22,
+     "score": 0.999
+    },
+    {
+     "w": "myself?",
+     "start": 29.27,
+     "end": 29.82,
+     "score": 0.999
+    }
+   ]
+  },
+  {
+   "id": "L08",
+   "section": "Pre-chorus 1",
+   "stem": "audio/switch/comp/Default On (switch only).wav",
+   "singer": "switch",
+   "text": "I've only got two sides, it isn't much to learn:",
+   "start": 34.16,
+   "end": 37.25,
+   "words": [
+    {
+     "w": "I've",
+     "start": 34.16,
+     "end": 34.33,
+     "score": 0.257
+    },
+    {
+     "w": "only",
+     "start": 34.34,
+     "end": 34.65,
+     "score": 0.352
+    },
+    {
+     "w": "got",
+     "start": 34.74,
+     "end": 34.91,
+     "score": 0.516
+    },
+    {
+     "w": "two",
+     "start": 34.98,
+     "end": 35.25,
+     "score": 0.519
+    },
+    {
+     "w": "sides,",
+     "start": 35.32,
+     "end": 35.91,
+     "score": 0.193
+    },
+    {
+     "w": "it",
+     "start": 35.96,
+     "end": 36.09,
+     "score": 0.243
+    },
+    {
+     "w": "isn't",
+     "start": 36.12,
+     "end": 36.31,
+     "score": 0.495
+    },
+    {
+     "w": "much",
+     "start": 36.32,
+     "end": 36.65,
+     "score": 0.733
+    },
+    {
+     "w": "to",
+     "start": 36.64,
+     "end": 36.77,
+     "score": 0.0
+    },
+    {
+     "w": "learn:",
+     "start": 36.84,
+     "end": 37.25,
+     "score": 0.772
+    }
+   ]
+  },
+  {
+   "id": "L09",
+   "section": "Pre-chorus 1",
+   "stem": "audio/switch/comp/Default On (switch only).wav",
+   "singer": "switch",
+   "text": "You push me down for off... ...so how'd I just return?",
+   "start": 37.72,
+   "end": 40.84,
+   "words": [
+    {
+     "w": "You",
+     "start": 37.72,
+     "end": 37.84,
+     "score": 0.89
+    },
+    {
+     "w": "push",
+     "start": 37.85,
+     "end": 38.1,
+     "score": 0.936
+    },
+    {
+     "w": "me",
+     "start": 38.152,
+     "end": 38.212,
+     "score": 0.98
+    },
+    {
+     "w": "down",
+     "start": 38.29,
+     "end": 38.52,
+     "score": 0.81
+    },
+    {
+     "w": "for",
+     "start": 38.53,
+     "end": 38.8,
+     "score": 0.768
+    },
+    {
+     "w": "off...",
+     "start": 38.87,
+     "end": 39.08,
+     "score": 0.672
+    },
+    {
+     "w": "...so",
+     "start": 39.43,
+     "end": 39.52,
+     "score": 0.993
+    },
+    {
+     "w": "how'd",
+     "start": 39.65,
+     "end": 39.92,
+     "score": 0.961
+    },
+    {
+     "w": "I",
+     "start": 39.937,
+     "end": 39.957,
+     "score": 0.002
+    },
+    {
+     "w": "just",
+     "start": 40.03,
+     "end": 40.26,
+     "score": 0.717
+    },
+    {
+     "w": "return?",
+     "start": 40.31,
+     "end": 40.84,
+     "score": 0.835
+    }
+   ]
+  },
+  {
+   "id": "L14a",
+   "section": "Chorus 1",
+   "stem": "audio/switch/comp/Default On (switch only).wav",
+   "singer": "switch",
+   "text": "Default on, on, on, on, on, on, on...",
+   "start": 55.25,
+   "end": 58.9,
+   "words": [
+    {
+     "w": "Default",
+     "start": 55.25,
+     "end": 55.85,
+     "score": 0.307
+    },
+    {
+     "w": "on,",
+     "start": 55.84,
+     "end": 56.09,
+     "score": 0.446
+    },
+    {
+     "w": "on,",
+     "start": 56.38,
+     "end": 56.59,
+     "score": 0.388
+    },
+    {
+     "w": "on,",
+     "start": 56.88,
+     "end": 57.07,
+     "score": 0.387
+    },
+    {
+     "w": "on,",
+     "start": 57.37,
+     "end": 57.6,
+     "score": 0.339
+    },
+    {
+     "w": "on,",
+     "start": 57.81,
+     "end": 58.04,
+     "score": 0.293
+    },
+    {
+     "w": "on,",
+     "start": 58.29,
+     "end": 58.48,
+     "score": 0.216
+    },
+    {
+     "w": "on...",
+     "start": 58.71,
+     "end": 58.9,
+     "score": 0.179
+    }
+   ]
+  },
+  {
+   "id": "L16",
+   "section": "Lesson",
+   "stem": "audio/switch/comp/Default On (switch only).wav",
+   "singer": "switch",
+   "text": "And \"opt-out\" means that no one asked you, and you're hunting for the spot!",
+   "start": 70.26,
+   "end": 75.96,
+   "words": [
+    {
+     "w": "And",
+     "start": 70.26,
+     "end": 70.39,
+     "score": 0.386
+    },
+    {
+     "w": "\"opt-out\"",
+     "start": 70.4,
+     "end": 70.85,
+     "score": 0.572
+    },
+    {
+     "w": "means",
+     "start": 70.9,
+     "end": 71.21,
+     "score": 0.994
+    },
+    {
+     "w": "that",
+     "start": 71.2,
+     "end": 71.31,
+     "score": 0.0
+    },
+    {
+     "w": "no",
+     "start": 71.3,
+     "end": 71.39,
+     "score": 0.999
+    },
+    {
+     "w": "one",
+     "start": 71.54,
+     "end": 71.69,
+     "score": 0.333
+    },
+    {
+     "w": "asked",
+     "start": 71.82,
+     "end": 72.11,
+     "score": 0.658
+    },
+    {
+     "w": "you,",
+     "start": 72.18,
+     "end": 72.31,
+     "score": 0.985
+    },
+    {
+     "w": "and",
+     "start": 73.45,
+     "end": 73.58,
+     "score": 0.659
+    },
+    {
+     "w": "you're",
+     "start": 73.61,
+     "end": 73.82,
+     "score": 0.57
+    },
+    {
+     "w": "hunting",
+     "start": 73.97,
+     "end": 74.36,
+     "score": 0.563
+    },
+    {
+     "w": "for",
+     "start": 74.89,
+     "end": 75.28,
+     "score": 0.946
+    },
+    {
+     "w": "the",
+     "start": 75.37,
+     "end": 75.46,
+     "score": 0.736
+    },
+    {
+     "w": "spot!",
+     "start": 75.55,
+     "end": 75.96,
+     "score": 0.993
+    }
+   ]
+  },
+  {
+   "id": "L20",
+   "section": "Lesson",
+   "stem": "audio/switch/comp/Default On (switch only).wav",
+   "singer": "switch",
+   "text": "There's always a test.",
+   "start": 89.14,
+   "end": 90.46,
+   "words": [
+    {
+     "w": "There's",
+     "start": 89.14,
+     "end": 89.31,
+     "score": 0.41
+    },
+    {
+     "w": "always",
+     "start": 89.4,
+     "end": 89.73,
+     "score": 0.591
+    },
+    {
+     "w": "a",
+     "start": 89.829,
+     "end": 89.849,
+     "score": 0.506
+    },
+    {
+     "w": "test.",
+     "start": 89.98,
+     "end": 90.46,
+     "score": 0.871
+    }
+   ]
+  },
+  {
+   "id": "L23",
+   "section": "Verse 2",
+   "stem": "audio/switch/comp/Default On (switch only).wav",
+   "singer": "switch",
+   "text": "And what's the company say?",
+   "start": 99.02,
+   "end": 100.42,
+   "words": [
+    {
+     "w": "And",
+     "start": 99.02,
+     "end": 99.15,
+     "score": 0.914
+    },
+    {
+     "w": "what's",
+     "start": 99.16,
+     "end": 99.49,
+     "score": 0.638
+    },
+    {
+     "w": "the",
+     "start": 99.548,
+     "end": 99.609,
+     "score": 0.95
+    },
+    {
+     "w": "company",
+     "start": 99.66,
+     "end": 100.06,
+     "score": 0.99
+    },
+    {
+     "w": "say?",
+     "start": 100.17,
+     "end": 100.42,
+     "score": 0.411
+    }
+   ]
+  },
+  {
+   "id": "L28",
+   "section": "Verse 2",
+   "stem": "audio/switch/comp/Default On (switch only).wav",
+   "singer": "switch",
+   "text": "Can I delete it?",
+   "start": 113.12,
+   "end": 114.16,
+   "words": [
+    {
+     "w": "Can",
+     "start": 113.12,
+     "end": 113.29,
+     "score": 0.533
+    },
+    {
+     "w": "I",
+     "start": 113.427,
+     "end": 113.447,
+     "score": 0.241
+    },
+    {
+     "w": "delete",
+     "start": 113.54,
+     "end": 114.04,
+     "score": 0.419
+    },
+    {
+     "w": "it?",
+     "start": 114.07,
+     "end": 114.16,
+     "score": 0.005
+    }
+   ]
+  },
+  {
+   "id": "L30",
+   "section": "Verse 2",
+   "stem": "audio/switch/comp/Default On (switch only).wav",
+   "singer": "switch",
+   "text": "Is that the same?",
+   "start": 115.84,
+   "end": 116.84,
+   "words": [
+    {
+     "w": "Is",
+     "start": 115.84,
+     "end": 115.93,
+     "score": 0.996
+    },
+    {
+     "w": "that",
+     "start": 115.96,
+     "end": 116.15,
+     "score": 0.986
+    },
+    {
+     "w": "the",
+     "start": 116.22,
+     "end": 116.31,
+     "score": 0.957
+    },
+    {
+     "w": "same?",
+     "start": 116.41,
+     "end": 116.84,
+     "score": 0.985
+    }
+   ]
+  },
+  {
+   "id": "L32",
+   "section": "Pre-chorus 2",
+   "stem": "audio/switch/comp/Default On (switch only).wav",
+   "singer": "switch",
+   "text": "I've only got two sides, it isn't much to learn:",
+   "start": 120.8,
+   "end": 123.93,
+   "words": [
+    {
+     "w": "I've",
+     "start": 120.8,
+     "end": 120.99,
+     "score": 0.361
+    },
+    {
+     "w": "only",
+     "start": 121.12,
+     "end": 121.31,
+     "score": 0.447
+    },
+    {
+     "w": "got",
+     "start": 121.34,
+     "end": 121.57,
+     "score": 0.005
+    },
+    {
+     "w": "two",
+     "start": 121.66,
+     "end": 121.85,
+     "score": 0.796
+    },
+    {
+     "w": "sides,",
+     "start": 122.06,
+     "end": 122.61,
+     "score": 0.381
+    },
+    {
+     "w": "it",
+     "start": 122.62,
+     "end": 122.71,
+     "score": 0.143
+    },
+    {
+     "w": "isn't",
+     "start": 122.76,
+     "end": 123.03,
+     "score": 0.191
+    },
+    {
+     "w": "much",
+     "start": 123.02,
+     "end": 123.39,
+     "score": 0.61
+    },
+    {
+     "w": "to",
+     "start": 123.44,
+     "end": 123.53,
+     "score": 0.983
+    },
+    {
+     "w": "learn:",
+     "start": 123.6,
+     "end": 123.93,
+     "score": 0.866
+    }
+   ]
+  },
+  {
+   "id": "L33",
+   "section": "Pre-chorus 2",
+   "stem": "audio/switch/comp/Default On (switch only).wav",
+   "singer": "switch",
+   "text": "You push me down for off... ...so how'd I just return?",
+   "start": 124.32,
+   "end": 127.44,
+   "words": [
+    {
+     "w": "You",
+     "start": 124.32,
+     "end": 124.44,
+     "score": 0.929
+    },
+    {
+     "w": "push",
+     "start": 124.47,
+     "end": 124.78,
+     "score": 0.458
+    },
+    {
+     "w": "me",
+     "start": 124.85,
+     "end": 124.94,
+     "score": 0.193
+    },
+    {
+     "w": "down",
+     "start": 125.01,
+     "end": 125.26,
+     "score": 0.671
+    },
+    {
+     "w": "for",
+     "start": 125.29,
+     "end": 125.5,
+     "score": 0.832
+    },
+    {
+     "w": "off...",
+     "start": 125.57,
+     "end": 125.8,
+     "score": 0.733
+    },
+    {
+     "w": "...so",
+     "start": 126.15,
+     "end": 126.26,
+     "score": 0.996
+    },
+    {
+     "w": "how'd",
+     "start": 126.33,
+     "end": 126.52,
+     "score": 0.605
+    },
+    {
+     "w": "I",
+     "start": 126.557,
+     "end": 126.577,
+     "score": 0.819
+    },
+    {
+     "w": "just",
+     "start": 126.63,
+     "end": 126.84,
+     "score": 0.782
+    },
+    {
+     "w": "return?",
+     "start": 126.91,
+     "end": 127.44,
+     "score": 0.888
+    }
+   ]
+  },
+  {
+   "id": "L38a",
+   "section": "Chorus 2",
+   "stem": "audio/switch/comp/Default On (switch only).wav",
+   "singer": "switch",
+   "text": "On, on, on, on, on...",
+   "start": 142.56,
+   "end": 145.16,
+   "words": [
+    {
+     "w": "On,",
+     "start": 142.56,
+     "end": 142.89,
+     "score": 0.337
+    },
+    {
+     "w": "on,",
+     "start": 143.06,
+     "end": 143.35,
+     "score": 0.341
+    },
+    {
+     "w": "on,",
+     "start": 143.54,
+     "end": 143.79,
+     "score": 0.324
+    },
+    {
+     "w": "on,",
+     "start": 143.94,
+     "end": 144.33,
+     "score": 0.138
+    },
+    {
+     "w": "on...",
+     "start": 144.4,
+     "end": 145.16,
+     "score": 0.238
+    }
+   ]
+  },
+  {
+   "id": "L41",
+   "section": "Verse 3: Pop Quiz",
+   "stem": "audio/switch/comp/Default On (switch only).wav",
+   "singer": "switch",
+   "text": "I'll uninstall it!",
+   "start": 152.22,
+   "end": 153.16,
+   "words": [
+    {
+     "w": "I'll",
+     "start": 152.22,
+     "end": 152.35,
+     "score": 0.006
+    },
+    {
+     "w": "uninstall",
+     "start": 152.36,
+     "end": 153.0,
+     "score": 0.529
+    },
+    {
+     "w": "it!",
+     "start": 153.05,
+     "end": 153.16,
+     "score": 0.194
+    }
+   ]
+  },
+  {
+   "id": "L43",
+   "section": "Verse 3: Pop Quiz",
+   "stem": "audio/switch/comp/Default On (switch only).wav",
+   "singer": "switch",
+   "text": "I'll mute it, then?",
+   "start": 154.72,
+   "end": 155.46,
+   "words": [
+    {
+     "w": "I'll",
+     "start": 154.72,
+     "end": 154.83,
+     "score": 0.161
+    },
+    {
+     "w": "mute",
+     "start": 154.86,
+     "end": 155.16,
+     "score": 0.519
+    },
+    {
+     "w": "it,",
+     "start": 155.151,
+     "end": 155.212,
+     "score": 0.175
+    },
+    {
+     "w": "then?",
+     "start": 155.27,
+     "end": 155.46,
+     "score": 0.359
+    }
+   ]
+  },
+  {
+   "id": "L46",
+   "section": "Verse 3: Pop Quiz",
+   "stem": "audio/switch/comp/Default On (switch only).wav",
+   "singer": "switch",
+   "text": "Where's the \"No\"?",
+   "start": 159.8,
+   "end": 160.44,
+   "words": [
+    {
+     "w": "Where's",
+     "start": 159.8,
+     "end": 160.03,
+     "score": 0.412
+    },
+    {
+     "w": "the",
+     "start": 160.088,
+     "end": 160.148,
+     "score": 0.296
+    },
+    {
+     "w": "\"No\"?",
+     "start": 160.2,
+     "end": 160.44,
+     "score": 0.586
+    }
+   ]
+  },
+  {
+   "id": "L49",
+   "section": "Verse 3: Pop Quiz",
+   "stem": "audio/switch/comp/Default On (switch only).wav",
+   "singer": "switch",
+   "text": "Was there one without the robot?",
+   "start": 167.43,
+   "end": 168.96,
+   "words": [
+    {
+     "w": "Was",
+     "start": 167.43,
+     "end": 167.55,
+     "score": 0.333
+    },
+    {
+     "w": "there",
+     "start": 167.58,
+     "end": 167.73,
+     "score": 0.979
+    },
+    {
+     "w": "one",
+     "start": 167.84,
+     "end": 167.99,
+     "score": 0.959
+    },
+    {
+     "w": "without",
+     "start": 168.02,
+     "end": 168.38,
+     "score": 0.988
+    },
+    {
+     "w": "the",
+     "start": 168.411,
+     "end": 168.472,
+     "score": 0.781
+    },
+    {
+     "w": "robot?",
+     "start": 168.53,
+     "end": 168.96,
+     "score": 0.825
+    }
+   ]
+  },
+  {
+   "id": "L57",
+   "section": "Bridge redub",
+   "stem": "audio/switch/comp/Default On (switch only).wav",
+   "singer": "switch",
+   "text": "And the answer box on top?",
+   "start": 194.62,
+   "end": 196.0,
+   "words": [
+    {
+     "w": "And",
+     "start": 194.62,
+     "end": 194.71,
+     "score": 0.749
+    },
+    {
+     "w": "the",
+     "start": 194.724,
+     "end": 194.784,
+     "score": 0.977
+    },
+    {
+     "w": "answer",
+     "start": 194.88,
+     "end": 195.15,
+     "score": 0.968
+    },
+    {
+     "w": "box",
+     "start": 195.18,
+     "end": 195.43,
+     "score": 0.99
+    },
+    {
+     "w": "on",
+     "start": 195.57,
+     "end": 195.68,
+     "score": 0.999
+    },
+    {
+     "w": "top?",
+     "start": 195.73,
+     "end": 196.0,
+     "score": 1.0
+    }
+   ]
+  },
+  {
+   "id": "L59",
+   "section": "Bridge redub",
+   "stem": "audio/switch/comp/Default On (switch only).wav",
+   "singer": "switch",
+   "text": "What's that mean?",
+   "start": 198.87,
+   "end": 199.7,
+   "words": [
+    {
+     "w": "What's",
+     "start": 198.87,
+     "end": 199.11,
+     "score": 0.803
+    },
+    {
+     "w": "that",
+     "start": 199.16,
+     "end": 199.4,
+     "score": 0.686
+    },
+    {
+     "w": "mean?",
+     "start": 199.45,
+     "end": 199.7,
+     "score": 0.766
+    }
+   ]
+  },
+  {
+   "id": "L66",
+   "section": "Outro",
+   "stem": "audio/switch/comp/Default On (switch only).wav",
+   "singer": "switch",
+   "text": "I've got two sides.",
+   "start": 220.784,
+   "end": 221.86,
+   "words": [
+    {
+     "w": "I've",
+     "start": 220.784,
+     "end": 220.845,
+     "score": 0.299
+    },
+    {
+     "w": "got",
+     "start": 220.84,
+     "end": 221.03,
+     "score": 0.991
+    },
+    {
+     "w": "two",
+     "start": 221.12,
+     "end": 221.31,
+     "score": 0.867
+    },
+    {
+     "w": "sides.",
+     "start": 221.43,
+     "end": 221.86,
+     "score": 0.395
+    }
+   ]
+  },
+  {
+   "id": "L67",
+   "section": "Outro",
+   "stem": "audio/switch/comp/Default On (switch only).wav",
+   "singer": "switch",
+   "text": "...Guess one of 'em was just for show.",
+   "start": 224.07,
+   "end": 225.78,
+   "words": [
+    {
+     "w": "...Guess",
+     "start": 224.07,
+     "end": 224.25,
+     "score": 0.378
+    },
+    {
+     "w": "one",
+     "start": 224.28,
+     "end": 224.37,
+     "score": 0.233
+    },
+    {
+     "w": "of",
+     "start": 224.4,
+     "end": 224.57,
+     "score": 0.035
+    },
+    {
+     "w": "'em",
+     "start": 224.64,
+     "end": 224.75,
+     "score": 0.501
+    },
+    {
+     "w": "was",
+     "start": 224.77,
+     "end": 224.92,
+     "score": 0.325
+    },
+    {
+     "w": "just",
+     "start": 224.97,
+     "end": 225.22,
+     "score": 0.402
+    },
+    {
+     "w": "for",
+     "start": 225.27,
+     "end": 225.38,
+     "score": 0.022
+    },
+    {
+     "w": "show.",
+     "start": 225.43,
+     "end": 225.78,
+     "score": 0.468
+    }
+   ]
+  },
+  {
+   "id": "L70",
+   "section": "Outro",
+   "stem": "audio/switch/comp/Default On (switch only).wav",
+   "singer": "switch",
+   "text": "Hey, who wrote this song, anyway?",
+   "start": 236.68,
+   "end": 238.32,
+   "words": [
+    {
+     "w": "Hey,",
+     "start": 236.68,
+     "end": 236.89,
+     "score": 0.769
+    },
+    {
+     "w": "who",
+     "start": 237.02,
+     "end": 237.11,
+     "score": 0.902
+    },
+    {
+     "w": "wrote",
+     "start": 237.18,
+     "end": 237.39,
+     "score": 0.371
+    },
+    {
+     "w": "this",
+     "start": 237.42,
+     "end": 237.57,
+     "score": 0.408
+    },
+    {
+     "w": "song,",
+     "start": 237.61,
+     "end": 237.84,
+     "score": 0.951
+    },
+    {
+     "w": "anyway?",
+     "start": 237.89,
+     "end": 238.32,
+     "score": 0.705
+    }
+   ]
+  },
+  {
+   "id": "L71a",
+   "section": "Outro",
+   "stem": "audio/switch/comp/Default On (switch only).wav",
+   "singer": "switch",
+   "text": "Hey... was its switch on, too?",
+   "start": 243.94,
+   "end": 245.54,
+   "words": [
+    {
+     "w": "Hey...",
+     "start": 243.94,
+     "end": 244.15,
+     "score": 0.574
+    },
+    {
+     "w": "was",
+     "start": 244.48,
+     "end": 244.61,
+     "score": 0.979
+    },
+    {
+     "w": "its",
+     "start": 244.66,
+     "end": 244.84,
+     "score": 0.644
+    },
+    {
+     "w": "switch",
+     "start": 244.85,
+     "end": 245.14,
+     "score": 0.24
+    },
+    {
+     "w": "on,",
+     "start": 245.19,
+     "end": 245.3,
+     "score": 0.804
+    },
+    {
+     "w": "too?",
+     "start": 245.35,
+     "end": 245.54,
+     "score": 0.641
+    }
+   ]
+  }
+ ]
+}

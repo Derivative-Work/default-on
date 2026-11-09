@@ -5,7 +5,8 @@ multilingual wav2vec2 CTC) aligns each section's words as one continuous sequenc
 keeps every word in sung order, then splits it back into lines; words are trimmed to where the stem has energy
 (-38 dB). Windows, sections and singers come from the lyrics file ("@ start end stem", "[Section]", "N:"/"S:").
 
-Usage: .venv/bin/python -I scripts/align_words.py [lyrics file, default lyrics/as_sung.txt]  ->  timing/words.json
+Usage: .venv/bin/python -I scripts/align_words.py [lyrics file, default lyrics/as_sung.txt] [out, default timing/words.json]
+A window's stem may be a .wav path (the Switch comp); "S=L06:" gives a line its ID.
 """
 import json
 import re
@@ -34,11 +35,14 @@ def windows(path):
             continue
         if line.startswith("@"):
             _, a, b, stem = line.split(None, 3)
-            out.append({"start": float(a), "end": float(b), "stem": stem, "lines": []})
+            out.append({"start": float(a), "end": float(b), "stem": stem, "lines": [], "ids": []})
         elif re.match(r"\[(.+)\]$", line):
             sec = line[1:-1]
         else:
             who, text = line.split(":", 1)
+            if " " not in who and "=" in who:  # "S=L06:" names the line's ID (the Switch comp keeps the as-sung IDs)
+                who, lid = who.split("=")
+                out[-1]["ids"].append(lid)
             out[-1]["lines"].append((sec, {"N": "narrator", "S": "switch"}[who], text.strip()))
     return out
 
@@ -72,7 +76,8 @@ def main():
     stems, out = {}, []
     for win in windows(sys.argv[1] if len(sys.argv) > 1 else "lyrics/as_sung.txt"):
         if win["stem"] not in stems:
-            stems[win["stem"]] = librosa.load(STEM.format(win["stem"]), sr=SR, mono=True)[0]
+            src = win["stem"] if win["stem"].endswith(".wav") else STEM.format(win["stem"])  # a stem name, or a path
+            stems[win["stem"]] = librosa.load(src, sr=SR, mono=True)[0]
         voc = stems[win["stem"]]
         a, b = win["start"], win["end"]
         i0, i1 = int(a * SR), min(len(voc), int(b * SR))
@@ -94,13 +99,13 @@ def main():
             per_line[k].append({"w": w, "start": round(start, 3), "end": round(end, 3), "score": round(score, 3)})
         for (sec, singer, text), words in zip(win["lines"], per_line):
             words = trim(words, y, a)
-            ln = {"id": f"L{len(out) + 1:02d}", "section": sec, "stem": win["stem"], "singer": singer, "text": text,
+            ln = {"id": win["ids"].pop(0) if win["ids"] else f"L{len(out) + 1:02d}", "section": sec, "stem": win["stem"], "singer": singer, "text": text,
                   "start": words[0]["start"], "end": words[-1]["end"], "words": words}
             out.append(ln)
             low = [w["w"] for w in words if w["score"] < 0.3]
             print(f"{ln['id']} {singer[0].upper()} {ln['start']:7.2f}-{ln['end']:7.2f} {text[:56]:56s} "
                   f"{'low: ' + ' '.join(low) if low else ''}")
-    Path("timing/words.json").write_text(json.dumps({"aligner": "torchaudio MMS_FA", "torchaudio": torchaudio.__version__,
+    Path(sys.argv[2] if len(sys.argv) > 2 else "timing/words.json").write_text(json.dumps({"aligner": "torchaudio MMS_FA", "torchaudio": torchaudio.__version__,
                                                      "lines": out}, indent=1) + "\n")
 
 

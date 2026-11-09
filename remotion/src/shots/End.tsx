@@ -201,25 +201,62 @@ const Giant: React.FC<{ slide: number; boxes: string[] }> = ({ slide, boxes }) =
   </Bg>
 );
 export const S50: ShotC = ({ f, len }) => <Giant slide={ez(f, 0, len * 0.7)} boxes={["Search + AI", "No search"]} />;
-export const S51: ShotC = ({ f }) => (
-  <Bg id="s51" seed={51} base={C.cardigan}>
-    <Grain x={0} y={0} w={W} h={H} n={9} seed={8} />
-    <g transform={`translate(960, 560) scale(${1.4 + f * 0.002})`}>
-      <Contract boxes={["Search + AI", "No search"]} />
-      {Array.from({ length: 5 }, (_, i) => <rect key={i} x={-280} y={180 + i * 12} width={520 - i * 30} height={4} fill={C.inkSoft} opacity={0.5} />)}
-      <text x={-280} y={250} fontFamily={SANS} fontSize={18} fill={C.inkSoft}>Sign here: ______________</text>
+// The crowd boos the deal (the human's booing, from the end of the giant's line into the redub): a row of
+// silhouetted heads rises along the bottom, shaking, and bubble-letter BOOs pop up one after another
+const BOOS = [[280, 250, -12, 0], [1690, 230, 10, 8], [290, 560, -6, 16], [1680, 540, 8, 26], [280, 820, -9, 36], [1690, 800, 12, 46]];
+const Booing: React.FC<{ b: number }> = ({ b }) => {
+  if (b < 0) return null;
+  const rise = ez(b, 0, 10);
+  return (
+    <g>
+      {Array.from({ length: 14 }, (_, i) => {
+        const shake = Math.sin((b + i * 5) / 2.2) * 6;
+        return <g key={i} transform={`translate(${70 + i * 136 + shake}, ${H + 150 - rise * 190 - (i % 2) * 18})`}>
+          <ellipse cx={0} cy={60} rx={70} ry={60} fill="#3b2f3a" stroke={C.ink} strokeWidth={lw(4)} />
+          <circle cx={0} cy={-40} r={42} fill="#3b2f3a" stroke={C.ink} strokeWidth={lw(4)} />
+          {/* a thumb down, every third head */}
+          {i % 3 === 1 && <g transform={`translate(64, ${-10 + Math.sin(b / 3 + i) * 6})`}>
+            <rect x={-16} y={-24} width={34} height={40} rx={10} fill="#3b2f3a" stroke={C.ink} strokeWidth={lw(4)} />
+            <rect x={-6} y={14} width={12} height={30} rx={6} fill="#3b2f3a" stroke={C.ink} strokeWidth={lw(4)} />
+          </g>}
+        </g>;
+      })}
+      {BOOS.map(([x, y, r, at0], i) => {
+        const s = ez(b, at0, at0 + 4) * (1 + 0.15 * bump(b, at0 + 4, 3));
+        return s > 0 && <text key={i} x={0} y={0} transform={`translate(${x}, ${y}) rotate(${r}) scale(${s})`} textAnchor="middle"
+          fontFamily={BUBBLE} fontSize={i % 2 ? 110 : 140} fill={i % 2 ? C.cream : C.mustard} stroke={C.ink} strokeWidth={7} paintOrder="stroke">
+          {i % 2 ? "BOO!" : "BOOO!"}</text>;
+      })}
     </g>
-  </Bg>
-);
+  );
+};
 
-// S52: [record scratch, tape rewind]: the film burns from the centre, the frame jitters, and the shot rewinds at speed
-export const S52: ShotC = ({ f, len }) => {
+export const S51: ShotC = ({ f, g }) => {
+  const b = g - at(events.booing[0]); // frames since the booing began
+  const shudder = b > 0 ? Math.sin(b * 1.7) * 3 : 0;
+  return (
+    <Bg id="s51" seed={51} base={C.cardigan}>
+      <Grain x={0} y={0} w={W} h={H} n={9} seed={8} />
+      <g transform={`translate(${960 + shudder}, 560) scale(${1.4 + f * 0.002})`}>
+        <Contract boxes={["Search + AI", "No search"]} />
+        {Array.from({ length: 5 }, (_, i) => <rect key={i} x={-280} y={180 + i * 12} width={520 - i * 30} height={4} fill={C.inkSoft} opacity={0.5} />)}
+        <text x={-280} y={250} fontFamily={SANS} fontSize={18} fill={C.inkSoft}>Sign here: ______________</text>
+      </g>
+      <Booing b={b} />
+    </Bg>
+  );
+};
+
+// S52: [record scratch, tape rewind]: the film burns from the centre, the frame jitters, and the shot rewinds at speed;
+// it starts on the human's scratch, with the booing still going underneath
+export const S52: ShotC = ({ f, g, len }) => {
   const burn = ez(f, 0, len * 0.4);
   const rew = ez(f, len * 0.35, len);
   return (
     <>
       <div style={{ position: "absolute", inset: 0, transform: `translate(${Math.sin(f * 3.1) * 14}px, ${Math.cos(f * 2.3) * 10}px)` }}>
         <Giant slide={1 - rew} boxes={["Search + AI", "No search"]} />
+        <svg width={W} height={H} style={{ position: "absolute", left: 0, top: 0 }}><Booing b={g - at(events.booing[0])} /></svg>
       </div>
       <svg width={W} height={H} style={{ position: "absolute" }}>
         <defs>
@@ -468,7 +505,7 @@ export const S59: ShotC = ({ g }) => (
   <Alone><g transform={`translate(${W / 2}, 540)`}><Switch pose="sad" toggle={1} mouth={mouthAt(g, "switch")} blink={blink(g, 10)} /></g></Alone>
 );
 
-// S60: [click] ×3: he flips himself off three times and springs back on each time; on the third the hand enters
+// S60: [click] ×2 (the human's master): he flips himself off on each click and springs back; on the last the hand enters
 export const S60: ShotC = ({ f, g }) => {
   const clicks = events.clicks_outro.map((t) => at(t) - (g - f));
   const k = clicks.filter((c) => f >= c).length; // clicks so far
@@ -476,7 +513,7 @@ export const S60: ShotC = ({ f, g }) => {
   return (
     <Alone>
       <g transform={`translate(${W / 2}, 540)`}><Switch pose={pressed ? "relaxed" : "sad"} toggle={pressed ? 0 : 1} armL={pressed ? 70 : 20} armR={pressed ? 70 : 20} /></g>
-      {k >= 3 && <g transform={`translate(-40, ${FLIP_Y})`}><Hand reach={ez(f, clicks[2], clicks[2] + 8) * 0.84} length={FLIP_LEN} /></g>}
+      {k >= clicks.length && <g transform={`translate(-40, ${FLIP_Y})`}><Hand reach={ez(f, clicks[clicks.length - 1], clicks[clicks.length - 1] + 8) * 0.84} length={FLIP_LEN} /></g>}
     </Alone>
   );
 };
@@ -561,8 +598,7 @@ export const S66: ShotC = () => (
   </div>
 );
 export const S67: ShotC = ({ g }) => {
-  const v21 = slot("V21");
-  const p = (v21 as { proposed: number[] }).proposed;
+  const p = slot("V21").take[0];
   const flip = g >= at(events.last_note);
   const label = g < at(p[0]) ? "a light switch on a plain wall" : !flip ? "a small hand reaches in and waits (V21)" : "the hand flips it OFF on the band's last note; it stays off";
   return <Stand label={`S67 · REAL FOOTAGE · ${flip ? "OFF" : "ON"}`} note={label} />;

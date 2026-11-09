@@ -117,3 +117,18 @@ Every human action: timestamp, what, why, and which rule allows it. The brief al
 - **Also:** the human: "I will have his mother add a similar line below via pull request to the repository prior to release."
 - **Decision:** asked whether to keep the child's name out of the repo (the brief's rule), the human chose to record the line verbatim. The rule now allows his name only in his guardians' signed consent statements here; the brief (rev 66), its mirror and `CLAUDE.md` were changed to say so. His face, school and home still never appear, and his name stays out of the video, filenames, commit messages and other logs.
 - **Rule:** H3 (the brief asks for the guardian's consent in this log).
+
+## 2026-11-08T22:36 — Final master, Switch's comp and the sound effects — H1, H3, Switch's voice
+
+- **What:** the human supplied three 263.46 s, 48 kHz, 32-bit float files (SHA-256 in the production log):
+  - **final master**: the generated portions (only) run through the postfilter, Switch's comped lines and the effects mixed in;
+  - **switch only**: his lines alone, kept private in `audio/switch/comp/`;
+  - **FX only**: the effects alone, for syncing.
+- **Timing:** the human moved the whole master later for Logic's barline (the human said about 2.46 s; measured against v2, +1.0878 s) and added one bar (1.80 s) after the Narrator's last word, so Switch has time for V21.
+- **Words:** V02 changed to "Yes, but can I please read the page myself?"
+- **Effects:**
+  - the switch clicks and the door are the human's own recordings;
+  - the quiz horn is from Logic's sound library;
+  - the crowd booing and the record scratch are from Pixabay (`assets/LICENSES.md`).
+- **Comp:** every Switch line V01–V19 and V21, comped by the human; one entry per line is in `log/switch_takes.md`. Take numbers and processing were not supplied.
+- **Rule:** H3 (final mix and recordings supplied, M1 gate: "I'll supply a human mix once I have the recordings"); H1 (takes chosen); Switch's voice, the declared exception. The added bar changes the locked timing for Switch's V21 only, the line the exception covers.

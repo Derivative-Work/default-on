@@ -1,5 +1,5 @@
-// The timing map (timing/map.json, scripts/timing_map.py) as the video's clock. Video frames include the 3 s
-// pre-roll; `at(t)` turns audio seconds into a video frame. Shots, lines, words and Switch slots come from the map.
+// The timing map (timing/map.json, scripts/timing_map.py) as the video's clock. Video frames include the
+// pre-roll (map.preroll_s: 5 s before v2's start, so 3.9122 s before the final master's); `at(t)` turns audio seconds into a video frame. Shots, lines, words and Switch slots come from the map.
 import map from "../../timing/map.json";
 
 export const FPS = map.fps;
@@ -34,9 +34,8 @@ const ordered = [...map.shots.map((s) => ({ id: s.id, cue: s.cue, frame: s.frame
   .sort((a, b) => a.frame - b.frame);
 export const shots = ordered.map((s, i) => ({ ...s, end: i + 1 < ordered.length ? ordered[i + 1].frame : END }));
 
-// mouths: Rhubarb Lip Sync's cues per line (timing/visemes.json, scripts/rhubarb_visemes.py), as frames. Switch's
-// cues are from the generator's attempt until M6 reruns Rhubarb on his comped takes; his ungenerated slots (V04, V11,
-// V21) keep a placeholder flap over their proposed spans
+// mouths: Rhubarb Lip Sync's cues per line (timing/visemes.json, scripts/rhubarb_visemes.py), as frames: the
+// Narrator's from the vocal stem, Switch's from the human's comp of his takes
 import visemes from "../../timing/visemes.json";
 type Shape = "X" | "A" | "B" | "C" | "D" | "E" | "F";
 const CUES = { narrator: [] as [number, Shape][], switch: [] as [number, Shape][] };
@@ -46,13 +45,7 @@ for (const l of visemes.lines) {
 }
 CUES.narrator.sort((a, b) => a[0] - b[0]);
 CUES.switch.sort((a, b) => a[0] - b[0]);
-const FLAP = ["C", "B", "D", "B", "E"] as const;
-const PROPOSED = map.switch_slots.filter((s) => "proposed" in s && s.proposed).map((s) => [at((s as { proposed: number[] }).proposed[0]), at((s as { proposed: number[] }).proposed[1])]);
 export const mouthAt = (g: number, who: "narrator" | "switch"): Shape => {
-  if (who === "switch") {
-    const p = PROPOSED.find(([a, b]) => g >= a && g < b);
-    if (p) return FLAP[Math.floor((g - p[0]) / 3) % FLAP.length];
-  }
   const c = CUES[who];
   let lo = 0, hi = c.length - 1, k = -1;
   while (lo <= hi) { const m = (lo + hi) >> 1; if (c[m][0] <= g) { k = m; lo = m + 1; } else hi = m - 1; }

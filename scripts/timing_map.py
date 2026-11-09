@@ -3,18 +3,17 @@
 Joins the beat grid (scripts/beats_beat_this.py), the aligned words (scripts/align_words.py) and the brief's shot
 list (docs/brief.md) into timing/map.json, a readable timing/map.md and the M1 ear-check subtitles.
 
-Clocks: `t` is seconds of the audio (the locked mix, v2). `frame` is the video's frame at 30 fps, which starts
-PREROLL_S before the audio: S00's "cartoon for grown-ups" card (2 s), then S01's film-leader countdown (3 s) before
-the downbeat: frame = round((t + PREROLL_S) * FPS).
+Clocks: `t` is seconds of the human's final master (2026-11-08). The Narrator's words and the beats were aligned on the
+v2 mix and its stems (M1) and are moved onto the master's clock (song.v2_to_master: +1.0878 s, +2.8915 s after the
+bar the human added before V21); Switch's lines are aligned on his comp (lyrics/switch_comp.txt ->
+timing/words_switch.json); the sound effects are measured in the FX-only file. `frame` is the video's frame at 30 fps.
+The master starts 1.0878 s later than v2 did, so the pre-roll is that much shorter and every frame before the added bar
+is where it was: S00's card (2 s), then S01's countdown (3 s) before v2's downbeat:
+frame = round((t + PREROLL_S) * FPS), PREROLL_S = 5 - 1.0878.
 
-Switch slots (V01-V20): the generator sang every Switch line itself, in the lead stem. Each slot has `mute`, the
-spans of the generated attempt (muted in the final mix), and `room`, from the end of the Narrator's word before to
-the start of his word after: the most a take can fill without overlapping him. V04 and V11 ("On, on, on...") were not
-generated; their slots are proposed after the chorus's last "Default on!". V21 (new in Draft 3) has no generated
-attempt either: it is proposed over the band's tail, after the Narrator's last word and before the band's last note,
-where S67's real hand flips the switch off. V20 is retired (the generation has no sing-along). Clicks sit in the
-vocal gaps the
-generator left at each [click]: one per pre-chorus, three in the outro (on the beats inside the gap).
+Switch slots (V01-V21, V20 retired): `take`, the spans of his comped lines in the master, and `room`, from the end of
+the Narrator's word before to the start of his word after. Clicks, the horn, the door, the booing, the scratch and the
+real switch are the human's effects (FX), each confirmed by an onset in the FX-only file.
 
 Shot cues are resolved in reading order, searching forward from the previous shot's line: a quoted cue matches the
 first line holding its words in order (leading words the master doesn't sing, like "Ahem!", are dropped) and the
@@ -32,22 +31,25 @@ import librosa
 import numpy as np
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
-from song import BACKING, STEM, TITLE, TRACK  # noqa: E402
+from song import FX, MASTER, OFFSET_1, OFFSET_2, BAR_AFTER_V2, SWITCH_COMP, TITLE, v2_to_master  # noqa: E402
 
 FPS = 30
 S00_S = 2.0  # S00: the "cartoon for grown-ups" card, on room tone, before the countdown
-PREROLL_S = S00_S + 3.0  # then S01's film-leader countdown (3 s, approved at the M1 gate) before the downbeat
+PREROLL_S = round(S00_S + 3.0 - OFFSET_1, 4)  # then S01's countdown (3 s, M1 gate) before v2's downbeat; see Clocks
 SR = 22050
-PAD = (0.08, 0.12)  # mute pad before/after a generated Switch word, clipped to the room
-SLOTS = {  # Switch line: aligned line IDs (timing/words.json) of the generator's attempt; None = not generated
-    "V01": ["L03"], "V02": ["L06"], "V03": ["L08", "L09"], "V04": None, "V05": ["L16"], "V06": ["L20"],
-    "V07": ["L23"], "V08": ["L28"], "V09": ["L30"], "V10": ["L32", "L33"], "V11": None, "V12": ["L41"],
+SLOTS = {  # Switch line: its line IDs in timing/words_switch.json
+    "V01": ["L03"], "V02": ["L06"], "V03": ["L08", "L09"], "V04": ["L14a"], "V05": ["L16"], "V06": ["L20"],
+    "V07": ["L23"], "V08": ["L28"], "V09": ["L30"], "V10": ["L32", "L33"], "V11": ["L38a"], "V12": ["L41"],
     "V13": ["L43"], "V14": ["L46"], "V15": ["L49"], "V16": ["L57"], "V17": ["L59"], "V18": ["L66", "L67"],
-    "V19": ["L70"], "V21": None,
+    "V19": ["L70"], "V21": ["L71a"],
 }
-TAG_AFTER = {"V04": "L14", "V11": "L38"}  # ungenerated tags: after this line's last word
-TAG_LEN = 2.4  # proposed length of an ungenerated "(On, on, on...)" tag, seconds
-V21_GAP = 0.6  # V21 starts this long after the Narrator's last word
+# The human's effects, master seconds, measured in the FX-only file (2026-11-08; checked by fx_onset below): the real
+# switch clicks, the quiz horn (Logic's library), the CANCEL door, the crowd booing and the record scratch (Pixabay)
+FX_EVENTS = {
+    "click_prechorus_1": 39.277, "click_prechorus_2": 125.865, "horn": [153.28, 153.41], "door_slam": 170.752,
+    "booing": [185.0, 190.3], "record_scratch": [187.5, 188.15], "clicks_outro": [222.407, 222.872],
+    "click_reveal": 241.805, "switch_off": 250.391,
+}
 HOLD_S = 2.0  # S67 holds on room tone after the audio ends (brief); keep in step with remotion/src/timing.ts
 CARD_S = 4.0  # a fact card (brief: about four seconds each)
 S68_S = 5.0  # S68, the swag shot (brief: about five seconds)
@@ -84,49 +86,67 @@ def shots_from_brief():
     return out
 
 
+def fx_onset(fx, t, tol=0.06):
+    """The FX file's sharpest rise within tol of t (a check that an effect is where FX_EVENTS says)."""
+    i0, i1 = int((t - tol - 0.01) * SR), int((t + tol) * SR)
+    e = 20 * np.log10(np.convolve(np.abs(fx[i0:i1]), np.ones(22) / 22, "same") + 1e-9)
+    k = np.argmax(e[110:] - e[:-110]) + 110
+    return round((i0 + k) / SR, 3), float(e.max())
+
+
+def to_master(t):
+    return v2_to_master(t)
+
+
+def remap_beats(ts):
+    """v2 beats on the master clock, with the added bar filled by repeating the bar before it."""
+    out = [to_master(t) for t in ts]
+    bar = OFFSET_2 - OFFSET_1
+    out += [round(t + OFFSET_2, 3) for t in ts if BAR_AFTER_V2 - bar < t <= BAR_AFTER_V2]
+    return sorted(set(out))
+
+
 def main():
     beats = json.loads(Path("timing/beat_this.json").read_text())["mix"]
+    beats = {"beats": remap_beats(beats["beats"]), "downbeats": remap_beats(beats["downbeats"])}
     bt, db = np.array(beats["beats"]), np.array(beats["downbeats"])
-    lines = json.loads(Path("timing/words.json").read_text())["lines"]
+    narr_lines = [ln for ln in json.loads(Path("timing/words.json").read_text())["lines"] if ln["singer"] == "narrator"]
+    for ln in narr_lines:
+        ln["start"], ln["end"] = to_master(ln["start"]), to_master(ln["end"])
+        for w in ln["words"]:
+            w["start"], w["end"] = to_master(w["start"]), to_master(w["end"])
+    sw_lines = json.loads(Path("timing/words_switch.json").read_text())["lines"]
+    lines = sorted(narr_lines + sw_lines, key=lambda ln: ln["start"])
     by_id = {ln["id"]: ln for ln in lines}
-    y, _ = librosa.load(TRACK, sr=SR, mono=True)
+    y, _ = librosa.load(MASTER, sr=SR, mono=True)
+    fx, _ = librosa.load(FX, sr=SR, mono=True)
+    for k, v in FX_EVENTS.items():
+        if k in ("booing", "record_scratch", "horn"):
+            continue
+        for t in (v if isinstance(v, list) else [v]):
+            got, peak = fx_onset(fx, t)
+            assert abs(got - t) < 0.03 and peak > -40, (k, t, got, peak)
     duration = round(len(y) / SR, 3)
     rms = librosa.feature.rms(y=y, frame_length=2048, hop_length=512)[0]
     # the music ends where the mix falls 40 dB below its loudest frame for good (the tail never reaches -60 dBFS)
     loud = np.where(20 * np.log10(rms / rms.max() + 1e-12) > -40)[0]
     audio_end = round(float(librosa.frames_to_time(loud[-1], sr=SR, hop_length=512)), 3)
     narr = [w for ln in lines if ln["singer"] == "narrator" for w in ln["words"]]
-    # the band's last note: the last strong onset in the mix after the last word (S67's hand flips the switch on it)
-    env = librosa.onset.onset_strength(y=y, sr=SR, hop_length=512)
-    ot = librosa.times_like(env, sr=SR, hop_length=512)
-    tail = (ot > by_id["L71"]["end"]) & (ot < audio_end)
-    strong = np.where(tail & (env > 0.5 * env[tail].max()))[0]
-    last_note = round(float(ot[strong[-1]]), 3)
+    # the band's last note: where the human put the real switch's OFF (S67's hand flips it there)
+    last_note = FX_EVENTS["switch_off"]
 
     def room(t0, t1):
         before = [w["end"] for w in narr if w["end"] <= t0 + 0.05]
         after = [w["start"] for w in narr if w["start"] >= t1 - 0.05]
         return [round(max(before), 3) if before else 0.0, round(min(after), 3) if after else duration]
 
-    # events: clicks in the generator's gaps, the fill, the scratch, the chime, the silence
-    def click_in(lid):
-        g = max(gaps(by_id[lid]["words"]), key=lambda ab: ab[1] - ab[0])
-        inside = bt[(bt > g[0]) & (bt < g[1])]
-        return round(float(inside[0]) if len(inside) else (g[0] + g[1]) / 2, 3), g
-
-    c1, g1 = click_in("L09")
-    c2, g2 = click_in("L33")
-    og = (by_id["L66"]["end"], by_id["L67"]["start"])
-    ob = [round(float(b), 3) for b in bt[(bt > og[0]) & (bt < og[1])]][:3]
-    if len(ob) < 3:
-        ob = [round(og[0] + (og[1] - og[0]) * k / 4, 3) for k in (1, 2, 3)]
+    # events: the human's effects (FX_EVENTS); the pop-up chime is the generator's (v2, moved)
+    c1, c2, ob = FX_EVENTS["click_prechorus_1"], FX_EVENTS["click_prechorus_2"], FX_EVENTS["clicks_outro"]
     events = {
         "first_downbeat": round(float(db[0]), 3),
-        "click_prechorus_1": c1, "click_prechorus_1_gap": [round(x, 3) for x in g1],
-        "click_prechorus_2": c2, "click_prechorus_2_gap": [round(x, 3) for x in g2],
-        "clicks_outro": ob, "clicks_outro_gap": [round(x, 3) for x in og],
-        "record_scratch": [by_id["L54"]["end"], by_id["L55"]["start"]],
-        "popup_chime": round((by_id["L68"]["end"] + by_id["L69"]["start"]) / 2, 3),
+        "click_prechorus_1": c1, "click_prechorus_2": c2, "horn": FX_EVENTS["horn"], "door_slam": FX_EVENTS["door_slam"],
+        "booing": FX_EVENTS["booing"], "record_scratch": FX_EVENTS["record_scratch"], "clicks_outro": ob,
+        "popup_chime": to_master(232.32), "click_reveal": FX_EVENTS["click_reveal"],
         "last_word_end": by_id["L71"]["end"],
         "last_note": last_note,
         "audio_end": audio_end,
@@ -134,45 +154,21 @@ def main():
     for k, v in list(events.items()):
         events[k + "_frame"] = [fr(x) for x in v] if isinstance(v, list) else fr(v)
 
-    # Switch slots
+    # Switch slots: his comped takes
     slots = []
     for vid, lids in SLOTS.items():
-        if vid == "V21":
-            t0 = by_id["L71"]["end"] + V21_GAP
-            r = [by_id["L71"]["end"], last_note]
-            slot = {"id": vid, "generated": False, "lines": [], "text": "Hey... was its switch on, too?", "mute": [],
-                    "room": r, "proposed": [round(t0, 3), round(min(t0 + TAG_LEN, last_note - 0.3), 3)],
-                    "note": "new in Draft 3; over the band's tail, before the last note (S67)"}
-        elif lids is None:
-            t0 = by_id[TAG_AFTER[vid]]["end"] + 0.1
-            r = room(t0, t0 + TAG_LEN)
-            slot = {"id": vid, "generated": False, "lines": [], "text": "(On, on, on...)", "mute": [],
-                    "room": r, "proposed": [round(t0, 3), round(min(t0 + TAG_LEN, r[1]), 3)],
-                    "note": "not generated; placed after the chorus's last \"Default on!\" (M1 gate)"}
-        else:
-            ws = [w for lid in lids for w in by_id[lid]["words"]]
-            r = room(ws[0]["start"], ws[-1]["end"])
-            mute = [[round(max(r[0], by_id[lid]["start"] - PAD[0]), 3), round(min(r[1], by_id[lid]["end"] + PAD[1]), 3)]
-                    for lid in lids]
-            slot = {"id": vid, "generated": True, "lines": lids, "text": " / ".join(by_id[lid]["text"] for lid in lids),
-                    "mute": mute, "room": r, "generated_len": round(ws[-1]["end"] - ws[0]["start"], 3)}
-            if vid in ("V03", "V10"):
-                slot["click"] = c1 if vid == "V03" else c2
-            if vid == "V18":
-                slot["clicks"] = ob
+        ws = [w for lid in lids for w in by_id[lid]["words"]]
+        r = room(ws[0]["start"], ws[-1]["end"])
+        slot = {"id": vid, "lines": lids, "text": " / ".join(by_id[lid]["text"] for lid in lids),
+                "take": [[by_id[lid]["start"], by_id[lid]["end"]] for lid in lids], "room": r,
+                "take_len": round(ws[-1]["end"] - ws[0]["start"], 3)}
+        if vid in ("V03", "V10"):
+            slot["click"] = c1 if vid == "V03" else c2
+        if vid == "V18":
+            slot["clicks"] = ob
         slot["room_len"] = round(slot["room"][1] - slot["room"][0], 3)
         slot["room_frames"] = [fr(x) for x in slot["room"]]
         slots.append(slot)
-    # backing-stem bleed of the generated Switch inside each mute span (dB re the stem's median active level)
-    by, _ = librosa.load(STEM.format(BACKING), sr=SR, mono=True)
-    brms = 20 * np.log10(librosa.feature.rms(y=by, frame_length=2048, hop_length=512)[0] + 1e-12)
-    ref = float(np.median(brms[brms > -60]))
-    for s in slots:
-        peaks = []
-        for a, b in s["mute"]:
-            f0, f1 = librosa.time_to_frames([a, b], sr=SR, hop_length=512)
-            peaks.append(round(float(brms[f0:f1 + 1].max()) - ref, 1))
-        s["backing_peak_db_re_median"] = peaks
 
     # sections
     secs = []
@@ -194,21 +190,22 @@ def main():
 
     # shots
     shots = shots_from_brief()
-    v04, v11, v21 = (next(s for s in slots if s["id"] == v) for v in ("V04", "V11", "V21"))
+    v04, v11, v21 = (by_id[x] for x in ("L14a", "L38a", "L71a"))
     special = {
         "S00": (-PREROLL_S, None, "pre-roll card on room tone, before the countdown"),
         "S01": (S00_S - PREROLL_S, None, "pre-roll countdown, title on the first downbeat"),
-        "S11": (c1, "L09", "click in the generator's gap"),
-        "S18": (v04["proposed"][1], "L14", "after the proposed V04 tag"),
-        "S36": (c2, "L33", "click in the generator's gap"),
+        "S11": (c1, "L09", "the real click"),
+        "S18": (v04["end"], "L14a", "after Switch's V04 tag"),
+        "S36": (c2, "L33", "the real click"),
         "S37": (by_id["L34"]["start"], "L34", "first chorus-2 line"),
-        "S39": (v11["proposed"][0], "L38", "proposed V11 tag (not generated)"),
-        "S52": (events["record_scratch"][0], "L54", "vocal gap before the redub"),
+        "S39": (v11["start"], "L38a", "Switch's V11 tag"),
+        "S52": (events["record_scratch"][0], "L54", "the record scratch (under the booing)"),
         "S57": (by_id["L61"]["start"], "L61", "first final-chorus line"),
         "S58": (by_id["L65"]["start"], "L65", "last \"Default on!\""),
-        "S60": (ob[0], "L66", "first outro click"),
+        "S60": (ob[0], "L66", "first outro click (the human's comp has two)"),
         "S63": (events["popup_chime"], "L68", "chime in the gap; \"Huh.\" is not sung"),
-        "S67": (v21["proposed"][0], "L71", "V21 over the band's tail; the hand flips on the last note; holds past the audio"),
+        "S66": (events["click_reveal"], "L71", "the click between \"An AI did.\" and \"...But\""),
+        "S67": (v21["start"], "L71a", "V21 over the band's tail; the hand flips on the last note; holds past the audio"),
         "S68": (audio_end + HOLD_S + CARD_S, "L71", "post-roll: after fact card G"),
     }
     cur = 0
@@ -260,7 +257,8 @@ def main():
     for ln in lines:
         ln["frame_start"], ln["frame_end"] = fr(ln["start"]), fr(ln["end"])
     iv = np.diff(bt)
-    out = {"title": TITLE, "fps": FPS, "preroll_s": PREROLL_S, "audio": TRACK, "duration_s": duration,
+    out = {"title": TITLE, "fps": FPS, "preroll_s": PREROLL_S, "audio": MASTER, "clock": "the human's final master; "
+           f"v2 times + {OFFSET_1} s (+ {OFFSET_2} s after v2 {BAR_AFTER_V2} s)", "duration_s": duration,
            "duration_frames": fr(duration), "frame_formula": "round((t + preroll_s) * fps)", "meter": "4/4",
            "bpm_median": round(60 / float(np.median(iv)), 1), "beats": beats["beats"], "downbeats": beats["downbeats"],
            "events": events, "post": post, "video_end_frame": video_end, "sections": secs, "switch_slots": slots, "lines": lines, "shots": shots}
@@ -271,15 +269,11 @@ def main():
           f"{out['bpm_median']} BPM (beat_this).", "", "## Sections", "", "| Section | Start s | End s | Frames |",
           "| --- | --- | --- | --- |"]
     md += [f"| {s['name']} | {s['start']:.2f} | {s['end']:.2f} | {s['frame_start']}–{s['frame_end']} |" for s in secs]
-    md += ["", "## Switch slots", "", "Mute = the generator's attempt (muted in the final mix). Room = Narrator's word "
-           "before → Narrator's word after. Backing = loudest backing-stem level inside the mute span, dB re its median.",
-           "", "| ID | Line | Generated s | Mute s | Room s | Room len s | Backing dB |", "| --- | --- | --- | --- | --- | --- | --- |"]
+    md += ["", "## Switch slots", "", "Take = his comped line(s) in the master. Room = Narrator's word before → "
+           "Narrator's word after.", "", "| ID | Line | Take s | Room s | Room len s |", "| --- | --- | --- | --- | --- |"]
     for s in slots:
-        gen = f"{s['generated_len']:.2f}" if s["generated"] else "not sung"
-        mute = ", ".join(f"{a:.2f}–{b:.2f}" for a, b in s["mute"]) or (
-            f"proposed {s['proposed'][0]:.2f}–{s['proposed'][1]:.2f}" if "proposed" in s else "none")
-        md.append(f"| {s['id']} | {s['text']} | {gen} | {mute} | {s['room'][0]:.2f}–{s['room'][1]:.2f} | "
-                  f"{s['room_len']:.2f} | {', '.join(map(str, s['backing_peak_db_re_median'])) or '—'} |")
+        take = ", ".join(f"{a:.2f}–{b:.2f}" for a, b in s["take"])
+        md.append(f"| {s['id']} | {s['text']} | {take} | {s['room'][0]:.2f}–{s['room'][1]:.2f} | {s['room_len']:.2f} |")
     md += ["", "## Events", ""] + [f"- **{k}:** {v}" for k, v in events.items() if not k.endswith("_frame")]
     md += ["", "## Shots", "", "| Shot | Section | Cue | t s | Frame | Line | How |", "| --- | --- | --- | --- | --- | --- | --- |"]
     md += [f"| {s['id']} | {s['section']} | {s['cue']} | {'' if s['t'] is None else f'{s[chr(116)]:.2f}'} | "
@@ -292,7 +286,7 @@ def main():
     for s in shots:
         print(f"{s['id']} {s['t'] if s['t'] is not None else '—':>8} {s['line'] or '':4s} {s['how']:44s} {s['cue'][:50]}")
     for s in slots:
-        print(s["id"], s.get("mute") or s.get("proposed"), "room", s["room"], s["room_len"], s["backing_peak_db_re_median"])
+        print(s["id"], s["take"], "room", s["room"], s["room_len"])
     print(json.dumps({k: v for k, v in events.items() if not k.endswith("_frame")}))
     print([(s["name"], s["start"]) for s in secs])
 
@@ -326,12 +320,12 @@ def write_ass(m):
     for s in m["switch_slots"]:
         a, b = s["room"]
         ev.append(f"Dialogue: 0,{ass_t(a)},{ass_t(b)},Room,,0,0,0,,{{\\pos(320,150)}}{s['id']} room {b - a:.2f} s")
-        for x, y in s["mute"] or ([s["proposed"]] if "proposed" in s else []):
-            ev.append(f"Dialogue: 1,{ass_t(x)},{ass_t(y)},Slot,,0,0,0,,{{\\pos(320,180)}}"
-                      f"{s['id']} {'MUTED' if s['generated'] else 'PROPOSED'}")
+        for x, y in s["take"]:
+            ev.append(f"Dialogue: 1,{ass_t(x)},{ass_t(y)},Slot,,0,0,0,,{{\\pos(320,180)}}{s['id']} TAKE")
     e = m["events"]
     marks = [(e["click_prechorus_1"], "CLICK"), (e["click_prechorus_2"], "CLICK")] + [(t, "CLICK") for t in e["clicks_outro"]]
-    marks += [(e["record_scratch"][0], "SCRATCH"), (e["popup_chime"], "CHIME"), (e["last_word_end"], "LAST WORD")]
+    marks += [(e["horn"][0], "HORN"), (e["door_slam"], "DOOR"), (e["booing"][0], "BOOING"), (e["record_scratch"][0], "SCRATCH"),
+              (e["popup_chime"], "CHIME"), (e["click_reveal"], "CLICK"), (e["last_word_end"], "LAST WORD"), (e["last_note"], "SWITCH OFF")]
     for t, txt in marks:
         ev.append(f"Dialogue: 0,{ass_t(t)},{ass_t(t + 0.35)},Event,,0,0,0,,{txt}")
     for ln in m["lines"]:

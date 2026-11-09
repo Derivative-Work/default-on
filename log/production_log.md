@@ -227,3 +227,46 @@ Append-only. One entry per action: timestamp, step (shot ID where relevant), wha
 ## 2026-11-06T17:50:00-05:00 — Guardian consent recorded; the child-protection rule narrowed
 
 - **What:** recorded the human's consent statement verbatim in `log/human_interventions.md`, after asking whether to keep the child's name out of the repo; the human chose verbatim. Edited the brief's Protecting the child section (docs `update`, rev 64 → 66: his name appears only in his guardians' signed consent statements in the intervention log; the consent is done, his mother's to follow by pull request), its mirror, and `CLAUDE.md`'s rule to match.
+
+## 2026-11-08T23:30-05:00 — The human's final master: imported, measured, and the video re-synced to it
+
+- **Imported (copied, hashes verified):**
+  - `audio/master/Default On (final master).wav` (ec5b3381…be65);
+  - `audio/master/Default On (FX only).wav` (eea217c9…0b94);
+  - `audio/switch/comp/Default On (switch only).wav` (fdc60885…83af), private like the raw takes.
+  - All three are 263.459 s, 48 kHz, f32 stereo.
+  - `remotion/public/track.wav` is now a hard link to the master. `scripts/manifest.sh` now skips all of `audio/switch/` and `audio/clicks/`.
+- **Offset:** cross-correlated against the v2 mix and the vocal stem at 11 points.
+  - The master is v2 +1.0878 s (±0.0002) up to the Narrator's last word.
+  - It is +2.8915 s after it: the human's added bar (1.80 s) sits before V21.
+  - The human estimated the shift at about 2.46 s; the measurement is 1.0878 s.
+- **Clock:** the pre-roll shrinks to 5 − 1.0878 = 3.9122 s. Every frame before the added bar stays where it was (`song.v2_to_master`, map `clock`), and S68 and the end move 57 frames later (7,954 → 8,011 frames).
+- **Switch:**
+  - his lines are aligned on his comp (`lyrics/switch_comp.txt` → `timing/words_switch.json`, `align_words.py` now takes a file path and line IDs);
+  - mouths come from Rhubarb on the comp (`rhubarb_visemes.py`; a line's mouth closes at its end);
+  - the placeholder flap and the generated attempt's mute spans are gone. Slots now carry `take` spans (`log/switch_takes.md`).
+- **FX, measured in the FX-only file (master s):**
+
+  | Effect | Master s | Notes |
+  | --- | --- | --- |
+  | Clicks | 39.277, 125.865 | |
+  | Outro clicks | 222.407, 222.872 | two, not three |
+  | Horn | 153.28, 153.41 | |
+  | Door | 170.752 | |
+  | Booing | 185.0–190.3 | |
+  | Record scratch | 187.50–188.15 | |
+  | New click | 241.805 | between "An AI did." and "…But" |
+  | Real switch OFF | 250.391 | the band's last note |
+
+  The music ends at 252.12 s, followed by 11.3 s of digital silence.
+- **Shots:**
+  - S42's X and HONK! land on the horn, and S47's door slams on the door, 6 frames before S48.
+  - S51 gains a booing crowd (heads rise and shake, thumbs down, BOOs pop in the margins) from the booing's start, carried under S52.
+  - S52 starts on the scratch (+59 frames).
+  - S60 flips on each of the two clicks; the hand enters on the last.
+  - S66 cuts on the new click (−22 frames).
+  - S67 takes V21's real span.
+  - S07 follows the new V02 (brief cue updated). Others move by at most 15 frames, following his takes.
+- **Brief:** V02's wording, and S60 as two clicks (docs `update`, rev 66 → 70; mirror `docs/brief.md`).
+- **Licences:** `assets/LICENSES.md` lists the effects. The FX-only file is never released: Pixabay and Logic sounds may not be distributed on their own.
+- **Archived:** the round-2 renders → `archive/renders/m4_round2_2026-11-06/`.

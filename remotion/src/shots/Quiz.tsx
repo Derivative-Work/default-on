@@ -5,7 +5,7 @@ import { Caption, Door, Phone, PriceTag } from "../components/props";
 import { Narrator } from "../rigs/Narrator";
 import { Switch } from "../rigs/Switch";
 import { C, PEN, W, lw } from "../theme/palette";
-import { mouthAt } from "../timing";
+import { at, events, mouthAt } from "../timing";
 import { Floorboards, Grain, breath } from "../components/sets";
 import { Bg, ShotC, blink, bump, ez } from "./common";
 
@@ -24,7 +24,7 @@ const Curtains: React.FC = () => (
     {Array.from({ length: 12 }, (_, i) => <circle key={i} cx={80 + i * 160} cy={120 + Math.sin(i * 0.9) * 20} r={14} fill={C.mustard} stroke={C.ink} strokeWidth={lw(3)} />)}
   </g>
 );
-const Audience: React.FC<{ f: number }> = ({ f }) => (
+export const Audience: React.FC<{ f: number }> = ({ f }) => (
   <g>
     {Array.from({ length: 16 }, (_, i) => {
       const bob = Math.abs(Math.sin((f + i * 7) / 6)) * 8;
@@ -131,9 +131,10 @@ export const S41: ShotC = ({ f, len }) => (
   </QuizScreen>
 );
 
-// S42: V12 "I'll uninstall it!" / "Nope!": wrong-answer honk, big red X
-export const S42: ShotC = ({ f, g, len }) => {
-  const x = ez(f, len * 0.55, len * 0.6);
+// S42: V12 "I'll uninstall it!" / "Nope!": wrong-answer honk, big red X, landing on the human's horn (two honks)
+export const S42: ShotC = ({ f, g }) => {
+  const h0 = at(events.horn[0]) - (g - f), h1 = at(events.horn[1]) - (g - f);
+  const x = ez(f, h0, h0 + 3) * (1 + 0.12 * bump(f, h1, 4));
   return (
     <Show f={f} g={g} light={x > 0 ? C.red : C.cream} score={x > 0 ? "✗" : "0"}>
       {x > 0 && <g transform={`translate(960, 600) scale(${x})`} opacity={0.92}>
@@ -260,11 +261,12 @@ export const S46: ShotC = ({ f, len }) => {
 
 // S47: V15 "Was there one without the robot?" / "Only once you tried to leave!": Switch walks toward a door marked
 // "CANCEL"; a cheaper tag peeks out from behind it (labelled CLASSIC, no price: the fact card gives none), then the
-// door slams
+// door slams on the human's door recording
 export const S47: ShotC = ({ f, g, len }) => {
+  const d = at(events.door_slam) - (g - f); // the slam's local frame
   const walk = ez(f, 0, len * 0.5);
-  const peek = ez(f, len * 0.5, len * 0.6) * (1 - ez(f, len * 0.85, len * 0.88));
-  const slam = f > len * 0.86;
+  const peek = ez(f, len * 0.5, len * 0.6) * (1 - ez(f, d - 4, d));
+  const slam = f >= d;
   return (
     <Bg id="s47" seed={47} base={C.night}>
       <rect x={-20} y={814} width={W + 40} height={46} fill="url(#pen-hatch)" opacity={0.32} />
@@ -273,10 +275,10 @@ export const S47: ShotC = ({ f, g, len }) => {
       <Curtains />
       <g transform="translate(1280, 900)"><Door label="CANCEL" open={slam ? 0 : peek * 0.4} color={C.red} /></g>
       <g transform={`translate(${1480 - (1 - peek) * 220}, 560) scale(0.6)`} opacity={peek}><PriceTag text="CLASSIC" color={C.avocado} s={0.8} /></g>
-      <g transform={`translate(${300 + walk * 520}, ${700 - bump(f, len * 0.88, 5) * 30}) scale(0.6)`}>
+      <g transform={`translate(${300 + walk * 520}, ${700 - bump(f, d + 2, 5) * 30}) scale(0.6)`}>
         <Switch pose={slam ? "startled" : "curious"} mouth={mouthAt(g, "switch")} look={[1, 0]} blink={blink(g, 6)} />
       </g>
-      {slam && f < len * 0.92 && <text x={1100} y={300} fontFamily={BUBBLE} fontSize={110} fill={C.mustard} stroke={C.ink} strokeWidth={6} paintOrder="stroke">SLAM!</text>}
+      {slam && f < d + 18 && <text x={1100} y={300} fontFamily={BUBBLE} fontSize={110} fill={C.mustard} stroke={C.ink} strokeWidth={6} paintOrder="stroke">SLAM!</text>}
       <Audience f={f} />
     </Bg>
   );

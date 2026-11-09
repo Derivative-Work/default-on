@@ -8,3 +8,14 @@ Every third-party file in the video, with its licence. Illustrations, background
 | Work Sans (Wei Huang) | Captions, fine print, labels | `@fontsource/work-sans` 5.3.0 (npm) | SIL Open Font License 1.1 |
 
 Tools that make timing data, not video assets: Rhubarb Lip Sync 1.14.0 (Daniel S. Wolf), MIT licence, used for the mouth cues (`scripts/rhubarb_visemes.py`).
+
+Sound effects in the human's final master (2026-11-08), mixed by the human; also separated in `audio/master/Default On (FX only).wav`:
+
+| Asset | Used for | Source | Licence |
+| --- | --- | --- | --- |
+| Light-switch clicks; a door | Every [click], S67's switch, S47's door | The human's own recordings | The human's own |
+| A horn | S42's wrong-answer honk | Logic Pro's sound library | Apple's Logic Pro licence (royalty-free inside the human's own productions; never distributed on its own) |
+| "people crowd shouting" | The booing after the giant's offer (S51–S53) | [Pixabay](https://pixabay.com/sound-effects/people-crowd-shouting-6325/) | Pixabay Content License |
+| "film special effects record scratch" | S52's record scratch | [Pixabay](https://pixabay.com/sound-effects/film-special-effects-record-scratch-108233/) | Pixabay Content License |
+
+The Pixabay and Logic licences allow these sounds inside a production, not distributed on their own. So the FX-only file (and the master's stems, if any) is never published in a release; only the finished mix is.

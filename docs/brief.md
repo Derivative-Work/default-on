@@ -37,7 +37,7 @@
 | ID | Section | Line | Delivery |
 | --- | --- | --- | --- |
 | V01 | Intro | "Hi! I've got two sides: on, and off!" | Spoken, bright |
-| V02 | Verse 1 | "That's neat, but what if I would rather read the page myself?" | Sung or talk-sung, curious |
+| V02 | Verse 1 | "Yes, but can I please read the page myself?" | Sung or talk-sung, curious |
 | V03 | Pre-chorus 1 | "I've only got two sides, it isn't much to learn: / You push me down for off… …so how'd I just return?" | Slow and bluesy; leave the gap for the click |
 | V04 | Chorus 1 tag | "(On, on, on…)" | Sung, getting quieter |
 | V05 | Lesson | "And 'opt-out' means that no one asked you, and you're hunting for the spot!" | Sung, proud of knowing the answer |
@@ -110,7 +110,7 @@
 | --- | --- | --- | --- |
 | S05 | "You typed a little question…" | A big generic search box on a desk; letters type themselves | A |
 | S06 | "And an answer hopped on top of it…" | An answer box with legs hops onto the list of links and sits on them, squashing them flat | A |
-| S07 | V02 "That's neat, but what if I would rather read the page myself?" | Switch lifts a corner of the answer box and peeks at the squashed links | A |
+| S07 | V02 "Yes, but can I please read the page myself?" | Switch lifts a corner of the answer box and peeks at the squashed links | A |
 | S08 | "Well, there's a tiny tab marked 'Web'…" | Switch climbs a wobbling ladder to a tiny tab labelled "Web" on a high shelf | A |
 
 ### Pre-chorus 1 (half-time)
@@ -211,7 +211,7 @@
 | ID | Cue | Picture | Source |
 | --- | --- | --- | --- |
 | S59 | V18 "I've got two sides." | Switch alone on a black wall under a spotlight | A |
-| S60 | [click] [click] [click] | He flips himself off three times and springs back on each time. On the third, the grey hand enters to flip him back… | A, E |
+| S60 | [click] [click] | He flips himself off twice and springs back on each time (the final master has two clicks). On the second, the grey hand enters to flip him back… | A, E |
 | S61 | "…Guess one of 'em was just for show." | …and stops mid-frame, hesitates, and withdraws. Switch is still ON, looking where it was | A |
 | S62 | "And that's how an opt-out works! Join us next week…" | The Narrator wraps up; an end slate starts to slide in | A |
 | S63 | [pop-up chime] / "Who asked for that?" ("Huh." isn't sung) | A "Summary of this song" box pops up over everything; its close button runs from the cursor | A, E |

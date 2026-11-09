@@ -11,7 +11,7 @@ import map from "../../../timing/map.json";
 export const SCALE = 0.5;
 
 const SLOTS = map.switch_slots.map((s) => {
-  const spans = s.mute.length ? s.mute : "proposed" in s && s.proposed ? [s.proposed as number[]] : [];
+  const spans = s.take;
   return { id: s.id, text: s.text, room: s.room_len, a: at(spans[0][0]), b: at(spans[spans.length - 1][1]) };
 });
 
