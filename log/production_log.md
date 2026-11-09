@@ -270,3 +270,4 @@ Append-only. One entry per action: timestamp, step (shot ID where relevant), wha
 - **Brief:** V02's wording, and S60 as two clicks (docs `update`, rev 66 → 70; mirror `docs/brief.md`).
 - **Licences:** `assets/LICENSES.md` lists the effects. The FX-only file is never released: Pixabay and Logic sounds may not be distributed on their own.
 - **Archived:** the round-2 renders → `archive/renders/m4_round2_2026-11-06/`.
+- **2026-11-09T00:20:** all sections re-rendered against the final master; the full cut reassembled (sync verified at 30, 150, 245 s; `log/renders.md`).

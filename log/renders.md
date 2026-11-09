@@ -77,3 +77,9 @@ Every render: timestamp, shot ID, composition, props, commit hash, output, conta
 
 - **Compositions:** `Sec01-Intro` … `Sec11-Outroandreveal`, from 216b10b. **Command:** `scripts/m4_section.sh` per section; concat; one continuous master track. **Checks:** sync +0.0000 s at 30 s and 220 s.
 - **Outputs:** `renders/m4/sec*.mp4`, `renders/m4/m4_full.mp4`, `renders/m4/review/m4_full_review_720p.mp4` (27.1 MB), contact sheets in `review/`. **Commit:** f1cd161.
+
+## 2026-11-09T00:20 — M4 sections 1–11 and the full cut, on the human's final master
+
+- **Compositions:** `Sec01-Intro` … `Sec11-Outroandreveal`, 1920x1080, from 3306699. **Command:** `scripts/m4_section.sh` per section; concat; the final master laid under it in one piece (`adelay=3912.2|3912.2,apad`, the new pre-roll).
+- **Checks:** 8,011 frames; sync +0.0000 s at 30 s, 150 s and 245 s into the master (the last one after the added bar). Master −14.1 LUFS integrated, −1.0 dBTP.
+- **Outputs:** `renders/m4/sec*.mp4`, `renders/m4/m4_full.mp4`, `renders/m4/review/m4_full_review_720p.mp4`, contact sheets in `review/`. **Commit:** 3306699.
