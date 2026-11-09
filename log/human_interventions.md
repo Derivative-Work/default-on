@@ -132,3 +132,21 @@ Every human action: timestamp, what, why, and which rule allows it. The brief al
   - the crowd booing and the record scratch are from Pixabay (`assets/LICENSES.md`).
 - **Comp:** every Switch line V01–V19 and V21, comped by the human; one entry per line is in `log/switch_takes.md`. Take numbers and processing were not supplied.
 - **Rule:** H3 (final mix and recordings supplied, M1 gate: "I'll supply a human mix once I have the recordings"); H1 (takes chosen); Switch's voice, the declared exception. The added bar changes the locked timing for Switch's V21 only, the line the exception covers.
+
+## 2026-11-09 — GitHub repository; M4 review notes, round 3 — H2
+
+- **Repository:** the human created github.com/Derivative-Work/default-on (private) and asked for what exists to be pushed "without making any changes yet": `main` pushed at 4c50f6b, history checked first (no media, Switch recordings or reference clips ever committed).
+- **Notes, verbatim:**
+  - "At the beginning: put \"(Mostly) AI-generated satire.\" underneath the \"A cartoon...\""
+  - "Check the whole first search scene. The typewriter keys need better alignment, it is unclear whether the lamp is a floor lamp or a table lamp. When the answer box appears, it does a full vertical squish of the search results -- including the borders, which isn't era appropriate. It also jumps between that and the next scene when Switch appears."
+  - "Floor lamps throughout are not clearly on the floor."
+  - "Check character sweaters. It looks like many of them are supposed to have horizontal bars, but these are going off the sweater in many cases."
+  - "In the \"opt-out\" explainer scene, the dots expanding is reading weird as the character navigates the maze. There should probably be more dots added, not expanding the existing ones."
+  - "In the \"default\" explainer scene, the \"chef's pick\" is outside of the flag. Just make the flag bigger so it fits."
+  - "The classroom scenes with the narrator still need more detail: things like the plant are not reading right."
+  - "Double check all hands. Having an articulable and separated index finger is reading weird against a hand that doesn't separate the rest of the fingers. There are also many hands that are missing fingers entirely (unclear if this is an artistic choice)."
+  - "\"There's always a test\" the tests don't look like a real stack in front of Switch"
+  - "\"Inbox got a helper\": same regarding sweaters, and it's unclear which way the character is facing (likely towards the screen, but the lack of hair in the back of the head is making this hard to read."
+  - "\"just a menu, then a menu\": fix the infinite zoom, it isn't reading as such"
+  - "second \"I've only got two sides...\" the sync did not apply here at all"
+- **Rule:** H2 (section notes at the M4 gate). No section is approved yet.
