@@ -157,3 +157,26 @@ Every human action: timestamp, what, why, and which rule allows it. The brief al
   - "\"summary of this song\": this feels a little late -- make it start appearing when the piano comes in"
   - "\"hey who wrote this song anyway\": switch is coming in very suddenly"
 - **Rule:** H2 (section notes at the M4 gate). No section is approved yet.
+
+## 2026-11-09 — M4 review notes, round 4; S67 footage; S68 cut — H2, H3
+
+- **Notes, verbatim:**
+  - "remove the countdown; it's not adding much to this"
+  - "the calendar's spacing is off"
+  - "the spacing on the typewriter got *worse* -- maybe make it taller and give it some depth in addition to fixing the horizontal layout. also check the pencil: it's currently floating in mid-air"
+  - "the stack of tests is better, but now it's too neat"
+  - "the mail envelope's diagonal lines go beyond the boundary of the envelope itself. same for \"v\"s in v-neck sweaters"
+  - "\"just a menu, then a menu, ...\": zooming is better; just remove the transparency on the background and make sure that the biggest one never disappears while still visible so it reads correctly"
+  - "\"TV got an update\": much like the phone scene did before, the TV's visuals are going outside the visible boundary of the TV. also put a visual indicator of what this is referencing, much like the Gmail one before it"
+  - "second \"I've only got two sides\": recheck the mouth movement; it's missing some"
+  - "make both \"on on on on...\" have the mouth movements as well"
+  - "does the \"chat app where you talk to Mom and Dad\" have a real reference? if so, put a visual indicator much like the iOS one after it"
+  - "school said 'No AI, please'\": do a detail pass here: the stack of books, pen, appear to be floating"
+  - "giant said 'we hear you'\": is the no-fingers hand intentional? in either case, it needs to be closer to the paper so it's clearer that it's what's holding it"
+  - "Google search in education scenes need onscreen citations much like the others as well as it's the most incisive (and potentially defamatory if not cited...) part of the entire video"
+  - "\"summary of this song\": the \"x\" needs to be more clearly evading the pointer"
+  - "I placed S67's footage in ~/Downloads/C0143.MP4. the switch flip you're looking for is at roughly 3:14. this is straight off the camera (manual exposure, ISO, white balance; see the corresponding XML file for settings): it will need color grading to match the rest."
+  - "let's cut the scene showing the real Microsoft and Google swag -- it's taking too long to locate all of it. just wrap my disclosure in with the rest of the credits right after fact card G."
+  - "put Switch's disclosure (\"Switch is voiced by a child of two ex-Googlers and ex-Microsofties. No pitch correction was used on his solo singing.\") directly on S67, shortly before the switch is flipped."
+- **Decisions:** S68 is retired (its footage is no longer wanted); its disclosure becomes a credits card right after fact card G (M5). Switch's disclosure is a caption on S67, the human's wording. Both name companies outside the fact cards at the human's direction, as the existing S26/S45/S46 captions already do; new captions for the TV, chat and school shots follow the same pattern and quote the fact card.
+- **Rule:** H2 (section notes at the M4 gate); H3 (S67 footage supplied). No section is approved yet.
