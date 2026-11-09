@@ -340,3 +340,4 @@ Append-only. One entry per action: timestamp, step (shot ID where relevant), wha
 17. **S68 retired:** the brief row stays and is marked retired; the swag shot is cut. Its disclosure becomes a credits card right after fact card G (M5). The brief (docs, rev 80) and its mirror were updated, along with S00/S01 (countdown), the TV, chat and school captions, the S67 caption, the fact-card order and the inputs list.
     - `scripts/timing_map.py` skips retired rows and drops S68 from the post-roll.
     - `timing/map.json` was regenerated: only S68 changed, and the video now ends at frame 7861 (was 8011).
+- **2026-11-09T10:20:** all sections re-rendered after round 4; the full cut reassembled on the final master (7,861 frames, sync verified; `log/renders.md`).
