@@ -85,7 +85,6 @@ Dialogue: 0,0:03:56.68,0:04:00.16,Shot,,0,0,0,,S64  V19 "Hey, who wrote this son
 Dialogue: 0,0:04:00.16,0:04:01.81,Shot,,0,0,0,,S65  "An AI did."
 Dialogue: 0,0:04:01.81,0:04:03.94,Shot,,0,0,0,,S66  "…But somebody asked it to."
 Dialogue: 0,0:04:03.94,0:04:14.12,Shot,,0,0,0,,S67  V21 "Hey… was its switch on, too?" over the band's last bars, then the audio e
-Dialogue: 0,0:04:18.12,0:04:23.12,Shot,,0,0,0,,S68  After fact card G, room tone only
 Dialogue: 0,0:00:11.47,0:00:19.65,Room,,0,0,0,,{\pos(320,150)}V01 room 8.18 s
 Dialogue: 1,0:00:13.14,0:00:16.64,Slot,,0,0,0,,{\pos(320,180)}V01 TAKE
 Dialogue: 0,0:00:26.52,0:00:30.05,Room,,0,0,0,,{\pos(320,150)}V02 room 3.53 s

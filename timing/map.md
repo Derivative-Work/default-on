@@ -66,8 +66,8 @@ Take = his comped line(s) in the master. Room = Narrator's word before → Narra
 
 | Shot | Section | Cue | t s | Frame | Line | How |
 | --- | --- | --- | --- | --- | --- | --- |
-| S00 | Intro | Before the audio starts (about 2 s of room tone, added in the edit) | -3.91 | 0 |  | pre-roll card on room tone, before the countdown |
-| S01 | Intro | Downbeat, before the first line | -1.91 | 60 |  | pre-roll countdown, title on the first downbeat |
+| S00 | Intro | Before the audio starts (about 2 s of room tone, added in the edit) | -3.91 | 0 |  | pre-roll card on room tone, before the title |
+| S01 | Intro | Downbeat, before the first line | -1.91 | 60 |  | the title (its countdown cut, 2026-11-09); the rocker flips after the first downbeat |
 | S02 | Intro | "Hi, grown-ups! Today we're learning how an opt-out works." (regenerated) | 3.83 | 232 | L01 | cue words |
 | S03 | Intro | "Say hello to Little Switch!" | 9.43 | 400 | L02 | cue words |
 | S04 | Intro | V01 "Hi! I've got two sides…" | 13.14 | 512 | L03 | cue words |
@@ -137,7 +137,6 @@ Take = his comped line(s) in the master. Room = Narrator's word before → Narra
 | S65 | Outro and reveal | "An AI did." | 240.16 | 7322 | L71 | cue words |
 | S66 | Outro and reveal | "…But somebody asked it to." | 241.81 | 7372 | L71 | the click between "An AI did." and "...But" |
 | S67 | Outro and reveal | V21 "Hey… was its switch on, too?" over the band's last bars, then the audio ends (the band plays to the end of the file; there is no silence after the last word) | 243.94 | 7436 | L71a | V21 over the band's tail; the hand flips on the last note; holds past the audio |
-| S68 | Outro and reveal | After fact card G, room tone only | 258.12 | 7861 | L71 | post-roll: after fact card G |
 
 ## Lines
 

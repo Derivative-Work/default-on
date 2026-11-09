@@ -1,9 +1,11 @@
 // S48-S67: the bridge (the school, the giant, the rewind and the redub), the final chorus, and the outro and reveal.
-// S65-S67 are real material (R screen capture, H footage); until the human supplies it they show a stand-in.
+// S65-S67 are real material (R screen capture, H footage); S67's footage is in (2026-11-09), S65-S66 show stand-ins.
 import React from "react";
+import { AbsoluteFill, OffthreadVideo, Sequence, staticFile, useCurrentFrame } from "remotion";
 import { Wash } from "../film/Paper";
-import { AnswerBox, Contract, MiniRocker, Slate, Spotlight, TV, Tile, Kid } from "../components/props";
+import { AnswerBox, Caption, Contract, MiniRocker, Slate, Spotlight, TV, Tile, Kid } from "../components/props";
 import { Hand } from "../rigs/Hand";
+import { Hand4 } from "../rigs/Hand4";
 import { Narrator } from "../rigs/Narrator";
 import { Switch } from "../rigs/Switch";
 import { BUBBLE, SANS } from "../theme/fonts";
@@ -167,43 +169,98 @@ const Note: React.FC = () => (
 );
 
 // S49: "So the school said, 'No AI, please'…": a teacher's desk at dusk with a polite handwritten note on it, an ink
-// pot and pen, a pencil cup, an apple, a stack of exercise books; the chalkboard's corner and a dusky window behind
+// pot with its pen, a pencil cup, an apple, a stack of exercise books; the chalkboard's corner and a dusky window behind.
+// Detail pass (the human's note, 2026-11-09: the books and pen floated): the desktop now runs from its back edge at
+// y 560, and everything on it stands on that surface, each with a contact shadow
+const DESK_Y = 560;
+const SchoolDesk: React.FC = () => (
+  <g>
+    <rect x={-20} y={DESK_Y} width={W + 40} height={H - DESK_Y + 20} fill={C.cardigan} stroke={C.ink} strokeWidth={lw(8)} />
+    <rect x={-20} y={DESK_Y} width={W + 40} height={14} fill={C.cardiganShade} opacity={0.8} />
+    <Grain x={0} y={DESK_Y + 20} w={W} h={H - DESK_Y - 20} n={7} seed={6} />
+  </g>
+);
 export const S49: ShotC = ({ g }) => (
   <Bg id="s49" seed={49} base={C.avocado}>
     <Wallpaper id="s49" kind="stripe" a={C.avocado} b={C.cream} opacity={0.18} />
-    <rect x={-40} y={60} width={620} height={420} rx={10} fill={C.chalk} stroke={C.cardiganShade} strokeWidth={22} />
-    <g transform="translate(1600, 280)"><Window w={300} h={340} sky="#e8a070" sun="sun" curtain={C.teal} /></g>
+    <rect x={-40} y={40} width={620} height={400} rx={10} fill={C.chalk} stroke={C.cardiganShade} strokeWidth={22} />
+    <g transform="translate(1600, 260)"><Window w={300} h={320} sky="#e8a070" sun="sun" curtain={C.teal} /></g>
     <g transform="translate(1180, 120)"><Clock t={(16 * 60 + 52) * 60 + g / 30} r={50} /></g>
-    <rect x={0} y={640} width={W} height={440} fill={C.cardigan} stroke={C.ink} strokeWidth={lw(8)} />
-    <Grain x={0} y={650} w={W} h={420} n={7} seed={6} />
-    <g transform="translate(960, 640) rotate(-4)"><Note /></g>
-    <g transform="translate(1500, 560)"><circle r={60} fill={C.red} stroke={C.ink} strokeWidth={lw(6)} /><path d="M0,-60 q10,-30 30,-30" stroke={C.ink} strokeWidth={lw(6)} fill="none" /><path d="M-30,-20 q10,-14 24,-10" stroke={C.white} strokeWidth={5} fill="none" opacity={0.6} /></g>
-    <g transform="translate(420, 600)"><rect x={-40} y={-50} width={80} height={60} rx={10} fill={C.night} stroke={C.ink} strokeWidth={lw(5)} /><line x1={10} y1={-50} x2={50} y2={-150} stroke={C.ink} strokeWidth={6} /></g>
-    {[0, 1, 2, 3].map((i) => <rect key={i} x={1600 - i * 4} y={600 - i * 24} width={220} height={24} fill={[C.teal, C.mustard, C.orange, C.red][i]} stroke={C.ink} strokeWidth={lw(4)} />)}
+    <SchoolDesk />
+    {/* the note, flat on the desk */}
+    <ellipse cx={980} cy={940} rx={330} ry={24} fill={C.ink} opacity={0.18} />
+    <g transform="translate(960, 800) rotate(-4)"><Note /></g>
+    {/* an ink pot with the pen standing in it, and a pencil cup */}
+    <g transform="translate(400, 760)">
+      <ellipse cx={6} cy={4} rx={66} ry={12} fill={C.ink} opacity={0.25} />
+      <path d="M-50,0 L-50,-50 Q-50,-64 -28,-66 L28,-66 Q50,-64 50,-50 L50,0 Z" fill={C.night} stroke={C.ink} strokeWidth={lw(5)} />
+      <rect x={-22} y={-84} width={44} height={20} rx={4} fill={C.ink} />
+      <path d="M-30,-40 q10,-12 22,-8" stroke={C.white} strokeWidth={5} fill="none" opacity={0.4} />
+      <g transform="rotate(18, 0, -74)">
+        <rect x={-7} y={-230} width={14} height={160} rx={5} fill={C.red} stroke={C.ink} strokeWidth={lw(3.5)} />
+        <rect x={-8} y={-130} width={16} height={12} fill={C.mustard} stroke={C.ink} strokeWidth={lw(2.5)} />
+      </g>
+    </g>
+    <g transform="translate(580, 770)">
+      <ellipse cx={6} cy={4} rx={48} ry={10} fill={C.ink} opacity={0.25} />
+      {[-14, 0, 14].map((dx, i) => <line key={dx} x1={dx} y1={-80} x2={dx + (i - 1) * 10} y2={-150} stroke={[C.mustard, C.teal, C.orange][i]} strokeWidth={9} strokeLinecap="round" />)}
+      <path d="M-36,0 L-40,-90 L40,-90 L36,0 Z" fill={C.teal} stroke={C.ink} strokeWidth={lw(4.5)} />
+    </g>
+    {/* the apple, sitting on the desk */}
+    <g transform="translate(1440, 700)">
+      <ellipse cx={8} cy={52} rx={58} ry={12} fill={C.ink} opacity={0.25} />
+      <circle r={56} fill={C.red} stroke={C.ink} strokeWidth={lw(6)} />
+      <path d="M0,-56 q10,-30 30,-30" stroke={C.ink} strokeWidth={lw(6)} fill="none" />
+      <path d="M-30,-20 q10,-14 24,-10" stroke={C.white} strokeWidth={5} fill="none" opacity={0.6} />
+    </g>
+    {/* a stack of exercise books, squared up on the desk, page edges showing */}
+    <g transform="translate(1690, 760)">
+      <ellipse cx={10} cy={4} rx={150} ry={14} fill={C.ink} opacity={0.25} />
+      {[0, 1, 2, 3].map((i) => (
+        <g key={i} transform={`translate(${[0, -8, 6, -4][i]}, ${-i * 28})`}>
+          <rect x={-120} y={-28} width={240} height={28} rx={3} fill={[C.teal, C.mustard, C.orange, C.red][i]} stroke={C.ink} strokeWidth={lw(4)} />
+          <rect x={-100} y={-20} width={200} height={12} fill={C.white} stroke={C.ink} strokeWidth={lw(2)} />
+        </g>
+      ))}
+    </g>
   </Bg>
 );
 
 // S50 / S51: "And the giant said, 'We hear you!'…": a giant pinstriped cuff (not the grey sleeve), with a cufflink,
 // slides a contract across the desk; "Take the robot with your search…": the contract close up, its two boxes and fine
 // print
-const Giant: React.FC<{ slide: number; boxes: string[] }> = ({ slide, boxes }) => (
+// the school verse's sources, on screen (the human's note, 2026-11-09: "the most incisive (and potentially defamatory if
+// not cited...) part of the entire video"), from the fact card's rows: "Google's VP for education told The New York
+// Times that students at schools rejecting its AI would lose Search." (Fact, Nov 3, 2026), held S50-S52; and "Google
+// then said schools can turn Gemini off and keep Search, but AI Overviews and AI Mode can't be removed from Search.",
+// held S53-S56
+const SCHOOLCAP = "Google's VP for education, to The New York Times, Nov. 3, 2026";
+const CORRCAP = "Google then said schools can turn Gemini off and keep Search, but AI Overviews and AI Mode can't be removed.";
+const Giant: React.FC<{ slide: number; boxes: string[] }> = ({ slide, boxes }) => {
+  // the contract and the hand move as one: the hand (a thumb and three fingers, like every hand in the film) is
+  // pressed flat on the contract's right edge, so it is plainly what slides it (the human's note, 2026-11-09)
+  const cx = 1500 - slide * 560, cy = 800;
+  return (
   <Bg id="s50" seed={50} base={C.avocado}>
     <Wallpaper id="s50" kind="stripe" a={C.avocado} b={C.cream} opacity={0.18} />
-    <rect x={0} y={640} width={W} height={440} fill={C.cardigan} stroke={C.ink} strokeWidth={lw(8)} />
-    <Grain x={0} y={650} w={W} h={420} n={7} seed={6} />
-    <g transform="translate(400, 640) rotate(-6) scale(0.8)" opacity={0.9}><Note /></g>
-    <g transform={`translate(${1500 - slide * 560}, 640) rotate(-3)`}><g transform="scale(0.9)"><Contract boxes={boxes} /></g></g>
-    <g transform={`translate(${2400 - slide * 560}, 560)`}>
+    <SchoolDesk />
+    <ellipse cx={420} cy={930} rx={270} ry={20} fill={C.ink} opacity={0.15} />
+    <g transform="translate(400, 800) rotate(-6) scale(0.8)" opacity={0.9}><Note /></g>
+    <ellipse cx={cx + 20} cy={cy + 222} rx={300} ry={20} fill={C.ink} opacity={0.2} />
+    <g transform={`translate(${cx}, ${cy}) rotate(-3)`}><g transform="scale(0.9)"><Contract boxes={boxes} /></g></g>
+    <g transform={`translate(${cx + 650}, ${cy - 30})`}>
       <rect x={-200} y={-120} width={1200} height={240} fill="#3b3f52" stroke={C.ink} strokeWidth={lw(8)} />
       {Array.from({ length: 10 }, (_, i) => <line key={i} x1={-200 + i * 120} y1={-120} x2={-200 + i * 120} y2={120} stroke={C.cream} strokeWidth={3} opacity={0.5} />)}
       <path d="M-100,-120 q20,120 0,240 M200,-120 q-14,120 6,240" {...PEN} stroke={C.cream} opacity={0.4} />
       <rect x={-260} y={-130} width={80} height={260} rx={10} fill={C.white} stroke={C.ink} strokeWidth={lw(7)} />
       <rect x={-236} y={-20} width={30} height={40} rx={6} fill={C.mustard} stroke={C.ink} strokeWidth={lw(4)} />
-      <path d="M-260,-90 Q-420,-110 -440,0 Q-420,100 -260,90 Z" fill={C.skin} stroke={C.ink} strokeWidth={lw(7)} />
-      <path d="M-380,-60 q-20,10 -16,30 M-380,10 q-20,10 -16,30" {...PEN} />
+      {/* the hand, palm down on the paper, fingers toward the contract */}
+      <g transform="translate(-262, 6) rotate(90) scale(2.6)"><Hand4 pose="open" side={-1} /></g>
     </g>
+    <Caption text={SCHOOLCAP} />
   </Bg>
-);
+  );
+};
 export const S50: ShotC = ({ f, len }) => <Giant slide={ez(f, 0, len * 0.7)} boxes={["Search + AI", "No search"]} />;
 // The crowd boos the deal (the human's booing, from the end of the giant's line into the redub): a row of
 // silhouetted heads rises along the bottom, shaking, and bubble-letter BOOs pop up one after another
@@ -247,6 +304,7 @@ export const S51: ShotC = ({ f, g }) => {
         <text x={-280} y={250} fontFamily={SANS} fontSize={18} fill={C.inkSoft}>Sign here: ______________</text>
       </g>
       <Booing b={b} />
+      <Caption text={SCHOOLCAP} />
     </Bg>
   );
 };
@@ -286,8 +344,9 @@ export const S53: ShotC = ({ f, g }) => {
   return (
     <div style={{ position: "absolute", inset: 0, transform: `translateX(${jitter}px)` }}>
       <NarratorSet g={g - 8} board={["SEARCH + AI?"]} arm="tap" head={0} size={60}>
-        <g transform="translate(560, 760) rotate(-4) scale(0.75)"><Contract boxes={["Search + AI", "No search", "Search, chatbot off"]} highlight={2} /></g>
+        <g transform="translate(560, 640) rotate(-4) scale(0.75)"><Contract boxes={["Search + AI", "No search", "Search, chatbot off"]} highlight={2} /></g>
         <g transform="translate(1520, 230) rotate(6)"><Slate text="CORRECTION" w={600} /></g>
+        <Caption text={CORRCAP} />
       </NarratorSet>
       <div style={{ position: "absolute", left: 0, right: 0, top: (f * 37) % H, height: 26, background: "linear-gradient(rgba(255,250,235,0), rgba(255,250,235,0.45), rgba(255,250,235,0))" }} />
     </div>
@@ -322,6 +381,8 @@ const Bolted: React.FC<{ g: number; tilt: number; tighten?: number }> = ({ g, ti
       <g transform="translate(960, 1100) scale(0.6)"><Switch pose="curious" mouth={mouthAt(g, "switch")} look={[0, -1]} blink={blink(g, 7)} /></g>
       <g transform="translate(1500, 1160) scale(0.6)"><Bookshelf w={300} shelves={3} seed={7} /></g>
     </g>
+    {/* mid-frame, clear of the label plate and of Switch peeking up from the bottom */}
+    <Caption text={CORRCAP} y={700} />
   </Bg>
 );
 export const S54: ShotC = ({ f, g, len }) => <Bolted g={g} tilt={ez(f, 0, len * 0.6)} />;
@@ -335,6 +396,7 @@ export const S56: ShotC = ({ f, g, len }) => {
     <NarratorSet g={g} board={["DEEPLY", "INTEGRATED?"]} arm="down" head={away ? 1 : 0} size={80}>
       <g transform="translate(980, 700) scale(0.42)"><Switch pose="curious" mouth={mouthAt(g, "switch")} look={[0.9, -0.8]} blink={blink(g, 8)} /></g>
       {away && <text x={1560} y={240} fontFamily={BUBBLE} fontSize={56} fill={C.ink} opacity={0.7}>ahem…</text>}
+      <Caption text={CORRCAP} />
     </NarratorSet>
   );
 };
@@ -544,8 +606,23 @@ const SUMMARY = [
   "hard these features can be to turn off. The video ends by",
   "revealing that the song itself was written by AI.",
 ];
+// the close button runs from the pointer (the human's note, 2026-11-09: make the evading clearer): the pointer glides
+// in on the button; just before it lands the button darts to another spot in the box, leaving speed lines; the pointer
+// stops short where the button was, then sets off after it again. One chase every CHASE frames
+const SPOTS = [[340, -232], [-140, 150], [370, 100], [-360, -110], [110, -232], [330, -40], [-300, 190]];
+const CHASE = 20;
+const chaseAt = (f: number) => {
+  const i = Math.max(0, Math.floor(f / CHASE)), t = f - i * CHASE, n = SPOTS.length;
+  const from = SPOTS[i % n], to = SPOTS[(i + 1) % n], prev = i > 0 ? SPOTS[(i - 1) % n] : [from[0] - 260, from[1] + 220];
+  const dart = ez(t, 13, 17);
+  const b = [from[0] + (to[0] - from[0]) * dart, from[1] + (to[1] - from[1]) * dart];
+  const reach = ez(t, 0, 12);
+  const cur = [prev[0] + 16 + (from[0] - prev[0]) * reach, prev[1] + 18 + (from[1] - prev[1]) * reach];
+  return { b, cur, from, dart, t };
+};
 const Summary: React.FC<{ x: number; f: number; pop: number }> = ({ x, f, pop }) => {
-  const bx = 340 + Math.sin(f / 5) * 40, by = -230 + Math.cos(f / 4) * 20; // the fleeing close button
+  const { b, cur, from, dart } = chaseAt(f);
+  const [bx, by] = b;
   return (
     <g transform={`translate(${x}, 520) scale(${pop})`}>
       <rect x={-460} y={-280} width={920} height={560} rx={24} fill={C.white} stroke={C.ink} strokeWidth={lw(8)} />
@@ -559,8 +636,13 @@ const Summary: React.FC<{ x: number; f: number; pop: number }> = ({ x, f, pop })
       {[0, 1].map((k) => <g key={k} transform={`translate(${130 + k * 64}, 230) rotate(${k ? 180 : 0})`}>
         <path d="M-14,-4 h8 v20 h-8 Z M-4,-4 q6,-14 10,-22 q8,0 6,12 l-2,8 h14 q8,2 4,10 l-6,14 q-2,4 -8,4 h-18 Z" fill="none" stroke={C.inkSoft} strokeWidth={2.5} strokeLinejoin="round" />
       </g>)}
-      <g transform={`translate(${bx}, ${by})`}><circle r={26} fill={C.cream} stroke={C.ink} strokeWidth={lw(5)} /><path d="M-10,-10 L10,10 M10,-10 L-10,10" stroke={C.ink} strokeWidth={lw(5)} /></g>
-      <g transform={`translate(${bx - 70 + Math.sin(f / 5 - 0.6) * 40}, ${by + 60})`}><path d="M0,0 L0,44 L12,32 L22,54 L30,50 L20,28 L36,28 Z" fill={C.white} stroke={C.ink} strokeWidth={lw(4)} /></g>
+      {/* speed lines from where the button was, while it darts */}
+      {dart > 0 && dart < 1 && [-12, 0, 12].map((o) => {
+        const dx = bx - from[0], dy = by - from[1], len = Math.hypot(dx, dy) || 1;
+        return <line key={o} x1={from[0] - (dy / len) * o} y1={from[1] + (dx / len) * o} x2={bx - (dx / len) * 34 - (dy / len) * o} y2={by - (dy / len) * 34 + (dx / len) * o} stroke={C.ink} strokeWidth={lw(4)} strokeLinecap="round" opacity={0.6} />;
+      })}
+      <g transform={`translate(${bx}, ${by}) scale(${1 + 0.15 * Math.sin(dart * Math.PI)})`}><circle r={26} fill={C.cream} stroke={C.ink} strokeWidth={lw(5)} /><path d="M-10,-10 L10,10 M10,-10 L-10,10" stroke={C.ink} strokeWidth={lw(5)} /></g>
+      <g transform={`translate(${cur[0]}, ${cur[1]})`}><path d="M0,0 L0,44 L12,32 L22,54 L30,50 L20,28 L36,28 Z" fill={C.white} stroke={C.ink} strokeWidth={lw(4)} /></g>
     </g>
   );
 };
@@ -606,10 +688,8 @@ export const FG: ShotC = () => (
   </Bg>
 );
 
-// S68: the creator's disclosure, real footage the human shoots, with its caption (brief rev 61)
-export const S68: ShotC = () => (
-  <Stand label="S68 · REAL FOOTAGE · TOP-DOWN, ~5 s" note="Google and Microsoft swag laid out neatly on a plain surface, Noogler hat on top. Caption: “Made by a former Google and Microsoft employee, who holds no stock in either. Nothing here comes from the inside: every claim is from public reporting, sourced on the cards that follow.”" />
-);
+// S68 is retired (the human, 2026-11-09): the swag shot is cut; its disclosure becomes a credits card after fact
+// card G (M5)
 
 // S65-S67: real material. Until it lands, stand-ins say what goes there; the film layer is off from S65 (Cut.tsx)
 export const S65: ShotC = () => <Stand label="S65 · REAL SCREEN CAPTURE" note="The generation screen: style prompt, lyrics, take list (the human supplies it)" />;
@@ -619,9 +699,19 @@ export const S66: ShotC = () => (
     <div style={{ flex: 1, position: "relative", borderLeft: `6px solid ${C.cream}` }}><Stand label="S66 · RIGHT" note="The editing timeline: the Switch track, 'Switch: recorded at home', its waveform playing" /></div>
   </div>
 );
-export const S67: ShotC = ({ g }) => {
-  const p = slot("V21").take[0];
-  const flip = g >= at(events.last_note);
-  const label = g < at(p[0]) ? "a light switch on a plain wall" : !flip ? "a small hand reaches in and waits (V21)" : "the hand flips it OFF on the band's last note; it stays off";
-  return <Stand label={`S67 · REAL FOOTAGE · ${flip ? "OFF" : "ON"}`} note={label} />;
+// S67: the human's real footage (assets/real/S67, cut and graded by scripts/s67_grade.sh into S67_graded.mp4): a
+// light switch on a plain wall; a small hand reaches in and waits; on the band's last note it flips the switch and the
+// room's light goes out, so the frame goes dark and stays dark through the hold. Shortly before the flip, Switch's
+// disclosure in the human's words (the human's note, 2026-11-09); it goes dark with the room
+const SWITCH_DISCLOSURE = "Switch is voiced by a child of two ex-Googlers and ex-Microsofties. No pitch correction was used on his solo singing.";
+export const S67: ShotC = ({ f, g }) => {
+  const cur = useCurrentFrame();
+  const off = at(events.last_note) - (g - f); // the flip, in the shot's frames
+  const cap = ez(f, off - 140, off - 132);
+  return (
+    <AbsoluteFill style={{ backgroundColor: "#000" }}>
+      <Sequence from={cur - f}><OffthreadVideo src={staticFile("S67_graded.mp4")} muted style={{ width: W, height: H }} /></Sequence>
+      {f < off && cap > 0 && <svg width={W} height={H} style={{ position: "absolute" }} opacity={cap}><Caption text={SWITCH_DISCLOSURE} /></svg>}
+    </AbsoluteFill>
+  );
 };

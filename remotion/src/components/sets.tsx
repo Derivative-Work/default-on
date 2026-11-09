@@ -282,10 +282,12 @@ export const WallCalendar: React.FC<{ month?: string }> = ({ month = "OCT" }) =>
     <rect x={-70} y={-90} width={140} height={180} fill={C.white} stroke={C.ink} strokeWidth={lw(4)} />
     <rect x={-70} y={-90} width={140} height={44} fill={C.red} stroke={C.ink} strokeWidth={lw(4)} />
     <text x={0} y={-58} textAnchor="middle" fontFamily={SANS} fontWeight={700} fontSize={26} fill={C.cream}>{month}</text>
-    {Array.from({ length: 30 }, (_, i) => (
-      <g key={i} transform={`translate(${-58 + (i % 6) * 22}, ${-34 + Math.floor(i / 6) * 22})`}>
-        <rect width={16} height={16} fill="none" stroke={C.inkSoft} strokeWidth={1} opacity={0.6} />
-        {i < 9 && <path d="M2,2 L14,14 M14,2 L2,14" stroke={C.red} strokeWidth={1.6} opacity={0.8} />}
+    {/* a week to a row, centred with even margins (the human's note, 2026-11-09: the spacing was off) */}
+    {"SMTWTFS".split("").map((d, i) => <text key={i} x={-54 + i * 18} y={-31} textAnchor="middle" fontFamily={SANS} fontWeight={700} fontSize={11} fill={C.inkSoft}>{d}</text>)}
+    {Array.from({ length: 31 }, (_, i) => i + 3).filter((k) => k < 35).map((k, i) => (
+      <g key={k} transform={`translate(${-62 + (k % 7) * 18}, ${-24 + Math.floor(k / 7) * 22})`}>
+        <rect width={16} height={18} fill="none" stroke={C.inkSoft} strokeWidth={1} opacity={0.6} />
+        {i < 9 && <path d="M3,3 L13,15 M13,3 L3,15" stroke={C.red} strokeWidth={1.6} opacity={0.8} />}
       </g>
     ))}
     <circle cx={0} cy={-96} r={6} fill={C.ink} />

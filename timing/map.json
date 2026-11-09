@@ -779,16 +779,9 @@
    "t": 254.122,
    "len_s": 4.0,
    "frame": 7741
-  },
-  {
-   "id": "S68",
-   "what": "the swag shot (real footage)",
-   "t": 258.122,
-   "len_s": 5.0,
-   "frame": 7861
   }
  ],
- "video_end_frame": 8011,
+ "video_end_frame": 7861,
  "sections": [
   {
    "name": "Intro",
@@ -6079,11 +6072,11 @@
    "id": "S00",
    "section": "Intro",
    "cue": "Before the audio starts (about 2 s of room tone, added in the edit)",
-   "picture": "Pre-roll card on cream paper: \"A cartoon for grown-ups about tech settings.\" Plain sans, warm dark-brown ink, film layer on, no bubble letters and no characters, so it reads as a label rather than a title. Cut straight to S01's countdown",
+   "picture": "Pre-roll card on cream paper: \"A cartoon for grown-ups about tech settings.\" Plain sans, warm dark-brown ink, film layer on, no bubble letters and no characters, so it reads as a label rather than a title. Under it, smaller: \"(Mostly) AI-generated satire.\" Cut straight to S01's title",
    "source": "A",
    "t": -3.912,
    "line": null,
-   "how": "pre-roll card on room tone, before the countdown",
+   "how": "pre-roll card on room tone, before the title",
    "frame": 0,
    "end": -1.912,
    "frame_end": 60
@@ -6092,11 +6085,11 @@
    "id": "S01",
    "section": "Intro",
    "cue": "Downbeat, before the first line",
-   "picture": "Film-leader countdown, then the title card \"DEFAULT ON\" in bubble letters on mustard. A small rocker switch under the title rocks itself from OFF to ON",
+   "picture": "The title card (the countdown was cut, the human's note of 2026-11-09) \"DEFAULT ON\" in bubble letters on mustard. A small rocker switch under the title rocks itself from OFF to ON",
    "source": "A",
    "t": -1.912,
    "line": null,
-   "how": "pre-roll countdown, title on the first downbeat",
+   "how": "the title (its countdown cut, 2026-11-09); the rocker flips after the first downbeat",
    "frame": 60,
    "end": 3.828,
    "frame_end": 232
@@ -6456,7 +6449,7 @@
    "id": "S29",
    "section": "Verse 2",
    "cue": "\"Then the TV got an update in the middle of the night,\"",
-   "picture": "A living room at night: a TV with a progress bar, the moon in the window",
+   "picture": "A living room at night: a TV with a progress bar, the moon in the window. Caption, held through S33: \"LG webOS TVs, December 2025 update\"",
    "source": "A",
    "t": 106.178,
    "line": "L26",
@@ -6612,7 +6605,7 @@
    "id": "S41",
    "section": "Verse 3: Pop Quiz",
    "cue": "\"There's a blue ring in the chat app\u2026\"",
-   "picture": "A generic chat thread with \"Mom\" and \"Dad\" bubbles; a plain glowing ring floats in and parks at the bottom",
+   "picture": "A generic chat thread with \"Mom\" and \"Dad\" bubbles; a plain glowing ring floats in and parks at the bottom. Caption, held through S43: \"Meta AI in WhatsApp, Facebook and Instagram\"",
    "source": "A",
    "t": 149.148,
    "line": "L40",
@@ -6729,7 +6722,7 @@
    "id": "S50",
    "section": "Bridge",
    "cue": "\"And the giant said, 'We hear you!'\u2026\"",
-   "picture": "A giant pinstriped cuff (not the grey sleeve) slides a contract across the desk",
+   "picture": "A giant pinstriped cuff (not the grey sleeve), its hand flat on the paper, slides a contract across the desk. Caption, held through S52: \"Google's VP for education, to The New York Times, Nov. 3, 2026\"",
    "source": "A",
    "t": 178.328,
    "line": "L53",
@@ -6768,7 +6761,7 @@
    "id": "S53",
    "section": "Bridge",
    "cue": "\"Correction, boys and girls!\u2026\" (\"Ahem!\" isn't sung)",
-   "picture": "The Narrator redubs with mouth shapes visibly out of sync; a \"CORRECTION\" slate. The contract now has a third box",
+   "picture": "The Narrator redubs with mouth shapes visibly out of sync; a \"CORRECTION\" slate. The contract now has a third box. Caption, held through S56: \"Google then said schools can turn Gemini off and keep Search, but AI Overviews and AI Mode can't be removed.\"",
    "source": "A",
    "t": 188.348,
    "line": "L55",
@@ -6989,7 +6982,7 @@
    "id": "S67",
    "section": "Outro and reveal",
    "cue": "V21 \"Hey\u2026 was its switch on, too?\" over the band's last bars, then the audio ends (the band plays to the end of the file; there is no silence after the last word)",
-   "picture": "Real close-up of a light switch on a plain wall. On V21, a small hand reaches in and waits; on the band's last note it flips the switch OFF. It stays off. Hold two seconds on room tone after the audio ends, then cut to fact card G",
+   "picture": "Real close-up of a light switch on a plain wall. On V21, a small hand reaches in and waits; on the band's last note it flips the switch OFF. It stays off. Shortly before the flip, a caption (the human's wording): \"Switch is voiced by a child of two ex-Googlers and ex-Microsofties. No pitch correction was used on his solo singing.\" Hold two seconds on room tone after the audio ends, then cut to fact card G",
    "source": "H",
    "t": 243.94,
    "line": "L71a",
@@ -6998,19 +6991,6 @@
    "end": 254.122,
    "frame_end": 7741,
    "note": "real footage; runs past the audio, holding 2 s on room tone, then fact card G"
-  },
-  {
-   "id": "S68",
-   "section": "Outro and reveal",
-   "cue": "After fact card G, room tone only",
-   "picture": "Real top-down shot, about five seconds: Google and Microsoft swag laid out neatly on a plain surface, Noogler hat on top. Caption: \"Made by a former Google and Microsoft employee, who holds no stock in either. Nothing here comes from the inside: every claim is from public reporting, sourced on the cards that follow.\" Neutral, even fond; never discarded or binned",
-   "source": "H",
-   "t": 258.122,
-   "line": "L71",
-   "how": "post-roll: after fact card G",
-   "frame": 7861,
-   "end": 263.122,
-   "frame_end": 8011
   }
  ]
 }

@@ -16,6 +16,9 @@ import { Bg, ShotC, blink, bump, ez } from "./common";
 import { NarratorSet } from "./Intro";
 
 const LAWSUIT = "Alleged in a lawsuit. Google denies changing settings.";
+// the TV verse's source (the human's note, 2026-11-09: a visual indicator like the inbox's), from the fact card's row
+// "A December 2025 LG webOS update added a Copilot shortcut that could only be hidden."
+const TVCAP = "LG webOS TVs, December 2025 update";
 
 // the lesson board: the classroom wall (stripes, the clock, the pennant), a big chalkboard whose heading writes itself
 // on in chalk (with a puff of chalk dust), and the Narrator at the right, chest-up, cropped by the frame's edge
@@ -288,37 +291,52 @@ export const S24: ShotC = ({ f, g }) => (
   </Bg>
 );
 
-// a real stack of test papers on the desk, in front of Switch (the human's note): a squared-up block seen a little
-// from above: the top sheet's face ("TEST", name and score lines, numbered questions), the front edge made of many
-// page edges with a few sheets sticking out, the shaded side, a big binder clip, a contact shadow
+// a real stack of test papers on the desk, in front of Switch (the human's notes: a real stack; then, 2026-11-09,
+// "too neat"): piled up in uneven bundles, each shifted and turned a little against the one below, page edges on each
+// front, a few sheets sticking out at angles, the top two sheets askew, a binder clip on one bundle, a contact shadow
+const BUNDLES = [[0, 0, 0], [18, -1.5, 0], [-14, 1.2, 0], [26, 2.4, 1], [-6, -2.2, 0], [12, 0.6, 0], [-22, 1.8, 0], [8, -1.2, 0]];
 const TestStack: React.FC<{ h: number }> = ({ h }) => {
   const w = 560, dx = 50, dy = 46; // the top face's depth
-  return (
-    <g>
-      <ellipse cx={30} cy={8} rx={340} ry={24} fill={C.ink} opacity={0.25} />
-      {/* the side and the front */}
-      <path d={`M${w / 2},0 L${w / 2 + dx},${-dy} L${w / 2 + dx},${-h - dy} L${w / 2},${-h} Z`} fill={C.creamShade} stroke={C.ink} strokeWidth={lw(5)} strokeLinejoin="round" />
-      <rect x={-w / 2} y={-h} width={w} height={h} fill={C.white} stroke={C.ink} strokeWidth={lw(5)} />
-      {Array.from({ length: Math.floor(h / 7) }, (_, i) => {
-        const y = -h + 6 + i * 7, j = ((i * 37) % 11) - 5;
-        return <line key={i} x1={-w / 2 + 4 + Math.max(0, j)} y1={y} x2={w / 2 - 4 + Math.min(0, j)} y2={y} stroke={C.inkSoft} strokeWidth={1.4} opacity={0.45} />;
-      })}
-      {[[0.22, -14], [0.47, 12], [0.71, -9], [0.9, 16]].map(([k, o], i) => (
-        <rect key={i} x={-w / 2 + (o < 0 ? o : 0)} y={-h * (1 - (k as number))} width={w + Math.abs(o as number)} height={5} fill={C.white} stroke={C.ink} strokeWidth={lw(2.5)} />
-      ))}
-      {/* the top sheet, in perspective */}
-      <path d={`M${-w / 2},${-h} L${w / 2},${-h} L${w / 2 + dx},${-h - dy} L${-w / 2 + dx},${-h - dy} Z`} fill={C.white} stroke={C.ink} strokeWidth={lw(5)} strokeLinejoin="round" />
-      <g transform={`translate(${-w / 2 + dx * 0.5 + 60}, ${-h - dy * 0.5 + 4}) scale(1, 0.5) skewX(-40)`}>
+  const hb = h / BUNDLES.length;
+  const sheet = (rot: number, ox: number, oy: number, k: number, top?: boolean) => (
+    <g key={k} transform={`translate(${ox}, ${oy}) rotate(${rot}, 0, ${-h})`}>
+      <path d={`M${-w / 2},${-h} L${w / 2},${-h} L${w / 2 + dx},${-h - dy} L${-w / 2 + dx},${-h - dy} Z`} fill={C.white} stroke={C.ink} strokeWidth={lw(top ? 5 : 3.5)} strokeLinejoin="round" />
+      {top && <g transform={`translate(${-w / 2 + dx * 0.5 + 60}, ${-h - dy * 0.5 + 4}) scale(1, 0.5) skewX(-40)`}>
         <text x={40} y={30} fontFamily={BUBBLE} fontSize={80} fill={C.red} stroke={C.ink} strokeWidth={2} paintOrder="stroke">TEST</text>
         <rect x={260} y={0} width={180} height={8} fill={C.inkSoft} opacity={0.6} />
         <rect x={260} y={30} width={140} height={8} fill={C.inkSoft} opacity={0.6} />
-      </g>
-      {/* a binder clip on the front edge */}
-      <g transform={`translate(${-w / 2 + 90}, ${-h + 6})`}>
-        <path d="M-50,0 L50,0 L42,44 L-42,44 Z" fill={C.ink} />
-        <path d="M-34,0 q-6,-40 20,-46 M34,0 q6,-40 -20,-46" fill="none" stroke="#9a9a9a" strokeWidth={6} strokeLinecap="round" />
-        <path d="M-40,8 L40,8" stroke={C.white} strokeWidth={3} opacity={0.4} />
-      </g>
+      </g>}
+    </g>
+  );
+  return (
+    <g>
+      <ellipse cx={30} cy={8} rx={360} ry={26} fill={C.ink} opacity={0.25} />
+      {BUNDLES.map(([ox, rot, clip], i) => {
+        const y0 = -i * hb;
+        return (
+          <g key={i} transform={`translate(${ox}, 0) rotate(${rot}, 0, ${y0 - hb / 2})`}>
+            <path d={`M${w / 2},${y0} L${w / 2 + dx},${y0 - dy} L${w / 2 + dx},${y0 - hb - dy} L${w / 2},${y0 - hb} Z`} fill={C.creamShade} stroke={C.ink} strokeWidth={lw(4)} strokeLinejoin="round" />
+            <path d={`M${-w / 2},${y0 - hb} L${-w / 2 + dx},${y0 - hb - dy} L${w / 2 + dx},${y0 - hb - dy}`} fill="none" stroke={C.ink} strokeWidth={lw(3)} />
+            <rect x={-w / 2} y={y0 - hb} width={w} height={hb} fill={C.white} stroke={C.ink} strokeWidth={lw(4)} />
+            {Array.from({ length: Math.floor(hb / 7) - 1 }, (_, k) => {
+              const j = (((i * 7 + k) * 37) % 11) - 5;
+              return <line key={k} x1={-w / 2 + 4 + Math.max(0, j)} y1={y0 - hb + 7 + k * 7} x2={w / 2 - 4 + Math.min(0, j)} y2={y0 - hb + 7 + k * 7} stroke={C.inkSoft} strokeWidth={1.4} opacity={0.45} />;
+            })}
+            {clip ? <g transform={`translate(${i % 2 ? w / 2 - 110 : -w / 2 + 90}, ${y0 - hb + 4})`}>
+              <path d="M-40,0 L40,0 L34,30 L-34,30 Z" fill={C.ink} />
+              <path d="M-26,0 q-6,-30 16,-36 M26,0 q6,-30 -16,-36" fill="none" stroke="#9a9a9a" strokeWidth={5} strokeLinecap="round" />
+            </g> : null}
+          </g>
+        );
+      })}
+      {/* sheet corners poking out between bundles, past the stack's sides */}
+      {[[2, -1, -8], [4, 1, 6], [6, -1, 5]].map(([i, side, r], k) => (
+        <path key={k} transform={`translate(${side * (w / 2 + 14)}, ${-i * hb}) rotate(${r})`}
+          d={`M${-side * 60},-3 L${side * 34},-6 L${side * 40},2 L${-side * 60},4 Z`} fill={C.white} stroke={C.ink} strokeWidth={lw(2.5)} strokeLinejoin="round" />
+      ))}
+      {/* the top two sheets, askew */}
+      {sheet(-5, -10, 0, 0)}
+      {sheet(3.5, 14, -4, 1, true)}
     </g>
   );
 };
@@ -383,10 +401,11 @@ export const S26: ShotC = ({ f, g, len }) => {
         <rect x={-250} y={-280} width={500} height={560} rx={14} fill={C.white} stroke={C.ink} strokeWidth={lw(7)} />
         <rect x={-250} y={-280} width={500} height={120} rx={14} fill={flip > 0.5 ? C.orange : C.avocado} stroke={C.ink} strokeWidth={lw(7)} />
         <text y={-200} textAnchor="middle" fontFamily={BUBBLE} fontSize={60} fill={C.cream}>{flip > 0.5 ? "OCTOBER" : "SEPTEMBER"}</text>
+        {/* the days centred in seven even columns (the human's note, 2026-11-09: the calendar's spacing was off) */}
         {Array.from({ length: 30 }, (_, d) => (
-          <text key={d} x={-210 + (d % 7) * 66} y={-110 + Math.floor(d / 7) * 72} fontFamily={SANS} fontSize={28} fill={d === 9 && flip > 0.5 ? C.red : C.inkSoft} fontWeight={d === 9 && flip > 0.5 ? 600 : 400}>{d + 1}</text>
+          <text key={d} x={-198 + (d % 7) * 66} y={-96 + Math.floor(d / 7) * 80} textAnchor="middle" fontFamily={SANS} fontSize={28} fill={d === 9 && flip > 0.5 ? C.red : C.inkSoft} fontWeight={d === 9 && flip > 0.5 ? 600 : 400}>{d + 1}</text>
         ))}
-        {flip > 0.5 && <circle cx={-210 + 2 * 66 + 14} cy={-110 + 72 - 10} r={30} fill="none" stroke={C.red} strokeWidth={4} />}
+        {flip > 0.5 && <circle cx={-198 + 2 * 66} cy={-96 + 80 - 10} r={30} fill="none" stroke={C.red} strokeWidth={4} />}
         <path d={`M-250,-160 L250,-160 L250,${-160 + (1 - flip) * 440} L-250,${-160 + (1 - flip) * 440} Z`} fill={C.white} stroke={C.ink} strokeWidth={lw(5)} opacity={1 - flip} />
       </g>
       {flip > 0.5 && [0, 1, 2, 3].map((k) => {
@@ -485,6 +504,7 @@ export const S29: ShotC = ({ f, g, len }) => (
         <text x={960} y={680} textAnchor="middle" fontFamily={SANS} fontSize={44} fill={C.cream} opacity={0.7}>Do not turn off your TV</text>
       </TV>
     </g>
+    <Caption text={TVCAP} />
   </Living>
 );
 
@@ -503,6 +523,7 @@ export const S30: ShotC = ({ f, g, len }) => (
   <Living id="s30" night={false} g={g}>
     <g transform="translate(760, 520)"><TV w={760}><Home wink={f > len * 0.6 && f < len * 0.75 ? 1 : 0} /></TV></g>
     {f > len * 0.6 && f < len * 0.8 && <text x={760} y={240} textAnchor="middle" fontFamily={BUBBLE} fontSize={64} fill={C.ink}>✦ new! ✦</text>}
+    <Caption text={TVCAP} />
   </Living>
 );
 
@@ -551,23 +572,30 @@ const HideScreen: React.FC<{ f: number; g: number; phase: 1 | 2 | 3 }> = ({ f, g
       <rect x={30} y={20} width={W - 60} height={H - 40} rx={40} fill={C.cardigan} stroke={C.ink} strokeWidth={lw(8)} />
       <Grain x={40} y={26} w={W - 80} h={30} n={2} seed={2} />
       <rect x={80} y={70} width={W - 160} height={H - 140} rx={18} fill={C.paper} stroke={C.ink} strokeWidth={lw(6)} />
-      <rect x={80} y={70} width={W - 160} height={100} rx={18} fill={C.teal} />
+      {/* everything on the screen is clipped to the glass, Switch included (the human's note, 2026-11-09: the TV's
+          pictures ran past its edge) */}
+      <clipPath id="tv-glass"><rect x={83} y={73} width={W - 166} height={H - 146} rx={16} /></clipPath>
+      <g clipPath="url(#tv-glass)">
+      <rect x={80} y={70} width={W - 160} height={100} fill={C.teal} />
       <text x={130} y={140} fontFamily={SANS} fontWeight={600} fontSize={52} fill={C.cream}>Home</text>
       <g transform="translate(1700, 120)"><Clock t={(6 * 60 + 47) * 60 + g / 30} r={30} /></g>
       {[C.teal, C.orange, C.avocado, C.red].map((c, i) => <g key={i} transform={`translate(${340 + i * 330}, 330)`}><Tile color={c} glyph={(["play", "note", "star", "play"] as const)[i]} size={230} /></g>)}
       {drag > 0.2 && <rect x={445} y={525} width={230} height={230} rx={24} fill="none" stroke={C.inkSoft} strokeWidth={4} strokeDasharray="14 10" />}
       {phase === 2 && f > 8 && (
-        <g transform="translate(860, 780)">
+        <g transform="translate(740, 820)">
           <rect x={-330} y={-48} width={660} height={80} rx={14} fill={C.white} stroke={C.ink} strokeWidth={lw(4)} />
           <text y={6} textAnchor="middle" fontFamily={SANS} fontWeight={600} fontSize={32} fill={C.ink}>Can't delete this app. Hide it instead?</text>
         </g>
       )}
       <g transform={`translate(${BX}, ${BY})`}><Bin flip={flip} lid={lid} f={f} inside={phase === 3} /></g>
       {tileIn < 1 && <g transform={`translate(${tx}, ${ty + tileIn * 120}) scale(${1 - tileIn * 0.5})`} opacity={1 - tileIn}><Tile color={C.mustard} glyph="spark" size={230} wink={phase === 1 && f < 6 ? 1 : 0} /></g>}
-      <g transform={`translate(${phase === 1 ? 420 + drag * 820 : 1240}, ${phase === 1 ? 900 - Math.sin(drag * Math.PI) * 40 : 900}) scale(0.62)`}>
+      <g transform={`translate(${phase === 1 ? 420 + drag * 820 : 1200}, ${phase === 1 ? 790 - Math.sin(drag * Math.PI) * 40 : 790}) scale(0.54)`}>
         <Switch pose={phase === 3 ? "sad" : phase === 2 ? "startled" : "curious"} mouth={mouthAt(g, "switch")} look={phase === 3 ? [0.8, -0.6] : [1, -0.5]}
           armR={phase === 1 ? 150 : phase === 3 ? 120 : 60} armL={phase === 1 ? 140 : 30} blink={blink(g, 4)} />
       </g>
+      </g>
+      <rect x={80} y={70} width={W - 160} height={H - 140} rx={18} fill="none" stroke={C.ink} strokeWidth={lw(6)} />
+      <Caption text={TVCAP} y={H - 120} />
     </Bg>
   );
 };

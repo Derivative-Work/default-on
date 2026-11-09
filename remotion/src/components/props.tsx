@@ -84,18 +84,29 @@ export const Stool: React.FC = () => (
   </g>
 );
 
-// a caption: plain sans on a cream band, bottom of frame (brief: captions in a plain sans)
-export const Caption: React.FC<{ text: string; y?: number }> = ({ text, y = H - 96 }) => (
-  <g>
-    <rect x={W / 2 - text.length * 12.5 - 40} y={y - 46} width={text.length * 25 + 80} height={68} rx={10} fill={C.cream} stroke={C.ink} strokeWidth={lw(4)} opacity={0.94} />
-    <text x={W / 2} y={y} textAnchor="middle" fontFamily={SANS} fontWeight={600} fontSize={38} fill={C.ink}>{text}</text>
-  </g>
-);
+// a caption: plain sans on a cream band, bottom of frame (brief: captions in a plain sans). A caption too long for one
+// line (over 62 characters) breaks at the space nearest its middle into two, the band growing upward
+export const Caption: React.FC<{ text: string; y?: number }> = ({ text, y = H - 96 }) => {
+  let rows = [text];
+  if (text.length > 62) {
+    const mid = text.length / 2;
+    let k = -1;
+    for (let i = 0; i < text.length; i++) if (text[i] === " " && (k < 0 || Math.abs(i - mid) < Math.abs(k - mid))) k = i;
+    rows = [text.slice(0, k), text.slice(k + 1)];
+  }
+  const n = Math.max(...rows.map((r) => r.length)), lh = 50;
+  return (
+    <g>
+      <rect x={W / 2 - n * 12.5 - 40} y={y - 46 - (rows.length - 1) * lh} width={n * 25 + 80} height={68 + (rows.length - 1) * lh} rx={10} fill={C.cream} stroke={C.ink} strokeWidth={lw(4)} opacity={0.94} />
+      {rows.map((r, i) => <text key={i} x={W / 2} y={y - (rows.length - 1 - i) * lh} textAnchor="middle" fontFamily={SANS} fontWeight={600} fontSize={38} fill={C.ink}>{r}</text>)}
+    </g>
+  );
+};
 
 export const Envelope: React.FC<{ look?: [number, number]; mouth?: MouthShape }> = ({ look = [0, 0], mouth = "X" }) => (
   <g>
     <rect x={-170} y={-110} width={340} height={220} rx={14} fill={C.white} {...ink} />
-    <path d="M-170,-110 L0,20 L170,-110" fill="none" {...ink} />
+    <path d="M-163,-103 L0,20 L163,-103" fill="none" {...ink} strokeLinecap="round" />{/* the flap starts inside the rounded corners (the human's note, 2026-11-09) */}
     {[-50, 50].map((x) => <g key={x} transform={`translate(${x}, -30)`}><circle r={28} fill={C.white} {...ink} strokeWidth={lw(5)} /><circle cx={look[0] * 12} cy={look[1] * 10} r={12} fill={C.ink} /></g>)}
     <g transform="translate(0, 60)"><Mouth shape={mouth} w={40} /></g>
   </g>
@@ -175,12 +186,14 @@ export const Kid: React.FC<{ seed: number; mouth?: MouthShape; look?: [number, n
         </g>
       )}
       <path d="M-90,230 Q-96,110 0,104 Q96,110 90,230 Z" fill={shirts[k(1)]} {...ink} />
-      <path d="M-34,108 l34,22 l34,-22 M-70,170 q8,30 2,60 M70,170 q-8,30 -2,60" {...PEN} />
-      {/* a striped jumper: the stripes clipped to the jumper's own outline, so they never run past it (the human's note) */}
-      {seed % 4 === 1 && <g>
-        <clipPath id={`kid-shirt-${seed}`}><path d="M-90,230 Q-96,110 0,104 Q96,110 90,230 Z" /></clipPath>
-        <g clipPath={`url(#kid-shirt-${seed})`}>{[146, 182, 218].map((y) => <rect key={y} x={-100} y={y - 5} width={200} height={10} fill={C.cream} opacity={0.6} />)}</g>
-      </g>}
+      <path d="M-70,170 q8,30 2,60 M70,170 q-8,30 -2,60" {...PEN} />
+      {/* the V-neck and a striped jumper's stripes are clipped to the jumper's own outline, so neither runs past it
+          (the human's notes, 2026-11-09) */}
+      <clipPath id={`kid-shirt-${seed}`}><path d="M-90,230 Q-96,110 0,104 Q96,110 90,230 Z" /></clipPath>
+      <g clipPath={`url(#kid-shirt-${seed})`}>
+        {seed % 4 === 1 && [146, 182, 218].map((y) => <rect key={y} x={-100} y={y - 5} width={200} height={10} fill={C.cream} opacity={0.6} />)}
+        <path d="M-40,100 l40,30 l40,-30" {...PEN} />
+      </g>
       <circle cx={0} cy={20} r={80} fill={skins[k(2)]} {...ink} />
       {seed % 3 === 0 && <path d="M-80,0 Q-90,-80 0,-66 Q90,-80 80,0 Q50,-40 0,-42 Q-50,-40 -80,0 Z" fill={hairs[k(3)]} {...ink} />}
       {seed % 3 === 1 && <g>{[-1, 1].map((s) => <circle key={s} cx={s * 78} cy={-10} r={30} fill={hairs[k(3)]} {...ink} />)}<path d="M-78,-4 Q-70,-76 0,-64 Q70,-76 78,-4 Q40,-36 0,-36 Q-40,-36 -78,-4 Z" fill={hairs[k(3)]} {...ink} /></g>}

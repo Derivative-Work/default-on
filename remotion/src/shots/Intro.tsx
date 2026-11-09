@@ -1,4 +1,4 @@
-// S00-S08: the pre-roll card, the countdown and title, the Narrator's welcome, Switch, and verse 1.
+// S00-S08: the pre-roll card, the title, the Narrator's welcome, Switch, and verse 1.
 import React from "react";
 import { AbsoluteFill, spring } from "remotion";
 import { PaperDefs, Wash } from "../film/Paper";
@@ -25,34 +25,19 @@ export const S00: ShotC = () => (
   </Bg>
 );
 
-// S01: film-leader countdown (3, 2, 1, a frame each second), then the title on mustard; a small rocker under the
-// title rocks itself from OFF to ON
+// S01: the title on mustard from the shot's first frame (the countdown is cut: the human's note, 2026-11-09, "it's
+// not adding much"); a small rocker under the title rocks itself from OFF to ON, still on its beat after the downbeat
 export const S01: ShotC = ({ f, len }) => {
-  const count = 90; // the countdown's frames, before the downbeat
-  if (f < count) {
-    const n = 3 - Math.floor(f / 30);
-    const sweep = ((f % 30) / 30) * 360;
-    return (
-      <AbsoluteFill style={{ backgroundColor: "#cfc4ad" }}>
-        <svg width={W} height={H}>
-          <path d={`M${W / 2},${H / 2} L${W / 2},${H / 2 - 600} A600,600 0 ${sweep > 180 ? 1 : 0},1 ${W / 2 + 600 * Math.sin((sweep * Math.PI) / 180)},${H / 2 - 600 * Math.cos((sweep * Math.PI) / 180)} Z`} fill="#a89d86" />
-          <line x1={0} y1={H / 2} x2={W} y2={H / 2} stroke={C.ink} strokeWidth={lw(4)} />
-          <line x1={W / 2} y1={0} x2={W / 2} y2={H} stroke={C.ink} strokeWidth={lw(4)} />
-          {[300, 380].map((r) => <circle key={r} cx={W / 2} cy={H / 2} r={r} fill="none" stroke={C.cream} strokeWidth={8} />)}
-          <text x={W / 2} y={H / 2 + 120} textAnchor="middle" fontFamily={SANS} fontWeight={600} fontSize={340} fill={C.ink}>{n}</text>
-        </svg>
-      </AbsoluteFill>
-    );
-  }
+  const count = 90; // the downbeat, where the cut countdown ended
   const t = f - count;
-  const s = spring({ frame: t, fps: FPS, config: { damping: 11 } });
+  const s = spring({ frame: f, fps: FPS, config: { damping: 11 } });
   const onAt = Math.min(40, len - count - 12);
   const on = t > onAt;
   return (
     <Bg id="s01" seed={2} base={C.mustard}>
-      <g opacity={0.5}><Sunburst a={C.mustard} b={C.orange} spin={t * 0.15} cy={470} /></g>
+      <g opacity={0.5}><Sunburst a={C.mustard} b={C.orange} spin={f * 0.15} cy={470} /></g>
       {[[300, 220], [1600, 260], [420, 860], [1500, 840], [960, 120]].map(([x, y], i) => (
-        <path key={i} transform={`translate(${x}, ${y}) scale(${0.8 + 0.25 * Math.sin((t + i * 9) / 6)})`}
+        <path key={i} transform={`translate(${x}, ${y}) scale(${0.8 + 0.25 * Math.sin((f + i * 9) / 6)})`}
           d="M0,-34 L9,-9 L34,0 L9,9 L0,34 L-9,9 L-34,0 L-9,-9 Z" fill={C.cream} stroke={C.ink} strokeWidth={lw(4)} />
       ))}
       <g transform={`translate(${W / 2}, 470) scale(${s})`}>
@@ -216,22 +201,30 @@ const Study: React.FC<{ g: number; children: React.ReactNode; keys?: number }> =
     <Grain x={0} y={770} w={W} h={280} n={5} seed={1} />
     {Array.from({ length: 7 }, (_, i) => <path key={i} d={`M-20,${800 + i * 42} q${400 + i * 30},${-14 + (i % 2) * 28} ${960},0 t${980},0`} stroke={C.cardiganShade} strokeWidth={3} fill="none" opacity={0.5} />)}
     <g transform="translate(200, 800)"><TableLamp /></g>
-    {/* keyboard: three centred rows of round typewriter keys (10, 9, 7), each row half a key right of the one above;
-        the key being typed dips and lights; a space bar along the front */}
-    <g transform="translate(960, 900)">
-      <path d="M-470,-96 L470,-96 L500,104 L-500,104 Z" fill={C.cardigan} stroke={C.ink} strokeWidth={lw(7)} strokeLinejoin="round" />
-      <path d="M-450,-80 L450,-80" {...PEN} opacity={0.5} />
+    {/* keyboard (the human's notes, 2026-11-09: taller, with depth, and laid out like a real one): a slab seen from
+        above and in front, its front face showing; three tiers of round keys on stalks, the back row highest and
+        smallest; each row starts a fixed stagger right of the row behind it (A a quarter key right of Q, Z half a key
+        right of A), all on one pitch; the key being typed dips and lights; a space bar along the front */}
+    <g transform="translate(960, 880)">
+      <ellipse cx={10} cy={176} rx={540} ry={22} fill={C.ink} opacity={0.22} />
+      <path d="M-500,110 L500,110 L500,166 Q500,174 492,174 L-492,174 Q-500,174 -500,166 Z" fill={C.cardiganShade} stroke={C.ink} strokeWidth={lw(7)} strokeLinejoin="round" />
+      <path d="M-430,-190 L430,-190 L500,110 L-500,110 Z" fill={C.cardigan} stroke={C.ink} strokeWidth={lw(7)} strokeLinejoin="round" />
+      <path d="M-420,-176 L420,-176" {...PEN} opacity={0.45} />
+      {[-150, -72, 6].map((y, r) => <path key={r} d={`M${-440 - r * 18},${y + 26} L${440 + r * 18},${y + 26}`} stroke={C.cardiganShade} strokeWidth={lw(5)} opacity={0.7} />)}
       {KEYROWS.map((row, r) => row.split("").map((ch, i) => {
         const k = KEYROWS.slice(0, r).reduce((a, x) => a + x.length, 0) + i, down = k === keys;
-        const cx = (i - (row.length - 1) / 2) * 84 + r * 21, cy = -52 + r * 52 + (down ? 5 : 0);
-        return <g key={k} transform={`translate(${cx}, ${cy})`}>
-          <rect x={-4} y={0} width={8} height={20} fill={C.ink} opacity={0.5} />
-          <circle r={27} fill={down ? C.mustard : C.cream} stroke={C.ink} strokeWidth={lw(4)} />
-          <circle r={20} fill="none" stroke={C.creamShade} strokeWidth={3} />
+        const sc = 0.88 + r * 0.06, pitch = 80 * (0.94 + r * 0.03);
+        const cx = (i - 4.5 + [0, 0.25, 0.75][r]) * pitch, cy = -150 + r * 78 + (down ? 6 : 0);
+        return <g key={k} transform={`translate(${cx}, ${cy}) scale(${sc})`}>
+          <rect x={-4} y={0} width={8} height={down ? 26 : 32} fill={C.ink} opacity={0.6} />
+          <ellipse cx={0} cy={7} rx={27} ry={24} fill={C.creamShade} stroke={C.ink} strokeWidth={lw(4)} />
+          <ellipse cx={0} cy={0} rx={27} ry={24} fill={down ? C.mustard : C.cream} stroke={C.ink} strokeWidth={lw(4)} />
+          <ellipse cx={0} cy={0} rx={20} ry={17} fill="none" stroke={C.creamShade} strokeWidth={3} />
           <text y={9} textAnchor="middle" fontFamily={SANS} fontWeight={600} fontSize={24} fill={C.ink}>{ch}</text>
         </g>;
       }))}
-      <rect x={-250} y={78} width={500} height={22} rx={11} fill={C.cream} stroke={C.ink} strokeWidth={lw(4)} />
+      <rect x={-250} y={66} width={500} height={24} rx={12} fill={C.creamShade} stroke={C.ink} strokeWidth={lw(4)} />
+      <rect x={-250} y={60} width={500} height={24} rx={12} fill={C.cream} stroke={C.ink} strokeWidth={lw(4)} />
     </g>
     <g transform="translate(1560, 820)">
       <path d="M-60,-90 L60,-90 L50,40 L-50,40 Z" fill={C.red} stroke={C.ink} strokeWidth={lw(6)} />
@@ -239,9 +232,18 @@ const Study: React.FC<{ g: number; children: React.ReactNode; keys?: number }> =
       {[0, 1].map((k) => <path key={k} d={`M${-20 + k * 30},-110 q-14,-30 0,-60`} fill="none" stroke={C.white} strokeWidth={5} opacity={0.5 + 0.3 * Math.sin(g / 8 + k)} />)}
     </g>
     <g transform="translate(330, 850) rotate(-8)">
+      <rect x={-114} y={-72} width={240} height={160} fill={C.ink} opacity={0.18} />
       <rect x={-120} y={-80} width={240} height={160} fill={C.white} stroke={C.ink} strokeWidth={lw(5)} />
       {[0, 1, 2, 3].map((k) => <line key={k} x1={-100} x2={100} y1={-44 + k * 32} y2={-44 + k * 32} stroke={C.teal} strokeWidth={3} opacity={0.6} />)}
-      <line x1={140} y1={-70} x2={220} y2={70} stroke={C.mustard} strokeWidth={16} strokeLinecap="round" />
+      {/* the pencil lies flat across the pad, its shadow under it (the human's note, 2026-11-09: it floated) */}
+      <g transform="translate(-10, 40) rotate(-14)">
+        <rect x={-104} y={-2} width={200} height={16} rx={4} fill={C.ink} opacity={0.2} />
+        <path d="M-110,-8 L80,-8 L110,0 L80,8 L-110,8 Z" fill={C.mustard} stroke={C.ink} strokeWidth={lw(3)} strokeLinejoin="round" />
+        <path d="M80,-8 L110,0 L80,8 Z" fill="#e8c9a0" stroke={C.ink} strokeWidth={lw(3)} strokeLinejoin="round" />
+        <path d="M100,-3 L110,0 L100,3 Z" fill={C.ink} />
+        <rect x={-128} y={-8} width={18} height={16} rx={3} fill="#e8a0a0" stroke={C.ink} strokeWidth={lw(3)} />
+        <line x1={-110} y1={-8} x2={-110} y2={8} stroke={C.ink} strokeWidth={lw(3)} />
+      </g>
     </g>
     {children}
   </Bg>

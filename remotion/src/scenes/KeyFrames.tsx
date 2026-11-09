@@ -138,8 +138,15 @@ const TITLES = ["Settings", "More settings", "Advanced", "Privacy & more", "Smar
 export const S28: Scene = ({ f }) => {
   const p = f < 12 ? (f * f) / (2 * 12 * 22) : (f - 6) / 22; // levels passed: eases in, then one every 22 frames
   const V = [(-CHILD[0] * W0 * R) / (R - 1), (-CHILD[1] * W0 * R) / (R - 1)]; // level p's centre is T + V
-  const first = Math.max(0, Math.floor(p) - 1);
-  const levels = Array.from({ length: 9 }, (_, k) => first + k);
+  // the outermost level drawn is the deepest one that still covers the whole frame (everything behind it is hidden),
+  // so no menu is dropped while any of it is on screen (the human's note, 2026-11-09)
+  const box = (L: number) => {
+    const sc = Math.pow(R, p - L), w = W0 * sc, h = w * 0.62, x = T[0] + V[0] * sc, y = T[1] + V[1] * sc;
+    return x - w / 2 <= 0 && x + w / 2 >= W && y - h / 2 <= 0 && y + h / 2 >= H;
+  };
+  let first = 0;
+  while (box(first + 1)) first++;
+  const levels = Array.from({ length: Math.max(9, Math.ceil(p) - first + 8) }, (_, k) => first + k);
   return (
     <AbsoluteFill>
       <Paper id="s28" seed={28} base={C.teal}>
@@ -150,7 +157,7 @@ export const S28: Scene = ({ f }) => {
           })}
         </g>
         {/* the doorway, in the foreground, with its plaque */}
-        <path d={`M0,0 L${W},0 L${W},${H} L0,${H} Z M360,${H} L360,150 L1560,150 L1560,${H} Z`} fill={C.orange} fillRule="evenodd" opacity={0.9} />
+        <path d={`M0,0 L${W},0 L${W},${H} L0,${H} Z M360,${H} L360,150 L1560,150 L1560,${H} Z`} fill={C.orange} fillRule="evenodd" />
         <rect x={360} y={150} width={1200} height={H} fill="none" stroke={C.ink} strokeWidth={lw(10)} filter="url(#s28-ink)" />
         <g transform="translate(960, 90)">
           <rect x={-190} y={-44} width={380} height={80} rx={14} fill={C.cream} stroke={C.ink} strokeWidth={lw(7)} />
@@ -161,7 +168,7 @@ export const S28: Scene = ({ f }) => {
         <circle cx={210} cy={640} r={16} fill={C.creamShade} stroke={C.ink} strokeWidth={lw(5)} />
         {/* Switch at the threshold, looking in */}
         <g transform="translate(1660, 820) scale(0.6)"><Switch pose="curious" mouth="X" look={[-0.8, -0.3]} armL={60} /></g>
-        <rect x={0} y={1010} width={W} height={46} fill={C.cream} opacity={0.85} />
+        <rect x={0} y={1010} width={W} height={46} fill={C.cream} />
         <FinePrint f={f} y={1040} text="Smart features were turned on for your account on or about October 10. Some features may remain available." />
       </Paper>
     </AbsoluteFill>

@@ -27,7 +27,7 @@ export const downbeats = map.downbeats.map(at);
 export const events = map.events;
 
 // every shot in order, with its frame range, plus the post-roll so far: S67 holds 2 s past the audio, then fact
-// card G ("FG") and S68 (map.post; the other fact cards and the end card come in M5)
+// card G ("FG", map.post; S68 is retired, and the other fact cards, the disclosure card and the end card come in M5)
 export const END = map.video_end_frame;
 const ordered = [...map.shots.map((s) => ({ id: s.id, cue: s.cue, frame: s.frame as number })),
   ...map.post.filter((p) => p.id === "FG").map((p) => ({ id: p.id, cue: "Fact card G (who wrote this; Anthropic's default-on toggle)", frame: p.frame }))]

@@ -130,10 +130,15 @@ const Chat: React.FC<{ f: number; ring: number; muffs?: number }> = ({ f, ring, 
   </Phone>
 );
 
+// the chat verse's source (the human's note, 2026-11-09: a visual indicator like the phone's), from the fact card's row
+// "Meta AI in WhatsApp, Facebook and Instagram can't be disabled; the chat can be muted." Held S41-S43
+const CHATCAP = "Meta AI in WhatsApp, Facebook and Instagram";
+
 // S41: "There's a blue ring in the chat app…": a generic chat thread; a plain glowing ring floats in and parks
 export const S41: ShotC = ({ f, len }) => (
   <QuizScreen f={f} q="Q1">
     <g transform="translate(960, 530) scale(0.72)"><Chat f={f} ring={ez(f, len * 0.4, len * 0.8)} /></g>
+    <Caption text={CHATCAP} />
   </QuizScreen>
 );
 
@@ -147,6 +152,7 @@ export const S42: ShotC = ({ f, g }) => {
         <path d="M-260,-260 L260,260 M260,-260 L-260,260" stroke={C.red} strokeWidth={90} strokeLinecap="round" />
       </g>}
       {x > 0 && <text x={1180} y={560} fontFamily={BUBBLE} fontSize={110} fill={C.mustard} stroke={C.ink} strokeWidth={6} paintOrder="stroke" transform="rotate(10, 1180, 560)">HONK!</text>}
+      <Caption text={CHATCAP} />
     </Show>
   );
 };
@@ -160,6 +166,7 @@ export const S43: ShotC = ({ f, len }) => (
       <text x={20} y={90} textAnchor="middle" fontFamily={BUBBLE} fontSize={56} fill={C.cream} stroke={C.ink} strokeWidth={4} paintOrder="stroke">DING!</text>
       {[[-120, -80], [110, -110], [140, 30]].map(([x, y], i) => <path key={i} transform={`translate(${x}, ${y}) scale(${0.8 + 0.3 * Math.sin(f / 4 + i)})`} d="M0,-20 L6,-6 L20,0 L6,6 L0,20 L-6,6 L-20,0 L-6,-6 Z" fill={C.cream} stroke={C.ink} strokeWidth={lw(3)} />)}
     </g>
+    <Caption text={CHATCAP} />
   </QuizScreen>
 );
 

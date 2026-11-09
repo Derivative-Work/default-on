@@ -98,8 +98,8 @@
 
 | ID | Cue | Picture | Source |
 | --- | --- | --- | --- |
-| S00 | Before the audio starts (about 2 s of room tone, added in the edit) | Pre-roll card on cream paper: "A cartoon for grown-ups about tech settings." Plain sans, warm dark-brown ink, film layer on, no bubble letters and no characters, so it reads as a label rather than a title. Cut straight to S01's countdown | A |
-| S01 | Downbeat, before the first line | Film-leader countdown, then the title card "DEFAULT ON" in bubble letters on mustard. A small rocker switch under the title rocks itself from OFF to ON | A |
+| S00 | Before the audio starts (about 2 s of room tone, added in the edit) | Pre-roll card on cream paper: "A cartoon for grown-ups about tech settings." Plain sans, warm dark-brown ink, film layer on, no bubble letters and no characters, so it reads as a label rather than a title. Under it, smaller: "(Mostly) AI-generated satire." Cut straight to S01's title | A |
+| S01 | Downbeat, before the first line | The title card (the countdown was cut, the human's note of 2026-11-09) "DEFAULT ON" in bubble letters on mustard. A small rocker switch under the title rocks itself from OFF to ON | A |
 | S02 | "Hi, grown-ups! Today we're learning how an opt-out works." (regenerated) | Narrator on a stool by a chalkboard reading "TODAY: HOW AN OPT-OUT WORKS" | A |
 | S03 | "Say hello to Little Switch!" | Pan right along the wall to a wall plate; Switch's eyes open | A |
 | S04 | V01 "Hi! I've got two sides…" | Switch waves, then demonstrates: paddle rocks to ON, an "ON" label pops; rocks back, "OFF" | A |
@@ -152,7 +152,7 @@
 | S26 | "A lawsuit says it flipped itself last fall…" | A calendar flips to an autumn page; while everyone looks away, a tiny switch in the inbox's corner flips ON. Caption, held through S28: "Alleged in a lawsuit. Google denies changing settings." | A |
 | S27 | V07 "And what's the company say?" | Switch knocks on a door marked "SETTINGS" | A |
 | S28 | "That they didn't, and here's the door: / Just a menu, then a menu…" (replaced) | The door opens on a menu, which opens on a menu, which opens on another, zooming in each time. Fine print scrolls past too fast to read: "on or about October 10" | A |
-| S29 | "Then the TV got an update in the middle of the night," | A living room at night: a TV with a progress bar, the moon in the window | A |
+| S29 | "Then the TV got an update in the middle of the night," | A living room at night: a TV with a progress bar, the moon in the window. Caption, held through S33: "LG webOS TVs, December 2025 update" | A |
 | S30 | "And a brand-new tile was waiting…" | Sunrise. A new tile sits among generic tiles on the TV's home screen, and winks | A |
 | S31 | V08 "Can I delete it?" | Switch drags the tile toward a trash can | A |
 | S32 | "You can hide it!" | The trash can turns into a box labelled "HIDE" | A |
@@ -174,7 +174,7 @@
 | ID | Cue | Picture | Source |
 | --- | --- | --- | --- |
 | S40 | "Pop quiz!" | Game-show set with flashing bulbs and a "POP QUIZ!" sign; Switch at a contestant podium with a buzzer | A, E |
-| S41 | "There's a blue ring in the chat app…" | A generic chat thread with "Mom" and "Dad" bubbles; a plain glowing ring floats in and parks at the bottom | A |
+| S41 | "There's a blue ring in the chat app…" | A generic chat thread with "Mom" and "Dad" bubbles; a plain glowing ring floats in and parks at the bottom. Caption, held through S43: "Meta AI in WhatsApp, Facebook and Instagram" | A |
 | S42 | V12 "I'll uninstall it!" / "Nope!" | Wrong-answer honk, big red X | A, E |
 | S43 | V13 "I'll mute it, then?" / "That's not so bad!" | Half-credit chime; the ring puts on earmuffs and stays put | A, E |
 | S44 | "Now your phone has got an update…" | A phone screen with one enormous button, "Continue," and nothing else | A |
@@ -188,10 +188,10 @@
 | --- | --- | --- | --- |
 | S48 | "Now the school's the place for learning…" | A one-room schoolhouse at dusk, slow pan, Rhodes-only | A |
 | S49 | "So the school said, 'No AI, please'…" | A teacher's desk with a polite handwritten note on it | A |
-| S50 | "And the giant said, 'We hear you!'…" | A giant pinstriped cuff (not the grey sleeve) slides a contract across the desk | A |
+| S50 | "And the giant said, 'We hear you!'…" | A giant pinstriped cuff (not the grey sleeve), its hand flat on the paper, slides a contract across the desk. Caption, held through S52: "Google's VP for education, to The New York Times, Nov. 3, 2026" | A |
 | S51 | "Take the robot with your search, or else there's no search there!" | The contract has two boxes, "Search + AI" and "No search" | A |
 | S52 | [record scratch, tape rewind] | The film burns from the centre, the frame jitters, and the shot rewinds at speed to S50 | A, E |
-| S53 | "Correction, boys and girls!…" ("Ahem!" isn't sung) | The Narrator redubs with mouth shapes visibly out of sync; a "CORRECTION" slate. The contract now has a third box | A |
+| S53 | "Correction, boys and girls!…" ("Ahem!" isn't sung) | The Narrator redubs with mouth shapes visibly out of sync; a "CORRECTION" slate. The contract now has a third box. Caption, held through S56: "Google then said schools can turn Gemini off and keep Search, but AI Overviews and AI Mode can't be removed." | A |
 | S54 | V16 "And the answer box on top?" | Tilt up: the answer box is bolted to the top of the frame, unchanged through the rewind | A |
 | S55 | "…That one's 'deeply integrated.'" | The bolts tighten themselves; a small label plate reads "deeply integrated" | A, E |
 | S56 | V17 "What's that mean?" / "It means it stays." | Switch looks up at the Narrator; the Narrator looks away | A |
@@ -218,13 +218,13 @@
 | S64 | V19 "Hey, who wrote this song, anyway?" | Switch shoves the summary box out of frame | A |
 | S65 | "An AI did." | Film layer drops to zero. Real screen capture of the generation screen: style prompt, lyrics, take list | R |
 | S66 | "…But somebody asked it to." | Split frame. Left: the generation screen. Right: the editing timeline with the Switch track labelled "Switch: recorded at home," its waveform playing | R |
-| S67 | V21 "Hey… was its switch on, too?" over the band's last bars, then the audio ends (the band plays to the end of the file; there is no silence after the last word) | Real close-up of a light switch on a plain wall. On V21, a small hand reaches in and waits; on the band's last note it flips the switch OFF. It stays off. Hold two seconds on room tone after the audio ends, then cut to fact card G | H |
-| S68 | After fact card G, room tone only | Real top-down shot, about five seconds: Google and Microsoft swag laid out neatly on a plain surface, Noogler hat on top. Caption: "Made by a former Google and Microsoft employee, who holds no stock in either. Nothing here comes from the inside: every claim is from public reporting, sourced on the cards that follow." Neutral, even fond; never discarded or binned | H |
+| S67 | V21 "Hey… was its switch on, too?" over the band's last bars, then the audio ends (the band plays to the end of the file; there is no silence after the last word) | Real close-up of a light switch on a plain wall. On V21, a small hand reaches in and waits; on the band's last note it flips the switch OFF. It stays off. Shortly before the flip, a caption (the human's wording): "Switch is voiced by a child of two ex-Googlers and ex-Microsofties. No pitch correction was used on his solo singing." Hold two seconds on room tone after the audio ends, then cut to fact card G | H |
+| S68 | Retired (the human, 2026-11-09) | Cut: the swag shot took too long to gather. Its disclosure moves into the credits, right after fact card G (see End card and fact cards) | — |
 
 ### End card and fact cards
 
 - **End card:** lyrics drafted by Claude (Anthropic) and audited by another lab's model; music by the generator, with take ID; Narrator generated; Switch voiced by a child of two ex-Googlers and ex-Microsofties; animation by Claude Code; the human chose, edited and fact-checked every claim, with audits by Gemini, ChatGPT and Copilot; the count of human interventions, with a link to the log.
-- **Fact cards:** card G (who wrote this, and Anthropic's own default-on toggle) first, answering V21; then S68, the creator's own disclosure; then one per row of the Default On fact card, in that order, about four seconds each, in plain type with the source under each. Allegations say so.
+- **Fact cards:** card G (who wrote this, and Anthropic's own default-on toggle) first, answering V21; then the creator's own disclosure as a credits card (formerly S68's caption, the human's decision of 2026-11-09): "Made by a former Google and Microsoft employee, who holds no stock in either. Nothing here comes from the inside: every claim is from public reporting, sourced on the cards that follow."; then one per row of the Default On fact card, in that order, about four seconds each, in plain type with the source under each. Allegations say so.
 
 **Thumbnail:** Switch mid-flip with the grey hand reaching in. Never the real hand, the generation screen or the timeline, which would spoil the reveal.
 
@@ -239,7 +239,7 @@
 - The locked master and its stems (Narrator vocal, instrumental, and any others the generator gave), with the take ID, prompt and settings.
 - A screen capture of the generation screen showing the style prompt, lyrics and take list (for S65–S66).
 - Switch's takes V01–V19 and V21, the 20 real-switch clicks and 10 seconds of room tone (see the recording plan).
-- About ten seconds of real footage for S67: a close-up of a small hand flipping a light switch off, shot tight on plain wall, phone held still, 4K if possible. Plus about five seconds for S68: the swag from above on a plain surface, with nothing written, internal or badge-like in frame.
+- About ten seconds of real footage for S67: a close-up of a small hand flipping a light switch off, shot tight on plain wall, phone held still, 4K if possible. (Supplied 2026-11-09. S68's swag shot is no longer needed.)
 - The Default On doc (lyrics, fact card) and this brief.
 
 **Pipeline**

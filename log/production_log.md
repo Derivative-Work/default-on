@@ -308,3 +308,35 @@ Append-only. One entry per action: timestamp, step (shot ID where relevant), wha
 17. **S64:** Switch walks in from the right edge over S63's last 24 frames and finishes the walk in S64 before he shoves; he no longer pops in.
 - **Checked:** stills of every fix (S00, S03, S05–S07, S09, S20–S21, S24–S25, S28, S35–S36 mouths, S41, S44–S45, S47–S48, S57, S63–S64, the flip hand, the Narrator's hands, the kids' hands, Switch's gloves, S02/S23's classroom).
 - **2026-11-09T01:15:** all sections re-rendered after round 3; the full cut reassembled on the final master (sync verified; `log/renders.md`).
+
+## 2026-11-09 — M4 review notes, round 4 (17), S67 footage, S68 retired
+
+- **Notes:** the human's 17, verbatim in `log/human_interventions.md` (2026-11-09, round 4).
+1. **Countdown (S01):** cut. The title is on screen from S01's first frame; the rocker still flips on its beat after the downbeat.
+2. **Calendars:** the classroom's wall calendar is a week to a row (S M T W T F S header), centred with even margins; S26's October page centres its days in seven even columns, with the circle on the 10th re-centred.
+3. **Typewriter (S05–S07):** taller, with depth: a slab with a visible front face and a contact shadow; three tiers of keys on stalks, each with a cap edge, the back row highest and smallest. Rows stagger like a real keyboard (A a quarter key right of Q, Z half a key right of A) on one pitch. The space bar has a thickness.
+4. **Pencil (study):** a drawn pencil (eraser, ferrule, sharpened tip) lying flat across the notepad with a shadow; the pad has a shadow too. It no longer floats at the keyboard's edge.
+5. **Test stack (S24):** a messy pile: eight bundles, each shifted and turned against the one below, sheet corners poking out at the sides, the top two sheets askew, one binder clip.
+6. **Envelope and V-necks:** the envelope's flap lines start inside its rounded corners. The kids' V-necks (and stripes) are clipped to the jumper's outline.
+7. **Menu zoom (S28):** the doorway wall and fine-print band are opaque. The outermost menu drawn is the deepest one still covering the whole frame, so no menu disappears while any of it is visible.
+8. **TV (S29–S33):** the home-screen shots clip everything to the glass, and the bezel is redrawn on top; Switch is smaller and higher, inside the screen; S32's dialog moved clear of him. Caption S29–S33, from the fact card: "LG webOS TVs, December 2025 update".
+9. **Mouths:** `scripts/rhubarb_visemes.py` adds a sung pass for Switch's lines. Each line is re-read per frame against his comp's loudness: rests in near-silence, half-closes in the dip between syllables, opens on loud frames that Rhubarb held near-closed, and opens round on a sung "on". No one-frame shapes. The second pre-chorus (L32 19 → 28 cues) and both tags now move: L14a 20 → 22 and L38a 9 → 16, each "on" opening and closing. `timing/visemes.json` regenerated.
+10. **Chat (S41–S43):** caption from the fact card: "Meta AI in WhatsApp, Facebook and Instagram".
+11. **S49 detail pass:** the desktop starts at y 560 and everything stands on it with a contact shadow: the note lies flat; there is an ink pot with its pen, a pencil cup, the apple, and a squared stack of exercise books with page edges.
+12. **Giant's hand (S50, S52):** the cuff ends in the film's four-digit hand ("open", fingers spread), pressed flat on the contract's edge. It moves with the contract and sits on the same desk.
+13. **School citations:** S50–S52: "Google's VP for education, to The New York Times, Nov. 3, 2026". S53–S56: "Google then said schools can turn Gemini off and keep Search, but AI Overviews and AI Mode can't be removed."
+    - Both are worded from the fact card's rows (song doc rev 40, checked today).
+    - `Caption` now breaks a caption over 62 characters into two lines.
+    - The S53 contract moved up so its third box stays clear of the caption, and the S54–S55 caption sits mid-frame, clear of Switch.
+14. **Summary's close button (S63–S64):** a visible chase. The pointer glides to the button; just before it lands, the button darts to another spot with speed lines; the pointer stops where it was, then sets off again (every 20 frames).
+15. **S67 footage:** `assets/real/S67/C0143.MP4` and `C0143M01.XML` (the human's; Sony ILCE-6400, 3840×2160 29.97p; no GPS fix in the metadata).
+    - SHA-256: `1864a718a58477667462c27b400cfc243fb6e3ecccb6d16996f505e894b1758d` (MP4), `fd4521e83a8287438c61f4ef5f762c274489f6594af227e3bea9d5c9066b78cf` (XML).
+    - The flip is at source 193.95 s. It switches the room's light off: the first fully dark frame is 193.967 s, and the room stays dark for 8.4 s.
+    - In frame: the wall, the door trim, the plate and a hand. No face; nothing identifying.
+    - `scripts/s67_grade.sh` cuts the clip and grades it into `edit/S67_graded.mp4` (linked into `remotion/public/`). The first dark frame lands on the band's last note (frame 7629, checked by luma).
+    - The grade warms the camera's blue-grey white wall from (185,194,214) to about (216,206,201), with a touch of contrast and saturation and the cartoon's vignette. No camera audio or metadata are carried over.
+    - The hand enters about 2 s after V21 begins (1:1 playback; the brief asked for "on V21").
+16. **Switch's disclosure:** a caption on S67 in the human's words. It fades in about 4.7 s before the flip and goes dark with the room.
+17. **S68 retired:** the brief row stays and is marked retired; the swag shot is cut. Its disclosure becomes a credits card right after fact card G (M5). The brief (docs, rev 80) and its mirror were updated, along with S00/S01 (countdown), the TV, chat and school captions, the S67 caption, the fact-card order and the inputs list.
+    - `scripts/timing_map.py` skips retired rows and drops S68 from the post-roll.
+    - `timing/map.json` was regenerated: only S68 changed, and the video now ends at frame 7861 (was 8011).

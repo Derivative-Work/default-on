@@ -55,7 +55,6 @@ FX_EVENTS = {
 PIANO_IN = 232.154
 HOLD_S = 2.0  # S67 holds on room tone after the audio ends (brief); keep in step with remotion/src/timing.ts
 CARD_S = 4.0  # a fact card (brief: about four seconds each)
-S68_S = 5.0  # S68, the swag shot (brief: about five seconds)
 SECTIONS = [  # brief section (one composition each): the as-sung sections it covers
     ("Intro", ["Intro"]), ("Verse 1", ["Verse 1"]), ("Pre-chorus 1", ["Pre-chorus 1"]), ("Chorus 1", ["Chorus 1"]),
     ("Lesson", ["Lesson"]), ("Verse 2", ["Verse 2"]), ("Pre-chorus 2 and Chorus 2", ["Pre-chorus 2", "Chorus 2"]),
@@ -84,7 +83,7 @@ def shots_from_brief():
         if m:
             sec = m.group(1)
         m = re.match(r"\| (S\d\d[a-z]?) \| (.*?) \| (.*?) \| (.*?) \|$", line)
-        if m:
+        if m and m.group(4) != "—":  # a retired shot (S68, 2026-11-09) keeps its row and ID but is not cut
             out.append({"id": m.group(1), "section": sec, "cue": m.group(2), "picture": m.group(3), "source": m.group(4)})
     return out
 
@@ -195,8 +194,8 @@ def main():
     shots = shots_from_brief()
     v04, v11, v21 = (by_id[x] for x in ("L14a", "L38a", "L71a"))
     special = {
-        "S00": (-PREROLL_S, None, "pre-roll card on room tone, before the countdown"),
-        "S01": (S00_S - PREROLL_S, None, "pre-roll countdown, title on the first downbeat"),
+        "S00": (-PREROLL_S, None, "pre-roll card on room tone, before the title"),
+        "S01": (S00_S - PREROLL_S, None, "the title (its countdown cut, 2026-11-09); the rocker flips after the first downbeat"),
         "S11": (c1, "L09", "the real click"),
         "S18": (v04["end"], "L14a", "after Switch's V04 tag"),
         "S36": (c2, "L33", "the real click"),
@@ -209,7 +208,6 @@ def main():
         "S63": (events["piano_in"], "L68", "the piano comes in; \"Huh.\" is not sung"),
         "S66": (events["click_reveal"], "L71", "the click between \"An AI did.\" and \"...But\""),
         "S67": (v21["start"], "L71a", "V21 over the band's tail; the hand flips on the last note; holds past the audio"),
-        "S68": (audio_end + HOLD_S + CARD_S, "L71", "post-roll: after fact card G"),
     }
     cur = 0
     for s in shots:
@@ -242,15 +240,15 @@ def main():
         cur = hit[0]
         s.update(t=round(hit[1], 3), line=lines[cur]["id"],
                  how="cue words" + (f" (first {hit[2]} not sung)" if hit[2] else ""))
-    # the post-roll so far (brief, End card and fact cards): S67's hold, fact card G, then S68; the other cards are M5's
-    post = [{"id": "FG", "what": "fact card G", "t": round(audio_end + HOLD_S, 3), "len_s": CARD_S},
-            {"id": "S68", "what": "the swag shot (real footage)", "t": round(audio_end + HOLD_S + CARD_S, 3), "len_s": S68_S}]
+    # the post-roll so far (brief, End card and fact cards): S67's hold, then fact card G; the creator's disclosure card
+    # (S68, retired 2026-11-09) and the other cards are M5's
+    post = [{"id": "FG", "what": "fact card G", "t": round(audio_end + HOLD_S, 3), "len_s": CARD_S}]
     for p in post:
         p["frame"] = fr(p["t"])
-    video_end = fr(audio_end + HOLD_S + CARD_S + S68_S)
+    video_end = fr(audio_end + HOLD_S + CARD_S)
     for k, s in enumerate(shots):
         s["frame"] = fr(s["t"])
-        nxt = shots[k + 1]["t"] if k + 1 < len(shots) else audio_end + HOLD_S + CARD_S + S68_S
+        nxt = shots[k + 1]["t"] if k + 1 < len(shots) else audio_end + HOLD_S + CARD_S
         if s["id"] == "S67":
             nxt = post[0]["t"]  # S67 hands over to fact card G
         s["end"] = nxt
