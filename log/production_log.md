@@ -307,3 +307,4 @@ Append-only. One entry per action: timestamp, step (shot ID where relevant), wha
 16. **Summary (S63):** starts on the piano's entrance after "…learn about…" (keyboard stem onset, master 232.154 s; was 233.408). S62 continues underneath with its slate still sliding, and the close button keeps fleeing across the cut into S64.
 17. **S64:** Switch walks in from the right edge over S63's last 24 frames and finishes the walk in S64 before he shoves; he no longer pops in.
 - **Checked:** stills of every fix (S00, S03, S05–S07, S09, S20–S21, S24–S25, S28, S35–S36 mouths, S41, S44–S45, S47–S48, S57, S63–S64, the flip hand, the Narrator's hands, the kids' hands, Switch's gloves, S02/S23's classroom).
+- **2026-11-09T01:15:** all sections re-rendered after round 3; the full cut reassembled on the final master (sync verified; `log/renders.md`).

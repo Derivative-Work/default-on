@@ -83,3 +83,9 @@ Every render: timestamp, shot ID, composition, props, commit hash, output, conta
 - **Compositions:** `Sec01-Intro` … `Sec11-Outroandreveal`, 1920x1080, from 3306699. **Command:** `scripts/m4_section.sh` per section; concat; the final master laid under it in one piece (`adelay=3912.2|3912.2,apad`, the new pre-roll).
 - **Checks:** 8,011 frames; sync +0.0000 s at 30 s, 150 s and 245 s into the master (the last one after the added bar). Master −14.1 LUFS integrated, −1.0 dBTP.
 - **Outputs:** `renders/m4/sec*.mp4`, `renders/m4/m4_full.mp4`, `renders/m4/review/m4_full_review_720p.mp4`, contact sheets in `review/`. **Commit:** 3306699.
+
+## 2026-11-09T01:15 — M4 sections 1–11 and the full cut, after review notes round 3
+
+- **Compositions:** `Sec01-Intro` … `Sec11-Outroandreveal`, 1920x1080, from 7fc03b7. **Command:** `scripts/m4_section.sh` per section; concat; the final master laid under it in one piece (`adelay=3912.2|3912.2,apad`).
+- **Checks:** 8,011 frames; sync +0.0000 s at 30 s, 150 s and 245 s into the master. Frames checked in the render itself: S36's mouth, chorus 2's karaoke mid-line, S61's mouth, S63's summary.
+- **Outputs:** `renders/m4/sec*.mp4`, `renders/m4/m4_full.mp4`, `renders/m4/review/m4_full_review_720p.mp4` (29.1 MB), contact sheets in `review/`. **Commit:** 7fc03b7. Superseded renders: `archive/renders/m4_final_master_2026-11-09/`.
