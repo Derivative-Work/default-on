@@ -129,16 +129,25 @@ const Menu: React.FC<{ x: number; y: number; w: number; title: string; seed: num
 
 // S28, "That it's fine, and here's the door: / Just a menu, then a menu…": the door opens on a menu, which opens
 // on a menu, and another, zooming in each time; fine print scrolls past too fast to read
+// The zoom is a true infinite zoom (the human's note: it didn't read as one): every menu holds the next one at the
+// same spot in its body (CHILD, in menu widths, at 1/R its size), so the whole stack is self-similar, and the camera
+// flies steadily toward the stack's vanishing point T; levels are drawn from the one just passed to seven inside,
+// and the titles keep going rather than resetting.
+const R = 2, W0 = 900, CHILD = [0.14, 0.06], T = [960, 560];
+const TITLES = ["Settings", "More settings", "Advanced", "Privacy & more", "Smart features", "Other settings", "See all", "More…", "Manage", "Personalize"];
 export const S28: Scene = ({ f }) => {
-  const z = Math.pow(1.6, (f % 24) / 24); // a continuous zoom into the next menu, every 24 frames
-  const titles = ["Settings", "More settings", "Advanced", "Privacy & more", "Smart features", "Other"];
+  const p = f < 12 ? (f * f) / (2 * 12 * 22) : (f - 6) / 22; // levels passed: eases in, then one every 22 frames
+  const V = [(-CHILD[0] * W0 * R) / (R - 1), (-CHILD[1] * W0 * R) / (R - 1)]; // level p's centre is T + V
+  const first = Math.max(0, Math.floor(p) - 1);
+  const levels = Array.from({ length: 9 }, (_, k) => first + k);
   return (
     <AbsoluteFill>
       <Paper id="s28" seed={28} base={C.teal}>
-        <g transform={`translate(${W / 2}, ${H / 2 - 20}) scale(${z}) translate(${-W / 2}, ${-(H / 2 - 20)})`}>
-          {titles.map((t, i) => (
-            <Menu key={t} x={W / 2 + i * 14} y={H / 2 - 20 + i * 18} w={1100 / Math.pow(1.6, i)} title={t} seed={i} />
-          ))}
+        <g>
+          {levels.map((L) => {
+            const sc = Math.pow(R, p - L);
+            return <Menu key={L} x={T[0] + V[0] * sc} y={T[1] + V[1] * sc} w={W0 * sc} title={TITLES[L % TITLES.length]} seed={L} />;
+          })}
         </g>
         {/* the doorway, in the foreground, with its plaque */}
         <path d={`M0,0 L${W},0 L${W},${H} L0,${H} Z M360,${H} L360,150 L1560,150 L1560,${H} Z`} fill={C.orange} fillRule="evenodd" opacity={0.9} />
@@ -201,7 +210,7 @@ export const S53: Scene = ({ f }) => {
 
 // S61, "…Guess one of 'em was just for show.": the grey hand stops mid-frame, hesitates, withdraws; Switch is
 // still ON, looking where it was
-export const S61: Scene = ({ f }) => {
+export const S61: React.FC<{ f: number; mouth?: MouthShape }> = ({ f, mouth = "X" }) => {
   const reach = f < 18 ? 0.86 : 0.86 - ease(f, 30, 70) * 0.86;
   const curl = ease(f, 6, 22) * 0.7;
   return (
@@ -218,7 +227,7 @@ export const S61: Scene = ({ f }) => {
         <path d={`M${W / 2 - 70},-20 L${W / 2 + 70},-20 L${W / 2 + 420},${H} L${W / 2 - 420},${H} Z`} fill={C.cream} opacity={0.06} />
         <ellipse cx={W / 2} cy={560} rx={430} ry={400} fill="url(#s61-pool)" />
         <g transform={`translate(${W / 2}, 540)`}>
-          <Switch pose="sad" toggle={1} mouth="X" look={[-0.9, 0.1]} armL={30} armR={8} />
+          <Switch pose="sad" toggle={1} mouth={mouth} look={[-0.9, 0.1]} armL={30} armR={8} />
         </g>
         <g transform={`translate(-40, ${540 + 48 + 24})`}><Hand reach={reach * (0.84 / 0.86)} length={W / 2 + 40} curl={curl} /></g>
       </Paper>

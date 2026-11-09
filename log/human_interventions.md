@@ -149,4 +149,11 @@ Every human action: timestamp, what, why, and which rule allows it. The brief al
   - "\"Inbox got a helper\": same regarding sweaters, and it's unclear which way the character is facing (likely towards the screen, but the lack of hair in the back of the head is making this hard to read."
   - "\"just a menu, then a menu\": fix the infinite zoom, it isn't reading as such"
   - "second \"I've only got two sides...\" the sync did not apply here at all"
+  - (a second message) "second \"Default on\": karaoke is not following"
+  - "\"blue ring in the chat app\": redo the phone screen -- it isn't cropping the screen graphics correctly"
+  - "\"is there one without the robot\": the \"CLASSIC\" is cut off"
+  - "school exterior: the bell tower is not reading right -- it's floating"
+  - "\"guess one of them was just for show\" is also not lip synced"
+  - "\"summary of this song\": this feels a little late -- make it start appearing when the piano comes in"
+  - "\"hey who wrote this song anyway\": switch is coming in very suddenly"
 - **Rule:** H2 (section notes at the M4 gate). No section is approved yet.

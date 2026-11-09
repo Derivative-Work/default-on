@@ -111,11 +111,17 @@ const Chat: React.FC<{ f: number; ring: number; muffs?: number }> = ({ f, ring, 
   <Phone w={420}>
     <rect x={0} y={0} width={400} height={80} fill={C.teal} />
     <text x={200} y={54} textAnchor="middle" fontFamily={SANS} fontWeight={600} fontSize={32} fill={C.cream}>Family</text>
-    <rect x={30} y={120} width={250} height={90} rx={30} fill={C.cream} stroke={C.ink} strokeWidth={lw(4)} />
-    <text x={50} y={176} fontFamily={SANS} fontSize={28} fill={C.ink}>Mom: dinner at 6</text>
-    <rect x={120} y={240} width={250} height={90} rx={30} fill={C.avocado} stroke={C.ink} strokeWidth={lw(4)} />
-    <text x={140} y={296} fontFamily={SANS} fontSize={28} fill={C.cream}>Dad: on my way</text>
-    <g transform={`translate(${200}, ${860 - ring * 120})`}>
+    <rect x={24} y={120} width={290} height={84} rx={30} fill={C.cream} stroke={C.ink} strokeWidth={lw(4)} />
+    <text x={46} y={172} fontFamily={SANS} fontSize={27} fill={C.ink}>Mom: dinner at 6</text>
+    <rect x={86} y={236} width={290} height={84} rx={30} fill={C.avocado} stroke={C.ink} strokeWidth={lw(4)} />
+    <text x={108} y={288} fontFamily={SANS} fontSize={27} fill={C.cream}>Dad: on my way</text>
+    <rect x={24} y={352} width={200} height={84} rx={30} fill={C.cream} stroke={C.ink} strokeWidth={lw(4)} />
+    <text x={46} y={404} fontFamily={SANS} fontSize={27} fill={C.ink}>Mom: ok!</text>
+    {/* the message bar at the bottom of the screen */}
+    <rect x={0} y={790} width={400} height={70} fill={C.creamShade} />
+    <rect x={20} y={804} width={300} height={42} rx={21} fill={C.white} stroke={C.ink} strokeWidth={lw(3)} />
+    <circle cx={356} cy={825} r={22} fill={C.teal} stroke={C.ink} strokeWidth={lw(3)} />
+    <g transform={`translate(${200}, ${960 - ring * 290})`}>
       <circle r={50 + Math.sin(f / 5) * 4} fill="none" stroke={C.teal} strokeWidth={18} opacity={0.9} />
       <circle r={70} fill="none" stroke={C.teal} strokeWidth={6} opacity={0.3} />
       {muffs > 0 && [-1, 1].map((s) => <circle key={s} cx={s * 62} cy={0} r={26 * muffs} fill={C.red} stroke={C.ink} strokeWidth={lw(4)} />)}
@@ -127,7 +133,7 @@ const Chat: React.FC<{ f: number; ring: number; muffs?: number }> = ({ f, ring, 
 // S41: "There's a blue ring in the chat app…": a generic chat thread; a plain glowing ring floats in and parks
 export const S41: ShotC = ({ f, len }) => (
   <QuizScreen f={f} q="Q1">
-    <g transform="translate(960, 540) scale(0.85)"><Chat f={f} ring={ez(f, len * 0.4, len * 0.8)} /></g>
+    <g transform="translate(960, 530) scale(0.72)"><Chat f={f} ring={ez(f, len * 0.4, len * 0.8)} /></g>
   </QuizScreen>
 );
 
@@ -148,7 +154,7 @@ export const S42: ShotC = ({ f, g }) => {
 // S43: V13 "I'll mute it, then?" / "That's not so bad!": half-credit chime; the ring puts on earmuffs and stays put
 export const S43: ShotC = ({ f, len }) => (
   <QuizScreen f={f} q="Q1">
-    <g transform="translate(960, 540) scale(0.85)"><Chat f={f} ring={1} muffs={ez(f, len * 0.5, len * 0.65)} /></g>
+    <g transform="translate(960, 530) scale(0.72)"><Chat f={f} ring={1} muffs={ez(f, len * 0.5, len * 0.65)} /></g>
     <g transform="translate(1400, 380)" opacity={ez(f, len * 0.5, len * 0.6)}>
       <text textAnchor="middle" fontFamily={BUBBLE} fontSize={130} fill={C.mustard} stroke={C.ink} strokeWidth={6} paintOrder="stroke">½</text>
       <text x={20} y={90} textAnchor="middle" fontFamily={BUBBLE} fontSize={56} fill={C.cream} stroke={C.ink} strokeWidth={4} paintOrder="stroke">DING!</text>
@@ -180,7 +186,7 @@ export const S44: ShotC = ({ f }) => (
 // back to a row of phones; on some, a setting slides to ON by itself. Caption: "Some iPhones, iOS 18.3.2, March 2025"
 export const S45: ShotC = ({ f, g, len }) => {
   const back = ez(f, len * 0.45, len * 0.65);
-  const s = 1.1 - back * 0.65;
+  const s = 0.86 - back * 0.42; // the close-up still fits inside the quiz screen
   return (
     <QuizScreen f={f} q="Q2">
       {[-3, -2, -1, 0, 1, 2, 3].map((i) => (

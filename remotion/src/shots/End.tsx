@@ -8,7 +8,7 @@ import { Narrator } from "../rigs/Narrator";
 import { Switch } from "../rigs/Switch";
 import { BUBBLE, SANS } from "../theme/fonts";
 import { C, H, PEN, W, lw } from "../theme/palette";
-import { at, events, line, mouthAt, slot } from "../timing";
+import { at, events, line, mouthAt, shot, slot } from "../timing";
 import { S61 as S61Key } from "../scenes/KeyFrames";
 import { NarratorSet } from "./Intro";
 import { Living } from "./Lesson";
@@ -44,8 +44,12 @@ const Schoolhouse: React.FC<{ f: number }> = ({ f }) => (
         <path key={`${r}${i}`} d={`M${-360 + i * 32 + (r % 2) * 16},${-500 + r * 28} q16,20 32,0`} {...PEN} opacity={0.7} />
       )))}
     </g>
-    {/* belfry, bell, rope, weathervane */}
-    <rect x={-46} y={-640} width={92} height={130} fill={C.cream} stroke={C.ink} strokeWidth={lw(6)} />
+    {/* belfry, bell, rope, weathervane. It sits ON the roof: its walls run down to the roof line and its base is cut to
+        the roof's pitch (y = -520 + 0.647|x|), with a trim skirt over the shingles (the human's note: it floated) */}
+    <path d="M-46,-640 L46,-640 L46,-490 L0,-520 L-46,-490 Z" fill={C.cream} stroke={C.ink} strokeWidth={lw(6)} strokeLinejoin="round" />
+    <path d="M-60,-534 L60,-534 L60,-481 L0,-520 L-60,-481 Z" fill={C.cardiganShade} stroke={C.ink} strokeWidth={lw(5)} strokeLinejoin="round" />
+    <path d="M-60,-534 L60,-534" {...PEN} />
+    {[-30, 0, 30].map((x) => <line key={x} x1={x} y1={-634} x2={x} y2={-540} {...PEN} opacity={0.35} />)}
     <path d="M-30,-640 v-0 q30,-30 60,0 v70 h-60 Z" fill="#3a3466" stroke={C.ink} strokeWidth={lw(4)} />
     <path d={`M-18,-600 q18,-30 36,0 l4,14 h-44 Z`} fill={C.mustard} stroke={C.ink} strokeWidth={lw(3)} transform={`rotate(${Math.sin(f / 12) * 6}, 0, -620)`} />
     <path d="M-60,-640 L0,-700 L60,-640 Z" fill={C.cardigan} stroke={C.ink} strokeWidth={lw(6)} />
@@ -512,13 +516,13 @@ export const S60: ShotC = ({ f, g }) => {
   const pressed = k > 0 && f - clicks[k - 1] < 4; // the OFF moment before he springs back
   return (
     <Alone>
-      <g transform={`translate(${W / 2}, 540)`}><Switch pose={pressed ? "relaxed" : "sad"} toggle={pressed ? 0 : 1} armL={pressed ? 70 : 20} armR={pressed ? 70 : 20} /></g>
+      <g transform={`translate(${W / 2}, 540)`}><Switch pose={pressed ? "relaxed" : "sad"} toggle={pressed ? 0 : 1} armL={pressed ? 70 : 20} armR={pressed ? 70 : 20} mouth={mouthAt(g, "switch")} /></g>
       {k >= clicks.length && <g transform={`translate(-40, ${FLIP_Y})`}><Hand reach={ez(f, clicks[clicks.length - 1], clicks[clicks.length - 1] + 8) * 0.84} length={FLIP_LEN} /></g>}
     </Alone>
   );
 };
 
-export const S61: ShotC = ({ f }) => <S61Key f={f} />;
+export const S61: ShotC = ({ f, g }) => <S61Key f={f} mouth={mouthAt(g, "switch")} />; // he sings V18's second half
 
 // S62: "And that's how an opt-out works! Join us next week…": the Narrator wraps up at his desk; an end slate starts
 // to slide in
@@ -560,18 +564,36 @@ const Summary: React.FC<{ x: number; f: number; pop: number }> = ({ x, f, pop })
     </g>
   );
 };
-export const S63: ShotC = ({ f, g }) => (
-  <>
-    <S62 f={f + 60} g={g} len={60} />
-    <svg width={W} height={H} style={{ position: "absolute" }}><Summary x={W / 2} f={f} pop={ez(f, 0, 6) + bump(f, 6, 4) * 0.08} /></svg>
-  </>
+// S63 starts on the piano (the human's note); S62 carries on underneath it, its slate still sliding. In S63's last
+// 24 frames Switch walks in from the right edge, and in S64 he finishes the walk before he shoves, so he never pops in
+// (the human's note: he came in very suddenly)
+const SWX = W / 2 + 560; // where Switch stands to shove
+const walkIn = (k: number) => W + 260 - (W + 260 - SWX) * k; // k 0 (off the right edge) .. 1 (in place)
+const WalkingSwitch: React.FC<{ x: number; f: number; g: number; walking: boolean; shove?: number }> = ({ x, f, g, walking, shove = 0 }) => (
+  <g transform={`translate(${x}, ${560 - (walking ? Math.abs(Math.sin(f / 3)) * 18 : 0)}) rotate(${walking ? Math.sin(f / 3) * 4 : -shove * 8}) scale(0.6)`}>
+    <Switch pose={walking ? "curious" : "proud"} mouth={mouthAt(g, "switch")} armL={walking ? 30 + Math.sin(f / 3) * 20 : 95} armR={walking ? 30 - Math.sin(f / 3) * 20 : 95} look={[-1, 0]} blink={blink(g, 6)} />
+  </g>
 );
+export const S63: ShotC = ({ f, g, len }) => {
+  const s62 = shot("S62").frame, s63 = shot("S63").frame;
+  const k = ez(f, len - 24, len + 12) / ez(len, len - 24, len + 12); // the first two-thirds of his walk, ending on the cut
+  return (
+    <>
+      <S62 f={g - s62} g={g} len={s63 - s62} />
+      <svg width={W} height={H} style={{ position: "absolute" }}>
+        <Summary x={W / 2} f={f} pop={ez(f, 0, 6) + bump(f, 6, 4) * 0.08} />
+        {f >= len - 24 && <WalkingSwitch x={walkIn(k * 0.66)} f={f} g={g} walking />}
+      </svg>
+    </>
+  );
+};
 export const S64: ShotC = ({ f, g, len }) => {
+  const walk = 0.66 + 0.34 * ez(f, 0, 12);
   const shove = ez(f, len * 0.55, len * 0.85);
   return (
     <NarratorSet g={g} board={["OPT-IN", "OPT-OUT", "DEFAULT"]} arm="down" head={-1} size={80}>
-      <Summary x={W / 2 - shove * 1600} f={f} pop={1} />
-      <g transform={`translate(${W / 2 + 560 - shove * 1600}, 560) scale(0.6)`}><Switch pose="proud" mouth={mouthAt(g, "switch")} armL={95} armR={95} look={[-1, 0]} /></g>
+      <Summary x={W / 2 - shove * 1600} f={g - shot("S63").frame} pop={1} />{/* the close button keeps fleeing across the cut */}
+      <WalkingSwitch x={walkIn(walk) - shove * 1600} f={f} g={g} walking={f < 12} shove={shove} />
     </NarratorSet>
   );
 };

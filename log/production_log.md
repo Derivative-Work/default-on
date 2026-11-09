@@ -271,3 +271,39 @@ Append-only. One entry per action: timestamp, step (shot ID where relevant), wha
 - **Licences:** `assets/LICENSES.md` lists the effects. The FX-only file is never released: Pixabay and Logic sounds may not be distributed on their own.
 - **Archived:** the round-2 renders → `archive/renders/m4_round2_2026-11-06/`.
 - **2026-11-09T00:20:** all sections re-rendered against the final master; the full cut reassembled (sync verified at 30, 150, 245 s; `log/renders.md`).
+
+## 2026-11-09 — M4: review notes, round 3 (19), applied
+
+1. **S00:** "(Mostly) AI-generated satire." under "A cartoon for grown-ups about tech settings."
+2. **Search scene (S05–S07):**
+   - **Lamp:** a table lamp standing on the desk with a contact shadow, replacing the floor lamp that hovered at desk height.
+   - **Keyboard:** centred, staggered rows of lettered round keys (QWERTY…), a frame and a space bar. The key lit as each letter types is that letter's key.
+   - **Answer box:** it thumps down and shoves the results page down behind the desk edge (clipped); nothing scales or squashes, borders included.
+   - **S07:** starts on exactly S06's last layout (search box, pushed page, box position; shared `SearchPage`), and Switch walks in.
+3. **Lamps:** `Lamp` is replaced by `FloorLamp` (origin at the foot, a dome base, contact shadow, a cord along the boards) and `TableLamp`.
+   - Floor lamps now stand on the floor line in the pre-chorus night set and the living room.
+   - The side-table and study lamps are table lamps.
+4. **Sweaters:**
+   - The kid's stripes are clipped to the jumper's outline, so they no longer run into the arms.
+   - The inbox person is redrawn from behind: hair over the whole back of the head with a crown whorl and a tapered nape, both ears, the neck, a ribbed collar, and raglan and back seams.
+5. **Opt-out maze:** the trail drops new dots at a fixed 26 px spacing along the walked route; existing dots never move.
+6. **CHEF'S PICK:** a bigger swallow-tailed pennant that holds its words.
+7. **Narrator's classroom:**
+   - the plant is redrawn: a terracotta pot with a rim, soil and a saucer, and broad leaves with midribs and veins in two greens;
+   - new: an alphabet strip over the board, a tear-off calendar, a wall pencil sharpener, a radiator under the window and a wire wastebasket.
+8. **Hands:** one cartoon hand, `rigs/Hand4.tsx` (a thumb and three separate fingers; rest, open, point and fist poses), now on:
+   - the Narrator (replacing the mittens);
+   - the kids (replacing the circles);
+   - Switch (small gloves replacing the balls).
+
+   The off-screen hand's curled fingers are now three separate knuckles with tucked tips and a shorter thumb, and the pencil hand has separate curled fingers.
+9. **Test stack (S24):** a real squared-up stack on the desk in front of Switch, who peers over it. It has a top sheet in perspective with "TEST", page edges, a few sticking-out sheets, a shaded side, a binder clip and a contact shadow.
+10. **Menu zoom (S28):** a true infinite zoom: each menu holds the next at the same spot (R = 2), and the camera flies steadily toward the stack's vanishing point. Titles keep going (ten, cycling) instead of resetting every 24 frames.
+11. **Lip sync gaps:** S36 (the flip during "…so how'd I just return?") and S61 ("…Guess one of 'em was just for show.") drew Switch with no mouth; both now follow the lip sync. S60 does too. An audit of every Switch line found no other mouthless shot.
+12. **Chorus 2 karaoke:** S37 reused S13, which was hard-wired to chorus 1's line L10, so the ball had already finished. The opener now takes its line, L34 in chorus 2.
+13. **Phone (S41–S45):** the screen has its content's exact proportions (400 × 860) and clips to rounded corners. The chat has wider bubbles, a third message and a message bar, and the ring floats up from below the screen edge. The phones are scaled to sit inside the quiz screen.
+14. **CLASSIC (S47):** the price tag's lettering shrinks to fit the tag.
+15. **Belfry (S48):** its walls run down to the roof and its base is cut to the roof's pitch, with a trim skirt over the shingles; it no longer perches on the apex.
+16. **Summary (S63):** starts on the piano's entrance after "…learn about…" (keyboard stem onset, master 232.154 s; was 233.408). S62 continues underneath with its slate still sliding, and the close button keeps fleeing across the cut into S64.
+17. **S64:** Switch walks in from the right edge over S63's last 24 frames and finishes the walk in S64 before he shoves; he no longer pops in.
+- **Checked:** stills of every fix (S00, S03, S05–S07, S09, S20–S21, S24–S25, S28, S35–S36 mouths, S41, S44–S45, S47–S48, S57, S63–S64, the flip hand, the Narrator's hands, the kids' hands, Switch's gloves, S02/S23's classroom).

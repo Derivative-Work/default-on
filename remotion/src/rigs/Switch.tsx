@@ -4,6 +4,7 @@
 // the pose sets eyes, brows and arm angles; `toggle` (0 OFF .. 1 ON) and `mouth` are driven separately so the click
 // and the lip sync move on their own. Drawn around the plate's centre, 250 x 390 units.
 import React from "react";
+import { Hand4 } from "./Hand4";
 import { C, PEN, lw } from "../theme/palette";
 import { Mouth, MouthShape } from "./Mouth";
 
@@ -44,8 +45,8 @@ const Arm: React.FC<{ side: -1 | 1; angle: number; wave?: number }> = ({ side, a
     <g transform={`translate(${side * (PLATE.w / 2 - 6)}, 20)`}>
       <path d={`M0,0 Q${ex + side * 10},${ey} ${hx},${hy}`} fill="none" stroke={C.ink} strokeWidth={21} strokeLinecap="round" />
       <path d={`M0,0 Q${ex + side * 10},${ey} ${hx},${hy}`} fill="none" stroke={C.cream} strokeWidth={16} strokeLinecap="round" />
-      <circle cx={hx} cy={hy} r={21} fill={C.cream} stroke={C.ink} strokeWidth={lw(5)} />
-      <path d={`M${hx - side * 4},${hy - 12} q${side * 10},-6 ${side * 14},4`} fill="none" stroke={C.ink} strokeWidth={lw(4)} strokeLinecap="round" />
+      {/* a little four-fingered glove (the human's note: no fingerless balls) */}
+      <g transform={`translate(${hx}, ${hy}) rotate(${(-a * 1.15 * 180) / Math.PI})`}><Hand4 pose="rest" side={side === 1 ? -1 : 1} s={0.46} fill={C.cream} /></g>
     </g>
   );
 };

@@ -7,7 +7,7 @@ import { Hand, PencilHand, TIP_Y } from "../rigs/Hand";
 import { PADDLE, PLATE, Switch } from "../rigs/Switch";
 import { C, H, W, lw } from "../theme/palette";
 import { BUBBLE, SANS } from "../theme/fonts";
-import { Bookshelf, Clock, Floorboards, Grain, Lamp, Plant, Rug, Sunburst, Wallpaper, Window, breath } from "../components/sets";
+import { Bookshelf, Clock, Floorboards, Grain, FloorLamp, Plant, Rug, Sunburst, Wallpaper, Window, breath } from "../components/sets";
 import { at, downbeats, line, mouthAt } from "../timing";
 import { Bg, ShotC, blink, bump, ez } from "./common";
 
@@ -36,7 +36,7 @@ const Night: React.FC<{ id: string; dim?: number; g?: number; children: React.Re
       ))}
     </g>
     <g transform="translate(1790, 1000)" opacity={0.5}><Bookshelf w={240} shelves={4} seed={9} /></g>
-    <g transform="translate(1560, 620)" opacity={0.5}><Lamp on={false} /></g>
+    <g transform="translate(1560, 960)" opacity={0.5}><FloorLamp on={false} h={520} /></g>
     <g transform="translate(700, 180)" opacity={0.7}><Clock t={(23 * 60 + 47) * 60 + g / 30} r={54} /></g>
     <rect x={-20} y={854} width={W + 40} height={46} fill="url(#pen-hatch)" opacity={0.32} />
     <rect x={-20} y={900} width={W + 40} height={200} fill="#1b2440" stroke={C.ink} strokeWidth={lw(6)} />
@@ -91,13 +91,14 @@ export const S10: ShotC = ({ f, g, len }) => {
 };
 
 // S11 / S36: [click]: the grey sleeve flips him back up on the click. In S11 (8 frames) the hand is already reaching
-// (S10) and the flip lands on frame 0; S12 carries the withdrawal. S36, the faster second time, enters and flips here
+// (S10) and the flip lands on frame 0; S12 carries the withdrawal. S36, the faster second time, enters and flips here,
+// while he sings "…so how'd I just return?" (his mouth follows the lip sync, the human's note)
 const Flip: React.FC<{ f: number; g: number; len: number; fast?: boolean }> = ({ f, g, len, fast }) => {
   const reach = fast ? ez(f, 0, 3) * (1 - ez(f, len - 3, len)) : 0.82 + 0.18 * ez(f, 0, 2);
   const flipped = fast ? f >= 2 : true;
   return (
     <Night id="pc" dim={fast ? 1 : 0} g={g}>
-      <g transform={`translate(${W / 2}, 540)`}><Switch pose={flipped ? "startled" : "relaxed"} toggle={flipped ? 1 : 0} blink={flipped ? 0 : 1} /></g>
+      <g transform={`translate(${W / 2}, 540)`}><Switch pose={flipped ? "startled" : "relaxed"} toggle={flipped ? 1 : 0} blink={flipped ? 0 : 1} mouth={mouthAt(g, "switch")} /></g>
       {flipped && <text x={W / 2 + 200} y={330} fontFamily={BUBBLE} fontSize={90} fill={C.mustard} stroke={C.ink} strokeWidth={lw(5)} paintOrder="stroke" transform={`rotate(-10, ${W / 2 + 200}, 330)`}>click!</text>}
       <g transform={`translate(-40, ${FLIP_Y})`}><Hand reach={reach} length={FLIP_LEN} press={flipped ? 1 - ez(f, 2, 6) : 0} /></g>
     </Night>
@@ -124,7 +125,7 @@ export const S12: ShotC = ({ f, g }) => {
 
 // S13: "Default on! Default on!": bright mustard over a slowly turning sunburst; bubble-letter lyrics with a bouncing
 // ball; five rockers bounce and flick ON on the downbeats; music notes drift up
-export const S13: ShotC = ({ f, g }) => {
+const ChorusOpen: React.FC<{ f: number; g: number; lineId: string }> = ({ f, g, lineId }) => {
   const g0 = g - f;
   const dbs = downbeats.filter((d) => d >= g0).slice(0, 5).map((d) => d - g0);
   return (
@@ -138,7 +139,7 @@ export const S13: ShotC = ({ f, g }) => {
         const t = ((f + k * 23) % 90) / 90;
         return <text key={k} x={200 + k * 300 + Math.sin((f + k * 20) / 10) * 30} y={720 - t * 520} fontFamily={SANS} fontSize={70} fill={C.ink} opacity={Math.sin(t * Math.PI) * 0.7}>{k % 2 ? "♪" : "♫"}</text>;
       })}
-      <Lyric id="L10" f={f} g={g} y={860} size={120} />
+      <Lyric id={lineId} f={f} g={g} y={860} size={120} />
     </Bg>
   );
 };
@@ -377,11 +378,13 @@ export const S18: ShotC = ({ f, g }) => {
   );
 };
 
+export const S13: ShotC = ({ f, g }) => <ChorusOpen f={f} g={g} lineId="L10" />;
+
 // S37: chorus 2's first three lines, the S13-S15 layouts with new gags (a sleeping bag instead of a blanket, the
 // mute bar sliding off, a lunchbox instead of the drawer)
 export const S37: ShotC = ({ f, g, len }) => {
   const a = at(line("L35").start) - (g - f), b = at(line("L36").start) - (g - f);
-  if (f < a) return <S13 f={f} g={g} len={a} />;
+  if (f < a) return <ChorusOpen f={f} g={g} lineId="L34" />; // its own line's words (the human's note: the ball must follow)
   if (f < b) return <Bedroom f={f - a} g={g} len={b - a} lineId="L35" />;
   return <Gags f={f - b} g={g} len={len - b} lineId="L36" set={2} />;
 };

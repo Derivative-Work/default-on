@@ -50,6 +50,9 @@ FX_EVENTS = {
     "booing": [185.0, 190.3], "record_scratch": [187.5, 188.15], "clicks_outro": [222.407, 222.872],
     "click_reveal": 241.805, "switch_off": 250.391,
 }
+# the piano's entrance after "…learn about…" (onset in the keyboard stem, v2 231.066 -> master 232.154): S63's summary
+# box starts appearing on it (the human's note, 2026-11-09)
+PIANO_IN = 232.154
 HOLD_S = 2.0  # S67 holds on room tone after the audio ends (brief); keep in step with remotion/src/timing.ts
 CARD_S = 4.0  # a fact card (brief: about four seconds each)
 S68_S = 5.0  # S68, the swag shot (brief: about five seconds)
@@ -146,7 +149,7 @@ def main():
         "first_downbeat": round(float(db[0]), 3),
         "click_prechorus_1": c1, "click_prechorus_2": c2, "horn": FX_EVENTS["horn"], "door_slam": FX_EVENTS["door_slam"],
         "booing": FX_EVENTS["booing"], "record_scratch": FX_EVENTS["record_scratch"], "clicks_outro": ob,
-        "popup_chime": to_master(232.32), "click_reveal": FX_EVENTS["click_reveal"],
+        "popup_chime": to_master(232.32), "piano_in": PIANO_IN, "click_reveal": FX_EVENTS["click_reveal"],
         "last_word_end": by_id["L71"]["end"],
         "last_note": last_note,
         "audio_end": audio_end,
@@ -203,7 +206,7 @@ def main():
         "S57": (by_id["L61"]["start"], "L61", "first final-chorus line"),
         "S58": (by_id["L65"]["start"], "L65", "last \"Default on!\""),
         "S60": (ob[0], "L66", "first outro click (the human's comp has two)"),
-        "S63": (events["popup_chime"], "L68", "chime in the gap; \"Huh.\" is not sung"),
+        "S63": (events["piano_in"], "L68", "the piano comes in; \"Huh.\" is not sung"),
         "S66": (events["click_reveal"], "L71", "the click between \"An AI did.\" and \"...But\""),
         "S67": (v21["start"], "L71a", "V21 over the band's tail; the hand flips on the last note; holds past the audio"),
         "S68": (audio_end + HOLD_S + CARD_S, "L71", "post-roll: after fact card G"),

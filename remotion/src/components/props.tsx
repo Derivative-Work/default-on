@@ -1,6 +1,8 @@
 // Props for the shots: every product is generic (brief, Content guardrails): no logos, wordmarks, brand colours or
 // product UI. Each prop is drawn around its own origin in 1920x1080 units.
 import React from "react";
+import { Hand4 } from "../rigs/Hand4";
+import { measure } from "./kit";
 import { BUBBLE, SANS } from "../theme/fonts";
 import { C, H, PEN, W, lw } from "../theme/palette";
 import { Mouth, MouthShape } from "../rigs/Mouth";
@@ -100,13 +102,27 @@ export const Envelope: React.FC<{ look?: [number, number]; mouth?: MouthShape }>
 );
 
 // a generic cartoon person from behind/side: round head, hair tuft, a shirt in one of the palette colours
+// a cartoon person seen from BEHIND, at a screen (S25): the back of the head is all hair (a crown whorl, strands, a
+// tapered nape hairline), both ears stick out at the sides, the neck shows above a jumper with a ribbed collar, raglan
+// seams and a centre-back seam. Nothing of the face: it must read as facing away (the human's note, 2026-11-09)
 export const Person: React.FC<{ shirt?: string; hair?: string; facing?: number }> = ({ shirt = C.teal, hair = C.hair, facing = 1 }) => (
   <g transform={`scale(${facing}, 1)`}>
     <path d="M-150,320 Q-160,120 0,110 Q160,120 150,320 Z" fill={shirt} {...ink} />
-    <path d="M-60,116 q60,30 120,0 M-120,200 q20,40 10,110 M120,200 q-20,40 -10,110" {...PEN} />
-    <circle cx={0} cy={20} r={95} fill={C.skin} {...ink} />
-    <path d="M-95,10 Q-90,-90 0,-78 Q90,-90 95,10 Q60,-30 0,-34 Q-60,-30 -95,10 Z" fill={hair} {...ink} />
-    <ellipse cx={92} cy={24} rx={16} ry={24} fill={C.skin} {...ink} strokeWidth={lw(5)} />
+    <path d="M-150,250 Q-90,170 -52,120 M150,250 Q90,170 52,120" {...PEN} opacity={0.8} />
+    <path d="M0,150 L0,320" {...PEN} strokeDasharray="6 7" opacity={0.6} />
+    <path d="M-120,300 q10,-30 6,-60 M120,300 q-10,-30 -6,-60" {...PEN} opacity={0.6} />
+    {/* the neck and the ribbed collar */}
+    <path d="M-40,60 L-44,128 L44,128 L40,60 Z" fill={C.skinShade} {...ink} />
+    <path d="M-64,124 Q0,104 64,124 Q66,140 60,146 Q0,128 -60,146 Q-66,140 -64,124 Z" fill={shirt} {...ink} />
+    {Array.from({ length: 11 }, (_, i) => <line key={i} x1={-50 + i * 10} y1={120 - Math.sin((i / 10) * Math.PI) * 6} x2={-50 + i * 10} y2={138 - Math.sin((i / 10) * Math.PI) * 8} {...PEN} opacity={0.6} />)}
+    {/* ears, both sides, set behind the head */}
+    {[-1, 1].map((k) => <g key={k}><ellipse cx={k * 92} cy={22} rx={18} ry={27} fill={C.skin} {...ink} strokeWidth={lw(5)} /><path d={`M${k * 94},10 q${k * 6},12 0,24`} {...PEN} /></g>)}
+    {/* the back of the head: hair all the way round, tapering to the nape */}
+    <path d="M-92,10 Q-98,-84 0,-80 Q98,-84 92,10 Q90,62 46,84 Q20,72 0,76 Q-20,72 -46,84 Q-90,62 -92,10 Z" fill={hair} {...ink} />
+    <path d="M-30,80 l6,-12 l6,10 l6,-12 l6,12 l6,-10 l6,10" fill="none" stroke={C.ink} strokeWidth={lw(3)} opacity={0.6} />
+    {/* the crown whorl and strands */}
+    <path d="M10,-40 q22,4 18,24 q-6,18 -26,10 q-14,-8 -4,-20" {...PEN} />
+    {[[-60, -30, -50, 30], [-30, -60, -40, 10], [50, -40, 60, 20], [40, 0, 30, 50], [-10, 10, -30, 56], [70, -10, 70, 40]].map(([x1, y1, x2, y2], i) => <path key={i} d={`M${x1},${y1} Q${(x1 + x2) / 2 + 8},${(y1 + y2) / 2} ${x2},${y2}`} {...PEN} opacity={0.7} />)}
   </g>
 );
 
@@ -124,10 +140,7 @@ const KidArm: React.FC<{ side: -1 | 1; t: ArmTarget; sleeve: string; skin: strin
       <path d={`M${sx},${sy} Q${ex},${ey} ${t.x},${t.y}`} fill="none" stroke={C.ink} strokeWidth={36} strokeLinecap="round" />
       <path d={`M${sx},${sy} Q${ex},${ey} ${t.x},${t.y}`} fill="none" stroke={sleeve} strokeWidth={28} strokeLinecap="round" />
       <g transform={`translate(${t.x}, ${t.y}) rotate(${ang})`}>
-        <circle r={20} fill={skin} stroke={C.ink} strokeWidth={lw(4)} />
-        {t.point
-          ? <><path d="M12,-6 L44,-6 Q52,0 44,6 L12,6 Z" fill={skin} stroke={C.ink} strokeWidth={lw(4)} /><path d="M40,-4 q5,4 0,8" {...PEN} /></>
-          : <path d="M6,-12 q10,4 8,12 M2,2 q10,4 8,12" {...PEN} />}
+        <g transform="rotate(-90)"><Hand4 pose={t.point ? "point" : "rest"} side={side === 1 ? 1 : -1} s={0.5} fill={skin} /></g>
       </g>
     </g>
   );
@@ -163,7 +176,11 @@ export const Kid: React.FC<{ seed: number; mouth?: MouthShape; look?: [number, n
       )}
       <path d="M-90,230 Q-96,110 0,104 Q96,110 90,230 Z" fill={shirts[k(1)]} {...ink} />
       <path d="M-34,108 l34,22 l34,-22 M-70,170 q8,30 2,60 M70,170 q-8,30 -2,60" {...PEN} />
-      {seed % 4 === 1 && [150, 186].map((y) => <line key={y} x1={-84} x2={84} y1={y} y2={y} stroke={C.cream} strokeWidth={8} opacity={0.6} />)}
+      {/* a striped jumper: the stripes clipped to the jumper's own outline, so they never run past it (the human's note) */}
+      {seed % 4 === 1 && <g>
+        <clipPath id={`kid-shirt-${seed}`}><path d="M-90,230 Q-96,110 0,104 Q96,110 90,230 Z" /></clipPath>
+        <g clipPath={`url(#kid-shirt-${seed})`}>{[146, 182, 218].map((y) => <rect key={y} x={-100} y={y - 5} width={200} height={10} fill={C.cream} opacity={0.6} />)}</g>
+      </g>}
       <circle cx={0} cy={20} r={80} fill={skins[k(2)]} {...ink} />
       {seed % 3 === 0 && <path d="M-80,0 Q-90,-80 0,-66 Q90,-80 80,0 Q50,-40 0,-42 Q-50,-40 -80,0 Z" fill={hairs[k(3)]} {...ink} />}
       {seed % 3 === 1 && <g>{[-1, 1].map((s) => <circle key={s} cx={s * 78} cy={-10} r={30} fill={hairs[k(3)]} {...ink} />)}<path d="M-78,-4 Q-70,-76 0,-64 Q70,-76 78,-4 Q40,-36 0,-36 Q-40,-36 -78,-4 Z" fill={hairs[k(3)]} {...ink} /></g>}
@@ -223,15 +240,24 @@ export const Tile: React.FC<{ color: string; glyph?: "star" | "play" | "note" | 
   </g>
 );
 
+// a phone: a bezel, and a screen whose proportions are exactly its content's (400 x 860 units), so the screen
+// graphics fill it edge to edge and are clipped to its rounded corners (the human's note: they weren't cropping right)
+let phoneId = 0;
 export const Phone: React.FC<{ w?: number; children?: React.ReactNode }> = ({ w = 380, children }) => {
-  const h = w * 2;
+  const sw = w - 40, sh = (sw * 860) / 400, h = sh + 96;
+  const id = `phone-${++phoneId}`;
   return (
     <g>
       <rect x={-w / 2} y={-h / 2} width={w} height={h} rx={w * 0.14} fill={C.cardiganShade} {...ink} />
-      <rect x={-w / 2 + 20} y={-h / 2 + 40} width={w - 40} height={h - 80} rx={w * 0.08} fill={C.paper} {...ink} strokeWidth={lw(4)} />
-      <rect x={-w * 0.12} y={-h / 2 + 16} width={w * 0.24} height={8} rx={4} fill={C.ink} opacity={0.7} />
-      <path d={`M${w / 2 - 34},${-h / 2 + 60} l18,-18 M${w / 2 - 34},${-h / 2 + 90} l18,-18`} stroke={C.white} strokeWidth={4} strokeLinecap="round" opacity={0.6} />
-      <svg x={-w / 2 + 20} y={-h / 2 + 40} width={w - 40} height={h - 80} viewBox="0 0 400 860">{children}</svg>
+      <rect x={-w * 0.12} y={-h / 2 + 18} width={w * 0.24} height={8} rx={4} fill={C.ink} opacity={0.7} />
+      <circle cx={w * 0.2} cy={-h / 2 + 22} r={5} fill={C.ink} opacity={0.7} />
+      <svg x={-sw / 2} y={-h / 2 + 44} width={sw} height={sh} viewBox="0 0 400 860" overflow="hidden">
+        <defs><clipPath id={id}><rect x={0} y={0} width={400} height={860} rx={26} /></clipPath></defs>
+        <g clipPath={`url(#${id})`}><rect width={400} height={860} fill={C.paper} />{children}</g>
+      </svg>
+      <rect x={-sw / 2} y={-h / 2 + 44} width={sw} height={sh} rx={(26 * sw) / 400} fill="none" stroke={C.ink} strokeWidth={lw(4)} />
+      <path d={`M${w / 2 - 44},${-h / 2 + 80} l22,-22 M${w / 2 - 44},${-h / 2 + 112} l22,-22`} stroke={C.white} strokeWidth={4} strokeLinecap="round" opacity={0.5} />
+      <rect x={-w * 0.16} y={h / 2 - 30} width={w * 0.32} height={8} rx={4} fill={C.ink} opacity={0.5} />
     </g>
   );
 };
@@ -257,7 +283,8 @@ export const PriceTag: React.FC<{ text: string; s?: number; color?: string }> = 
   <g transform={`scale(${s})`}>
     <path d="M-150,-70 L120,-70 L180,0 L120,70 L-150,70 Z" fill={color} {...ink} />
     <circle cx={128} cy={0} r={12} fill={C.paper} {...ink} strokeWidth={lw(4)} />
-    <text x={-20} y={22} textAnchor="middle" fontFamily={BUBBLE} fontSize={70} fill={C.ink}>{text}</text>
+    {/* the lettering shrinks to fit inside the tag (the human's note: CLASSIC was cut off) */}
+    <text x={-20} y={0} textAnchor="middle" dominantBaseline="central" fontFamily={BUBBLE} fontSize={Math.min(70, (70 * 240) / measure(text, 70))} fill={C.ink}>{text}</text>
   </g>
 );
 

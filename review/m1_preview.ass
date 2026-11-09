@@ -79,8 +79,8 @@ Dialogue: 0,0:03:39.08,0:03:40.78,Shot,,0,0,0,,S58  Last "Default on!"
 Dialogue: 0,0:03:40.78,0:03:42.41,Shot,,0,0,0,,S59  V18 "I've got two sides."
 Dialogue: 0,0:03:42.41,0:03:44.07,Shot,,0,0,0,,S60  [click] [click]
 Dialogue: 0,0:03:44.07,0:03:47.53,Shot,,0,0,0,,S61  "…Guess one of 'em was just for show."
-Dialogue: 0,0:03:47.53,0:03:53.41,Shot,,0,0,0,,S62  "And that's how an opt-out works! Join us next week…"
-Dialogue: 0,0:03:53.41,0:03:56.68,Shot,,0,0,0,,S63  [pop-up chime] / "Who asked for that?" ("Huh." isn't sung)
+Dialogue: 0,0:03:47.53,0:03:52.15,Shot,,0,0,0,,S62  "And that's how an opt-out works! Join us next week…"
+Dialogue: 0,0:03:52.15,0:03:56.68,Shot,,0,0,0,,S63  [pop-up chime] / "Who asked for that?" ("Huh." isn't sung)
 Dialogue: 0,0:03:56.68,0:04:00.16,Shot,,0,0,0,,S64  V19 "Hey, who wrote this song, anyway?"
 Dialogue: 0,0:04:00.16,0:04:01.81,Shot,,0,0,0,,S65  "An AI did."
 Dialogue: 0,0:04:01.81,0:04:03.94,Shot,,0,0,0,,S66  "…But somebody asked it to."

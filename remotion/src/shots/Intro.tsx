@@ -4,19 +4,23 @@ import { AbsoluteFill, spring } from "remotion";
 import { PaperDefs, Wash } from "../film/Paper";
 import { AnswerBox, Chalkboard, Links, MiniRocker, SearchBox, Stool } from "../components/props";
 import { Pop, Wall } from "../components/kit";
-import { Bookshelf, ChalkDoodles, ChalkTray, Clock, Floorboards, Globe, Grain, Lamp, Outlet, Pennant, Picture, Plant, Rug, Sunburst, Wallpaper, Window, breath, sway } from "../components/sets";
+import { Bookshelf, ChalkDoodles, ChalkTray, Clock, Floorboards, Globe, Grain, Outlet, Pennant, Picture, Plant, Radiator, Rug, Sharpener, Sunburst, TableLamp, WallCalendar, Wallpaper, Wastebasket, Window, breath, sway } from "../components/sets";
 import { Narrator } from "../rigs/Narrator";
 import { Switch } from "../rigs/Switch";
 import { BUBBLE, SANS } from "../theme/fonts";
-import { C, H, W, lw } from "../theme/palette";
+import { C, H, PEN, W, lw } from "../theme/palette";
 import { FPS, mouthAt, wordAt } from "../timing";
 import { Bg, ShotC, blink, bump, ez } from "./common";
 
-// S00: "A cartoon for grown-ups about tech settings." Plain sans, warm ink, no characters: a label, not a title
+// S00: "A cartoon for grown-ups about tech settings." Plain sans, warm ink, no characters: a label, not a title;
+// "(Mostly) AI-generated satire." under it (the human's note, 2026-11-09)
 export const S00: ShotC = () => (
   <Bg id="s00" seed={1}>
-    <text x={W / 2} y={H / 2 + 14} textAnchor="middle" fontFamily={SANS} fontWeight={400} fontSize={56} fill={C.ink}>
+    <text x={W / 2} y={H / 2 - 16} textAnchor="middle" fontFamily={SANS} fontWeight={400} fontSize={56} fill={C.ink}>
       A cartoon for grown-ups about tech settings.
+    </text>
+    <text x={W / 2} y={H / 2 + 62} textAnchor="middle" fontFamily={SANS} fontWeight={400} fontSize={40} fill={C.inkSoft}>
+      (Mostly) AI-generated satire.
     </text>
   </Bg>
 );
@@ -79,11 +83,23 @@ export const NarratorSet: React.FC<{ g: number; board: string[]; arm?: "open" | 
     {board.length < 3 && <ChalkDoodles x={560} y={420} />}
     <g transform="translate(1262, 54) scale(0.8)"><Pennant text="CIVICS" color={C.red} /></g>
     <g transform="translate(1180, 150)"><Clock t={g / FPS + 33} r={64} /></g>
+    {/* an alphabet strip over the board, a calendar and a pencil sharpener beside it, a radiator under the window
+        (the human's note: the classroom needs more detail) */}
+    {"AaBbCcDdEeFfGgHhIi".match(/../g)!.map((t, i) => (
+      <g key={t} transform={`translate(${200 + i * 100}, 46) rotate(${(i % 3) - 1})`}>
+        <rect x={-42} y={-28} width={84} height={56} rx={6} fill={[C.cream, C.mustard, C.teal, C.orange][i % 4]} stroke={C.ink} strokeWidth={lw(3)} />
+        <text y={14} textAnchor="middle" fontFamily={BUBBLE} fontSize={34} fill={C.ink}>{t}</text>
+      </g>
+    ))}
+    <g transform="translate(1130, 380) rotate(2)"><WallCalendar /></g>
+    <g transform="translate(1120, 590)"><Sharpener /></g>
     <g transform="translate(1720, 330)"><Window w={300} h={380} /></g>
+    <g transform="translate(1720, 600)"><Radiator w={300} h={150} /></g>
     <g transform="translate(250, 1000)"><Bookshelf w={300} shelves={2} seed={3} /></g>
     <g transform="translate(330, 650) scale(0.6)"><Globe spin={g * 0.3} /></g>
     <g transform="translate(1810, 870)"><Plant sway={Math.sin(g / 50)} s={1.1} /></g>
     <g transform={`translate(${x}, 1010)`}><Rug w={760} /></g>
+    <g transform="translate(900, 1000)"><Wastebasket /></g>
     <g transform={`translate(${x}, ${600 - (breath(g) - 1) * 300}) scale(0.95, ${0.95 * breath(g)}) rotate(${sway(g) * 0.6})`}>
       <Narrator mouth={mouthAt(g, "narrator")} armR={arm} armL="down" head={head} blink={blink(g)} brows={mouthAt(g, "narrator") === "D" ? 0.6 : 0} />
     </g>
@@ -120,7 +136,7 @@ const LivingWall: React.FC<{ g: number }> = ({ g }) => (
     <g transform="translate(980, 600)">
       <rect x={-160} y={60} width={320} height={30} fill={C.cardigan} stroke={C.ink} strokeWidth={lw(6)} />
       {[-130, 130].map((lx) => <line key={lx} x1={lx} y1={90} x2={lx} y2={240} stroke={C.ink} strokeWidth={lw(10)} />)}
-      <g transform="translate(-40, -140)"><Lamp /></g>
+      <g transform="translate(-40, 60)"><TableLamp s={0.9} /></g>
       <g transform="translate(90, 30) scale(0.45)"><Plant sway={Math.sin(g / 60)} /></g>
     </g>
     <g transform="translate(1560, 380)"><Picture kind="flowers" w={240} h={300} /></g>
@@ -179,8 +195,9 @@ export const S04: ShotC = ({ f, g }) => {
   );
 };
 
-// the study desk for verse 1: diamond wallpaper on teal, a pinboard, a desk lamp, a wood-grain desktop with a
-// typewriter-style keyboard, a mug, a notepad and pencils
+// the study desk for verse 1: diamond wallpaper on teal, a pinboard, a table lamp standing on the desk, a wood-grain
+// desktop with a typewriter-style keyboard (three centred, staggered rows of lettered round keys on a frame, and a
+// space bar), a mug, a notepad and pencils
 const Study: React.FC<{ g: number; children: React.ReactNode; keys?: number }> = ({ g, children, keys = -1 }) => (
   <Bg id="study" seed={5} base={C.teal}>
     <Wallpaper id="study" kind="diamond" a={C.cream} b={C.mustard} opacity={0.22} />
@@ -194,18 +211,27 @@ const Study: React.FC<{ g: number; children: React.ReactNode; keys?: number }> =
         </g>
       ))}
     </g>
-    <g transform="translate(240, 540)"><Lamp /></g>
     {/* the desktop */}
     <rect x={-20} y={760} width={W + 40} height={340} fill="#a8703e" stroke={C.ink} strokeWidth={lw(8)} />
     <Grain x={0} y={770} w={W} h={280} n={5} seed={1} />
     {Array.from({ length: 7 }, (_, i) => <path key={i} d={`M-20,${800 + i * 42} q${400 + i * 30},${-14 + (i % 2) * 28} ${960},0 t${980},0`} stroke={C.cardiganShade} strokeWidth={3} fill="none" opacity={0.5} />)}
-    {/* keyboard: three rows of round keys; the one being typed dips */}
+    <g transform="translate(200, 800)"><TableLamp /></g>
+    {/* keyboard: three centred rows of round typewriter keys (10, 9, 7), each row half a key right of the one above;
+        the key being typed dips and lights; a space bar along the front */}
     <g transform="translate(960, 900)">
-      <rect x={-460} y={-80} width={920} height={170} rx={30} fill={C.cardigan} stroke={C.ink} strokeWidth={lw(7)} />
-      {[0, 1, 2].map((r) => Array.from({ length: 11 - r }, (_, i) => {
-        const k = r * 11 + i, down = k === keys;
-        return <circle key={k} cx={-400 + r * 30 + i * 80} cy={-38 + r * 50 + (down ? 5 : 0)} r={26} fill={down ? C.mustard : C.cream} stroke={C.ink} strokeWidth={lw(4)} />;
+      <path d="M-470,-96 L470,-96 L500,104 L-500,104 Z" fill={C.cardigan} stroke={C.ink} strokeWidth={lw(7)} strokeLinejoin="round" />
+      <path d="M-450,-80 L450,-80" {...PEN} opacity={0.5} />
+      {KEYROWS.map((row, r) => row.split("").map((ch, i) => {
+        const k = KEYROWS.slice(0, r).reduce((a, x) => a + x.length, 0) + i, down = k === keys;
+        const cx = (i - (row.length - 1) / 2) * 84 + r * 21, cy = -52 + r * 52 + (down ? 5 : 0);
+        return <g key={k} transform={`translate(${cx}, ${cy})`}>
+          <rect x={-4} y={0} width={8} height={20} fill={C.ink} opacity={0.5} />
+          <circle r={27} fill={down ? C.mustard : C.cream} stroke={C.ink} strokeWidth={lw(4)} />
+          <circle r={20} fill="none" stroke={C.creamShade} strokeWidth={3} />
+          <text y={9} textAnchor="middle" fontFamily={SANS} fontWeight={600} fontSize={24} fill={C.ink}>{ch}</text>
+        </g>;
       }))}
+      <rect x={-250} y={78} width={500} height={22} rx={11} fill={C.cream} stroke={C.ink} strokeWidth={lw(4)} />
     </g>
     <g transform="translate(1560, 820)">
       <path d="M-60,-90 L60,-90 L50,40 L-50,40 Z" fill={C.red} stroke={C.ink} strokeWidth={lw(6)} />
@@ -221,21 +247,27 @@ const Study: React.FC<{ g: number; children: React.ReactNode; keys?: number }> =
   </Bg>
 );
 
+const KEYROWS = ["QWERTYUIOP", "ASDFGHJKL", "ZXCVBNM"];
+// the key that types letter `ch` (its index in KEYROWS read in order), or -1
+const keyOf = (ch: string) => KEYROWS.join("").indexOf(ch.toUpperCase());
+
 // S05: "You typed a little question…": a big generic search box; letters type themselves, a key dips with each
 export const S05: ShotC = ({ f, g, len }) => {
   const q = "why is there a robot in my search";
   const n = Math.min(q.length, Math.floor((f / (len * 0.8)) * q.length));
   return (
-    <Study g={g} keys={n < q.length ? (n * 7) % 30 : -1}>
+    <Study g={g} keys={n > 0 && n < q.length && f % 6 < 4 ? keyOf(q[n - 1]) : -1}>
       <g transform="translate(960, 440)"><SearchBox text={q.slice(0, n)} caret={f % 20 < 10} /></g>
       <text x={960} y={330} textAnchor="middle" fontFamily={SANS} fontWeight={600} fontSize={40} fill={C.cream} opacity={0.85}>Search</text>
     </Study>
   );
 };
 
-// the links page under the search box: titles (teal bars), grey snippet lines and a small round icon per result
-const LinkPage: React.FC<{ squash: number }> = ({ squash }) => (
-  <g transform={`scale(1, ${1 - squash * 0.72})`}>
+// the links page under the search box: titles (teal bars), grey snippet lines and a small round icon per result.
+// It never squashes (the human's note: a cutout page doesn't deform): when the answer box lands it is shoved down,
+// and slides behind the desk's edge, which clips it
+const LinkPage: React.FC = () => (
+  <g>
     <rect x={-520} y={-40} width={1040} height={430} rx={16} fill={C.white} stroke={C.ink} strokeWidth={lw(6)} />
     {Array.from({ length: 4 }, (_, i) => (
       <g key={i} transform={`translate(-470, ${i * 95})`}>
@@ -247,42 +279,56 @@ const LinkPage: React.FC<{ squash: number }> = ({ squash }) => (
     ))}
   </g>
 );
+// the search page as S06 leaves it and S07 finds it: search box at the top, links pushed `push` px down (clipped at
+// the desk), the answer box sitting on them
+const PUSHED = 210, BOX = { x: 960, y: 420 };
+const SearchPage: React.FC<{ push: number; children?: React.ReactNode }> = ({ push, children }) => (
+  <g>
+    <defs><clipPath id="above-desk"><rect x={0} y={0} width={W} height={762} /></clipPath></defs>
+    <g transform="translate(960, 150)"><SearchBox text="why is there a robot in my search" caret={false} /></g>
+    <g clipPath="url(#above-desk)"><g transform={`translate(960, ${330 + push})`}><LinkPage /></g></g>
+    {children}
+  </g>
+);
 
-// S06: "And an answer hopped on top of it…": an answer box with legs hops onto the links and sits on them, squashing
-// them flat; a dust puff and squish marks where it lands
+// S06: "And an answer hopped on top of it…": an answer box with legs hops in from the left and thumps down on the top
+// of the links, shoving the whole page down behind the desk; a dust puff where it lands
 export const S06: ShotC = ({ f, g, len }) => {
   const land = len * 0.45;
   const p = ez(f, 0, land);
-  const y = 300 + p * 150 - Math.sin(p * Math.PI) * 120; // in from the left, a low hop, landing on the first links
-  const sq = Math.min(1, Math.max(0, (f - land) / 4)) * (1 - bump(f, land + 8, 10) * 0.3);
+  const x = BOX.x - 700 + p * 700;
+  const y = BOX.y - 150 + p * 150 - Math.sin(p * Math.PI) * 120; // a low hop, landing on the first links
+  const push = PUSHED * ez(f, land, land + 5) + bump(f, land + 5, 4) * 18; // the shove, with a little overshoot
   const puff = f > land ? ez(f, land, land + 14) : 0;
   return (
     <Study g={g}>
-      <g transform="translate(960, 150)"><SearchBox text="why is there a robot in my search" caret={false} /></g>
-      <g transform={`translate(960, ${330 + sq * 40})`}><LinkPage squash={sq} /></g>
-      {puff > 0 && puff < 1 && [-1, 1].map((k) => [0, 1, 2].map((j) => (
-        <circle key={`${k}${j}`} cx={960 + k * (280 + puff * 140 + j * 50)} cy={540 - j * 26 - puff * 30 - 20} r={(30 - j * 6) * (1 - puff * 0.6)} fill={C.cream} stroke={C.ink} strokeWidth={lw(3)} opacity={1 - puff} />
-      )))}
-      {f < land && <g opacity={0.6}>{[0, 1, 2].map((k) => <line key={k} x1={960 - 700 + p * 700 - 300 - k * 30} y1={y - 40 + k * 30} x2={960 - 700 + p * 700 - 400 - k * 30} y2={y - 20 + k * 30} stroke={C.ink} strokeWidth={lw(5)} strokeLinecap="round" />)}</g>}
-      <g transform={`translate(${960 - 700 + p * 700}, ${y})`}>
-        <AnswerBox legs={f < land ? 1 : 0.3} squash={bump(f, land, 5)} mouth={f > land + 10 ? (f % 12 < 6 ? "D" : "C") : "X"} />
-      </g>
+      <SearchPage push={push}>
+        {puff > 0 && puff < 1 && [-1, 1].map((k) => [0, 1, 2].map((j) => (
+          <circle key={`${k}${j}`} cx={960 + k * (280 + puff * 140 + j * 50)} cy={BOX.y + 120 - j * 26 - puff * 30} r={(30 - j * 6) * (1 - puff * 0.6)} fill={C.cream} stroke={C.ink} strokeWidth={lw(3)} opacity={1 - puff} />
+        )))}
+        {f < land && <g opacity={0.6}>{[0, 1, 2].map((k) => <line key={k} x1={x - 300 - k * 30} y1={y - 40 + k * 30} x2={x - 400 - k * 30} y2={y - 20 + k * 30} stroke={C.ink} strokeWidth={lw(5)} strokeLinecap="round" />)}</g>}
+        <g transform={`translate(${x}, ${y})`}>
+          <AnswerBox legs={f < land ? 1 : 0.3} mouth={f > land + 10 ? (f % 12 < 6 ? "D" : "C") : "X"} />
+        </g>
+      </SearchPage>
     </Study>
   );
 };
 
-// S07: V02 "That's neat, but what if I would rather read the page myself?": Switch lifts a corner of the answer box
-// and peeks at the squashed links underneath; a sweat drop on the strain
+// S07: V02 "Yes, but can I please read the page myself?": the same page as S06 ends; Switch walks in from the right,
+// lifts the answer box's corner and peeks at the links underneath; a sweat drop on the strain
 export const S07: ShotC = ({ f, g }) => {
-  const lift = ez(f, 8, 26);
+  const walk = ez(f, 0, 10);
+  const lift = ez(f, 12, 30);
   return (
     <Study g={g}>
-      <g transform="translate(960, 490)"><LinkPage squash={0.72} /></g>
-      <g transform={`translate(960, ${520 - lift * 30}) rotate(${-lift * 9}, 260, 100)`}><AnswerBox legs={0.3} /></g>
-      <g transform={`translate(1390, 640) scale(${0.62 * breath(g, 3)})`}>
-        <Switch pose="curious" mouth={mouthAt(g, "switch")} look={[-0.9, 0.3]} armL={110 + lift * 30} blink={blink(g, 1)} />
-        {lift > 0.6 && <path d="M120,-200 q14,24 0,34 q-14,-10 0,-34 Z" fill={C.white} stroke={C.ink} strokeWidth={lw(4)} />}
-      </g>
+      <SearchPage push={PUSHED}>
+        <g transform={`translate(${BOX.x}, ${BOX.y - lift * 30}) rotate(${-lift * 9}, 260, 100)`}><AnswerBox legs={0.3} /></g>
+        <g transform={`translate(${1390 + (1 - walk) * 300}, 640) scale(${0.62 * breath(g, 3)})`}>
+          <Switch pose="curious" mouth={mouthAt(g, "switch")} look={[-0.9, 0.3]} armL={110 + lift * 30} blink={blink(g, 1)} />
+          {lift > 0.6 && <path d="M120,-200 q14,24 0,34 q-14,-10 0,-34 Z" fill={C.white} stroke={C.ink} strokeWidth={lw(4)} />}
+        </g>
+      </SearchPage>
     </Study>
   );
 };

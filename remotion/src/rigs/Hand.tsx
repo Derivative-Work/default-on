@@ -34,18 +34,26 @@ export const Hand: React.FC<{ reach?: number; length?: number; curl?: number; pr
     <g transform={`translate(${x}, 0)`}>
       <Sleeve end={hx - 14} color={sleeve?.[0]} shade={sleeve?.[1]} />
       <g transform={`translate(${hx}, 0)`}>
-        {/* the hand: back of the hand, three curled fingers as knuckle bumps underneath */}
-        <Skin d="M0,-44 Q50,-50 88,-38 L92,-12 Q122,-14 124,4 Q126,18 110,20 Q124,24 120,36 Q114,48 98,42 Q104,56 88,58 Q70,60 60,48 Q30,56 0,46 Z" />
-        <path d="M112,6 q6,4 4,10 M104,34 q6,4 2,9" {...PEN} />
+        {/* the back of the hand, then the three curled fingers below the index, each its own finger with a knuckle
+            and a tucked tip (the human's note: no single blob for the rest of the fingers) */}
+        <Skin d="M0,-44 Q50,-50 90,-40 L96,40 Q60,58 0,46 Z" />
+        {[[-10, 98], [14, 96], [38, 90]].map(([y, x], i) => (
+          <g key={i}>
+            {/* a curled finger: the first joint folded down, its tip tucked back under toward the palm */}
+            <path d={`M70,${y} L${x - 12},${y} Q${x + 2},${y} ${x + 2},${y + 12} Q${x + 2},${y + 26} ${x - 14},${y + 26} L${x - 26},${y + 26} Q${x - 30},${y + 20} ${x - 22},${y + 17} L70,${y + 22} Z`}
+              fill={C.skin} stroke={C.ink} strokeWidth={lw(5)} strokeLinejoin="round" />
+            <path d={`M${x - 8},${y + 4} q6,8 0,14`} {...PEN} />
+          </g>
+        ))}
         {/* the extended index finger, with a nail, folding at its base */}
         <g transform={`rotate(${bend}, 90, -24)`}>
           <Skin d="M84,-38 L194,-36 Q214,-24 194,-12 L86,-12 Z" />
           <path d="M182,-35 q12,1 12,10 q-9,4 -15,0 Z" fill={C.cream} stroke={C.ink} strokeWidth={lw(3)} />
           <path d="M140,-36 q-4,12 0,24 M150,-36 q-4,12 0,24" {...PEN} />
         </g>
-        {/* the thumb, lying along the curled fingers */}
-        <Skin d="M28,2 Q70,-10 108,-4 Q118,4 106,12 Q68,16 30,18 Z" />
-        <path d="M96,-6 q8,8 2,16" {...PEN} />
+        {/* the thumb, lying along the first curled finger */}
+        <Skin d="M22,0 Q56,-8 80,-2 Q94,8 82,20 Q56,26 24,22 Z" />
+        <path d="M72,2 q8,7 2,15" {...PEN} />
         <path d="M18,-24 q24,8 46,0" {...PEN} opacity={0.6} />
       </g>
     </g>
@@ -71,7 +79,8 @@ export const PencilHand: React.FC<{ angle?: number }> = ({ angle = 50 }) => (
     {/* the grip: index finger on top of the pencil, thumb under it, the other fingers curled below */}
     <g transform="translate(150, 0)">
       <Skin d="M70,-20 Q120,-60 200,-44 Q250,-30 250,10 Q250,60 200,74 Q140,86 96,62 Q70,48 60,22 Z" />
-      <path d="M150,58 q8,8 4,16 M180,52 q8,8 4,16 M206,40 q8,8 4,14" {...PEN} />
+      {/* the three curled fingers along the fist's front, separate knuckles */}
+      {[[118, 56], [152, 62], [186, 58]].map(([x, y], i) => <rect key={i} x={x} y={y} width={36} height={30} rx={14} fill={C.skin} stroke={C.ink} strokeWidth={lw(5)} />)}
       <Skin d="M0,-26 Q50,-34 110,-30 Q130,-22 116,-12 L10,-12 Q-6,-18 0,-26 Z" />
       <path d="M2,-24 q10,-2 12,6 q-8,4 -12,0 Z" fill={C.cream} stroke={C.ink} strokeWidth={lw(3)} />
       <path d="M60,-30 q-3,9 0,18" {...PEN} />

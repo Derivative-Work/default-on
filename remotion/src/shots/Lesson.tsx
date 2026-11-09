@@ -3,7 +3,7 @@
 import React from "react";
 import { Wash } from "../film/Paper";
 import { Caption, Chalkboard, Door, Envelope, Person, Kid, Slate, TV, Tile } from "../components/props";
-import { Floorboards, Grain, Lamp, Picture, Plant, Rug, Window } from "../components/sets";
+import { Floorboards, FloorLamp, Grain, Picture, Plant, Rug, Window } from "../components/sets";
 import { Narrator } from "../rigs/Narrator";
 import { Hand } from "../rigs/Hand";
 import { Switch } from "../rigs/Switch";
@@ -89,10 +89,25 @@ const routeAt = (u: number): [number, number] => {
   const v = u * (ROUTE.length - 1) - seg;
   return [ROUTE[seg][0] + (ROUTE[seg + 1][0] - ROUTE[seg][0]) * v, ROUTE[seg][1] + (ROUTE[seg + 1][1] - ROUTE[seg][1]) * v];
 };
+// the trail: footprints dropped every DOT px along the route walked so far, so new dots are added as he goes and the
+// old ones stay put (the human's note: dots spreading out read wrong)
+const DOT = 26;
+const trailTo = (u: number): [number, number][] => {
+  const out: [number, number][] = [];
+  const pos = u * (ROUTE.length - 1);
+  let carry = 0;
+  for (let i = 0; i < ROUTE.length - 1 && i < pos; i++) {
+    const [ax, ay] = ROUTE[i], [bx, by] = ROUTE[i + 1];
+    const len = Math.hypot(bx - ax, by - ay), upto = Math.min(1, pos - i) * len;
+    for (let d = carry; d <= upto; d += DOT) out.push([ax + ((bx - ax) * d) / len, ay + ((by - ay) * d) / len]);
+    carry = (DOT - ((upto - carry) % DOT)) % DOT;
+  }
+  return out;
+};
 export const S20: ShotC = ({ f, g, len }) => {
   const u = ez(f, 6, len - 6);
   const [kx, ky] = routeAt(u);
-  const trail = Array.from({ length: 40 }, (_, k) => routeAt((u * k) / 40));
+  const trail = trailTo(u).slice(0, -1);
   return (
     <Board word="OPT-OUT" g={g} f={f}>
       {MENUS.map(([title, link], i) => {
@@ -118,7 +133,7 @@ export const S20: ShotC = ({ f, g, len }) => {
         <path d={`M${cell(6)[0]},${cell(6)[1] + CH / 2} q-200,-180 -${2 * (CW + GX) - 40},-${CH + GY}`} />
       </g>
       {/* the trail and the kid, cookie stuck to his hand */}
-      {trail.map(([x, y], k) => k % 2 === 0 && <circle key={k} cx={x} cy={y} r={4} fill={C.white} opacity={0.6} />)}
+      {trail.map(([x, y], k) => <circle key={k} cx={x} cy={y} r={4} fill={C.white} opacity={0.6} />)}
       <g transform={`translate(${kx}, ${ky - 60}) scale(0.42)`}><Kid seed={1} look={[Math.sin(f / 9), 0]} mouth={f % 50 < 25 ? "E" : "X"} /></g>
       <circle cx={kx + 34} cy={ky - 6} r={16} fill={C.mustard} stroke={C.ink} strokeWidth={lw(3)} />
       {/* EXIT?, greyed out, its arrow pointing back to the start */}
@@ -155,9 +170,11 @@ const Tray: React.FC<{ f: number }> = ({ f }) => (
     })}
     {[0, 1, 2].map((k) => <path key={k} d={`M${-120 + k * 70},-80 q-14,-24 0,-44 q14,-20 0,-40`} fill="none" stroke={C.white} strokeWidth={5} opacity={0.4 + 0.3 * Math.sin(f / 7 + k)} />)}
     {/* the flag */}
-    <line x1={40} y1={-50} x2={40} y2={-150} stroke={C.ink} strokeWidth={4} />
-    <path d="M40,-150 L150,-130 L40,-110 Z" fill={C.red} stroke={C.ink} strokeWidth={lw(3)} />
-    <text x={48} y={-124} fontFamily={SANS} fontWeight={600} fontSize={15} fill={C.white}>CHEF'S PICK</text>
+    {/* a swallow-tailed pennant big enough to hold its words (the human's note) */}
+    <line x1={40} y1={-50} x2={40} y2={-196} stroke={C.ink} strokeWidth={5} strokeLinecap="round" />
+    <circle cx={40} cy={-198} r={6} fill={C.mustard} stroke={C.ink} strokeWidth={lw(2)} />
+    <path d={`M40,-192 L${226 + Math.sin(f / 6) * 4},${-188 + Math.sin(f / 6) * 3} L206,-161 L${226 + Math.sin(f / 6 + 1) * 4},${-134 + Math.sin(f / 6 + 1) * 3} L40,-130 Z`} fill={C.red} stroke={C.ink} strokeWidth={lw(3)} strokeLinejoin="round" />
+    <text x={52} y={-154} fontFamily={SANS} fontWeight={700} fontSize={19} fill={C.white} letterSpacing={0.5}>CHEF'S PICK</text>
     {/* milk carton and spoon */}
     <g transform="translate(240, -30)">
       <path d="M-34,-80 L34,-80 L34,40 L-34,40 Z" fill={C.white} stroke={C.ink} strokeWidth={lw(4)} />
@@ -264,12 +281,47 @@ export const S24: ShotC = ({ f, g }) => (
       </g>;
     })}
     <rect x={0} y={760} width={W} height={320} fill={C.cardigan} stroke={C.ink} strokeWidth={lw(7)} />
-    <g transform="translate(960, 640) rotate(-8)"><Switch pose="relaxed" toggle={0.5} mouth={mouthAt(g, "switch")} armL={120} /></g>
-    <g transform="translate(980, 840)">
-      {Array.from({ length: 14 }, (_, i) => <rect key={i} x={-260 + ((i * 37) % 30)} y={-i * 24} width={520} height={26} fill={C.white} stroke={C.ink} strokeWidth={lw(4)} transform={`rotate(${((i * 13) % 7) - 3})`} />)}
-    </g>
+    <Grain x={0} y={770} w={W} h={300} n={5} seed={24} />
+    {/* Switch behind the stack, peering over it */}
+    <g transform="translate(960, 470) rotate(-4)"><Switch pose="relaxed" toggle={0.5} mouth={mouthAt(g, "switch")} armL={150} armR={150} look={[0, 0.5]} /></g>
+    <g transform="translate(960, 880)"><TestStack h={330} /></g>
   </Bg>
 );
+
+// a real stack of test papers on the desk, in front of Switch (the human's note): a squared-up block seen a little
+// from above: the top sheet's face ("TEST", name and score lines, numbered questions), the front edge made of many
+// page edges with a few sheets sticking out, the shaded side, a big binder clip, a contact shadow
+const TestStack: React.FC<{ h: number }> = ({ h }) => {
+  const w = 560, dx = 50, dy = 46; // the top face's depth
+  return (
+    <g>
+      <ellipse cx={30} cy={8} rx={340} ry={24} fill={C.ink} opacity={0.25} />
+      {/* the side and the front */}
+      <path d={`M${w / 2},0 L${w / 2 + dx},${-dy} L${w / 2 + dx},${-h - dy} L${w / 2},${-h} Z`} fill={C.creamShade} stroke={C.ink} strokeWidth={lw(5)} strokeLinejoin="round" />
+      <rect x={-w / 2} y={-h} width={w} height={h} fill={C.white} stroke={C.ink} strokeWidth={lw(5)} />
+      {Array.from({ length: Math.floor(h / 7) }, (_, i) => {
+        const y = -h + 6 + i * 7, j = ((i * 37) % 11) - 5;
+        return <line key={i} x1={-w / 2 + 4 + Math.max(0, j)} y1={y} x2={w / 2 - 4 + Math.min(0, j)} y2={y} stroke={C.inkSoft} strokeWidth={1.4} opacity={0.45} />;
+      })}
+      {[[0.22, -14], [0.47, 12], [0.71, -9], [0.9, 16]].map(([k, o], i) => (
+        <rect key={i} x={-w / 2 + (o < 0 ? o : 0)} y={-h * (1 - (k as number))} width={w + Math.abs(o as number)} height={5} fill={C.white} stroke={C.ink} strokeWidth={lw(2.5)} />
+      ))}
+      {/* the top sheet, in perspective */}
+      <path d={`M${-w / 2},${-h} L${w / 2},${-h} L${w / 2 + dx},${-h - dy} L${-w / 2 + dx},${-h - dy} Z`} fill={C.white} stroke={C.ink} strokeWidth={lw(5)} strokeLinejoin="round" />
+      <g transform={`translate(${-w / 2 + dx * 0.5 + 60}, ${-h - dy * 0.5 + 4}) scale(1, 0.5) skewX(-40)`}>
+        <text x={40} y={30} fontFamily={BUBBLE} fontSize={80} fill={C.red} stroke={C.ink} strokeWidth={2} paintOrder="stroke">TEST</text>
+        <rect x={260} y={0} width={180} height={8} fill={C.inkSoft} opacity={0.6} />
+        <rect x={260} y={30} width={140} height={8} fill={C.inkSoft} opacity={0.6} />
+      </g>
+      {/* a binder clip on the front edge */}
+      <g transform={`translate(${-w / 2 + 90}, ${-h + 6})`}>
+        <path d="M-50,0 L50,0 L42,44 L-42,44 Z" fill={C.ink} />
+        <path d="M-34,0 q-6,-40 20,-46 M34,0 q6,-40 -20,-46" fill="none" stroke="#9a9a9a" strokeWidth={6} strokeLinecap="round" />
+        <path d="M-40,8 L40,8" stroke={C.white} strokeWidth={3} opacity={0.4} />
+      </g>
+    </g>
+  );
+};
 
 // the inbox screen on the study desk (S25-S26): a generic mail client, a folder column and mail rows with unread
 // dots and stars; nothing branded. `toggle` is the tiny "smart features" switch in its corner (0 off, 1 on)
@@ -412,7 +464,7 @@ export const Living: React.FC<{ id: string; night: boolean; g: number; children:
         <path d="M-70,10 q-50,0 -40,-40" fill="none" stroke={C.ink} strokeWidth={lw(8)} strokeLinecap="round" />
       </g>
     </g>
-    <g transform="translate(120, 640)" opacity={night ? 0.6 : 1}><Lamp on={!night} /></g>
+    <g transform="translate(130, 960)" opacity={night ? 0.6 : 1}><FloorLamp on={!night} h={560} /></g>
     <g transform="translate(240, 900)"><Plant sway={Math.sin(g / 50)} s={0.9} /></g>
     {/* the TV cabinet */}
     <rect x={260} y={820} width={1000} height={80} fill={C.cardiganShade} stroke={C.ink} strokeWidth={lw(6)} />

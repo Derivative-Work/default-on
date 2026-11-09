@@ -56,6 +56,7 @@ Take = his comped line(s) in the master. Room = Narrator's word before → Narra
 - **record_scratch:** [187.5, 188.15]
 - **clicks_outro:** [222.407, 222.872]
 - **popup_chime:** 233.408
+- **piano_in:** 232.154
 - **click_reveal:** 241.805
 - **last_word_end:** 243.588
 - **last_note:** 250.391
@@ -131,7 +132,7 @@ Take = his comped line(s) in the master. Room = Narrator's word before → Narra
 | S60 | Outro and reveal | [click] [click] | 222.41 | 6790 | L66 | first outro click (the human's comp has two) |
 | S61 | Outro and reveal | "…Guess one of 'em was just for show." | 224.07 | 6839 | L67 | cue words |
 | S62 | Outro and reveal | "And that's how an opt-out works! Join us next week…" | 227.53 | 6943 | L68 | cue words |
-| S63 | Outro and reveal | [pop-up chime] / "Who asked for that?" ("Huh." isn't sung) | 233.41 | 7120 | L68 | chime in the gap; "Huh." is not sung |
+| S63 | Outro and reveal | [pop-up chime] / "Who asked for that?" ("Huh." isn't sung) | 232.15 | 7082 | L68 | the piano comes in; "Huh." is not sung |
 | S64 | Outro and reveal | V19 "Hey, who wrote this song, anyway?" | 236.68 | 7218 | L70 | cue words |
 | S65 | Outro and reveal | "An AI did." | 240.16 | 7322 | L71 | cue words |
 | S66 | Outro and reveal | "…But somebody asked it to." | 241.81 | 7372 | L71 | the click between "An AI did." and "...But" |

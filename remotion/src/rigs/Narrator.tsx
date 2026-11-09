@@ -7,6 +7,7 @@
 import React from "react";
 import { C, PEN, lw } from "../theme/palette";
 import { Mouth, MouthShape } from "./Mouth";
+import { Hand4 } from "./Hand4";
 
 const pen = PEN;
 
@@ -49,10 +50,7 @@ const Arm: React.FC<{ side: -1 | 1; pose: ArmPose }> = ({ side, pose }) => {
       <g transform={`translate(${hx}, ${hy}) rotate(${(-b * 180) / Math.PI})`}>
         <rect x={-30} y={-6} width={60} height={20} rx={8} fill={C.cardiganShade} stroke={C.ink} strokeWidth={lw(5)} />
         {[-18, -6, 6, 18].map((x) => <line key={x} x1={x} y1={-4} x2={x} y2={12} {...pen} />)}
-        <path d="M-12,38 q6,4 12,0 M2,46 q6,4 12,0" {...pen} />
-        <path d="M-24,12 Q-30,52 -6,58 L18,58 Q32,40 24,12 Z" fill={C.skin} stroke={C.ink} strokeWidth={lw(5)} strokeLinejoin="round" />
-        {pose === "point" && <path d="M-4,52 L-6,92" stroke={C.ink} strokeWidth={22} strokeLinecap="round" />}
-        {pose === "point" && <path d="M-4,52 L-6,92" stroke={C.skin} strokeWidth={13} strokeLinecap="round" />}
+        <g transform="translate(0, 10)"><Hand4 pose={pose === "point" ? "point" : pose === "open" || pose === "pull" ? "open" : "rest"} side={side === 1 ? -1 : 1} s={0.78} /></g>
       </g>
     </g>
   );
