@@ -132,3 +132,12 @@ Every human action: timestamp, what, why, and which rule allows it. The brief al
   - the crowd booing and the record scratch are from Pixabay (`assets/LICENSES.md`).
 - **Comp:** every Switch line V01–V19 and V21, comped by the human; one entry per line is in `log/switch_takes.md`. Take numbers and processing were not supplied.
 - **Rule:** H3 (final mix and recordings supplied, M1 gate: "I'll supply a human mix once I have the recordings"); H1 (takes chosen); Switch's voice, the declared exception. The added bar changes the locked timing for Switch's V21 only, the line the exception covers.
+
+## 2026-11-09T17:38 — Guardian consent for Switch's voice — H3
+
+- **Consent (verbatim, as the human gave it):**
+
+  > I, Nurşen Öğütveren, mother of İsmet Öğütveren-Armea, hereby provide consent for his recordings and for his likeness to be used in this video.
+
+- **Rule:** H3 (the brief asks for the guardian's consent in this log).
+
