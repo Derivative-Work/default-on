@@ -126,3 +126,9 @@ Every render: timestamp, shot ID, composition, props, commit hash, output, conta
 - **Checks:** full cut 10,918 frames; sync −0.0001 s / 0.0000 s / 0.0000 s at 30 s, 150 s and 245 s; the credits music fades from 359.933 s. Vertical: 1080x1920, 832 frames (27.7 s), the title, picture and line in place, the Full video card at the end. In the render: card G reads "…with audits by Gemini and ChatGPT."
 - **Outputs:** `renders/m4/sec06_verse2.mp4`, `sec08_verse3_popquiz.mp4`, `sec11_outro.mp4`, `renders/m4/m4_full.mp4`, `renders/m4/review/m4_full_review_720p.mp4`, `deliverables/vertical.mp4`, contact sheets in `review/`. Superseded: `archive/renders/m5_cards_v1_2026-11-09/`.
 - **Sent copy:** `renders/m4/review/m4_full_review_720p_send.mp4` (CRF 29, AAC 128k, 25.4 MB), because the CRF 27 review copy (31.5 MB) is over the 30 MB upload limit.
+
+## 2026-11-09T23:12 — M5: Sec11 with the Sound card; the full cut; the school short
+
+- **Compositions:** `Sec11-Outroandreveal` from 5ced211 (the Sound card after the end card); `scripts/assemble.sh`; a sending copy at CRF 29. `VerticalSchool` from 3f123fb: `npx remotion render src/index.ts VerticalSchool ../deliverables/vertical_school.mp4 --concurrency=8 --crf=18`.
+- **Checks:** full cut 11,128 frames (6:11); sync −0.0001 s / 0.0000 s / 0.0000 s at 30 s, 150 s and 245 s; the credits music fades from 366.933 s; the Sound card in the render. School short: 1080x1920, 1,579 frames (52.6 s), −15.2 dB mean, −1.0 dB peak; its citations in the render at the foot of the frame.
+- **Outputs:** `renders/m4/sec11_outro.mp4`, `renders/m4/m4_full.mp4`, `renders/m4/review/m4_full_review_720p.mp4` and `_send.mp4` (25.6 MB), `deliverables/vertical_school.mp4` (21.9 MB). Superseded: `archive/renders/m5_cards_v2_2026-11-09/`.
