@@ -6,6 +6,7 @@ Every third-party file in the video, with its licence. Illustrations, background
 | --- | --- | --- | --- |
 | Titan One (Rodrigo Fuenzalida) | Titles, section cards, bouncing-ball lyrics | `@fontsource/titan-one` 5.3.0 (npm) | SIL Open Font License 1.1 |
 | Work Sans (Wei Huang) | Captions, fine print, labels | `@fontsource/work-sans` 5.3.0 (npm) | SIL Open Font License 1.1 |
+| Kalam (Indian Type Foundry) | Handwriting on paper in the scene (S18's margin) | `@fontsource/kalam` 5.3.0 (npm) | SIL Open Font License 1.1 |
 
 Tools that make timing data, not video assets: Rhubarb Lip Sync 1.14.0 (Daniel S. Wolf), MIT licence, used for the mouth cues (`scripts/rhubarb_visemes.py`).
 

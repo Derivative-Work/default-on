@@ -6,7 +6,7 @@ import { AnswerBox, MiniRocker, Spotlight } from "../components/props";
 import { Hand, TIP_Y } from "../rigs/Hand";
 import { PADDLE, PLATE, Switch } from "../rigs/Switch";
 import { C, H, PEN, W, lw } from "../theme/palette";
-import { BUBBLE, SANS } from "../theme/fonts";
+import { BUBBLE, HAND, SANS } from "../theme/fonts";
 import { Bookshelf, Clock, Floorboards, Grain, FloorLamp, Plant, Rug, Sunburst, Wallpaper, Window, breath } from "../components/sets";
 import { at, downbeats, line, mouthAt } from "../timing";
 import { Bg, ShotC, blink, bump, ez } from "./common";
@@ -366,34 +366,59 @@ const Pencil: React.FC = () => (
   </g>
 );
 
+// three hand-drawn stars: one stroke visiting the points of a five-point star in drawing order, each point nudged a
+// few px, the stroke running a little past where it began
+const HANDSTARS = [0, 1, 2].map((k) => {
+  const pts = [0, 2, 4, 1, 3, 0].map((j, m) => {
+    const a = (-90 + j * 72) * (Math.PI / 180), jit = (((k * 7 + m * 13) % 9) - 4) * 0.7, rad = 30 + jit;
+    return [Math.cos(a) * rad + (((k + m * 5) % 5) - 2), Math.sin(a) * rad + (((k * 3 + m) % 5) - 2)];
+  });
+  const [x0, y0] = pts[0], [x1, y1] = pts[1];
+  const end = [pts[5][0] + (x1 - x0) * 0.08, pts[5][1] + (y1 - y0) * 0.08]; // the overshoot
+  return `M${pts.slice(0, 5).map(([x, y]) => `${x.toFixed(1)},${y.toFixed(1)}`).join(" L")} L${end[0].toFixed(1)},${end[1].toFixed(1)}`;
+});
+
 // S18: the flute and scat fill: a pencil doodles little ON switches in a margin by itself, in time with the fill.
 // No hand (the human's note, 2026-11-09, round 5: "just remove that hand entirely and let the pencil animate on its
 // own"): the pencil stands on its tip at the latest doodle, wiggles as it scribbles, and hops to the next spot
 // between doodles
-export const S18: ShotC = ({ f, g }) => {
+export const S18: ShotC = ({ f, g, len }) => {
   const n = Math.min(Math.floor(f / 14), 10);
   const k = Math.max(0, n - 1);
   const px = 160 + (k % 2) * 140, py = 190 + Math.floor(k / 2) * 170;
+  const ZOOM = 1.6;
+  // follows the row being drawn, smoothly (not per doodle), keeping it about 40% down the frame
+  const rowY = Math.min(700, 190 + Math.max(0, f - 14) / 28 * 170);
+  const camY = Math.max(0, Math.min(H - H / ZOOM, rowY - 0.4 * H / ZOOM)) * ez(f, 0, Math.min(len, 20));
   const t = f % 14; // frames into the current doodle
   const hop = n > 0 && n < 10 && t < 4 ? Math.sin((t / 4) * Math.PI) * 60 : 0; // a little hop up to each new spot
   const scrib = n > 0 ? Math.sin(f * 1.3) * 10 : 0;
   const tilt = 58 + Math.sin(f * 0.9) * 6; // stands leaning right, rocking as it scribbles
   return (
     <Bg id="s18" seed={18}>
+      {/* the camera (the human's note, 2026-11-09: with the hand gone the shot needed more interest): pushed in on the
+          margin at the top left, easing down the column as the doodles fill it, so the pencil stays near frame */}
+      <g transform={`scale(${ZOOM}) translate(0, ${-camY})`}>
       {Array.from({ length: 13 }, (_, i) => <line key={i} x1={0} y1={110 + i * 76} x2={W} y2={110 + i * 76} stroke={C.teal} strokeWidth={2} opacity={0.35} />)}
       <line x1={420} y1={0} x2={420} y2={H} stroke={C.red} strokeWidth={4} opacity={0.6} />
       {[200, 540, 880].map((y) => <circle key={y} cx={60} cy={y} r={22} fill={C.paper} stroke={C.inkSoft} strokeWidth={3} />)}
       <circle cx={1500} cy={760} r={130} fill="none" stroke={C.cardigan} strokeWidth={14} opacity={0.25} />
-      <text x={520} y={260} fontFamily={SANS} fontSize={44} fill={C.inkSoft} opacity={0.7}>opt-in · opt-out · default</text>
+      <text x={520} y={262} fontFamily={HAND} fontSize={58} fill={C.inkSoft} opacity={0.8} transform="rotate(-1.5, 520, 262)">opt-in · opt-out · default</text>
       <path d="M520,320 q80,-30 160,0 t160,0" fill="none" stroke={C.inkSoft} strokeWidth={4} opacity={0.6} />
       {Array.from({ length: n }, (_, i) => (
         <g key={i} transform={`translate(${160 + (i % 2) * 140}, ${190 + Math.floor(i / 2) * 170}) rotate(${((i * 37) % 9) - 4})`}><MiniRocker on={1} s={0.9} /></g>
       ))}
-      {[[700, 520], [1100, 420], [900, 700]].map(([x, y], i) => i < n / 3 && <path key={i} d={`M${x},${y} l10,24 l26,4 l-20,16 l6,26 l-22,-14 l-22,14 l6,-26 l-20,-16 l26,-4 Z`} fill="none" stroke={C.inkSoft} strokeWidth={3} opacity={0.7} />)}
+      {/* pencil stars, drawn the way a hand draws one: a single stroke round the five points, a bit uneven, the end
+          overshooting the start (the human's note, 2026-11-09: make them look hand-drawn) */}
+      {[[700, 520, -8], [1100, 420, 12], [900, 700, 3]].map(([x, y, r], i) => i < n / 3 && (
+        <path key={i} transform={`translate(${x + 18}, ${y + 28}) rotate(${r})`} d={HANDSTARS[i]} fill="none" stroke={C.inkSoft}
+          strokeWidth={3.5} strokeLinecap="round" strokeLinejoin="round" opacity={0.75} />
+      ))}
       {/* the pencil, tip on the page at the latest doodle; a shadow under the tip, speed ticks while it hops */}
       <ellipse cx={px + 40 + scrib} cy={py + 54} rx={16 - hop * 0.1} ry={5} fill={C.ink} opacity={0.2} />
       {hop > 20 && [0, 1].map((k) => <path key={k} d={`M${px + 20 + k * 40},${py + 40 - hop} l${-8 + k * 16},14`} {...PEN} opacity={0.6} />)}
       <g transform={`translate(${px + 40 + scrib}, ${py + 50 - hop}) rotate(${-tilt})`}><Pencil /></g>
+      </g>
     </Bg>
   );
 };
