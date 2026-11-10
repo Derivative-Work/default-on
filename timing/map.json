@@ -855,11 +855,18 @@
    "what": "end card",
    "t": 355.022,
    "len_s": 8.0,
-   "interventions": 27,
+   "interventions": 28,
    "frame": 10678
+  },
+  {
+   "id": "FS",
+   "what": "sound credits",
+   "t": 363.022,
+   "len_s": 7.0,
+   "frame": 10918
   }
  ],
- "video_end_frame": 10918,
+ "video_end_frame": 11128,
  "credits_audio": {
   "file": "audio/credits/default-on-credits.wav",
   "frame": 7651,

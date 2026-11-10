@@ -240,3 +240,14 @@ Every human action: timestamp, what, why, and which rule allows it. The brief al
 - **Verbatim:** "I don't have a current M365 subscription (partially due to the events discussed in the video...) and don't plan on getting one just for this, so let's drop Copilot's audit. I will make the repo public prior to publishing. "And what did the company say" and "is there one without the robot" are his quotes as spoken."
 - **Decisions:** Copilot's audit is dropped (the brief's Inputs and the closing cards no longer mention it; the audits are Gemini's and ChatGPT's). The end card's log link stays: the human will make github.com/Derivative-Work/default-on public before publishing. Switch's V07 is "And what did the company say?" and V15 "Is there one without the robot?", as he spoke them (closes the question open since M4); the captions and any on-screen text follow.
 - **Rule:** H2 (the closing materials); H3 (Switch's lines as recorded).
+
+## 2026-11-09 — M5: cards approved; sound credits added — H2
+
+- **Verbatim:** "Cards are good. Credits need a bit more somewhere:
+  > Mix and master: the creator, with Apple Logic Pro, music-deslop, and Tuna Fish
+  > "Audience booing" sound effect: (find the pixabay link and title I sent you above)
+  > "Record scratch" sound effect: (find the pixabay link and title I sent you above)
+  > Door and switch sound effects: recorded by the creator and child
+  (music-deslop being the postfilter run on the Suno outputs, and Tuna Fish being a harmonizer I vibe-coded and used here as an octave shifter for my singing to add an extra voice to the choir) hm, now that it's typed out it seems a bit much for the credits screen..."
+- **Decisions:** the fact cards and card lengths are approved. The four lines go on a second credits card ("Sound") after the end card rather than crowding it; the Pixabay titles and links are the ones the human gave on 2026-11-08 ("people crowd shouting", pixabay.com/sound-effects/people-crowd-shouting-6325; "film special effects record scratch", pixabay.com/sound-effects/film-special-effects-record-scratch-108233; `assets/LICENSES.md`).
+- **Rule:** H2 (the closing materials).

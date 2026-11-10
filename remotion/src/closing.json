@@ -1,12 +1,18 @@
 {
-  "about": "The closing cards (brief, End card and fact cards; M5). Card G and the fact rows are copied word for word from the Default On song doc (https://claude.ai/artifact/CZ4NPoVgNhxTUwRisQ9JBP, rev 45): card G from its 'Who wrote this?' draft, the rows from its fact card table, in table order. The disclosure is the human's wording (brief, 2026-11-09). The end card follows the brief's End card line; `interventions` is filled in by scripts/timing_map.py from log/human_interventions.md. Each card's length comes from its word count (scripts/timing_map.py).",
+  "about": "The closing cards (brief, End card and fact cards; M5). Card G and the fact rows are copied word for word from the Default On song doc (https://claude.ai/artifact/CZ4NPoVgNhxTUwRisQ9JBP, rev 45): card G from its 'Who wrote this?' draft, the rows from its fact card table, in table order. The disclosure is the human's wording (brief, 2026-11-09). The end card follows the brief's End card line, and a second credits card (Sound) carries the human's sound credits (2026-11-09); `interventions` is filled in by scripts/timing_map.py from log/human_interventions.md. Each card's length comes from its word count (scripts/timing_map.py).",
   "G": {
     "id": "FG",
     "heading": "Who wrote this?",
     "body": "Claude, an AI model made by Anthropic, drafted the lyrics. In August 2025, Anthropic asked existing users to accept new terms in a pop-up whose toggle for training on their chats was set to On by default. The human creator chose, edited and fact-checked everything in this video, with audits by Gemini and ChatGPT.",
     "sources": [
-      { "name": "The Verge via Communications Today", "url": "https://www.communicationstoday.co.in/anthropic-to-use-claude-chats-for-ai-training-by-sept-28/" },
-      { "name": "Tom's Guide", "url": "https://www.tomsguide.com/ai/claude/claude-ai-will-start-training-on-your-data-soon-heres-how-to-opt-out-before-the-deadline" }
+      {
+        "name": "The Verge via Communications Today",
+        "url": "https://www.communicationstoday.co.in/anthropic-to-use-claude-chats-for-ai-training-by-sept-28/"
+      },
+      {
+        "name": "Tom's Guide",
+        "url": "https://www.tomsguide.com/ai/claude/claude-ai-will-start-training-on-your-data-soon-heres-how-to-opt-out-before-the-deadline"
+      }
     ]
   },
   "D": {
@@ -19,7 +25,12 @@
       "lyric": "Answer box on top; tiny \"Web\" tab",
       "body": "Google's AI Overviews rolled out broadly from I/O 2024. Google's help page calls them a core Search feature that can't be turned off. The \"Web\" filter shows plain results.",
       "status": "Fact",
-      "sources": [{ "name": "Google Search Help", "url": "https://support.google.com/websearch/answer/14901683" }]
+      "sources": [
+        {
+          "name": "Google Search Help",
+          "url": "https://support.google.com/websearch/answer/14901683"
+        }
+      ]
     },
     {
       "id": "F2",
@@ -27,8 +38,14 @@
       "body": "Thele v. Google alleges Gemini-powered smart features were switched on by default for Gmail, Chat and Meet from about October 10, 2025. Google says it changed no settings and doesn't train Gemini on Gmail content.",
       "status": "Alleged. Dismissed for lack of standing July 7, 2026, with leave to amend; refiled August 18; Google's new motion to dismiss pending",
       "sources": [
-        { "name": "ModemGuides", "url": "https://www.modemguides.com/blogs/ai-news/turn-off-gmail-ai-smart-features" },
-        { "name": "PPC Land", "url": "https://ppc.land/google-faces-refiled-gemini-gmail-suit-after-judge-found-no-concrete-harm/" }
+        {
+          "name": "ModemGuides",
+          "url": "https://www.modemguides.com/blogs/ai-news/turn-off-gmail-ai-smart-features"
+        },
+        {
+          "name": "PPC Land",
+          "url": "https://ppc.land/google-faces-refiled-gemini-gmail-suit-after-judge-found-no-concrete-harm/"
+        }
       ]
     },
     {
@@ -36,14 +53,24 @@
       "lyric": "\"A menu, then a menu…\"",
       "body": "Opting out takes changes in two to four separate settings, depending on the guide.",
       "status": "Fact",
-      "sources": [{ "name": "ModemGuides", "url": "https://www.modemguides.com/blogs/ai-news/turn-off-gmail-ai-smart-features" }]
+      "sources": [
+        {
+          "name": "ModemGuides",
+          "url": "https://www.modemguides.com/blogs/ai-news/turn-off-gmail-ai-smart-features"
+        }
+      ]
     },
     {
       "id": "F4",
       "lyric": "TV tile you can hide but not delete",
       "body": "A December 2025 LG webOS update added a Copilot shortcut that could only be hidden. LG said it would let owners delete it in a future update.",
       "status": "Fact; promised fix unconfirmed",
-      "sources": [{ "name": "PCWorld", "url": "https://www.pcworld.com/article/3018846/lg-will-let-tv-owners-remove-microsofts-copilot-app-after-backlash.html" }]
+      "sources": [
+        {
+          "name": "PCWorld",
+          "url": "https://www.pcworld.com/article/3018846/lg-will-let-tv-owners-remove-microsofts-copilot-app-after-backlash.html"
+        }
+      ]
     },
     {
       "id": "F5",
@@ -51,8 +78,14 @@
       "body": "Meta AI in WhatsApp, Facebook and Instagram can't be disabled; the chat can be muted.",
       "status": "Fact",
       "sources": [
-        { "name": "Aaj News", "url": "https://english.aaj.tv/news/amp/330358765" },
-        { "name": "inkl", "url": "https://www.inkl.com/news/meta-s-new-optional-ai-chatbot-in-apps-like-whatsapp-is-proving-controversial-here-s-why" }
+        {
+          "name": "Aaj News",
+          "url": "https://english.aaj.tv/news/amp/330358765"
+        },
+        {
+          "name": "inkl",
+          "url": "https://www.inkl.com/news/meta-s-new-optional-ai-chatbot-in-apps-like-whatsapp-is-proving-controversial-here-s-why"
+        }
       ]
     },
     {
@@ -61,8 +94,14 @@
       "body": "iOS 18.3.2 (March 2025) turned Apple Intelligence back on for some users who had disabled it, after a splash screen with only a Continue button. Not every device was affected; John Gruber suspected a bug.",
       "status": "Fact; intent unclear",
       "sources": [
-        { "name": "MacRumors", "url": "https://www.macrumors.com/2025/03/11/ios-18-3-2-apple-intelligence-auto-on" },
-        { "name": "Daring Fireball", "url": "https://daringfireball.net/linked/2025/03/21/ios-18-updates-reenable-apple-intelligence" }
+        {
+          "name": "MacRumors",
+          "url": "https://www.macrumors.com/2025/03/11/ios-18-3-2-apple-intelligence-auto-on"
+        },
+        {
+          "name": "Daring Fireball",
+          "url": "https://daringfireball.net/linked/2025/03/21/ios-18-updates-reenable-apple-intelligence"
+        }
       ]
     },
     {
@@ -70,14 +109,24 @@
       "lyric": "Forty-five percent; cheap plan only on leaving",
       "body": "The ACCC alleges Microsoft misled about 2.7 million Australians: the Personal plan rose 45% to A$159 and the Family plan 29% to A$179 with Copilot, and the Classic plan was offered only during cancellation.",
       "status": "Alleged; case before the Federal Court",
-      "sources": [{ "name": "Arab News / Reuters", "url": "https://www.arabnews.pk/node/2620368" }]
+      "sources": [
+        {
+          "name": "Arab News / Reuters",
+          "url": "https://www.arabnews.pk/node/2620368"
+        }
+      ]
     },
     {
       "id": "F8",
       "lyric": "\"Take the robot or no search\"",
       "body": "Google's VP for education told The New York Times that students at schools rejecting its AI would lose Search.",
       "status": "Fact (Nov 3, 2026)",
-      "sources": [{ "name": "GovTech", "url": "https://www.govtech.com/education/k-12/google-reverses-decision-to-turn-off-search-for-schools-not-using-ai" }]
+      "sources": [
+        {
+          "name": "GovTech",
+          "url": "https://www.govtech.com/education/k-12/google-reverses-decision-to-turn-off-search-for-schools-not-using-ai"
+        }
+      ]
     },
     {
       "id": "F9",
@@ -85,24 +134,78 @@
       "body": "Google then said schools can turn Gemini off and keep Search, but AI Overviews and AI Mode can't be removed from Search. Changes begin in early 2027. Before the reversal, Google's VP for education, Chris Phillips, told The New York Times on Nov. 3, 2026 that Search and AI are \"deeply integrated,\" so students at schools that reject its AI \"will not have access to search.\" Context: in August 2026 Google had switched Gemini on by default for many K-12 student accounts, drawing a Senate letter.",
       "status": "Fact",
       "sources": [
-        { "name": "Windows Report", "url": "https://windowsreport.com/google-backs-down-on-school-gemini-policy-but-refuses-to-remove-ai-from-search/" },
-        { "name": "Decrypt", "url": "https://decrypt.co/382572/google-schools-reject-ai-but-lose-search" },
-        { "name": "Common Sense Media", "url": "https://institute.commonsensemedia.org/what-to-know-about-google-turning-on-gemini-for-schools" },
-        { "name": "GovTech", "url": "https://www.govtech.com/education/k-12/google-reverses-decision-to-turn-off-search-for-schools-not-using-ai" }
+        {
+          "name": "Windows Report",
+          "url": "https://windowsreport.com/google-backs-down-on-school-gemini-policy-but-refuses-to-remove-ai-from-search/"
+        },
+        {
+          "name": "Decrypt",
+          "url": "https://decrypt.co/382572/google-schools-reject-ai-but-lose-search"
+        },
+        {
+          "name": "Common Sense Media",
+          "url": "https://institute.commonsensemedia.org/what-to-know-about-google-turning-on-gemini-for-schools"
+        },
+        {
+          "name": "GovTech",
+          "url": "https://www.govtech.com/education/k-12/google-reverses-decision-to-turn-off-search-for-schools-not-using-ai"
+        }
       ]
     }
   ],
   "end": {
     "id": "FE",
     "credits": [
-      ["Lyrics", "drafted by Claude (Anthropic), audited by other labs' models"],
-      ["Music", "generated with Suno V6, take 759f181e-63fa-462f-acbe-32d6fd031117"],
-      ["Narrator", "a generated voice"],
-      ["Switch", "voiced by a child of two ex-Googlers and ex-Microsofties"],
-      ["Animation", "Claude Code"],
-      ["Fact-checking", "the human chose, edited and fact-checked every claim, with audits by Gemini and ChatGPT"]
+      [
+        "Lyrics",
+        "drafted by Claude (Anthropic), audited by other labs' models"
+      ],
+      [
+        "Music",
+        "generated with Suno V6, take 759f181e-63fa-462f-acbe-32d6fd031117"
+      ],
+      [
+        "Narrator",
+        "a generated voice"
+      ],
+      [
+        "Switch",
+        "voiced by a child of two ex-Googlers and ex-Microsofties"
+      ],
+      [
+        "Animation",
+        "Claude Code"
+      ],
+      [
+        "Fact-checking",
+        "the human chose, edited and fact-checked every claim, with audits by Gemini and ChatGPT"
+      ]
     ],
     "log_url": "github.com/Derivative-Work/default-on/blob/main/log/human_interventions.md",
     "interventions": null
+  },
+  "sound": {
+    "id": "FS",
+    "heading": "Sound",
+    "credits": [
+      [
+        "Mix and master",
+        "the creator, with Apple Logic Pro, music-deslop, and Tuna Fish"
+      ],
+      [
+        "\"Audience booing\"",
+        "\"people crowd shouting\", Pixabay",
+        "pixabay.com/sound-effects/people-crowd-shouting-6325"
+      ],
+      [
+        "\"Record scratch\"",
+        "\"film special effects record scratch\", Pixabay",
+        "pixabay.com/sound-effects/film-special-effects-record-scratch-108233"
+      ],
+      [
+        "Door and switch",
+        "recorded by the creator and child"
+      ]
+    ]
   }
 }

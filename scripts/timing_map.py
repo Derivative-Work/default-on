@@ -60,6 +60,7 @@ HOLD_S = 2.0  # S67 holds on room tone after the audio ends (brief); keep in ste
 CARD_S = 4.0  # a fact card (brief: about four seconds each)
 CARD_WPS = 4.5  # words a second a viewer reads a card at (a long card holds longer)
 END_S = 8.0  # the end card
+SOUND_S = 7.0  # the sound credits card after it
 CREDITS_FADE_S = 4.0  # the credits music fades out over the last seconds of the video
 SECTIONS = [  # brief section (one composition each): the as-sung sections it covers
     ("Intro", ["Intro"]), ("Verse 1", ["Verse 1"]), ("Pre-chorus 1", ["Pre-chorus 1"]), ("Chorus 1", ["Chorus 1"]),
@@ -263,6 +264,8 @@ def main():
     interventions = sum(1 for ln in open("log/human_interventions.md") if ln.startswith("## "))
     post.append({"id": closing["end"]["id"], "what": "end card", "t": round(t, 3), "len_s": END_S, "interventions": interventions})
     t += END_S
+    post.append({"id": closing["sound"]["id"], "what": "sound credits", "t": round(t, 3), "len_s": SOUND_S})
+    t += SOUND_S
     for p in post:
         p["frame"] = fr(p["t"])
     video_end = fr(t)

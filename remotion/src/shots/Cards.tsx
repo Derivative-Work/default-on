@@ -106,3 +106,22 @@ export const FE: ShotC = ({ f, len }) => {
     </Page>
   );
 };
+
+// FS: the sound credits, a second credits card after the end card (the human's lines, 2026-11-09; too many for one
+// screen alongside the end card's)
+export const FS: ShotC = ({ f, len }) => {
+  const c = closing.sound;
+  return (
+    <Page id="fs" f={f} len={len}>
+      <div style={{ fontSize: 52, fontWeight: 600, marginBottom: 40, textAlign: "center" }}>{c.heading}</div>
+      <div style={{ display: "grid", gridTemplateColumns: "360px 1fr", rowGap: 22, columnGap: 36, fontSize: 32, lineHeight: 1.35 }}>
+        {c.credits.map(([k, v, url]) => (
+          <React.Fragment key={k}>
+            <div style={{ fontWeight: 600, textAlign: "right", color: C.inkSoft }}>{k}</div>
+            <div>{v}{url && <div style={{ fontSize: 24, color: C.inkSoft, marginTop: 4 }}>{url}</div>}</div>
+          </React.Fragment>
+        ))}
+      </div>
+    </Page>
+  );
+};
