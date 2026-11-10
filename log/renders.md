@@ -150,3 +150,9 @@ Every render: timestamp, shot ID, composition, props, commit hash, output, conta
 - **Compositions:** `Sec05-Lesson` from the working tree of this commit (L16's words, mouths and karaoke); `scripts/assemble.sh`; the sending copy at CRF 29.
 - **Checks:** 11,128 frames; sync −0.0001 s / 0.0000 s / 0.0000 s at 30 s, 150 s and 245 s; S20's karaoke reads "And "opt-out" means nobody asked you, and you're hunting for the spot!".
 - **Outputs:** `renders/m4/sec05_lesson.mp4`, `renders/m4/m4_full.mp4`, the review copies, contact sheets. Superseded: `archive/renders/m5_karaoke_2026-11-10/`.
+
+## 2026-11-10T02:36 — M8 fixes: Sec05, Sec06, Sec09, Sec11; the full cut; the school short
+
+- **Compositions:** `Sec05-Lesson`, `Sec06-Verse2`, `Sec09-Bridge`, `Sec11-Outroandreveal` from 033268f; the other sections as before. `scripts/assemble.sh`; the sending copy at CRF 29; `VerticalSchool` → `deliverables/vertical_school.mp4`.
+- **Checks:** 11,128 → 11,323 frames (6:17.4; the longer cards); sync −0.0001 s / 0.0000 s / 0.0000 s at 30 s, 150 s and 245 s; the credits music fades from 373.433 s. In the render: S28's new fine print, the TV's "shortcut" dialog, both school captions ("on Nov. 3, 2026", "from Search."), card F9, the Sound card at the end; the school short's large captions carry the new wording.
+- **Outputs:** the four sections, `renders/m4/m4_full.mp4`, the review copies (send copy 26.4 MB), `deliverables/vertical_school.mp4` (21.9 MB), contact sheets in `review/`. Superseded: `archive/renders/m8_pre_fixes_2026-11-10/`.
