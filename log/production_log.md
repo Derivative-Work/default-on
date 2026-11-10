@@ -471,3 +471,11 @@ Append-only. One entry per action: timestamp, step (shot ID where relevant), wha
 
 - `timing/map.json` regenerated for the end card's count (38 entries in `log/human_interventions.md`); `scripts/assemble.sh` takes a section folder, an output and an optional review copy (AAC now 320 kb/s). Each section rendered with `--scale=2 --crf=16` into `renders/final/`, then `scripts/assemble.sh renders/final deliverables/default_on_3840x2160.mp4 -`. The vertical cuts stay at 1080x1920 (Shorts' size), as rendered and checked.
 - **2026-11-10T05:35:** the 4K release render done and checked (`log/renders.md`); METADATA's file line filled in; manifest refreshed.
+
+## 2026-11-10 — Draft GitHub Release v1.0 (human: "prepare the release as well … on GitHub")
+
+- **Shorts' captions:** `scripts/short_captions.py` cuts `captions/default_on_vertical.en.srt` (8 cues) and `captions/default_on_vertical_school.en.srt` (18 cues) from the main SRT over each short's window (Vertical.tsx).
+- **Release files** (scratchpad `release/`, symlinks into the repo except the credits FLAC and the 4K copy): both shorts, the three SRTs, the thumbnail, the final master as delivered (WAV: it is 32-bit float, which FLAC can't hold losslessly), the credits music as FLAC (24-bit; decoded PCM identical to the WAV).
+- **The 4K file:** the CRF 16 render is 2.67 GB, over GitHub's 2 GiB asset limit, so the release carries a two-pass x264 re-encode at 38 Mb/s (YouTube's recommended 4K bitrate) with the empty text track dropped. The CRF 16 render stays the YouTube upload file.
+- **Not in the release:** Switch's raw takes and isolated lines, the stems, the FX-only mix (it would carry the Logic horn and Pixabay sounds on their own), the S65 screen recordings, and the session transcript (private family details).
+- `gh release create v1.0 --draft --target main` ("Default On v1.0", notes in scratchpad `release_notes.md`, after Nine Hundred Acres' and Read-Only's). Eight files uploaded; GitHub's sha256 digests match the local files. The 4K copy and `SHA256SUMS.txt` follow when the encode finishes. The tag is created when the human publishes it.

@@ -140,7 +140,7 @@ Default On, opt out, AI opt out, default settings, AI features, turn off AI, AI 
 
 ## Vertical cut 1: the pre-chorus and chorus 1 (9:16, 1080×1920)
 
-**File:** `deliverables/vertical.mp4` (27.7 s). S09–S17: "I've only got two sides…", the off-screen hand flipping
+**File:** `deliverables/vertical.mp4` (captions `captions/default_on_vertical.en.srt`) (27.7 s). S09–S17: "I've only got two sides…", the off-screen hand flipping
 Switch back on, and the first chorus through his echo, with the whole picture in the middle of the frame, the sung
 line below it, and a "Full video" card. Settings as the main video: Music; not made for kids; altered or synthetic
 content: yes; Standard YouTube License. Related video: the main video. No chapters or end screen.
@@ -169,7 +169,7 @@ Default On, opt out, default settings, turn off AI, educational cartoon, 1970s c
 
 ## Vertical cut 2: the school (9:16, 1080×1920)
 
-**File:** `deliverables/vertical_school.mp4` (52.6 s). S48 to the end of the final chorus: the school says "No AI,
+**File:** `deliverables/vertical_school.mp4` (captions `captions/default_on_vertical_school.en.srt`) (52.6 s). S48 to the end of the final chorus: the school says "No AI,
 please", the giant's offer, the rewind and the redub, "deeply integrated", and the final chorus, with a "Full video"
 card. The three citations are repeated in large type at the foot of the frame for as long as each is on screen, so
 they read on a phone. Settings as the first vertical cut.
