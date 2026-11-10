@@ -31,6 +31,7 @@ const creditsGain = (g: number) => interpolate(g, [END - credits.fade_s * FPS, E
 // the brief's recording plan marks which are sung), in his teal against the Narrator's orange, over whatever shot is
 // on: shown from a few frames before his first word to a beat after his last. Above the citation caption where a shot
 // carries one (only S07 meets one), otherwise at the chorus lyrics' height. Not in the real material (S65 on).
+const SWITCH_HOT = "#7cc8ef"; // a light, bright tint of the palette's teal: it holds against the night set
 const SUNG = ["L06", "L08", "L09", "L14a", "L16", "L32", "L33", "L38a", "L66", "L67"];
 const CITED = new Set(["S05", "S06", "S07", "S08"]);
 const SwitchKaraoke: React.FC<{ g: number; shotId: string }> = ({ g, shotId }) => {
@@ -39,7 +40,7 @@ const SwitchKaraoke: React.FC<{ g: number; shotId: string }> = ({ g, shotId }) =
   const syl = l.words.map((w) => ({ t: w.w + " ", at: at(w.start) }));
   return (
     <svg width={W} height={H} viewBox={`0 0 ${W} ${H}`} style={{ position: "absolute" }}>
-      <BallLyric f={g} syl={syl} y={CITED.has(shotId) ? 880 : 1010} size={64} color={C.cream} hot={C.teal} />
+      <BallLyric f={g} syl={syl} y={CITED.has(shotId) ? 880 : 1010} size={66} color={C.cream} hot={SWITCH_HOT} bold />
     </svg>
   );
 };

@@ -269,3 +269,4 @@ Every human action: timestamp, what, why, and which rule allows it. The brief al
 
 - **Verbatim:** "yes, add that one. I also want karaoke captions on Switch's singing (not the spoken parts)." (answering the proposal of a citation on the search scene, S05–S08, the one real-product scene without one)
 - **Rule:** H2.
+- **Follow-up, verbatim:** "hm there doesn't seem to be enough contrast on these" (Switch's karaoke, from the stills).
