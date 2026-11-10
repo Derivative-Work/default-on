@@ -341,3 +341,8 @@ Append-only. One entry per action: timestamp, step (shot ID where relevant), wha
     - `scripts/timing_map.py` skips retired rows and drops S68 from the post-roll.
     - `timing/map.json` was regenerated: only S68 changed, and the video now ends at frame 7861 (was 8011).
 - **2026-11-09T10:20:** all sections re-rendered after round 4; the full cut reassembled on the final master (7,861 frames, sync verified; `log/renders.md`).
+
+## 2026-11-09 — Guardian consent merged; M4 review notes, round 5 logged
+
+- Fetched origin: 84c00d4 (guardian consent, `log/human_interventions.md` only) merged as ebcfe9c; conflict was the two appended entries, both kept.
+- Round-5 notes (3) logged verbatim in `log/human_interventions.md`.

@@ -180,6 +180,7 @@ Every human action: timestamp, what, why, and which rule allows it. The brief al
   - "put Switch's disclosure (\"Switch is voiced by a child of two ex-Googlers and ex-Microsofties. No pitch correction was used on his solo singing.\") directly on S67, shortly before the switch is flipped."
 - **Decisions:** S68 is retired (its footage is no longer wanted); its disclosure becomes a credits card right after fact card G (M5). Switch's disclosure is a caption on S67, the human's wording. Both name companies outside the fact cards at the human's direction, as the existing S26/S45/S46 captions already do; new captions for the TV, chat and school shots follow the same pattern and quote the fact card.
 - **Rule:** H2 (section notes at the M4 gate); H3 (S67 footage supplied). No section is approved yet.
+
 ## 2026-11-09T17:38 — Guardian consent for Switch's voice — H3
 
 - **Consent (verbatim, as the human gave it):**
@@ -188,3 +189,11 @@ Every human action: timestamp, what, why, and which rule allows it. The brief al
 
 - **Rule:** H3 (the brief asks for the guardian's consent in this log).
 
+## 2026-11-09 — M4 review notes, round 5 — H2
+
+- **Pulled:** the guardian consent above arrived on GitHub (84c00d4) and was merged into the local history (ebcfe9c). The human: "note that the permission has landed."
+- **Notes, verbatim:**
+  - "the search results are cutting the typewriter in half when they go down"
+  - "the test stack appears to have holes where the papers should be visible"
+  - "the hands still don't look quite right throughout. In particular, make the search agreement look like it's being held as it's pushed onscreen by having the paper occlude the fingers."
+- **Rule:** H2 (section notes at the M4 gate). No section is approved yet.
