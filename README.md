@@ -39,6 +39,9 @@ reporting.
 - [docs/song_doc_full.md](docs/song_doc_full.md): the lyrics, the style prompt, the fact card and the audits.
 - [log/production_log.md](log/production_log.md): every action the agent took, with commands and outputs.
 - [log/human_interventions.md](log/human_interventions.md): every human action, with the rule that allowed it.
+- [docs/sources.md](docs/sources.md): every fact card, word for word, with its sources.
+- [log/audits/](log/audits/README.md): the M8 fact check: ChatGPT's and Gemini's audits verbatim, and
+  [Claude's review](log/audits/03_review.md) of each flag against its source.
 - [log/switch_takes.md](log/switch_takes.md): every line of Switch's comp.
 - [log/renders.md](log/renders.md): every render, with its commit.
 - [log/prompts/suno/](log/prompts/suno/takes.md): the Suno take and its prompt.

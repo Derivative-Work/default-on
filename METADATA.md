@@ -72,33 +72,27 @@ CHAPTERS
 5:55 Credits
 
 WHAT ACTUALLY HAPPENED (the fact cards)
-• Claude (Anthropic) drafted these lyrics. In August 2025, Anthropic asked existing users to accept new terms in a pop-up whose toggle for training on their chats was set to On by default. (The Verge; Tom's Guide)
+• Claude (Anthropic) drafted these lyrics. In August 2025, Anthropic asked existing consumer users to accept new terms in a pop-up whose toggle for training on their chats was set to On by default. (The Verge; Tom's Guide)
 • Google's AI Overviews rolled out broadly from I/O 2024. Google's help page calls them a core Search feature that can't be turned off. The "Web" filter shows plain results. (Google Search Help)
 • ALLEGED: Thele v. Google alleges Gemini smart features were switched on by default for Gmail, Chat and Meet from about Oct 10, 2025. Google says it changed no settings. Dismissed July 7, 2026 with leave to amend; refiled; a new motion to dismiss is pending. (ModemGuides; PPC Land)
-• Opting out takes changes in two to four separate settings, depending on the guide. (ModemGuides)
-• A December 2025 LG webOS update added a Copilot shortcut that could only be hidden. LG said it would let owners delete it in a future update; that fix is unconfirmed. (PCWorld)
-• Meta AI in WhatsApp, Facebook and Instagram can't be disabled; the chat can be muted. (Aaj News; inkl)
+• Turning off Gmail's smart features takes two separate settings, with three switches between them. (ModemGuides)
+• A December 2025 LG webOS update added a Copilot shortcut that could only be hidden. LG said it would let owners delete it in a future update (unconfirmed). Microsoft says Copilot leaves LG and Samsung TVs on Dec 1, 2026. (PCWorld; Microsoft)
+• Meta AI in WhatsApp, Facebook and Instagram can't be disabled; the chat can be muted. (Aaj News; Euronews)
 • iOS 18.3.2 (March 2025) turned Apple Intelligence back on for some users who had disabled it, after a screen with only a Continue button. Not every device; possibly a bug. (MacRumors; Daring Fireball)
-• ALLEGED: The ACCC alleges Microsoft misled about 2.7 million Australians: the Personal plan rose 45% to A$159 and the Family plan 29% to A$179 with Copilot, and the Classic plan was offered only during cancellation. The case is before the Federal Court. (Arab News / Reuters)
+• ALLEGED: The ACCC alleges Microsoft misled about 2.7 million Australians: the Personal plan rose 45% to A$159 and the Family plan 29% to A$179 with Copilot, and the Classic plan was offered only during cancellation. The case is before the Federal Court. (ACCC; Arab News / Reuters)
 • Nov 3, 2026: Google's VP for education told The New York Times that students at schools rejecting its AI would lose Search, because Search and AI are "deeply integrated." (GovTech)
-• Google then said schools can turn Gemini off and keep Search, but AI Overviews and AI Mode can't be removed from Search, from early 2027. In August 2026 Google had switched Gemini on by default for many K-12 student accounts. (Windows Report; Decrypt; Common Sense Media)
+• Google then said schools can turn Gemini off and keep Search, but AI Overviews and AI Mode can't be removed from Search, from early 2027. In August 2026 Google had switched Gemini on by default for many K-12 student accounts; in October two senators asked Google why AI is the default in schools. (Windows Report; Decrypt; Common Sense Media; Sens. Blumenthal and Hawley)
 
-SOURCES
-https://www.communicationstoday.co.in/anthropic-to-use-claude-chats-for-ai-training-by-sept-28/
-https://www.tomsguide.com/ai/claude/claude-ai-will-start-training-on-your-data-soon-heres-how-to-opt-out-before-the-deadline
+SOURCES (one per fact; every source: https://github.com/Derivative-Work/default-on/blob/main/docs/sources.md)
+https://www.anthropic.com/news/updates-to-our-consumer-terms
 https://support.google.com/websearch/answer/14901683
-https://www.modemguides.com/blogs/ai-news/turn-off-gmail-ai-smart-features
-https://ppc.land/google-faces-refiled-gemini-gmail-suit-after-judge-found-no-concrete-harm/
-https://www.pcworld.com/article/3018846/lg-will-let-tv-owners-remove-microsofts-copilot-app-after-backlash.html
-https://english.aaj.tv/news/amp/330358765
-https://www.inkl.com/news/meta-s-new-optional-ai-chatbot-in-apps-like-whatsapp-is-proving-controversial-here-s-why
+https://dockets.justia.com/docket/california/candce/5:2025cv09704/459505
+https://support.microsoft.com/en-us/microsoft-365-copilot/learning/changes-microsoft-copilot-app
+https://www.euronews.com/next/2025/05/11/metas-new-optional-ai-chatbot-in-apps-like-whatsapp-is-proving-controversial-heres-why
 https://www.macrumors.com/2025/03/11/ios-18-3-2-apple-intelligence-auto-on
-https://daringfireball.net/linked/2025/03/21/ios-18-updates-reenable-apple-intelligence
-https://www.arabnews.pk/node/2620368
+https://www.accc.gov.au/media-release/microsoft-in-court-for-allegedly-misleading-millions-of-australians-over-microsoft-365-subscriptions
 https://www.govtech.com/education/k-12/google-reverses-decision-to-turn-off-search-for-schools-not-using-ai
-https://windowsreport.com/google-backs-down-on-school-gemini-policy-but-refuses-to-remove-ai-from-search/
 https://decrypt.co/382572/google-schools-reject-ai-but-lose-search
-https://institute.commonsensemedia.org/what-to-know-about-google-turning-on-gemini-for-schools
 
 CREDITS
 Words: Claude, revised after audits by Gemini and ChatGPT
@@ -115,7 +109,7 @@ Satire. Not affiliated with or endorsed by any company named here.
 #AIgenerated #musicvideo #privacy
 ```
 
-Length: 4,952 of YouTube's 5,000 characters with a two-digit count (counted 2026-11-10). Studio's counter is the final word; if it shows the description over 5,000
+Length: 4,768 of YouTube's 5,000 characters with a two-digit count (counted 2026-11-10). Studio's counter is the final word; if it shows the description over 5,000
 characters, shorten the opening paragraph first, not the facts or their sources. Replace `[N]` with the intervention
 count.
 

@@ -98,7 +98,7 @@ export const S19: ShotC = ({ f, g }) => {
 const MENUS = [
   ["Settings", "More ›"], ["Privacy", "See all ›"], ["More…", "‹ Back"], ["Advanced", "More ›"],
   ["Personalize", "‹ Back"], ["Data & AI", "Manage ›"], ["Manage", "Settings ›"], ["Other", "Help ›"],
-  ["Help", "Privacy ›"], ["See all", "‹ Back"], ["Account", "More ›"], ["Smart features", "managed for you"],
+  ["Help", "Privacy ›"], ["See all", "‹ Back"], ["Account", "More ›"], ["Smart features", "More settings ›"],
 ];
 const MX = 190, MY = 300, CW = 250, CH = 120, GX = 70, GY = 44; // the grid on the board (inside it, EXIT? included)
 const cell = (i: number) => [MX + (i % 4) * (CW + GX), MY + Math.floor(i / 4) * (CH + GY)];
@@ -136,7 +136,7 @@ export const S20: ShotC = ({ f, g, len }) => {
     <Board word="OPT-OUT" g={g} f={f}>
       {MENUS.map(([title, link], i) => {
         const [x, y] = cell(i);
-        const managed = link === "managed for you";
+        const managed = false; // no window reads as locked (M8, 2026-11-10: "managed for you" is what work and school accounts see)
         return (
           <g key={title} transform={`translate(${x}, ${y})`}>
             <rect width={CW} height={CH} rx={10} fill={C.white} stroke={C.ink} strokeWidth={lw(4)} />
@@ -144,7 +144,7 @@ export const S20: ShotC = ({ f, g, len }) => {
             <text x={14} y={28} fontFamily={SANS} fontWeight={600} fontSize={25} fill={managed ? C.ink : C.white}>{title}</text>
             {[0, 1].map((r) => <rect key={r} x={14} y={52 + r * 22} width={CW - 90 - r * 40} height={10} rx={4} fill={C.creamShade} />)}
             {managed
-              ? <text x={14} y={108} fontFamily={SANS} fontStyle="italic" fontSize={16} fill={C.inkSoft}>This setting is managed for you</text>
+              ? <text x={14} y={108} fontFamily={SANS} fontStyle="italic" fontSize={16} fill={C.inkSoft}>more settings ›</text>
               : <text x={CW - 12} y={108} textAnchor="end" fontFamily={SANS} fontWeight={600} fontSize={19} fill={C.teal}>{link}</text>}
             {!managed && <g transform={`translate(${CW - 30}, 62)`}><rect width={22} height={22} rx={4} fill={C.avocado} stroke={C.ink} strokeWidth={lw(2.5)} /></g>}
           </g>
@@ -606,8 +606,8 @@ const HideScreen: React.FC<{ f: number; g: number; phase: 1 | 2 | 3 }> = ({ f, g
       {drag > 0.2 && <rect x={445} y={525} width={230} height={230} rx={24} fill="none" stroke={C.inkSoft} strokeWidth={4} strokeDasharray="14 10" />}
       {phase === 2 && f > 8 && (
         <g transform="translate(740, 820)">
-          <rect x={-330} y={-48} width={660} height={80} rx={14} fill={C.white} stroke={C.ink} strokeWidth={lw(4)} />
-          <text y={6} textAnchor="middle" fontFamily={SANS} fontWeight={600} fontSize={32} fill={C.ink}>Can't delete this app. Hide it instead?</text>
+          <rect x={-355} y={-48} width={710} height={80} rx={14} fill={C.white} stroke={C.ink} strokeWidth={lw(4)} />
+          <text y={6} textAnchor="middle" fontFamily={SANS} fontWeight={600} fontSize={30} fill={C.ink}>Can't delete this shortcut. Hide it instead?</text>
         </g>
       )}
       <g transform={`translate(${BX}, ${BY})`}><Bin flip={flip} lid={lid} f={f} inside={phase === 3} /></g>

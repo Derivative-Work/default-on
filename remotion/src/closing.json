@@ -1,10 +1,14 @@
 {
-  "about": "The closing cards (brief, End card and fact cards; M5). Card G and the fact rows are copied word for word from the Default On song doc (https://claude.ai/artifact/CZ4NPoVgNhxTUwRisQ9JBP, rev 45): card G from its 'Who wrote this?' draft, the rows from its fact card table, in table order. The disclosure is the human's wording (brief, 2026-11-09). The end card follows the brief's End card line, and a second credits card (Sound) carries the human's sound credits (2026-11-09); `interventions` is filled in by scripts/timing_map.py from log/human_interventions.md. Each card's length comes from its word count (scripts/timing_map.py).",
+  "about": "The closing cards (brief, End card and fact cards; M5). Card G and the fact rows are copied word for word from the Default On song doc (https://claude.ai/artifact/CZ4NPoVgNhxTUwRisQ9JBP, rev 58; the M8 fixes, 2026-11-10): card G from its 'Who wrote this?' draft, the rows from its fact card table, in table order. The disclosure is the human's wording (brief, 2026-11-09). The end card follows the brief's End card line, and a second credits card (Sound) carries the human's sound credits (2026-11-09); `interventions` is filled in by scripts/timing_map.py from log/human_interventions.md. Each card's length comes from its word count (scripts/timing_map.py).",
   "G": {
     "id": "FG",
     "heading": "Who wrote this?",
-    "body": "Claude, an AI model made by Anthropic, drafted the lyrics. In August 2025, Anthropic asked existing users to accept new terms in a pop-up whose toggle for training on their chats was set to On by default. The human creator chose, edited and fact-checked everything in this video, with audits by Gemini and ChatGPT.",
+    "body": "Claude, an AI model made by Anthropic, drafted the lyrics. In August 2025, Anthropic asked existing consumer users to accept new terms in a pop-up whose toggle for training on their chats was set to On by default. The human creator chose, edited and fact-checked everything in this video. Gemini and ChatGPT audited it; their findings and the fixes are logged.",
     "sources": [
+      {
+        "name": "Anthropic",
+        "url": "https://www.anthropic.com/news/updates-to-our-consumer-terms"
+      },
       {
         "name": "The Verge via Communications Today",
         "url": "https://www.communicationstoday.co.in/anthropic-to-use-claude-chats-for-ai-training-by-sept-28/"
@@ -29,6 +33,10 @@
         {
           "name": "Google Search Help",
           "url": "https://support.google.com/websearch/answer/14901683"
+        },
+        {
+          "name": "Google (May 14, 2024)",
+          "url": "https://blog.google/products-and-platforms/products/search/generative-ai-google-search-may-2024/"
         }
       ]
     },
@@ -45,13 +53,17 @@
         {
           "name": "PPC Land",
           "url": "https://ppc.land/google-faces-refiled-gemini-gmail-suit-after-judge-found-no-concrete-harm/"
+        },
+        {
+          "name": "Court docket, N.D. Cal. 5:25-cv-09704",
+          "url": "https://dockets.justia.com/docket/california/candce/5:2025cv09704/459505"
         }
       ]
     },
     {
       "id": "F3",
       "lyric": "\"A menu, then a menu…\"",
-      "body": "Opting out takes changes in two to four separate settings, depending on the guide.",
+      "body": "Turning off Gmail's smart features takes two separate settings, with three switches between them.",
       "status": "Fact",
       "sources": [
         {
@@ -63,12 +75,16 @@
     {
       "id": "F4",
       "lyric": "TV tile you can hide but not delete",
-      "body": "A December 2025 LG webOS update added a Copilot shortcut that could only be hidden. LG said it would let owners delete it in a future update.",
-      "status": "Fact; promised fix unconfirmed",
+      "body": "A December 2025 LG webOS update added a Copilot shortcut that could only be hidden. LG said it would let owners delete it in a future update. Microsoft says Copilot leaves LG and Samsung TVs on December 1, 2026.",
+      "status": "Fact; LG's promised fix unconfirmed",
       "sources": [
         {
           "name": "PCWorld",
           "url": "https://www.pcworld.com/article/3018846/lg-will-let-tv-owners-remove-microsofts-copilot-app-after-backlash.html"
+        },
+        {
+          "name": "Microsoft Support",
+          "url": "https://support.microsoft.com/en-us/microsoft-365-copilot/learning/changes-microsoft-copilot-app"
         }
       ]
     },
@@ -83,8 +99,8 @@
           "url": "https://english.aaj.tv/news/amp/330358765"
         },
         {
-          "name": "inkl",
-          "url": "https://www.inkl.com/news/meta-s-new-optional-ai-chatbot-in-apps-like-whatsapp-is-proving-controversial-here-s-why"
+          "name": "Euronews",
+          "url": "https://www.euronews.com/next/2025/05/11/metas-new-optional-ai-chatbot-in-apps-like-whatsapp-is-proving-controversial-heres-why"
         }
       ]
     },
@@ -111,6 +127,10 @@
       "status": "Alleged; case before the Federal Court",
       "sources": [
         {
+          "name": "ACCC",
+          "url": "https://www.accc.gov.au/media-release/microsoft-in-court-for-allegedly-misleading-millions-of-australians-over-microsoft-365-subscriptions"
+        },
+        {
           "name": "Arab News / Reuters",
           "url": "https://www.arabnews.pk/node/2620368"
         }
@@ -131,7 +151,7 @@
     {
       "id": "F9",
       "lyric": "Correction; \"deeply integrated\"",
-      "body": "Google then said schools can turn Gemini off and keep Search, but AI Overviews and AI Mode can't be removed from Search. Changes begin in early 2027. Before the reversal, Google's VP for education, Chris Phillips, told The New York Times on Nov. 3, 2026 that Search and AI are \"deeply integrated,\" so students at schools that reject its AI \"will not have access to search.\" Context: in August 2026 Google had switched Gemini on by default for many K-12 student accounts, drawing a Senate letter.",
+      "body": "Google then said schools can turn Gemini off and keep Search, but AI Overviews and AI Mode can't be removed from Search. Changes begin in early 2027. On Nov. 3, 2026, Google's VP for education, Chris Phillips, had told The New York Times that Search and AI are \"deeply integrated,\" so students at schools that reject its AI \"will not have access to search.\" Context: in August 2026 Google had switched Gemini on by default for many K-12 student accounts; in October, Senators Blumenthal and Hawley asked Google why it makes AI the default in schools.",
       "status": "Fact",
       "sources": [
         {
@@ -145,6 +165,10 @@
         {
           "name": "Common Sense Media",
           "url": "https://institute.commonsensemedia.org/what-to-know-about-google-turning-on-gemini-for-schools"
+        },
+        {
+          "name": "Senators Blumenthal and Hawley (Oct 21, 2026)",
+          "url": "https://www.blumenthal.senate.gov/imo/media/doc/letter_to_google_re_ai_tools_impacting_studentspdf.pdf"
         },
         {
           "name": "GovTech",

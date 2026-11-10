@@ -191,9 +191,9 @@
 | S50 | "And the giant said, 'We hear you!'…" | A giant pinstriped cuff (not the grey sleeve), its hand flat on the paper, slides a contract across the desk. Caption, held through S52: "Google's VP for education, to The New York Times, Nov. 3, 2026" | A |
 | S51 | "Take the robot with your search, or else there's no search there!" | The contract has two boxes, "Search + AI" and "No search" | A |
 | S52 | [record scratch, tape rewind] | The film burns from the centre, the frame jitters, and the shot rewinds at speed to S50 | A, E |
-| S53 | "Correction, boys and girls!…" ("Ahem!" isn't sung) | The Narrator redubs with mouth shapes visibly out of sync; a "CORRECTION" slate. The contract now has a third box. Caption, held through S56: "Google then said schools can turn Gemini off and keep Search, but AI Overviews and AI Mode can't be removed." | A |
+| S53 | "Correction, boys and girls!…" ("Ahem!" isn't sung) | The Narrator redubs with mouth shapes visibly out of sync; a "CORRECTION" slate. The contract now has a third box. Caption, held through S56: "Google then said schools can turn Gemini off and keep Search, but AI Overviews and AI Mode can't be removed from Search." | A |
 | S54 | V16 "And the answer box on top?" | Tilt up: the answer box is bolted to the top of the frame, unchanged through the rewind | A |
-| S55 | "…That one's 'deeply integrated.'" | The bolts tighten themselves; a small label plate reads "deeply integrated". Caption under the plate, held through S56: "Before the reversal, Google's VP for education told The New York Times that Search and AI are "deeply integrated" (Nov. 3, 2026)." (a direct quote, on the fact card's correction row) | A, E |
+| S55 | "…That one's 'deeply integrated.'" | The bolts tighten themselves; a small label plate reads "deeply integrated". Caption under the plate, held through S56: "Google's VP for education told The New York Times on Nov. 3, 2026 that Search and AI are "deeply integrated."" (a direct quote, on the fact card's correction row) | A, E |
 | S56 | V17 "What's that mean?" / "It means it stays." | Switch looks up at the Narrator; the Narrator looks away | A |
 
 ### Final chorus

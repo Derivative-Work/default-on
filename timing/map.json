@@ -777,96 +777,96 @@
    "id": "FG",
    "what": "fact card G",
    "t": 254.122,
-   "len_s": 13.5,
+   "len_s": 15.1,
    "frame": 7651
   },
   {
    "id": "FD",
    "what": "the creator's disclosure",
-   "t": 267.622,
+   "t": 269.222,
    "len_s": 8.6,
-   "frame": 8056
+   "frame": 8104
   },
   {
    "id": "F1",
    "what": "fact card: Answer box on top; tiny \"Web\" tab",
-   "t": 276.222,
+   "t": 277.822,
    "len_s": 7.9,
-   "frame": 8314
+   "frame": 8362
   },
   {
    "id": "F2",
    "what": "fact card: Inbox helper flipped on last fall",
-   "t": 284.122,
+   "t": 285.722,
    "len_s": 9.3,
-   "frame": 8551
+   "frame": 8599
   },
   {
    "id": "F3",
    "what": "fact card: \"A menu, then a menu\u2026\"",
-   "t": 293.422,
+   "t": 295.022,
    "len_s": 4.6,
-   "frame": 8830
+   "frame": 8878
   },
   {
    "id": "F4",
    "what": "fact card: TV tile you can hide but not delete",
-   "t": 298.022,
-   "len_s": 7.5,
-   "frame": 8968
+   "t": 299.622,
+   "len_s": 10.2,
+   "frame": 9016
   },
   {
    "id": "F5",
    "what": "fact card: Blue ring in the chat app; mute, not uninstall",
-   "t": 305.522,
+   "t": 309.822,
    "len_s": 4.8,
-   "frame": 9193
+   "frame": 9322
   },
   {
    "id": "F6",
    "what": "fact card: \"Continue\" with no \"No\"",
-   "t": 310.322,
+   "t": 314.622,
    "len_s": 9.3,
-   "frame": 9337
+   "frame": 9466
   },
   {
    "id": "F7",
    "what": "fact card: Forty-five percent; cheap plan only on leaving",
-   "t": 319.622,
+   "t": 323.922,
    "len_s": 9.1,
-   "frame": 9616
+   "frame": 9745
   },
   {
    "id": "F8",
    "what": "fact card: \"Take the robot or no search\"",
-   "t": 328.722,
+   "t": 333.022,
    "len_s": 5.7,
-   "frame": 9889
+   "frame": 10018
   },
   {
    "id": "F9",
    "what": "fact card: Correction; \"deeply integrated\"",
-   "t": 334.422,
-   "len_s": 20.6,
-   "frame": 10060
+   "t": 338.722,
+   "len_s": 22.8,
+   "frame": 10189
   },
   {
    "id": "FE",
    "what": "end card",
-   "t": 355.022,
+   "t": 361.522,
    "len_s": 8.0,
-   "interventions": 33,
-   "frame": 10678
+   "interventions": 37,
+   "frame": 10873
   },
   {
    "id": "FS",
    "what": "sound credits",
-   "t": 363.022,
+   "t": 369.522,
    "len_s": 7.0,
-   "frame": 10918
+   "frame": 11113
   }
  ],
- "video_end_frame": 11128,
+ "video_end_frame": 11323,
  "credits_audio": {
   "file": "audio/credits/default-on-credits.wav",
   "frame": 7651,

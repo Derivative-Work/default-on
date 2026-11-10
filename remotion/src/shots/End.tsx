@@ -246,13 +246,13 @@ export const S49: ShotC = ({ g }) => (
 // then said schools can turn Gemini off and keep Search, but AI Overviews and AI Mode can't be removed from Search.",
 // held S53-S56
 export const SCHOOLCAP = "Google's VP for education, to The New York Times, Nov. 3, 2026";
-export const CORRCAP = "Google then said schools can turn Gemini off and keep Search, but AI Overviews and AI Mode can't be removed.";
+export const CORRCAP = "Google then said schools can turn Gemini off and keep Search, but AI Overviews and AI Mode can't be removed from Search.";
 // "deeply integrated" is a direct quote (the human asked, 2026-11-09, round 6): Chris Phillips, Google's VP for
 // education, to The New York Times on Nov. 3, 2026, before the reversal (GovTech, Nov. 4, 2026; Decrypt, via Education
 // Week). It was said to justify cutting off Search, so the caption keeps it before the reversal. Proposed for the fact
 // card's correction row as a suggestion; shown from the label plate (S55) through S56
 const QUOTE_Y = H - 96 - 126; // right above the correction caption, in S55 and S56 alike
-export const QUOTECAP = "Before the reversal, Google's VP for education told The New York Times that Search and AI are \"deeply integrated\" (Nov. 3, 2026).";
+export const QUOTECAP = "Google's VP for education told The New York Times on Nov. 3, 2026 that Search and AI are \"deeply integrated.\"";
 const Giant: React.FC<{ slide: number; boxes: string[] }> = ({ slide, boxes }) => {
   // the contract and the hand move as one, so the hand is plainly what slides it (the human's note, 2026-11-09)
   const cx = 1500 - slide * 560, cy = 800;

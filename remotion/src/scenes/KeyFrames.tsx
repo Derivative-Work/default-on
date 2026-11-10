@@ -169,7 +169,7 @@ export const S28: Scene = ({ f }) => {
         {/* Switch at the threshold, looking in */}
         <g transform="translate(1660, 820) scale(0.6)"><Switch pose="curious" mouth="X" look={[-0.8, -0.3]} armL={60} /></g>
         <rect x={0} y={1010} width={W} height={46} fill={C.cream} />
-        <FinePrint f={f} y={1040} text="Smart features were turned on for your account on or about October 10. Some features may remain available." />
+        <FinePrint f={f} y={1040} text="By continuing, you agree that smart features may be on. Some features may remain available. To change this, see Settings." />
       </Paper>
     </AbsoluteFill>
   );
