@@ -113,3 +113,9 @@ Every render: timestamp, shot ID, composition, props, commit hash, output, conta
 - **Compositions:** `Sec06-Verse2` (S28's and S32's captions) and `Sec09-Bridge` (S48's windows; the redub's captions) from 6aab316; the other sections as rendered at 21:09. **Command:** `scripts/m4_section.sh` for the two; concat; the final master in one piece (`adelay=912.2|912.2,apad`, `-shortest`).
 - **Checks:** 7,771 frames; sync −0.0001 s / 0.0000 s / 0.0000 s at 30 s, 150 s and 245 s. In the render: S48's windows and fanlight; the correction caption in one place across S54–S56 and the quote's source in one place across S55–S56.
 - **Outputs:** `renders/m4/sec06_verse2.mp4`, `renders/m4/sec09_bridge.mp4`, `renders/m4/m4_full.mp4`, `renders/m4/review/m4_full_review_720p.mp4`, contact sheets in `review/`. Superseded: `archive/renders/m4_round6_2026-11-09/`.
+
+## 2026-11-09T22:08 — M5: Sec11 with the closing cards and the credits music; the full cut
+
+- **Compositions:** `Sec11-Outroandreveal` from 344fc6a's code (S59–S67, then FG, FD, F1–F9 and FE; the credits music under them); sections 1–10 as rendered for round 7. **Command:** `scripts/m4_section.sh Sec11-Outroandreveal sec11_outro`; `scripts/assemble.sh` (the master at 912.2 ms, the credits music at 255,033.3 ms with a 4 s fade from 360.133 s, summed without normalising).
+- **Checks:** 10,924 frames (6:04); sync −0.0001 s / 0.0000 s / 0.0000 s at 30 s, 150 s and 245 s; S67's 2 s hold silent, the credits music in on card G (−23.5 dB RMS at 256–260 s) and faded out by the end (−34.4 dB in the last second). In the render: card G, the disclosure, card 7 of 9 with its Alleged tag, the end card (26 interventions).
+- **Outputs:** `renders/m4/sec11_outro.mp4`, `renders/m4/m4_full.mp4`, `renders/m4/review/m4_full_review_720p.mp4`, contact sheets in `review/` (FG–FE included). Superseded: `archive/renders/m4_round7_2026-11-09/`.
