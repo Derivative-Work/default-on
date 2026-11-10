@@ -4,9 +4,8 @@ YouTube metadata for the main video and the two vertical cuts, ready to paste at
 2026-11-10); the human uploads.
 
 **Before uploading:**
-- **Still to do before release:** the M7 check (S59–S67 frame by frame, and a listen for melodic likeness to any known
-  children's TV theme), the M8 fact check of every on-screen claim by another lab's model, and the 4K render. Then fill
-  in the file names, lengths and links below.
+- **Still to do before release:** the morning-of news check of the fact cards' developing stories, the intervention
+  count below, the v1.0 GitHub release, and the YouTube links once uploaded. (M7, M8 and the 4K render are done.)
 - **The repository** goes public before the video (the human, 2026-11-09): the end card points to its log.
 - **Intervention count.** The main description gives the number logged at upload
   (`grep -c '^## ' log/human_interventions.md`). The end card gives the count when it was rendered.
@@ -25,7 +24,7 @@ YouTube metadata for the main video and the two vertical cuts, ready to paste at
 
 ## Main video (16:9)
 
-**File:** the 4K render, still to make (`deliverables/default_on_3840x2160.mp4`; 6:10.9, 11,128 frames at 30 fps).
+**File:** `deliverables/default_on_3840x2160.mp4` (6:17.4, 11,323 frames at 30 fps; H.264 CRF 16, AAC 320 kb/s; 2.7 GB).
 Upload the 4K file: YouTube gives 4K uploads a higher bitrate at every resolution, and the fine ink lines and film
 grain show it. Captions `captions/default_on.en.srt`. Thumbnail `deliverables/thumbnail.jpg`.
 

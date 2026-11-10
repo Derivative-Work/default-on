@@ -156,3 +156,9 @@ Every render: timestamp, shot ID, composition, props, commit hash, output, conta
 - **Compositions:** `Sec05-Lesson`, `Sec06-Verse2`, `Sec09-Bridge`, `Sec11-Outroandreveal` from 033268f; the other sections as before. `scripts/assemble.sh`; the sending copy at CRF 29; `VerticalSchool` → `deliverables/vertical_school.mp4`.
 - **Checks:** 11,128 → 11,323 frames (6:17.4; the longer cards); sync −0.0001 s / 0.0000 s / 0.0000 s at 30 s, 150 s and 245 s; the credits music fades from 373.433 s. In the render: S28's new fine print, the TV's "shortcut" dialog, both school captions ("on Nov. 3, 2026", "from Search."), card F9, the Sound card at the end; the school short's large captions carry the new wording.
 - **Outputs:** the four sections, `renders/m4/m4_full.mp4`, the review copies (send copy 26.4 MB), `deliverables/vertical_school.mp4` (21.9 MB), contact sheets in `review/`. Superseded: `archive/renders/m8_pre_fixes_2026-11-10/`.
+
+## 2026-11-10T05:35 — The 4K release render
+
+- **Compositions:** all eleven sections from be88348 at `--scale=2 --crf=16` into `renders/final/`; `scripts/assemble.sh renders/final deliverables/default_on_3840x2160.mp4 -`.
+- **Checks:** 3840x2160, 11,323 frames (6:17.4); sync 0.0000 s at 30 s, 150 s and 245 s; the credits music fades from 373.433 s. Spot frames: the title, the pencil page with the karaoke, the classroom, the school, card G, card F3, the Sound card. The empty text track carried over from the S65 screen recordings is in the 1080p cut too (no content).
+- **Outputs:** `renders/final/sec01.mp4`…`sec11.mp4`, `deliverables/default_on_3840x2160.mp4` (2.67 GB).

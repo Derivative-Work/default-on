@@ -470,3 +470,4 @@ Append-only. One entry per action: timestamp, step (shot ID where relevant), wha
 ## 2026-11-10 — The 4K release render (started)
 
 - `timing/map.json` regenerated for the end card's count (38 entries in `log/human_interventions.md`); `scripts/assemble.sh` takes a section folder, an output and an optional review copy (AAC now 320 kb/s). Each section rendered with `--scale=2 --crf=16` into `renders/final/`, then `scripts/assemble.sh renders/final deliverables/default_on_3840x2160.mp4 -`. The vertical cuts stay at 1080x1920 (Shorts' size), as rendered and checked.
+- **2026-11-10T05:35:** the 4K release render done and checked (`log/renders.md`); METADATA's file line filled in; manifest refreshed.
