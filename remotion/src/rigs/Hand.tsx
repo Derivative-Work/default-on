@@ -77,11 +77,12 @@ export const PencilHand: React.FC<{ angle?: number }> = ({ angle = 50 }) => (
     <rect x={60} y={-13} width={300} height={26} fill={C.mustard} stroke={C.ink} strokeWidth={lw(3)} />
     <line x1={60} y1={-4} x2={360} y2={-4} {...PEN} opacity={0.5} />
     <line x1={60} y1={5} x2={360} y2={5} {...PEN} opacity={0.5} />
-    {/* the grip: index finger on top of the pencil, thumb under it, the other fingers curled below */}
+    {/* the grip: index finger on top of the pencil, thumb under it, the other two fingers curled below */}
     <g transform="translate(150, 0)">
       <Skin d="M70,-20 Q120,-60 200,-44 Q250,-30 250,10 Q250,60 200,74 Q140,86 96,62 Q70,48 60,22 Z" />
-      {/* the three curled fingers along the fist's front, separate knuckles */}
-      {[[118, 56], [152, 62], [186, 58]].map(([x, y], i) => <rect key={i} x={x} y={y} width={36} height={30} rx={14} fill={C.skin} stroke={C.ink} strokeWidth={lw(5)} />)}
+      {/* the two curled fingers along the fist's front, separate knuckles (a thumb and three fingers in all, the
+          human's note, 2026-11-09, round 5) */}
+      {[[134, 60], [174, 60]].map(([x, y], i) => <rect key={i} x={x} y={y} width={38} height={30} rx={14} fill={C.skin} stroke={C.ink} strokeWidth={lw(5)} />)}
       <Skin d="M0,-26 Q50,-34 110,-30 Q130,-22 116,-12 L10,-12 Q-6,-18 0,-26 Z" />
       <path d="M2,-24 q10,-2 12,6 q-8,4 -12,0 Z" fill={C.cream} stroke={C.ink} strokeWidth={lw(3)} />
       <path d="M60,-30 q-3,9 0,18" {...PEN} />
