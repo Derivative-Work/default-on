@@ -65,28 +65,36 @@ export const Hand: React.FC<{ reach?: number; length?: number; curl?: number; pr
 // at `angle` degrees, pinched between thumb and index; the fist and the grey sleeve continue past the frame edge.
 export const PencilHand: React.FC<{ angle?: number }> = ({ angle = 50 }) => (
   <g transform={`rotate(${angle})`}>
-    {/* the sleeve and cuff, along the pencil's axis, well behind the grip */}
-    <g transform="translate(330, 34)">
+    {/* the sleeve and cuff, along the pencil's axis, meeting the back of the fist */}
+    <g transform="translate(284, 14)">
       <path d="M0,-62 L1400,-62 L1400,62 L0,58 Q-14,0 0,-62 Z" fill={C.sleeve} stroke={C.ink} strokeWidth={lw(8)} strokeLinejoin="round" />
       {[160, 420].map((k) => <path key={k} d={`M${k},-56 q-14,40 6,108`} {...PEN} opacity={0.7} />)}
       <rect x={-18} y={-66} width={44} height={132} rx={10} fill={C.sleeveShade} stroke={C.ink} strokeWidth={lw(7)} />
     </g>
-    {/* the pencil: graphite tip, sharpened wood, a hexagonal yellow barrel, a ferrule and an eraser */}
+    {/* the pencil: graphite tip, sharpened wood, a yellow barrel that ends inside the fist */}
     <path d="M0,0 L26,-7 L26,7 Z" fill={C.ink} />
     <path d="M26,-7 L60,-13 L60,13 L26,7 Z" fill="#e8c9a0" stroke={C.ink} strokeWidth={lw(3)} strokeLinejoin="round" />
-    <rect x={60} y={-13} width={300} height={26} fill={C.mustard} stroke={C.ink} strokeWidth={lw(3)} />
-    <line x1={60} y1={-4} x2={360} y2={-4} {...PEN} opacity={0.5} />
-    <line x1={60} y1={5} x2={360} y2={5} {...PEN} opacity={0.5} />
-    {/* the grip: index finger on top of the pencil, thumb under it, the other two fingers curled below */}
-    <g transform="translate(150, 0)">
-      <Skin d="M70,-20 Q120,-60 200,-44 Q250,-30 250,10 Q250,60 200,74 Q140,86 96,62 Q70,48 60,22 Z" />
-      {/* the two curled fingers along the fist's front, separate knuckles (a thumb and three fingers in all, the
-          human's note, 2026-11-09, round 5) */}
-      {[[134, 60], [174, 60]].map(([x, y], i) => <rect key={i} x={x} y={y} width={38} height={30} rx={14} fill={C.skin} stroke={C.ink} strokeWidth={lw(5)} />)}
-      <Skin d="M0,-26 Q50,-34 110,-30 Q130,-22 116,-12 L10,-12 Q-6,-18 0,-26 Z" />
-      <path d="M2,-24 q10,-2 12,6 q-8,4 -12,0 Z" fill={C.cream} stroke={C.ink} strokeWidth={lw(3)} />
-      <path d="M60,-30 q-3,9 0,18" {...PEN} />
-      <Skin d="M30,14 Q70,8 120,16 Q132,26 118,34 L40,32 Q22,26 30,14 Z" />
-    </g>
+    <rect x={60} y={-13} width={200} height={26} fill={C.mustard} stroke={C.ink} strokeWidth={lw(3)} />
+    <line x1={60} y1={-4} x2={260} y2={-4} {...PEN} opacity={0.5} />
+    <line x1={60} y1={5} x2={260} y2={5} {...PEN} opacity={0.5} />
+    {/* the grip (the human's note, 2026-11-09, round 5: check the pencil hand again): a compact fist behind, the
+        index finger bending forward along the top of the pencil to press near the sharpened end, the thumb pinching
+        from the other side just behind it, and the two other fingers curled under the front of the fist, toward
+        the paper (a thumb and three fingers in all). The digits are drawn before the fist so their roots are hidden
+        in it; each is an ink stroke under a skin stroke, so a bent finger keeps one clean outline */}
+    {([
+      ["M210,-30 Q150,-46 112,-30 Q88,-20 76,-15", 26], // index: knuckle, bend, fingertip on the pencil
+      ["M200,34 Q140,38 110,26 Q96,20 90,15", 28], // thumb
+    ] as [string, number][]).map(([d, w], i) => (
+      <g key={i}>
+        <path d={d} fill="none" stroke={C.ink} strokeWidth={w + lw(5) * 2} strokeLinecap="round" strokeLinejoin="round" />
+        <path d={d} fill="none" stroke={C.skin} strokeWidth={w} strokeLinecap="round" strokeLinejoin="round" />
+      </g>
+    ))}
+    <path d="M84,-24 q-9,2 -10,10 q8,2 13,-4 Z" fill={C.cream} stroke={C.ink} strokeWidth={lw(3)} />
+    <path d="M128,-46 q4,12 0,26" {...PEN} />
+    <Skin d="M176,-50 Q240,-66 286,-38 Q306,0 290,46 Q250,80 196,70 Q164,60 162,14 Q162,-30 176,-50 Z" />
+    {[[176, 50], [214, 60]].map(([x, y], i) => <rect key={i} x={x - 20} y={y - 16} width={40} height={32} rx={15} fill={C.skin} stroke={C.ink} strokeWidth={lw(5)} />)}
+    {[[176, 50], [214, 60]].map(([x, y], i) => <path key={i} d={`M${x - 8},${y + 2} q8,6 16,0`} {...PEN} opacity={0.6} />)}
   </g>
 );
