@@ -4,7 +4,7 @@ import "./theme/fonts";
 import { RigSheet } from "./compositions/RigSheet";
 import { HandSheet } from "./compositions/HandSheet";
 import { Thumbnail } from "./compositions/Thumbnail";
-import { ThumbA, ThumbB, ThumbC, ThumbC2, ThumbD, ThumbE, ThumbF } from "./compositions/ThumbCandidates";
+import { ThumbA, ThumbB, ThumbC, ThumbC2, ThumbC3, ThumbD, ThumbE, ThumbF } from "./compositions/ThumbCandidates";
 import { Vertical, VerticalSchool, VS_LEN, V_H, V_LEN, V_W } from "./compositions/Vertical";
 import { StyleBoard, BOARD } from "./compositions/StyleBoard";
 import { MotionTest, MOTION_TEST } from "./compositions/MotionTest";
@@ -20,7 +20,7 @@ export const Root: React.FC = () => (
     <Composition id="RigSheet" component={RigSheet} durationInFrames={1} fps={FPS} width={W} height={H} />
     <Composition id="HandSheet" component={HandSheet} durationInFrames={1} fps={FPS} width={W} height={H} />
     <Composition id="Thumbnail" component={Thumbnail} durationInFrames={1} fps={FPS} width={W} height={H} />
-    {([["ThumbA", ThumbA], ["ThumbB", ThumbB], ["ThumbC", ThumbC], ["ThumbC2", ThumbC2], ["ThumbD", ThumbD], ["ThumbE", ThumbE], ["ThumbF", ThumbF]] as const).map(([id, c]) => (
+    {([["ThumbA", ThumbA], ["ThumbB", ThumbB], ["ThumbC", ThumbC], ["ThumbC2", ThumbC2], ["ThumbC3", ThumbC3], ["ThumbD", ThumbD], ["ThumbE", ThumbE], ["ThumbF", ThumbF]] as const).map(([id, c]) => (
       <Composition key={id} id={id} component={c} durationInFrames={1} fps={FPS} width={W} height={H} />
     ))}
     <Composition id="Vertical" component={Vertical} durationInFrames={V_LEN} fps={FPS} width={V_W} height={V_H} />

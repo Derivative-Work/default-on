@@ -197,3 +197,25 @@ export const ThumbC2: React.FC = () => (
     </Burst>
   </Film>
 );
+
+// C3: C with "pre-selected" readable at phone size (the human's note, 2026-11-10): Switch moved right to make room,
+// the box larger, the label in the bubble letters with an ink outline
+export const ThumbC3: React.FC = () => (
+  <Film strength={1} splices={[]}>
+    <Burst id="tc3" a={C.mustard} b="#f5c95a" cx={1150}>
+      <SwitchAt x={1200} y={560} s={2.0} pose="startled" toggle={1} mouth="E" look={[-0.6, -0.3]} />
+      <g transform="translate(345, 270) rotate(-6) scale(1.15)">
+        <rect x={-110} y={-110} width={220} height={220} rx={18} fill={C.cream} stroke={C.ink} strokeWidth={lw(12)} />
+        <path d="M-70,0 L-20,60 L90,-80" fill="none" stroke={C.avocado} strokeWidth={42} strokeLinecap="round" strokeLinejoin="round" />
+      </g>
+      <Big x={350} y={540} size={84} text="PRE-SELECTED" rot={-6} />
+      <Arrow x={530} y={250} deg={195} len={290} />
+      <g transform="translate(1060, 790) rotate(-8)">
+        <rect x={-780} y={-125} width={1560} height={210} rx={14} fill={C.cream} stroke={C.red} strokeWidth={16} />
+        <rect x={-755} y={-102} width={1510} height={164} rx={8} fill="none" stroke={C.red} strokeWidth={6} />
+        <text x={0} y={42} textAnchor="middle" fontFamily={BUBBLE} fontSize={150} fill={C.red} letterSpacing={6}>YOU CHOSE THIS</text>
+      </g>
+      {[[230, 760], [1840, 640], [300, 1000], [1760, 1000], [1600, 560]].map(([x, y], i) => <circle key={i} cx={x} cy={y} r={10 + (i % 3) * 5} fill={C.red} opacity={0.8} />)}
+    </Burst>
+  </Film>
+);
