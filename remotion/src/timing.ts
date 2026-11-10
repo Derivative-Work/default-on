@@ -25,6 +25,7 @@ export const sections = map.sections;
 export const beats = map.beats.map(at);
 export const downbeats = map.downbeats.map(at);
 export const events = map.events;
+export const credits = map.credits_audio;
 export const post = map.post as { id: string; frame: number; what: string; len_s: number; interventions?: number }[];
 
 // every shot in order, with its frame range, then the post-roll (map.post, M5): S67 holds 2 s past the audio, then

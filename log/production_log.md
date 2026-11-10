@@ -393,3 +393,7 @@ Append-only. One entry per action: timestamp, step (shot ID where relevant), wha
 
 - **What:** `scripts/captions.py` writes `captions/default_on.en.srt` (82 cues) from `timing/map.json`: one cue per line on the video's clock, the Narrator's text as transcribed from the master, Switch's from the human's comp (`timing/words_switch.json`); sung lines between ♪, spoken ones bare (the song doc's [spoken] tags); Switch labelled SWITCH:; the clicks, horn, door slam, booing, record scratch, pop-up chime and the real switch going off as bracketed cues at the map's event times; at most two rows of 42 characters.
 - **Open for the human:** V07 reads "And what's the company say?" and V15 "Was there one without the robot?", as in the comp's transcript; both are still unconfirmed by ear (open since M4).
+
+## 2026-11-09 — M5: the credits music
+
+- **What:** the human's credits track (`audio/credits/default-on-credits.wav`, see `log/human_interventions.md`) plays from its first sample on fact card G's first frame (frame 7651) and fades out over the video's last 4 s (`timing/map.json` `credits_audio`). In the Remotion cut (`Cut.tsx`, for the section renders) and in the final soundtrack: `scripts/assemble.sh` now builds the full cut, the master and the credits music summed without normalising, levels as supplied. `remotion/public/credits.wav` is a hard link. `assets/LICENSES.md` and the brief (doc rev 85, `docs/brief.md`) list it; `MANIFEST.sha256` regenerated.

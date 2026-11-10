@@ -228,3 +228,9 @@ Every human action: timestamp, what, why, and which rule allows it. The brief al
 
 - **Approval, verbatim:** "this is great, keep going" (on the round-7 cut, `renders/m4/review/m4_full_review_720p.mp4`, commit ffeab5e). Taken as approval of every M4 section and the go-ahead for M5.
 - **Rule:** H2 (gate).
+
+## 2026-11-09 — Credits music supplied — H3
+
+- **What (verbatim):** "I gave you some music for the credits. It's at ~/Downloads/default-on-credits, and it came from https://suno.com/s/EF0G3Pktq2aZmhlg and I already ran the postfilter. Start it from the beginning, then fade out at the end."
+- **File:** `~/Downloads/default-on-credits.wav` (the path given had no extension), 171.76 s, 48 kHz 24-bit stereo, −16.1 LUFS integrated, −2.3 dBFS peak; sha256 9161b243…56cd6ba. Copied to `audio/credits/default-on-credits.wav`, level untouched.
+- **Rule:** H3 (a real input). Placement: from its first sample on fact card G's first frame (the credits begin with the closing cards; S67's 2 s hold on room tone stays silent), faded out over the video's last 4 s.

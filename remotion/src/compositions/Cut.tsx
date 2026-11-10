@@ -2,7 +2,7 @@
 // the mix on the map's clock. `from` offsets the composition (a section starts mid-cut). The film layer splices at
 // every section's first frame and goes to 0 from S65, where the real-world material begins (brief, Film layer).
 import React from "react";
-import { AbsoluteFill, Audio, Sequence, staticFile, useCurrentFrame } from "remotion";
+import { AbsoluteFill, Audio, Sequence, interpolate, staticFile, useCurrentFrame } from "remotion";
 import { Film } from "../film/Film";
 import * as Intro from "../shots/Intro";
 import * as Chorus from "../shots/Chorus";
@@ -11,7 +11,7 @@ import * as Quiz from "../shots/Quiz";
 import * as End from "../shots/End";
 import * as Cards from "../shots/Cards";
 import { ShotC } from "../shots/common";
-import { at, sections, shot, shots } from "../timing";
+import { END, FPS, at, credits, sections, shot, shots } from "../timing";
 
 const ALL = { ...Intro, ...Chorus, ...Lesson, ...Quiz, ...End, ...Cards } as Record<string, unknown>;
 export const SHOTS: Record<string, ShotC> = Object.fromEntries(shots.map((s) => {
@@ -23,6 +23,7 @@ export const SHOTS: Record<string, ShotC> = Object.fromEntries(shots.map((s) => 
 const SPLICES = sections.slice(1).map((s) => s.frame_start);
 const REAL = shot("S65").frame;
 const AUDIO = at(0); // the frame the audio starts on (after the pre-roll)
+const creditsGain = (g: number) => interpolate(g, [END - credits.fade_s * FPS, END], [1, 0], { extrapolateLeft: "clamp", extrapolateRight: "clamp" });
 
 export const ShotAt: React.FC<{ g: number }> = ({ g }) => {
   const s = [...shots].reverse().find((x) => g >= x.frame) ?? shots[0];
@@ -40,6 +41,10 @@ export const Cut: React.FC<{ from?: number }> = ({ from = 0 }) => {
       {from <= AUDIO
         ? <Sequence from={AUDIO - from}><Audio src={staticFile("track.wav")} /></Sequence>
         : <Audio src={staticFile("track.wav")} startFrom={from - AUDIO} />}
+      {/* the credits music (the human's): from its start on fact card G, faded out over the video's last seconds */}
+      {from <= credits.frame
+        ? <Sequence from={credits.frame - from}><Audio src={staticFile("credits.wav")} volume={(f) => creditsGain(f + credits.frame)} /></Sequence>
+        : <Audio src={staticFile("credits.wav")} startFrom={from - credits.frame} volume={(f) => creditsGain(f + from)} />}
     </AbsoluteFill>
   );
 };

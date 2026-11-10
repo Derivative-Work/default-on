@@ -855,11 +855,16 @@
    "what": "end card",
    "t": 355.222,
    "len_s": 8.0,
-   "interventions": 25,
+   "interventions": 26,
    "frame": 10684
   }
  ],
  "video_end_frame": 10924,
+ "credits_audio": {
+  "file": "audio/credits/default-on-credits.wav",
+  "frame": 7651,
+  "fade_s": 4.0
+ },
  "sections": [
   {
    "name": "Intro",
