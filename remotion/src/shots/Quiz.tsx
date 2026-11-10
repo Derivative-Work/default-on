@@ -171,7 +171,7 @@ export const S43: ShotC = ({ f, len }) => (
 );
 
 // S44: "Now your phone has got an update…": one enormous button, "Continue," and nothing else
-const ContinuePhone: React.FC<{ on?: number }> = ({ on = 0 }) => (
+export const ContinuePhone: React.FC<{ on?: number }> = ({ on = 0 }) => (
   <Phone w={360}>
     <rect x={40} y={620} width={320} height={110} rx={40} fill={C.teal} stroke={C.ink} strokeWidth={lw(5)} />
     <text x={200} y={692} textAnchor="middle" fontFamily={SANS} fontWeight={600} fontSize={40} fill={C.cream}>Continue</text>
