@@ -448,3 +448,9 @@ Append-only. One entry per action: timestamp, step (shot ID where relevant), wha
 
 - **What:** `log/prompts/other/m8_fact_audit.md`, after Nine Hundred Acres' M8 prompt: the auditor's own disclosure first (the video names Google, Microsoft, Meta, Apple, LG and Anthropic); then every on-screen claim word for word with its listed source: the song's captions, the S28 fine print and the claim-bearing lyrics (A1–A11), card G and F1–F9 as on screen with their status lines, and the labels and jokes to flag only if misleading (C); verdicts, primary sources and newer developments asked for each. For the human to paste into Gemini and/or ChatGPT; the raw replies go in `log/audits/`.
 - Also: S47's code comment quotes V15 as spoken.
+
+## 2026-11-10 — M7: S59–S67 frame by frame against the final mix
+
+- **What:** frames of `renders/m4/m4_full.mp4` (8750911) at every sound event of the outro, against the map's events on the final master's clock.
+- **Findings:** the two outro clicks (frames 6700, 6714) each land on the frame Switch goes OFF, and he is back ON between them; the grey hand reaches in on the second, stops and withdraws through "…just for show" (S61), Switch still ON. The summary box appears with the piano (6992), as the human asked in round 3; the pop-up chime (7030) comes 38 frames later, with nothing new on screen. S64's shove follows. The cut into S66's split frame lands on the reveal click (7282). S67: Switch's caption fades in at 7399, after his last line ends (7394), and holds until the flip; the hand is on the switch at 7538 and the room is dark on 7539, the band's last note (luma 146 → 0); dark through the 2 s hold to card G at 7651.
+- **Open for the human:** whether anything should mark the chime (for example the box bouncing or its close button appearing on it), since the box itself now arrives earlier. The melody check (the human and four reviewers) is in `log/human_interventions.md`.
