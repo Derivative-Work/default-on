@@ -306,3 +306,8 @@ Every human action: timestamp, what, why, and which rule allows it. The brief al
 
 - **Verbatim:** "yes go ahead" (to every fix and source change proposed in `log/audits/03_review.md`).
 - **Rule:** H2 (M8 gate: resolve every flag before release).
+
+## 2026-11-10 — The 4K render — H2
+
+- **Verbatim:** "yes go ahead" (to rendering the release at 4K, after M8).
+- **Rule:** H2 (the brief: review at 1080p, final at 4K; the human, M2 gate).

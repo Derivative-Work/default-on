@@ -855,7 +855,7 @@
    "what": "end card",
    "t": 361.522,
    "len_s": 8.0,
-   "interventions": 37,
+   "interventions": 38,
    "frame": 10873
   },
   {
@@ -6845,7 +6845,7 @@
    "id": "S53",
    "section": "Bridge",
    "cue": "\"Correction, boys and girls!\u2026\" (\"Ahem!\" isn't sung)",
-   "picture": "The Narrator redubs with mouth shapes visibly out of sync; a \"CORRECTION\" slate. The contract now has a third box. Caption, held through S56: \"Google then said schools can turn Gemini off and keep Search, but AI Overviews and AI Mode can't be removed.\"",
+   "picture": "The Narrator redubs with mouth shapes visibly out of sync; a \"CORRECTION\" slate. The contract now has a third box. Caption, held through S56: \"Google then said schools can turn Gemini off and keep Search, but AI Overviews and AI Mode can't be removed from Search.\"",
    "source": "A",
    "t": 188.348,
    "line": "L55",
@@ -6871,7 +6871,7 @@
    "id": "S55",
    "section": "Bridge",
    "cue": "\"\u2026That one's 'deeply integrated.'\"",
-   "picture": "The bolts tighten themselves; a small label plate reads \"deeply integrated\". Caption under the plate, held through S56: \"Before the reversal, Google's VP for education told The New York Times that Search and AI are \"deeply integrated\" (Nov. 3, 2026).\" (a direct quote, on the fact card's correction row)",
+   "picture": "The bolts tighten themselves; a small label plate reads \"deeply integrated\". Caption under the plate, held through S56: \"Google's VP for education told The New York Times on Nov. 3, 2026 that Search and AI are \"deeply integrated.\"\" (a direct quote, on the fact card's correction row)",
    "source": "A, E",
    "t": 196.948,
    "line": "L58",

@@ -466,3 +466,7 @@ Append-only. One entry per action: timestamp, step (shot ID where relevant), wha
 - **Video:** `closing.json` as above (card G also cites Anthropic's announcement); the correction caption ends "from Search."; the quote caption reads "Google's VP for education told The New York Times on Nov. 3, 2026 that Search and AI are "deeply integrated.""; S28's fine print quotes and dates nothing; the maze's "Smart features" is an ordinary window; the TV says "Can't delete this shortcut. Hide it instead?" (box widened). The closing runs longer (F9 22.8 s, F4 10.2 s, G 15.1 s): 11,323 frames.
 - **Docs:** brief S53 and S55 rows (doc rev 98, `docs/brief.md`); `METADATA.md`'s fact bullets and sources (one primary source per fact, the rest in the new `docs/sources.md`; 4,768 characters); README links `docs/sources.md` and `log/audits/`. `log/audits/03_review.md` marked applied.
 - **2026-11-10T02:36:** the M8 fixes rendered and checked in the cut and the school short (`log/renders.md`). M8 is resolved: every flag in `log/audits/03_review.md` applied at the human's approval.
+
+## 2026-11-10 — The 4K release render (started)
+
+- `timing/map.json` regenerated for the end card's count (38 entries in `log/human_interventions.md`); `scripts/assemble.sh` takes a section folder, an output and an optional review copy (AAC now 320 kb/s). Each section rendered with `--scale=2 --crf=16` into `renders/final/`, then `scripts/assemble.sh renders/final deliverables/default_on_3840x2160.mp4 -`. The vertical cuts stay at 1080x1920 (Shorts' size), as rendered and checked.
