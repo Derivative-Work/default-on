@@ -57,6 +57,9 @@ def block(el, depth=0):
             lines.append("    " * depth + f"{mark} {first}")
             lines += [p for p in rest]
         return "\n".join(lines)
+    if el.tag == "blockquote":  # was dropped until 2026-11-10 (card G's draft is the song doc's only quote)
+        inner = "\n\n".join(b for b in (block(c, depth) for c in el) if b)
+        return "\n".join("> " + ln if ln else ">" for ln in inner.split("\n"))
     if el.tag == "table":
         rows = []
         for r in el.findall("row"):

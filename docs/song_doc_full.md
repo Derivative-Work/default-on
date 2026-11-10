@@ -203,7 +203,7 @@ I've got two sides. [click] [click] [click]
 | "Continue" with no "No" | iOS 18.3.2 (March 2025) turned Apple Intelligence back on for some users who had disabled it, after a splash screen with only a Continue button. Not every device was affected; John Gruber suspected a bug. | Fact; intent unclear | [MacRumors](https://www.macrumors.com/2025/03/11/ios-18-3-2-apple-intelligence-auto-on), [Daring Fireball](https://daringfireball.net/linked/2025/03/21/ios-18-updates-reenable-apple-intelligence) |
 | Forty-five percent; cheap plan only on leaving | The ACCC alleges Microsoft misled about 2.7 million Australians: the Personal plan rose 45% to A$159 and the Family plan 29% to A$179 with Copilot, and the Classic plan was offered only during cancellation. | Alleged; case before the Federal Court | [Arab News / Reuters](https://www.arabnews.pk/node/2620368) |
 | "Take the robot or no search" | Google's VP for education told The New York Times that students at schools rejecting its AI would lose Search. | Fact (Nov 3, 2026) | [GovTech](https://www.govtech.com/education/k-12/google-reverses-decision-to-turn-off-search-for-schools-not-using-ai) |
-| Correction; "deeply integrated" | Google then said schools can turn Gemini off and keep Search, but AI Overviews and AI Mode can't be removed from Search. Changes begin in early 2027. Context: in August 2026 Google had switched Gemini on by default for many K-12 student accounts, drawing a Senate letter. | Fact | [Windows Report](https://windowsreport.com/google-backs-down-on-school-gemini-policy-but-refuses-to-remove-ai-from-search/), [Decrypt](https://decrypt.co/382572/google-schools-reject-ai-but-lose-search), [Common Sense Media](https://institute.commonsensemedia.org/what-to-know-about-google-turning-on-gemini-for-schools) |
+| Correction; "deeply integrated" | Google then said schools can turn Gemini off and keep Search, but AI Overviews and AI Mode can't be removed from Search. Changes begin in early 2027. Before the reversal, Google's VP for education, Chris Phillips, told The New York Times on Nov. 3, 2026 that Search and AI are "deeply integrated," so students at schools that reject its AI "will not have access to search." Context: in August 2026 Google had switched Gemini on by default for many K-12 student accounts, drawing a Senate letter. | Fact | [Windows Report](https://windowsreport.com/google-backs-down-on-school-gemini-policy-but-refuses-to-remove-ai-from-search/), [Decrypt](https://decrypt.co/382572/google-schools-reject-ai-but-lose-search), [Common Sense Media](https://institute.commonsensemedia.org/what-to-know-about-google-turning-on-gemini-for-schools), [GovTech](https://www.govtech.com/education/k-12/google-reverses-decision-to-turn-off-search-for-schools-not-using-ai) |
 
 **Fairness caveats**
 
@@ -213,7 +213,7 @@ I've got two sides. [click] [click] [click]
 
 **Conflict of interest**
 
-Claude drafted these lyrics, and Claude also ships inside other companies' tools, including Chrome, Microsoft 365, Google Workspace and Slack. Those integrations are, as far as I know, things a person or organisation installs or switches on, but that should be verified rather than taken from me. The last line ("But somebody asked it to") is about this song, not a claim that Anthropic is above the pattern. Send the lyrics to another lab's model for a bias audit, as with Buy It On Margin, and keep Anthropic on the same footing as everyone else if the audit finds a gap. Update, November 6: both audits found that gap. Anthropic's August 2025 consumer-terms pop-up had its training toggle set to On by default. That is now fact card G, shown first, and Switch's last line (V21) asks about it.
+Claude drafted these lyrics, and Claude also ships inside other companies' tools, including Chrome, Microsoft 365, Google Workspace and Slack. Those integrations are, as far as I know, things a person or organisation installs or switches on, but that should be verified rather than taken from me. The last line ("But somebody asked it to") is about this song, not a claim that Anthropic is above the pattern. Send the lyrics to another lab's model for a bias audit, as with Buy It On Margin, and keep Anthropic on the same footing as everyone else if the audit finds a gap. Update, November 6: both audits found that gap. Anthropic's August 2025 consumer-terms pop-up had its training toggle set to On by default. That is now fact card G, shown first, and Switch's last line (V21) asks about it. The human discloses too: right after card G, a real shot (S68) shows his old Google and Microsoft swag, with a caption saying he holds no stock in either and that every claim comes from public reporting. Switch's credit reads "voiced by a child of two ex-Googlers and ex-Microsofties."
 
 ## Fit with the series and review checklist
 
@@ -432,7 +432,7 @@ I've got two sides. [click] [click] [click]
 
 **Fact card G (proposed, shown first after the song)**
 
-
+> Who wrote this? Claude, an AI model made by Anthropic, drafted the lyrics. In August 2025, Anthropic asked existing users to accept new terms in a pop-up whose toggle for training on their chats was set to On by default. The human creator chose, edited and fact-checked everything in this video, with audits by Gemini and ChatGPT.
 
 **Status, November 6 (human decisions)**
 
@@ -441,4 +441,4 @@ I've got two sides. [click] [click] [click]
 - Apple and Australia replaces failed. Draft 2 wording stays; captions on S45 and S46 carry the fixes, and the broken rhyme stays.
 - The chosen generation has no sing-along, so V20 is gone. V21 approved and added to the recording plan.
 - Fact cards updated: Google's own help page as card A's source, the Gmail case history, both Microsoft prices, the August default-on context for schools, and card G first.
-- Pre-roll card approved: "A cartoon for grown-ups about tech settings" opens the video as S00. Open: Copilot's audit is still to run.
+- Pre-roll card approved: "A cartoon for grown-ups about tech settings" opens the video as S00. Creator disclosure added as S68 (former Google and Microsoft employee, no stock), and Switch's credit names his parents' history. Open: Copilot's audit is still to run.
