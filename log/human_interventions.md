@@ -223,3 +223,8 @@ Every human action: timestamp, what, why, and which rule allows it. The brief al
   - "the content of the captions themselves is good; I checked the sources"
 - **Rule:** H2 (section notes at the M4 gate; the human approves the wording of the round-6 "deeply integrated" citation after checking its sources). The two fact-card suggestions on the song doc's correction row stay open until the human accepts them. No section is approved yet.
 - **Follow-up, verbatim:** "yes the suggestions are good" (the two fact-card suggestions on the song doc's correction row). Accepted on the human's word: the quote sentence and GovTech as a source are now in the fact card (song doc rev 44; `docs/song_doc.md`). Brief S55 row updated to match (doc rev 84).
+
+## 2026-11-09 — M4 gate approved — H2
+
+- **Approval, verbatim:** "this is great, keep going" (on the round-7 cut, `renders/m4/review/m4_full_review_720p.mp4`, commit ffeab5e). Taken as approval of every M4 section and the go-ahead for M5.
+- **Rule:** H2 (gate).

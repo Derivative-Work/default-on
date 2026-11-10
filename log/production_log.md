@@ -378,3 +378,7 @@ Append-only. One entry per action: timestamp, step (shot ID where relevant), wha
 2. **Citations hold their place:** the correction caption sits at the standard bottom position in all four shots of the redub (S53–S56; it was mid-frame in S54 and moved again in S55), and the quote's source sits right above it in both S55 and S56 (`QUOTE_Y`; it jumped between them). Switch, who peeked up from the bottom edge in S54–S55, now watches from the left wall above the captions. S28's lawsuit caption and S32's TV caption also move to the standard position (they sat 24 px higher than their neighbours).
 3. **Fact card:** the two suggestions accepted at the human's word (see `log/human_interventions.md`).
 - **2026-11-09T21:33:** Sec06 and Sec09 re-rendered after round 7; the full cut reassembled (7,771 frames, sync verified; `log/renders.md`).
+
+## 2026-11-09 — M4 gate approved; M5 begins
+
+- The human approved the round-7 cut ("this is great, keep going"; `log/human_interventions.md`). M5: fact cards, end card, captions, thumbnail and vertical cut.
