@@ -67,8 +67,18 @@ const Schoolhouse: React.FC<{ f: number }> = ({ f }) => (
         <rect x={-92} y={-62} width={24} height={124} fill={C.teal} stroke={C.ink} strokeWidth={lw(3)} />
         <rect x={68} y={-62} width={24} height={124} fill={C.teal} stroke={C.ink} strokeWidth={lw(3)} />
         {[-50, -10, 30].map((y) => <line key={y} x1={-88} x2={-72} y1={y} y2={y} {...PEN} />)}
-        <rect x={-62} y={-62} width={124} height={124} fill="#f7d27a" stroke={C.ink} strokeWidth={lw(5)} />
-        <path d="M-62,-62 q20,60 0,124 M62,-62 q-20,60 0,124" fill="#f2a65a" stroke={C.ink} strokeWidth={lw(2.5)} />
+        {/* the lit room, then curtains tied back at each side inside the glass, then the frame and its cross bars
+            on top, so the window's edges stay straight (the human's note, 2026-11-09, round 7: one bowed stroke per
+            curtain covered the frame and bent its sides) */}
+        <rect x={-62} y={-62} width={124} height={124} fill="#f7d27a" />
+        {[-1, 1].map((k) => (
+          <g key={k} transform={`scale(${k}, 1)`}>
+            <path d="M-62,-62 H-30 Q-34,-20 -50,14 Q-44,40 -46,62 H-62 Z" fill="#f2a65a" stroke={C.ink} strokeWidth={lw(2.5)} strokeLinejoin="round" />
+            <path d="M-52,10 q6,4 4,10" stroke={C.ink} strokeWidth={lw(2.5)} fill="none" />
+            <path d="M-46,-58 q-2,30 -10,60" {...PEN} opacity={0.5} />
+          </g>
+        ))}
+        <rect x={-62} y={-62} width={124} height={124} fill="none" stroke={C.ink} strokeWidth={lw(5)} />
         <path d="M0,-62 v124 M-62,0 h124" stroke={C.ink} strokeWidth={lw(4)} />
         <rect x={-70} y={62} width={140} height={22} fill={C.cardigan} stroke={C.ink} strokeWidth={lw(3)} />
         {[-50, -20, 10, 40].map((fx, k) => <circle key={fx} cx={fx} cy={58} r={9} fill={[C.red, C.mustard, C.orange, C.red][k]} stroke={C.ink} strokeWidth={lw(2)} />)}
@@ -79,7 +89,8 @@ const Schoolhouse: React.FC<{ f: number }> = ({ f }) => (
     <text x={0} y={-215} textAnchor="middle" fontFamily={SANS} fontWeight={600} fontSize={22} fill={C.cream}>SCHOOL</text>
     {[-104, 92].map((x) => <rect key={x} x={x} y={-200} width={12} height={200} fill={C.cream} stroke={C.ink} strokeWidth={lw(3)} />)}
     <path d="M-60,-150 a60,40 0 0 1 120,0 Z" fill="#f7d27a" stroke={C.ink} strokeWidth={lw(4)} />
-    {[-30, 0, 30].map((x) => <line key={x} x1={0} y1={-150} x2={x * 2} y2={-184} {...PEN} />)}
+    {/* the fanlight's spokes end on its arch (they ran past it onto the wall: the human's note, 2026-11-09, round 7) */}
+    {[35, 90, 145].map((a) => <line key={a} x1={0} y1={-150} x2={Math.cos((a * Math.PI) / 180) * 60 * 0.95} y2={-150 - Math.sin((a * Math.PI) / 180) * 40 * 0.95} {...PEN} />)}
     {[-1, 1].map((k) => <g key={k}><rect x={k < 0 ? -60 : 0} y={-150} width={60} height={150} fill={C.cardiganShade} stroke={C.ink} strokeWidth={lw(4)} />
       <rect x={(k < 0 ? -60 : 0) + 12} y={-136} width={36} height={56} {...PEN} /><rect x={(k < 0 ? -60 : 0) + 12} y={-68} width={36} height={56} {...PEN} />
       <circle cx={k * 8} cy={-74} r={5} fill={C.mustard} stroke={C.ink} strokeWidth={lw(2)} /></g>)}
@@ -240,6 +251,7 @@ const CORRCAP = "Google then said schools can turn Gemini off and keep Search, b
 // education, to The New York Times on Nov. 3, 2026, before the reversal (GovTech, Nov. 4, 2026; Decrypt, via Education
 // Week). It was said to justify cutting off Search, so the caption keeps it before the reversal. Proposed for the fact
 // card's correction row as a suggestion; shown from the label plate (S55) through S56
+const QUOTE_Y = H - 96 - 126; // right above the correction caption, in S55 and S56 alike
 const QUOTECAP = "Before the reversal, Google's VP for education told The New York Times that Search and AI are \"deeply integrated\" (Nov. 3, 2026).";
 const Giant: React.FC<{ slide: number; boxes: string[] }> = ({ slide, boxes }) => {
   // the contract and the hand move as one, so the hand is plainly what slides it (the human's note, 2026-11-09)
@@ -391,13 +403,15 @@ const Bolted: React.FC<{ g: number; tilt: number; tighten?: number }> = ({ g, ti
           </g>
         )}
       </g>
-      <g transform="translate(960, 1100) scale(0.6)"><Switch pose="curious" mouth={mouthAt(g, "switch")} look={[0, -1]} blink={blink(g, 7)} /></g>
+      {/* Switch on the left, above the captions, looking up at the box (he peeked up from the bottom edge, where the
+          captions now sit in every shot of the redub: the human's note, 2026-11-09, round 7) */}
+      <g transform="translate(250, 640) scale(0.5)"><Switch pose="curious" mouth={mouthAt(g, "switch")} look={[0.8, -0.8]} blink={blink(g, 7)} /></g>
       <g transform="translate(1500, 1160) scale(0.6)"><Bookshelf w={300} shelves={3} seed={7} /></g>
     </g>
-    {/* clear of the label plate and of Switch peeking up from the bottom; once the plate is on, the quote's source
-        goes under it */}
-    {tighten > 0.6 && <Caption text={QUOTECAP} y={660} />}
-    <Caption text={CORRCAP} y={tighten > 0.6 ? 880 : 700} />
+    {/* the captions keep one place through the redub (S53-S56): the correction at the bottom, the quote's source
+        stacked right above it once the plate is on (and in S56) */}
+    {tighten > 0.6 && <Caption text={QUOTECAP} y={QUOTE_Y} />}
+    <Caption text={CORRCAP} />
   </Bg>
 );
 export const S54: ShotC = ({ f, g, len }) => <Bolted g={g} tilt={ez(f, 0, len * 0.6)} />;
@@ -411,7 +425,7 @@ export const S56: ShotC = ({ f, g, len }) => {
     <NarratorSet g={g} board={["DEEPLY", "INTEGRATED?"]} arm="down" head={away ? 1 : 0} size={80}>
       <g transform="translate(980, 700) scale(0.42)"><Switch pose="curious" mouth={mouthAt(g, "switch")} look={[0.9, -0.8]} blink={blink(g, 8)} /></g>
       {away && <text x={1560} y={240} fontFamily={BUBBLE} fontSize={56} fill={C.ink} opacity={0.7}>ahem…</text>}
-      <Caption text={QUOTECAP} y={H - 96 - 126} />
+      <Caption text={QUOTECAP} y={QUOTE_Y} />
       <Caption text={CORRCAP} />
     </NarratorSet>
   );

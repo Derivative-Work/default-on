@@ -476,7 +476,7 @@ export const S27: ShotC = ({ f, g }) => {
 export const S28: ShotC = ({ f }) => (
   <>
     <S28Key f={f} />
-    <svg width={W} height={H} style={{ position: "absolute" }}><Caption text={LAWSUIT} y={H - 120} /></svg>
+    <svg width={W} height={H} style={{ position: "absolute" }}><Caption text={LAWSUIT} /></svg>
   </>
 );
 
@@ -618,7 +618,7 @@ const HideScreen: React.FC<{ f: number; g: number; phase: 1 | 2 | 3 }> = ({ f, g
       </g>
       </g>
       <rect x={80} y={70} width={W - 160} height={H - 140} rx={18} fill="none" stroke={C.ink} strokeWidth={lw(6)} />
-      <Caption text={TVCAP} y={H - 120} />
+      <Caption text={TVCAP} />
     </Bg>
   );
 };

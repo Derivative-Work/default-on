@@ -214,3 +214,12 @@ Every human action: timestamp, what, why, and which rule allows it. The brief al
   - ""deeply integrated" is a direct quote, right? if so, this needs an onscreen citation (and maybe some of the context of the quote -- looks like there's plenty of space)"
 - **Rule:** H2 (section notes at the M4 gate). No section is approved yet.
 - **Follow-up notes, verbatim:** "you went a bit too far on the typewriter: now its black border is not visible"; "the fingers on the cookie hand are visibly disconnected from the wrist"; "the cancel door's perspective is good but it is now not clearly on the wall (it's bottom is below the border of the floor)".
+
+## 2026-11-09 — M4 review notes, round 7 — H2
+
+- **Notes, verbatim:**
+  - "check the lines on the school windows in the view from outside"
+  - "the text on the newly-added citations is moving too much on screen between cuts -- find spots where they can stay in the same place"
+  - "the content of the captions themselves is good; I checked the sources"
+- **Rule:** H2 (section notes at the M4 gate; the human approves the wording of the round-6 "deeply integrated" citation after checking its sources). The two fact-card suggestions on the song doc's correction row stay open until the human accepts them. No section is approved yet.
+- **Follow-up, verbatim:** "yes the suggestions are good" (the two fact-card suggestions on the song doc's correction row). Accepted on the human's word: the quote sentence and GovTech as a source are now in the fact card (song doc rev 44; `docs/song_doc.md`). Brief S55 row updated to match (doc rev 84).
