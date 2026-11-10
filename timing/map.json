@@ -777,89 +777,89 @@
    "id": "FG",
    "what": "fact card G",
    "t": 254.122,
-   "len_s": 13.7,
+   "len_s": 13.5,
    "frame": 7651
   },
   {
    "id": "FD",
    "what": "the creator's disclosure",
-   "t": 267.822,
+   "t": 267.622,
    "len_s": 8.6,
-   "frame": 8062
+   "frame": 8056
   },
   {
    "id": "F1",
    "what": "fact card: Answer box on top; tiny \"Web\" tab",
-   "t": 276.422,
+   "t": 276.222,
    "len_s": 7.9,
-   "frame": 8320
+   "frame": 8314
   },
   {
    "id": "F2",
    "what": "fact card: Inbox helper flipped on last fall",
-   "t": 284.322,
+   "t": 284.122,
    "len_s": 9.3,
-   "frame": 8557
+   "frame": 8551
   },
   {
    "id": "F3",
    "what": "fact card: \"A menu, then a menu\u2026\"",
-   "t": 293.622,
+   "t": 293.422,
    "len_s": 4.6,
-   "frame": 8836
+   "frame": 8830
   },
   {
    "id": "F4",
    "what": "fact card: TV tile you can hide but not delete",
-   "t": 298.222,
+   "t": 298.022,
    "len_s": 7.5,
-   "frame": 8974
+   "frame": 8968
   },
   {
    "id": "F5",
    "what": "fact card: Blue ring in the chat app; mute, not uninstall",
-   "t": 305.722,
+   "t": 305.522,
    "len_s": 4.8,
-   "frame": 9199
+   "frame": 9193
   },
   {
    "id": "F6",
    "what": "fact card: \"Continue\" with no \"No\"",
-   "t": 310.522,
+   "t": 310.322,
    "len_s": 9.3,
-   "frame": 9343
+   "frame": 9337
   },
   {
    "id": "F7",
    "what": "fact card: Forty-five percent; cheap plan only on leaving",
-   "t": 319.822,
+   "t": 319.622,
    "len_s": 9.1,
-   "frame": 9622
+   "frame": 9616
   },
   {
    "id": "F8",
    "what": "fact card: \"Take the robot or no search\"",
-   "t": 328.922,
+   "t": 328.722,
    "len_s": 5.7,
-   "frame": 9895
+   "frame": 9889
   },
   {
    "id": "F9",
    "what": "fact card: Correction; \"deeply integrated\"",
-   "t": 334.622,
+   "t": 334.422,
    "len_s": 20.6,
-   "frame": 10066
+   "frame": 10060
   },
   {
    "id": "FE",
    "what": "end card",
-   "t": 355.222,
+   "t": 355.022,
    "len_s": 8.0,
-   "interventions": 26,
-   "frame": 10684
+   "interventions": 27,
+   "frame": 10678
   }
  ],
- "video_end_frame": 10924,
+ "video_end_frame": 10918,
  "credits_audio": {
   "file": "audio/credits/default-on-credits.wav",
   "frame": 7651,
@@ -1127,7 +1127,7 @@
    "lines": [
     "L23"
    ],
-   "text": "And what's the company say?",
+   "text": "And what did the company say?",
    "take": [
     [
      99.02,
@@ -1317,10 +1317,10 @@
    "lines": [
     "L49"
    ],
-   "text": "Was there one without the robot?",
+   "text": "Is there one without the robot?",
    "take": [
     [
-     167.43,
+     167.46,
      168.96
     ]
    ],
@@ -1328,7 +1328,7 @@
     167.008,
     169.238
    ],
-   "take_len": 1.53,
+   "take_len": 1.5,
    "room_len": 2.23,
    "room_frames": [
     5038,
@@ -3163,7 +3163,7 @@
    "section": "Verse 2",
    "stem": "audio/switch/comp/Default On (switch only).wav",
    "singer": "switch",
-   "text": "And what's the company say?",
+   "text": "And what did the company say?",
    "start": 99.02,
    "end": 100.42,
    "words": [
@@ -3174,10 +3174,16 @@
      "score": 0.914
     },
     {
-     "w": "what's",
+     "w": "what",
      "start": 99.16,
+     "end": 99.31,
+     "score": 0.815
+    },
+    {
+     "w": "did",
+     "start": 99.34,
      "end": 99.49,
-     "score": 0.638
+     "score": 0.032
     },
     {
      "w": "the",
@@ -4684,15 +4690,15 @@
    "section": "Verse 3: Pop Quiz",
    "stem": "audio/switch/comp/Default On (switch only).wav",
    "singer": "switch",
-   "text": "Was there one without the robot?",
-   "start": 167.43,
+   "text": "Is there one without the robot?",
+   "start": 167.46,
    "end": 168.96,
    "words": [
     {
-     "w": "Was",
-     "start": 167.43,
+     "w": "Is",
+     "start": 167.46,
      "end": 167.55,
-     "score": 0.333
+     "score": 0.996
     },
     {
      "w": "there",
@@ -4725,7 +4731,7 @@
      "score": 0.825
     }
    ],
-   "frame_start": 5050,
+   "frame_start": 5051,
    "frame_end": 5096
   },
   {
@@ -6505,7 +6511,7 @@
   {
    "id": "S27",
    "section": "Verse 2",
-   "cue": "V07 \"And what's the company say?\"",
+   "cue": "V07 \"And what did the company say?\"",
    "picture": "Switch knocks on a door marked \"SETTINGS\"",
    "source": "A",
    "t": 99.02,
@@ -6759,19 +6765,19 @@
    "line": "L48",
    "how": "cue words",
    "frame": 4948,
-   "end": 167.43,
-   "frame_end": 5050
+   "end": 167.46,
+   "frame_end": 5051
   },
   {
    "id": "S47",
    "section": "Verse 3: Pop Quiz",
-   "cue": "V15 \"Was there one without the robot?\" / \"Only once you tried to leave!\"",
+   "cue": "V15 \"Is there one without the robot?\" / \"Only once you tried to leave!\"",
    "picture": "Switch walks toward a door marked \"CANCEL\"; a cheaper price tag peeks out from behind it, then the door slams",
    "source": "A, E",
-   "t": 167.43,
+   "t": 167.46,
    "line": "L49",
    "how": "cue words",
-   "frame": 5050,
+   "frame": 5051,
    "end": 170.948,
    "frame_end": 5156
   },

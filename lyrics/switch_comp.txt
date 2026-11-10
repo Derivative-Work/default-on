@@ -1,7 +1,7 @@
 # Switch's lines as recorded and comped by the human (2026-11-08), on the final master's clock; aligned against
 # audio/switch/comp/Default On (switch only).wav (private: the child's voice alone). One window per slot (brief V01-V21;
 # V20 retired). "S=Lxx:" keeps the as-sung line ID; V04, V11 and V21 (never generated) take new IDs after the line
-# they follow. V02's wording changed at recording (the human, 2026-11-08). Usage: scripts/align_words.py this file
+# they follow. V02's wording changed at recording (the human, 2026-11-08); V07 and V15 are as he spoke them (the human, 2026-11-09). Usage: scripts/align_words.py this file
 # timing/words_switch.json. The tags are as he sang them (V04 opens with "Default on"); the captions are M5's.
 
 @ 12.6 17.1 audio/switch/comp/Default On (switch only).wav
@@ -31,7 +31,7 @@ S=L20: There's always a test.
 
 @ 98.6 100.9 audio/switch/comp/Default On (switch only).wav
 [Verse 2]
-S=L23: And what's the company say?
+S=L23: And what did the company say?
 
 @ 112.9 114.5 audio/switch/comp/Default On (switch only).wav
 [Verse 2]
@@ -64,7 +64,7 @@ S=L46: Where's the "No"?
 
 @ 167.1 169.4 audio/switch/comp/Default On (switch only).wav
 [Verse 3: Pop Quiz]
-S=L49: Was there one without the robot?
+S=L49: Is there one without the robot?
 
 @ 194.3 196.5 audio/switch/comp/Default On (switch only).wav
 [Bridge redub]

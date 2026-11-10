@@ -234,3 +234,9 @@ Every human action: timestamp, what, why, and which rule allows it. The brief al
 - **What (verbatim):** "I gave you some music for the credits. It's at ~/Downloads/default-on-credits, and it came from https://suno.com/s/EF0G3Pktq2aZmhlg and I already ran the postfilter. Start it from the beginning, then fade out at the end."
 - **File:** `~/Downloads/default-on-credits.wav` (the path given had no extension), 171.76 s, 48 kHz 24-bit stereo, −16.1 LUFS integrated, −2.3 dBFS peak; sha256 9161b243…56cd6ba. Copied to `audio/credits/default-on-credits.wav`, level untouched.
 - **Rule:** H3 (a real input). Placement: from its first sample on fact card G's first frame (the credits begin with the closing cards; S67's 2 s hold on room tone stays silent), faded out over the video's last 4 s.
+
+## 2026-11-09 — Copilot audit dropped; repo to go public; V07 and V15 confirmed — H2, H3
+
+- **Verbatim:** "I don't have a current M365 subscription (partially due to the events discussed in the video...) and don't plan on getting one just for this, so let's drop Copilot's audit. I will make the repo public prior to publishing. "And what did the company say" and "is there one without the robot" are his quotes as spoken."
+- **Decisions:** Copilot's audit is dropped (the brief's Inputs and the closing cards no longer mention it; the audits are Gemini's and ChatGPT's). The end card's log link stays: the human will make github.com/Derivative-Work/default-on public before publishing. Switch's V07 is "And what did the company say?" and V15 "Is there one without the robot?", as he spoke them (closes the question open since M4); the captions and any on-screen text follow.
+- **Rule:** H2 (the closing materials); H3 (Switch's lines as recorded).

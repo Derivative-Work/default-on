@@ -1,9 +1,9 @@
 {
-  "about": "The closing cards (brief, End card and fact cards; M5). Card G and the fact rows are copied word for word from the Default On song doc (https://claude.ai/artifact/CZ4NPoVgNhxTUwRisQ9JBP, rev 44): card G from its 'Who wrote this?' draft, the rows from its fact card table, in table order. The disclosure is the human's wording (brief, 2026-11-09). The end card follows the brief's End card line; `interventions` is filled in by scripts/timing_map.py from log/human_interventions.md. Each card's length comes from its word count (scripts/timing_map.py).",
+  "about": "The closing cards (brief, End card and fact cards; M5). Card G and the fact rows are copied word for word from the Default On song doc (https://claude.ai/artifact/CZ4NPoVgNhxTUwRisQ9JBP, rev 45): card G from its 'Who wrote this?' draft, the rows from its fact card table, in table order. The disclosure is the human's wording (brief, 2026-11-09). The end card follows the brief's End card line; `interventions` is filled in by scripts/timing_map.py from log/human_interventions.md. Each card's length comes from its word count (scripts/timing_map.py).",
   "G": {
     "id": "FG",
     "heading": "Who wrote this?",
-    "body": "Claude, an AI model made by Anthropic, drafted the lyrics. In August 2025, Anthropic asked existing users to accept new terms in a pop-up whose toggle for training on their chats was set to On by default. The human creator chose, edited and fact-checked everything in this video, with audits by Gemini, ChatGPT and Copilot.",
+    "body": "Claude, an AI model made by Anthropic, drafted the lyrics. In August 2025, Anthropic asked existing users to accept new terms in a pop-up whose toggle for training on their chats was set to On by default. The human creator chose, edited and fact-checked everything in this video, with audits by Gemini and ChatGPT.",
     "sources": [
       { "name": "The Verge via Communications Today", "url": "https://www.communicationstoday.co.in/anthropic-to-use-claude-chats-for-ai-training-by-sept-28/" },
       { "name": "Tom's Guide", "url": "https://www.tomsguide.com/ai/claude/claude-ai-will-start-training-on-your-data-soon-heres-how-to-opt-out-before-the-deadline" }
@@ -100,7 +100,7 @@
       ["Narrator", "a generated voice"],
       ["Switch", "voiced by a child of two ex-Googlers and ex-Microsofties"],
       ["Animation", "Claude Code"],
-      ["Fact-checking", "the human chose, edited and fact-checked every claim, with audits by Gemini, ChatGPT and Copilot"]
+      ["Fact-checking", "the human chose, edited and fact-checked every claim, with audits by Gemini and ChatGPT"]
     ],
     "log_url": "github.com/Derivative-Work/default-on/blob/main/log/human_interventions.md",
     "interventions": null

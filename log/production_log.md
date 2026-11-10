@@ -392,7 +392,7 @@ Append-only. One entry per action: timestamp, step (shot ID where relevant), wha
 ## 2026-11-09 — M5: closed captions
 
 - **What:** `scripts/captions.py` writes `captions/default_on.en.srt` (82 cues) from `timing/map.json`: one cue per line on the video's clock, the Narrator's text as transcribed from the master, Switch's from the human's comp (`timing/words_switch.json`); sung lines between ♪, spoken ones bare (the song doc's [spoken] tags); Switch labelled SWITCH:; the clicks, horn, door slam, booing, record scratch, pop-up chime and the real switch going off as bracketed cues at the map's event times; at most two rows of 42 characters.
-- **Open for the human:** V07 reads "And what's the company say?" and V15 "Was there one without the robot?", as in the comp's transcript; both are still unconfirmed by ear (open since M4).
+- **V07 and V15:** confirmed by the human (2026-11-09) as "And what did the company say?" and "Is there one without the robot?" (see below).
 
 ## 2026-11-09 — M5: the credits music
 
@@ -405,3 +405,9 @@ Append-only. One entry per action: timestamp, step (shot ID where relevant), wha
 ## 2026-11-09 — M5: the vertical cut
 
 - **What:** `Vertical` composition (`remotion/src/compositions/Vertical.tsx`), 1080x1920, 832 frames: S09–S17 from the cut (pre-chorus 1 and chorus 1, through Switch's echo after the sticker reveal) and a 3 s "Full video" card. The 16:9 picture is shown whole at full width, not cropped: the chorus's karaoke lines and most of the staging use the whole width, so a 9:16 crop would cut them. Above it, the title and the S00 subtitle on the paper; below it, the line being sung in large type for phones on mute (Switch's lines labelled SWITCH, in teal). The audio is the final master over the same span, faded in over 6 frames and out under the card. Output `deliverables/vertical.mp4`.
+
+## 2026-11-09 — M5: Copilot dropped; V07 and V15 as spoken
+
+- **Copilot:** the human dropped Copilot's audit. Card G now reads "…with audits by Gemini and ChatGPT." (the song doc's card G draft edited to match, rev 45; `closing.json`), the end card's fact-checking credit likewise, and the brief's End card line (doc rev 90, `docs/brief.md`). Card G is a word shorter (13.5 s); the closing cards move 6 frames earlier; the video is 10,918 frames.
+- **V07 and V15:** "And what did the company say?" and "Is there one without the robot?", as he spoke them (the human). `lyrics/switch_comp.txt` corrected and re-aligned (`scripts/align_words.py`): only L23 and L49 changed; "Is" lands 30 ms later than "Was" did, so S47 starts one frame later (5051). The brief's V07, V15, S27 and S47 rows (doc rev 89, `docs/brief.md`) quote the spoken lines, so the shot cues still match. `timing/map.json` regenerated; `timing/visemes.json` re-run (only L23 and L49 changed); `captions/default_on.en.srt` regenerated.
+- **The repo:** the human will make it public before publishing, so the end card's log address stands.

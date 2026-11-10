@@ -468,7 +468,7 @@
    "section": "Verse 2",
    "stem": "audio/switch/comp/Default On (switch only).wav",
    "singer": "switch",
-   "text": "And what's the company say?",
+   "text": "And what did the company say?",
    "start": 99.02,
    "end": 100.42,
    "words": [
@@ -479,10 +479,16 @@
      "score": 0.914
     },
     {
-     "w": "what's",
+     "w": "what",
      "start": 99.16,
+     "end": 99.31,
+     "score": 0.815
+    },
+    {
+     "w": "did",
+     "start": 99.34,
      "end": 99.49,
-     "score": 0.638
+     "score": 0.032
     },
     {
      "w": "the",
@@ -861,15 +867,15 @@
    "section": "Verse 3: Pop Quiz",
    "stem": "audio/switch/comp/Default On (switch only).wav",
    "singer": "switch",
-   "text": "Was there one without the robot?",
-   "start": 167.43,
+   "text": "Is there one without the robot?",
+   "start": 167.46,
    "end": 168.96,
    "words": [
     {
-     "w": "Was",
-     "start": 167.43,
+     "w": "Is",
+     "start": 167.46,
      "end": 167.55,
-     "score": 0.333
+     "score": 0.996
     },
     {
      "w": "there",

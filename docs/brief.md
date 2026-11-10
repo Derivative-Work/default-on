@@ -42,7 +42,7 @@
 | V04 | Chorus 1 tag | "(On, on, on…)" | Sung, getting quieter |
 | V05 | Lesson | "And 'opt-out' means that no one asked you, and you're hunting for the spot!" | Sung, proud of knowing the answer |
 | V06 | Lesson | "There's always a test." | Spoken, sighing |
-| V07 | Verse 2 | "And what's the company say?" | Spoken |
+| V07 | Verse 2 | "And what did the company say?" (as he spoke it; written "And what's the company say?") | Spoken |
 | V08 | Verse 2 | "Can I delete it?" | Spoken, hopeful |
 | V09 | Verse 2 | "Is that the same?" | Spoken, suspicious |
 | V10 | Pre-chorus 2 | Same as V03 | A fresh take; a sadder one is fine |
@@ -50,7 +50,7 @@
 | V12 | Verse 3 | "I'll uninstall it!" | Spoken, confident |
 | V13 | Verse 3 | "I'll mute it, then?" | Spoken, deflated |
 | V14 | Verse 3 | "Where's the 'No'?" | Spoken |
-| V15 | Verse 3 | "Was there one without the robot?" | Spoken |
+| V15 | Verse 3 | "Is there one without the robot?" (as he spoke it; written "Was there one…") | Spoken |
 | V16 | Bridge | "And the answer box on top?" | Spoken |
 | V17 | Bridge | "What's that mean?" | Spoken, genuinely asking |
 | V18 | Outro | "I've got two sides. / …Guess one of 'em was just for show." | Quiet, alone; the emotional line |
@@ -150,7 +150,7 @@
 | --- | --- | --- | --- |
 | S25 | "Now your inbox got a helper…" (replaced) | An envelope with eyes reads over a cartoon person's shoulder | A |
 | S26 | "A lawsuit says it flipped itself last fall…" | A calendar flips to an autumn page; while everyone looks away, a tiny switch in the inbox's corner flips ON. Caption, held through S28: "Alleged in a lawsuit. Google denies changing settings." | A |
-| S27 | V07 "And what's the company say?" | Switch knocks on a door marked "SETTINGS" | A |
+| S27 | V07 "And what did the company say?" | Switch knocks on a door marked "SETTINGS" | A |
 | S28 | "That they didn't, and here's the door: / Just a menu, then a menu…" (replaced) | The door opens on a menu, which opens on a menu, which opens on another, zooming in each time. Fine print scrolls past too fast to read: "on or about October 10" | A |
 | S29 | "Then the TV got an update in the middle of the night," | A living room at night: a TV with a progress bar, the moon in the window. Caption, held through S33: "LG webOS TVs, December 2025 update" | A |
 | S30 | "And a brand-new tile was waiting…" | Sunrise. A new tile sits among generic tiles on the TV's home screen, and winks | A |
@@ -180,7 +180,7 @@
 | S44 | "Now your phone has got an update…" | A phone screen with one enormous button, "Continue," and nothing else | A |
 | S45 | V14 "Where's the 'No'?" / "There isn't one!…" | Switch searches the phone's edges with a magnifying glass. Pull back to a row of phones: on some of them, a setting slides to ON by itself. Caption: "Some iPhones, iOS 18.3.2, March 2025" | A |
 | S46 | "In Australia, office software went up forty-five percent…" | A map card of Australia; a price tag inflates like a balloon to "+45%". Caption: "Microsoft 365 Personal. Alleged by Australia's ACCC." | A |
-| S47 | V15 "Was there one without the robot?" / "Only once you tried to leave!" | Switch walks toward a door marked "CANCEL"; a cheaper price tag peeks out from behind it, then the door slams | A, E |
+| S47 | V15 "Is there one without the robot?" / "Only once you tried to leave!" | Switch walks toward a door marked "CANCEL"; a cheaper price tag peeks out from behind it, then the door slams | A, E |
 
 ### Bridge
 
@@ -223,7 +223,7 @@
 
 ### End card and fact cards
 
-- **End card:** lyrics drafted by Claude (Anthropic) and audited by another lab's model; music by the generator, with take ID; Narrator generated; Switch voiced by a child of two ex-Googlers and ex-Microsofties; animation by Claude Code; the human chose, edited and fact-checked every claim, with audits by Gemini, ChatGPT and Copilot; the count of human interventions, with a link to the log.
+- **End card:** lyrics drafted by Claude (Anthropic) and audited by another lab's model; music by the generator, with take ID; Narrator generated; Switch voiced by a child of two ex-Googlers and ex-Microsofties; animation by Claude Code; the human chose, edited and fact-checked every claim, with audits by Gemini and ChatGPT (Copilot's audit dropped: the human, 2026-11-09); the count of human interventions, with a link to the log.
 - **Fact cards:** card G (who wrote this, and Anthropic's own default-on toggle) first, answering V21; then the creator's own disclosure as a credits card (formerly S68's caption, the human's decision of 2026-11-09): "Made by a former Google and Microsoft employee, who holds no stock in either. Nothing here comes from the inside: every claim is from public reporting, sourced on the cards that follow."; then one per row of the Default On fact card, in that order, about four seconds each, in plain type with the source under each. Allegations say so. Under the closing cards, the human's credits music (a second Suno track, https://suno.com/s/EF0G3Pktq2aZmhlg) plays from its start on card G's first frame and fades out at the end (the human's direction, 2026-11-09).
 
 **Thumbnail:** Switch mid-flip with the grey hand reaching in. Never the real hand, the generation screen or the timeline, which would spoil the reveal.

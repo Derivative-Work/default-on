@@ -30,7 +30,7 @@ Take = his comped line(s) in the master. Room = Narrator's word before → Narra
 | V04 | Default on, on, on, on, on, on, on... | 55.25–58.90 | 55.03–62.51 | 7.48 |
 | V05 | And "opt-out" means that no one asked you, and you're hunting for the spot! | 70.26–75.96 | 68.57–77.04 | 8.47 |
 | V06 | There's always a test. | 89.14–90.46 | 87.87–91.43 | 3.56 |
-| V07 | And what's the company say? | 99.02–100.42 | 98.46–100.71 | 2.25 |
+| V07 | And what did the company say? | 99.02–100.42 | 98.46–100.71 | 2.25 |
 | V08 | Can I delete it? | 113.12–114.16 | 112.63–114.40 | 1.77 |
 | V09 | Is that the same? | 115.84–116.84 | 115.05–118.14 | 3.09 |
 | V10 | I've only got two sides, it isn't much to learn: / You push me down for off... ...so how'd I just return? | 120.80–123.93, 124.32–127.44 | 118.95–128.11 | 9.16 |
@@ -38,7 +38,7 @@ Take = his comped line(s) in the master. Room = Narrator's word before → Narra
 | V12 | I'll uninstall it! | 152.22–153.16 | 152.16–153.65 | 1.49 |
 | V13 | I'll mute it, then? | 154.72–155.46 | 153.92–155.57 | 1.65 |
 | V14 | Where's the "No"? | 159.80–160.44 | 159.73–160.94 | 1.21 |
-| V15 | Was there one without the robot? | 167.43–168.96 | 167.01–169.24 | 2.23 |
+| V15 | Is there one without the robot? | 167.46–168.96 | 167.01–169.24 | 2.23 |
 | V16 | And the answer box on top? | 194.62–196.00 | 194.48–196.95 | 2.47 |
 | V17 | What's that mean? | 198.87–199.70 | 198.52–200.57 | 2.05 |
 | V18 | I've got two sides. / ...Guess one of 'em was just for show. | 220.78–221.86, 224.07–225.78 | 220.48–227.53 | 7.05 |
@@ -93,7 +93,7 @@ Take = his comped line(s) in the master. Room = Narrator's word before → Narra
 | S24 | Lesson | V06 "There's always a test." | 89.14 | 2702 | L20 | cue words |
 | S25 | Verse 2 | "Now your inbox got a helper…" (replaced) | 91.43 | 2770 | L21 | cue words |
 | S26 | Verse 2 | "A lawsuit says it flipped itself last fall…" | 95.51 | 2893 | L22 | cue words |
-| S27 | Verse 2 | V07 "And what's the company say?" | 99.02 | 2998 | L23 | cue words |
+| S27 | Verse 2 | V07 "And what did the company say?" | 99.02 | 2998 | L23 | cue words |
 | S28 | Verse 2 | "That they didn't, and here's the door: / Just a menu, then a menu…" (replaced) | 100.71 | 3049 | L24 | cue words |
 | S29 | Verse 2 | "Then the TV got an update in the middle of the night," | 106.18 | 3213 | L26 | cue words |
 | S30 | Verse 2 | "And a brand-new tile was waiting…" | 109.66 | 3317 | L27 | cue words |
@@ -113,7 +113,7 @@ Take = his comped line(s) in the master. Room = Narrator's word before → Narra
 | S44 | Verse 3: Pop Quiz | "Now your phone has got an update…" | 156.77 | 4730 | L45 | cue words |
 | S45 | Verse 3: Pop Quiz | V14 "Where's the 'No'?" / "There isn't one!…" | 159.80 | 4821 | L46 | cue words |
 | S46 | Verse 3: Pop Quiz | "In Australia, office software went up forty-five percent…" | 164.02 | 4948 | L48 | cue words |
-| S47 | Verse 3: Pop Quiz | V15 "Was there one without the robot?" / "Only once you tried to leave!" | 167.43 | 5050 | L49 | cue words |
+| S47 | Verse 3: Pop Quiz | V15 "Is there one without the robot?" / "Only once you tried to leave!" | 167.46 | 5051 | L49 | cue words |
 | S48 | Bridge | "Now the school's the place for learning…" | 170.95 | 5156 | L51 | cue words |
 | S49 | Bridge | "So the school said, 'No AI, please'…" | 174.71 | 5269 | L52 | cue words |
 | S50 | Bridge | "And the giant said, 'We hear you!'…" | 178.33 | 5377 | L53 | cue words |
@@ -165,7 +165,7 @@ Take = his comped line(s) in the master. Room = Narrator's word before → Narra
 | L20 | switch | Lesson | 89.14 | 90.46 | There's always a test. |
 | L21 | narrator | Verse 2 | 91.43 | 94.82 | Now your inbox got a helper, and it wants to help you too! |
 | L22 | narrator | Verse 2 | 95.51 | 98.46 | A lawsuit says it flipped itself last fall, while out of view. |
-| L23 | switch | Verse 2 | 99.02 | 100.42 | And what's the company say? |
+| L23 | switch | Verse 2 | 99.02 | 100.42 | And what did the company say? |
 | L24 | narrator | Verse 2 | 100.71 | 102.20 | That they didn't, and here's the door: |
 | L25 | narrator | Verse 2 | 102.53 | 105.77 | Just a menu, then a menu, then a menu, then one more! |
 | L26 | narrator | Verse 2 | 106.18 | 109.11 | Then the TV got an update in the middle of the night, |
@@ -192,7 +192,7 @@ Take = his comped line(s) in the master. Room = Narrator's word before → Narra
 | L46 | switch | Verse 3: Pop Quiz | 159.80 | 160.44 | Where's the "No"? |
 | L47 | narrator | Verse 3: Pop Quiz | 160.94 | 163.15 | There isn't one! It turned back on for you! |
 | L48 | narrator | Verse 3: Pop Quiz | 164.02 | 167.01 | In Australia, office software went up forty-five percent... |
-| L49 | switch | Verse 3: Pop Quiz | 167.43 | 168.96 | Was there one without the robot? |
+| L49 | switch | Verse 3: Pop Quiz | 167.46 | 168.96 | Is there one without the robot? |
 | L50 | narrator | Verse 3: Pop Quiz | 169.24 | 170.84 | Only once you tried to leave! |
 | L51 | narrator | Bridge | 170.95 | 174.30 | Now the school's the place for learning, and the school picks what you learn, |
 | L52 | narrator | Bridge | 174.71 | 177.92 | So the school said, "No AI, please," and waited for its turn. |

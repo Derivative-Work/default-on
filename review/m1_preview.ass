@@ -41,7 +41,7 @@ Dialogue: 0,0:01:24.18,0:01:29.14,Shot,,0,0,0,,S23  "Got that? Opt-in, opt-out, 
 Dialogue: 0,0:01:29.14,0:01:31.43,Shot,,0,0,0,,S24  V06 "There's always a test."
 Dialogue: 0,0:01:31.43,0:01:35.51,Shot,,0,0,0,,S25  "Now your inbox got a helper…" (replaced)
 Dialogue: 0,0:01:35.51,0:01:39.02,Shot,,0,0,0,,S26  "A lawsuit says it flipped itself last fall…"
-Dialogue: 0,0:01:39.02,0:01:40.71,Shot,,0,0,0,,S27  V07 "And what's the company say?"
+Dialogue: 0,0:01:39.02,0:01:40.71,Shot,,0,0,0,,S27  V07 "And what did the company say?"
 Dialogue: 0,0:01:40.71,0:01:46.18,Shot,,0,0,0,,S28  "That they didn't, and here's the door: / Just a menu, then a menu…" (replaced
 Dialogue: 0,0:01:46.18,0:01:49.66,Shot,,0,0,0,,S29  "Then the TV got an update in the middle of the night,"
 Dialogue: 0,0:01:49.66,0:01:53.12,Shot,,0,0,0,,S30  "And a brand-new tile was waiting…"
@@ -60,8 +60,8 @@ Dialogue: 0,0:02:32.22,0:02:34.72,Shot,,0,0,0,,S42  V12 "I'll uninstall it!" / "
 Dialogue: 0,0:02:34.72,0:02:36.77,Shot,,0,0,0,,S43  V13 "I'll mute it, then?" / "That's not so bad!"
 Dialogue: 0,0:02:36.77,0:02:39.80,Shot,,0,0,0,,S44  "Now your phone has got an update…"
 Dialogue: 0,0:02:39.80,0:02:44.02,Shot,,0,0,0,,S45  V14 "Where's the 'No'?" / "There isn't one!…"
-Dialogue: 0,0:02:44.02,0:02:47.43,Shot,,0,0,0,,S46  "In Australia, office software went up forty-five percent…"
-Dialogue: 0,0:02:47.43,0:02:50.95,Shot,,0,0,0,,S47  V15 "Was there one without the robot?" / "Only once you tried to leave!"
+Dialogue: 0,0:02:44.02,0:02:47.46,Shot,,0,0,0,,S46  "In Australia, office software went up forty-five percent…"
+Dialogue: 0,0:02:47.46,0:02:50.95,Shot,,0,0,0,,S47  V15 "Is there one without the robot?" / "Only once you tried to leave!"
 Dialogue: 0,0:02:50.95,0:02:54.71,Shot,,0,0,0,,S48  "Now the school's the place for learning…"
 Dialogue: 0,0:02:54.71,0:02:58.33,Shot,,0,0,0,,S49  "So the school said, 'No AI, please'…"
 Dialogue: 0,0:02:58.33,0:03:01.78,Shot,,0,0,0,,S50  "And the giant said, 'We hear you!'…"
@@ -116,7 +116,7 @@ Dialogue: 1,0:02:34.72,0:02:35.46,Slot,,0,0,0,,{\pos(320,180)}V13 TAKE
 Dialogue: 0,0:02:39.73,0:02:40.94,Room,,0,0,0,,{\pos(320,150)}V14 room 1.21 s
 Dialogue: 1,0:02:39.80,0:02:40.44,Slot,,0,0,0,,{\pos(320,180)}V14 TAKE
 Dialogue: 0,0:02:47.01,0:02:49.24,Room,,0,0,0,,{\pos(320,150)}V15 room 2.23 s
-Dialogue: 1,0:02:47.43,0:02:48.96,Slot,,0,0,0,,{\pos(320,180)}V15 TAKE
+Dialogue: 1,0:02:47.46,0:02:48.96,Slot,,0,0,0,,{\pos(320,180)}V15 TAKE
 Dialogue: 0,0:03:14.48,0:03:16.95,Room,,0,0,0,,{\pos(320,150)}V16 room 2.47 s
 Dialogue: 1,0:03:14.62,0:03:16.00,Slot,,0,0,0,,{\pos(320,180)}V16 TAKE
 Dialogue: 0,0:03:18.52,0:03:20.57,Room,,0,0,0,,{\pos(320,150)}V17 room 2.05 s
@@ -163,7 +163,7 @@ Dialogue: 0,0:01:23.88,0:01:28.27,Lyric,,0,0,0,,{\k0}{\kf17}Got {\k3}{\kf19}that
 Dialogue: 0,0:01:28.84,0:01:30.86,Switch,,0,0,0,,{\k0}{\kf17}There's {\k9}{\kf33}always {\k10}{\kf2}a {\k13}{\kf48}test. 
 Dialogue: 0,0:01:31.13,0:01:35.22,Lyric,,0,0,0,,{\k0}{\kf33}Now {\k11}{\kf15}your {\k5}{\kf37}inbox {\k11}{\kf15}got {\k1}{\kf2}a {\k6}{\kf39}helper, {\k43}{\kf9}and {\k1}{\kf9}it {\k3}{\kf21}wants {\k5}{\kf6}to {\k6}{\kf21}help {\k3}{\kf11}you {\k5}{\kf21}too! 
 Dialogue: 0,0:01:35.21,0:01:38.86,Lyric,,0,0,0,,{\k0}{\kf2}A {\k10}{\kf47}lawsuit {\k7}{\kf15}says {\k3}{\kf9}it {\k5}{\kf29}flipped {\k3}{\kf37}itself {\k5}{\kf25}last {\k3}{\kf29}fall, {\k5}{\kf19}while {\k1}{\kf13}out {\k1}{\kf9}of {\k3}{\kf15}view. 
-Dialogue: 0,0:01:38.72,0:01:40.82,Switch,,0,0,0,,{\k0}{\kf13}And {\k1}{\kf33}what's {\k6}{\kf6}the {\k5}{\kf40}company {\k11}{\kf25}say? 
+Dialogue: 0,0:01:38.72,0:01:40.82,Switch,,0,0,0,,{\k0}{\kf13}And {\k1}{\kf15}what {\k3}{\kf15}did {\k6}{\kf6}the {\k5}{\kf40}company {\k11}{\kf25}say? 
 Dialogue: 0,0:01:40.41,0:01:42.60,Lyric,,0,0,0,,{\k0}{\kf13}That {\k1}{\kf11}they {\k3}{\kf31}didn't, {\k17}{\kf11}and {\k1}{\kf21}here's {\k1}{\kf9}the {\k3}{\kf27}door: 
 Dialogue: 0,0:01:42.23,0:01:46.17,Lyric,,0,0,0,,{\k0}{\kf23}Just {\k2}{\kf2}a {\k15}{\kf37}menu, {\k25}{\kf13}then {\k4}{\kf2}a {\k7}{\kf35}menu, {\k27}{\kf14}then {\k3}{\kf2}a {\k8}{\kf27}menu, {\k7}{\kf15}then {\k9}{\kf15}one {\k3}{\kf29}more! 
 Dialogue: 0,0:01:45.88,0:01:49.51,Lyric,,0,0,0,,{\k0}{\kf11}Then {\k3}{\kf6}the {\k8}{\kf23}TV {\k11}{\kf17}got {\k3}{\kf9}an {\k3}{\kf47}update {\k45}{\kf9}in {\k1}{\kf9}the {\k3}{\kf25}middle {\k5}{\kf6}of {\k2}{\kf9}the {\k7}{\kf31}night, 
@@ -190,7 +190,7 @@ Dialogue: 0,0:02:36.47,0:02:40.13,Lyric,,0,0,0,,{\k0}{\kf15}Now {\k3}{\kf13}your
 Dialogue: 0,0:02:39.50,0:02:40.84,Switch,,0,0,0,,{\k0}{\kf23}Where's {\k6}{\kf6}the {\k5}{\kf24}"No"? 
 Dialogue: 0,0:02:40.64,0:02:43.55,Lyric,,0,0,0,,{\k0}{\kf15}There {\k3}{\kf23}isn't {\k11}{\kf19}one! {\k33}{\kf8}It {\k4}{\kf27}turned {\k3}{\kf21}back {\k7}{\kf13}on {\k3}{\kf13}for {\k3}{\kf15}you! 
 Dialogue: 0,0:02:43.72,0:02:47.41,Lyric,,0,0,0,,{\k0}{\kf9}In {\k1}{\kf61}Australia, {\k11}{\kf33}office {\k7}{\kf47}software {\k1}{\kf13}went {\k0}{\kf9}up {\k7}{\kf53}forty-five {\k3}{\kf45}percent... 
-Dialogue: 0,0:02:47.13,0:02:49.36,Switch,,0,0,0,,{\k0}{\kf12}Was {\k3}{\kf15}there {\k11}{\kf15}one {\k3}{\kf36}without {\k3}{\kf6}the {\k6}{\kf43}robot? 
+Dialogue: 0,0:02:47.16,0:02:49.36,Switch,,0,0,0,,{\k0}{\kf9}Is {\k3}{\kf15}there {\k11}{\kf15}one {\k3}{\kf36}without {\k3}{\kf6}the {\k6}{\kf43}robot? 
 Dialogue: 0,0:02:48.94,0:02:51.24,Lyric,,0,0,0,,{\k0}{\kf19}Only {\k15}{\kf19}once {\k0}{\kf11}you {\k3}{\kf29}tried {\k1}{\kf8}to {\k6}{\kf50}leave! 
 Dialogue: 0,0:02:50.65,0:02:54.70,Lyric,,0,0,0,,{\k0}{\kf17}Now {\k1}{\kf9}the {\k9}{\kf39}school's {\k3}{\kf6}the {\k6}{\kf29}place {\k3}{\kf11}for {\k5}{\kf35}learning, {\k27}{\kf9}and {\k1}{\kf6}the {\k6}{\kf27}school {\k5}{\kf21}picks {\k1}{\kf13}what {\k1}{\kf11}you {\k3}{\kf31}learn, 
 Dialogue: 0,0:02:54.41,0:02:58.32,Lyric,,0,0,0,,{\k0}{\kf6}So {\k3}{\kf9}the {\k5}{\kf25}school {\k7}{\kf19}said, {\k9}{\kf11}"No {\k11}{\kf37}AI, {\k7}{\kf49}please," {\k1}{\kf11}and {\k5}{\kf27}waited {\k3}{\kf15}for {\k5}{\kf15}its {\k7}{\kf33}turn. 
