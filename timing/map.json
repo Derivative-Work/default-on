@@ -1,11 +1,11 @@
 {
  "title": "Default On",
  "fps": 30,
- "preroll_s": 3.9122,
+ "preroll_s": 0.9122,
  "audio": "audio/master/Default On (final master).wav",
  "clock": "the human's final master; v2 times + 1.0878 s (+ 2.8915 s after v2 242.55 s)",
  "duration_s": 263.459,
- "duration_frames": 8021,
+ "duration_frames": 7931,
  "frame_formula": "round((t + preroll_s) * fps)",
  "meter": "4/4",
  "bpm_median": 130.4,
@@ -745,32 +745,32 @@
   "last_word_end": 243.588,
   "last_note": 250.391,
   "audio_end": 252.122,
-  "first_downbeat_frame": 172,
-  "click_prechorus_1_frame": 1296,
-  "click_prechorus_2_frame": 3893,
+  "first_downbeat_frame": 82,
+  "click_prechorus_1_frame": 1206,
+  "click_prechorus_2_frame": 3803,
   "horn_frame": [
-   4716,
-   4720
+   4626,
+   4630
   ],
-  "door_slam_frame": 5240,
+  "door_slam_frame": 5150,
   "booing_frame": [
-   5667,
-   5826
+   5577,
+   5736
   ],
   "record_scratch_frame": [
-   5742,
-   5762
+   5652,
+   5672
   ],
   "clicks_outro_frame": [
-   6790,
-   6804
+   6700,
+   6714
   ],
-  "popup_chime_frame": 7120,
-  "piano_in_frame": 7082,
-  "click_reveal_frame": 7372,
-  "last_word_end_frame": 7425,
-  "last_note_frame": 7629,
-  "audio_end_frame": 7681
+  "popup_chime_frame": 7030,
+  "piano_in_frame": 6992,
+  "click_reveal_frame": 7282,
+  "last_word_end_frame": 7335,
+  "last_note_frame": 7539,
+  "audio_end_frame": 7591
  },
  "post": [
   {
@@ -778,10 +778,10 @@
    "what": "fact card G",
    "t": 254.122,
    "len_s": 4.0,
-   "frame": 7741
+   "frame": 7651
   }
  ],
- "video_end_frame": 7861,
+ "video_end_frame": 7771,
  "sections": [
   {
    "name": "Intro",
@@ -791,7 +791,7 @@
    "start": 0.0,
    "end": 18.048,
    "frame_start": 0,
-   "frame_end": 659
+   "frame_end": 569
   },
   {
    "name": "Verse 1",
@@ -800,8 +800,8 @@
    "first_word": 19.648,
    "start": 18.048,
    "end": 33.96,
-   "frame_start": 659,
-   "frame_end": 1136
+   "frame_start": 569,
+   "frame_end": 1046
   },
   {
    "name": "Pre-chorus 1",
@@ -810,8 +810,8 @@
    "first_word": 34.16,
    "start": 33.96,
    "end": 41.298,
-   "frame_start": 1136,
-   "frame_end": 1356
+   "frame_start": 1046,
+   "frame_end": 1266
   },
   {
    "name": "Chorus 1",
@@ -820,8 +820,8 @@
    "first_word": 41.498,
    "start": 41.298,
    "end": 61.368,
-   "frame_start": 1356,
-   "frame_end": 1958
+   "frame_start": 1266,
+   "frame_end": 1868
   },
   {
    "name": "Lesson",
@@ -830,8 +830,8 @@
    "first_word": 62.508,
    "start": 61.368,
    "end": 91.228,
-   "frame_start": 1958,
-   "frame_end": 2854
+   "frame_start": 1868,
+   "frame_end": 2764
   },
   {
    "name": "Verse 2",
@@ -840,8 +840,8 @@
    "first_word": 91.428,
    "start": 91.228,
    "end": 119.088,
-   "frame_start": 2854,
-   "frame_end": 3690
+   "frame_start": 2764,
+   "frame_end": 3600
   },
   {
    "name": "Pre-chorus 2 and Chorus 2",
@@ -850,8 +850,8 @@
    "first_word": 120.8,
    "start": 119.088,
    "end": 146.168,
-   "frame_start": 3690,
-   "frame_end": 4502
+   "frame_start": 3600,
+   "frame_end": 4412
   },
   {
    "name": "Verse 3: Pop Quiz",
@@ -860,8 +860,8 @@
    "first_word": 146.298,
    "start": 146.168,
    "end": 170.748,
-   "frame_start": 4502,
-   "frame_end": 5240
+   "frame_start": 4412,
+   "frame_end": 5150
   },
   {
    "name": "Bridge",
@@ -870,8 +870,8 @@
    "first_word": 170.948,
    "start": 170.748,
    "end": 201.888,
-   "frame_start": 5240,
-   "frame_end": 6174
+   "frame_start": 5150,
+   "frame_end": 6084
   },
   {
    "name": "Final chorus",
@@ -880,8 +880,8 @@
    "first_word": 202.088,
    "start": 201.888,
    "end": 220.584,
-   "frame_start": 6174,
-   "frame_end": 6735
+   "frame_start": 6084,
+   "frame_end": 6645
   },
   {
    "name": "Outro and reveal",
@@ -890,8 +890,8 @@
    "first_word": 220.784,
    "start": 220.584,
    "end": 263.459,
-   "frame_start": 6735,
-   "frame_end": 8021
+   "frame_start": 6645,
+   "frame_end": 7931
   }
  ],
  "switch_slots": [
@@ -914,8 +914,8 @@
    "take_len": 3.5,
    "room_len": 8.18,
    "room_frames": [
-    461,
-    707
+    371,
+    617
    ]
   },
   {
@@ -937,8 +937,8 @@
    "take_len": 3.08,
    "room_len": 3.53,
    "room_frames": [
-    913,
-    1019
+    823,
+    929
    ]
   },
   {
@@ -966,8 +966,8 @@
    "click": 39.277,
    "room_len": 7.92,
    "room_frames": [
-    1125,
-    1362
+    1035,
+    1272
    ]
   },
   {
@@ -989,8 +989,8 @@
    "take_len": 3.65,
    "room_len": 7.48,
    "room_frames": [
-    1768,
-    1993
+    1678,
+    1903
    ]
   },
   {
@@ -1012,8 +1012,8 @@
    "take_len": 5.7,
    "room_len": 8.47,
    "room_frames": [
-    2174,
-    2429
+    2084,
+    2339
    ]
   },
   {
@@ -1035,8 +1035,8 @@
    "take_len": 1.32,
    "room_len": 3.56,
    "room_frames": [
-    2753,
-    2860
+    2663,
+    2770
    ]
   },
   {
@@ -1058,8 +1058,8 @@
    "take_len": 1.4,
    "room_len": 2.25,
    "room_frames": [
-    3071,
-    3139
+    2981,
+    3049
    ]
   },
   {
@@ -1081,8 +1081,8 @@
    "take_len": 1.04,
    "room_len": 1.77,
    "room_frames": [
-    3496,
-    3549
+    3406,
+    3459
    ]
   },
   {
@@ -1104,8 +1104,8 @@
    "take_len": 1.0,
    "room_len": 3.09,
    "room_frames": [
-    3569,
-    3662
+    3479,
+    3572
    ]
   },
   {
@@ -1133,8 +1133,8 @@
    "click": 125.865,
    "room_len": 9.16,
    "room_frames": [
-    3686,
-    3961
+    3596,
+    3871
    ]
   },
   {
@@ -1156,8 +1156,8 @@
    "take_len": 2.6,
    "room_len": 3.91,
    "room_frames": [
-    4389,
-    4506
+    4299,
+    4416
    ]
   },
   {
@@ -1179,8 +1179,8 @@
    "take_len": 0.94,
    "room_len": 1.49,
    "room_frames": [
-    4682,
-    4727
+    4592,
+    4637
    ]
   },
   {
@@ -1202,8 +1202,8 @@
    "take_len": 0.74,
    "room_len": 1.65,
    "room_frames": [
-    4735,
-    4784
+    4645,
+    4694
    ]
   },
   {
@@ -1225,8 +1225,8 @@
    "take_len": 0.64,
    "room_len": 1.21,
    "room_frames": [
-    4909,
-    4946
+    4819,
+    4856
    ]
   },
   {
@@ -1248,8 +1248,8 @@
    "take_len": 1.53,
    "room_len": 2.23,
    "room_frames": [
-    5128,
-    5195
+    5038,
+    5105
    ]
   },
   {
@@ -1271,8 +1271,8 @@
    "take_len": 1.38,
    "room_len": 2.47,
    "room_frames": [
-    5952,
-    6026
+    5862,
+    5936
    ]
   },
   {
@@ -1294,8 +1294,8 @@
    "take_len": 0.83,
    "room_len": 2.05,
    "room_frames": [
-    6073,
-    6134
+    5983,
+    6044
    ]
   },
   {
@@ -1326,8 +1326,8 @@
    ],
    "room_len": 7.05,
    "room_frames": [
-    6732,
-    6943
+    6642,
+    6853
    ]
   },
   {
@@ -1349,8 +1349,8 @@
    "take_len": 1.64,
    "room_len": 4.576,
    "room_frames": [
-    7185,
-    7322
+    7095,
+    7232
    ]
   },
   {
@@ -1372,8 +1372,8 @@
    "take_len": 1.6,
    "room_len": 19.871,
    "room_frames": [
-    7425,
-    8021
+    7335,
+    7931
    ]
   }
  ],
@@ -1442,8 +1442,8 @@
      "score": 0.997
     }
    ],
-   "frame_start": 232,
-   "frame_end": 357
+   "frame_start": 142,
+   "frame_end": 267
   },
   {
    "id": "L02",
@@ -1485,8 +1485,8 @@
      "score": 0.884
     }
    ],
-   "frame_start": 400,
-   "frame_end": 461
+   "frame_start": 310,
+   "frame_end": 371
   },
   {
    "id": "L03",
@@ -1546,8 +1546,8 @@
      "score": 0.796
     }
    ],
-   "frame_start": 512,
-   "frame_end": 617
+   "frame_start": 422,
+   "frame_end": 527
   },
   {
    "id": "L04",
@@ -1625,8 +1625,8 @@
      "score": 0.828
     }
    ],
-   "frame_start": 707,
-   "frame_end": 804
+   "frame_start": 617,
+   "frame_end": 714
   },
   {
    "id": "L05",
@@ -1722,8 +1722,8 @@
      "score": 0.986
     }
    ],
-   "frame_start": 812,
-   "frame_end": 913
+   "frame_start": 722,
+   "frame_end": 823
   },
   {
    "id": "L06",
@@ -1789,8 +1789,8 @@
      "score": 0.999
     }
    ],
-   "frame_start": 920,
-   "frame_end": 1012
+   "frame_start": 830,
+   "frame_end": 922
   },
   {
    "id": "L07",
@@ -1880,8 +1880,8 @@
      "score": 0.985
     }
    ],
-   "frame_start": 1019,
-   "frame_end": 1125
+   "frame_start": 929,
+   "frame_end": 1035
   },
   {
    "id": "L08",
@@ -1953,8 +1953,8 @@
      "score": 0.772
     }
    ],
-   "frame_start": 1142,
-   "frame_end": 1235
+   "frame_start": 1052,
+   "frame_end": 1145
   },
   {
    "id": "L09",
@@ -2032,8 +2032,8 @@
      "score": 0.835
     }
    ],
-   "frame_start": 1249,
-   "frame_end": 1343
+   "frame_start": 1159,
+   "frame_end": 1253
   },
   {
    "id": "L10",
@@ -2069,8 +2069,8 @@
      "score": 0.469
     }
    ],
-   "frame_start": 1362,
-   "frame_end": 1448
+   "frame_start": 1272,
+   "frame_end": 1358
   },
   {
    "id": "L11",
@@ -2160,8 +2160,8 @@
      "score": 0.74
     }
    ],
-   "frame_start": 1455,
-   "frame_end": 1561
+   "frame_start": 1365,
+   "frame_end": 1471
   },
   {
    "id": "L12",
@@ -2263,8 +2263,8 @@
      "score": 0.704
     }
    ],
-   "frame_start": 1562,
-   "frame_end": 1663
+   "frame_start": 1472,
+   "frame_end": 1573
   },
   {
    "id": "L13",
@@ -2348,8 +2348,8 @@
      "score": 0.973
     }
    ],
-   "frame_start": 1669,
-   "frame_end": 1768
+   "frame_start": 1579,
+   "frame_end": 1678
   },
   {
    "id": "L14a",
@@ -2409,8 +2409,8 @@
      "score": 0.179
     }
    ],
-   "frame_start": 1775,
-   "frame_end": 1884
+   "frame_start": 1685,
+   "frame_end": 1794
   },
   {
    "id": "L14",
@@ -2434,8 +2434,8 @@
      "score": 0.555
     }
    ],
-   "frame_start": 1777,
-   "frame_end": 1798
+   "frame_start": 1687,
+   "frame_end": 1708
   },
   {
    "id": "L15",
@@ -2525,8 +2525,8 @@
      "score": 0.964
     }
    ],
-   "frame_start": 1993,
-   "frame_end": 2174
+   "frame_start": 1903,
+   "frame_end": 2084
   },
   {
    "id": "L16",
@@ -2622,8 +2622,8 @@
      "score": 0.993
     }
    ],
-   "frame_start": 2225,
-   "frame_end": 2396
+   "frame_start": 2135,
+   "frame_end": 2306
   },
   {
    "id": "L17",
@@ -2701,8 +2701,8 @@
      "score": 0.989
     }
    ],
-   "frame_start": 2429,
-   "frame_end": 2531
+   "frame_start": 2339,
+   "frame_end": 2441
   },
   {
    "id": "L18",
@@ -2792,8 +2792,8 @@
      "score": 0.993
     }
    ],
-   "frame_start": 2550,
-   "frame_end": 2638
+   "frame_start": 2460,
+   "frame_end": 2548
   },
   {
    "id": "L19",
@@ -2859,8 +2859,8 @@
      "score": 0.999
     }
    ],
-   "frame_start": 2643,
-   "frame_end": 2753
+   "frame_start": 2553,
+   "frame_end": 2663
   },
   {
    "id": "L20",
@@ -2896,8 +2896,8 @@
      "score": 0.871
     }
    ],
-   "frame_start": 2792,
-   "frame_end": 2831
+   "frame_start": 2702,
+   "frame_end": 2741
   },
   {
    "id": "L21",
@@ -2987,8 +2987,8 @@
      "score": 0.994
     }
    ],
-   "frame_start": 2860,
-   "frame_end": 2962
+   "frame_start": 2770,
+   "frame_end": 2872
   },
   {
    "id": "L22",
@@ -3072,8 +3072,8 @@
      "score": 0.0
     }
    ],
-   "frame_start": 2983,
-   "frame_end": 3071
+   "frame_start": 2893,
+   "frame_end": 2981
   },
   {
    "id": "L23",
@@ -3115,8 +3115,8 @@
      "score": 0.411
     }
    ],
-   "frame_start": 3088,
-   "frame_end": 3130
+   "frame_start": 2998,
+   "frame_end": 3040
   },
   {
    "id": "L24",
@@ -3170,8 +3170,8 @@
      "score": 0.976
     }
    ],
-   "frame_start": 3139,
-   "frame_end": 3183
+   "frame_start": 3049,
+   "frame_end": 3093
   },
   {
    "id": "L25",
@@ -3255,8 +3255,8 @@
      "score": 0.875
     }
    ],
-   "frame_start": 3193,
-   "frame_end": 3290
+   "frame_start": 3103,
+   "frame_end": 3200
   },
   {
    "id": "L26",
@@ -3340,8 +3340,8 @@
      "score": 0.941
     }
    ],
-   "frame_start": 3303,
-   "frame_end": 3391
+   "frame_start": 3213,
+   "frame_end": 3301
   },
   {
    "id": "L27",
@@ -3419,8 +3419,8 @@
      "score": 0.915
     }
    ],
-   "frame_start": 3407,
-   "frame_end": 3496
+   "frame_start": 3317,
+   "frame_end": 3406
   },
   {
    "id": "L28",
@@ -3456,8 +3456,8 @@
      "score": 0.005
     }
    ],
-   "frame_start": 3511,
-   "frame_end": 3542
+   "frame_start": 3421,
+   "frame_end": 3452
   },
   {
    "id": "L29",
@@ -3493,8 +3493,8 @@
      "score": 0.903
     }
    ],
-   "frame_start": 3549,
-   "frame_end": 3569
+   "frame_start": 3459,
+   "frame_end": 3479
   },
   {
    "id": "L30",
@@ -3530,8 +3530,8 @@
      "score": 0.985
     }
    ],
-   "frame_start": 3593,
-   "frame_end": 3623
+   "frame_start": 3503,
+   "frame_end": 3533
   },
   {
    "id": "L31",
@@ -3555,8 +3555,8 @@
      "score": 0.194
     }
    ],
-   "frame_start": 3662,
-   "frame_end": 3686
+   "frame_start": 3572,
+   "frame_end": 3596
   },
   {
    "id": "L32",
@@ -3628,8 +3628,8 @@
      "score": 0.866
     }
    ],
-   "frame_start": 3741,
-   "frame_end": 3835
+   "frame_start": 3651,
+   "frame_end": 3745
   },
   {
    "id": "L33",
@@ -3707,8 +3707,8 @@
      "score": 0.888
     }
    ],
-   "frame_start": 3847,
-   "frame_end": 3941
+   "frame_start": 3757,
+   "frame_end": 3851
   },
   {
    "id": "L34",
@@ -3744,8 +3744,8 @@
      "score": 0.429
     }
    ],
-   "frame_start": 3961,
-   "frame_end": 4047
+   "frame_start": 3871,
+   "frame_end": 3957
   },
   {
    "id": "L35",
@@ -3835,8 +3835,8 @@
      "score": 0.733
     }
    ],
-   "frame_start": 4052,
-   "frame_end": 4159
+   "frame_start": 3962,
+   "frame_end": 4069
   },
   {
    "id": "L36",
@@ -3938,8 +3938,8 @@
      "score": 0.396
     }
    ],
-   "frame_start": 4160,
-   "frame_end": 4262
+   "frame_start": 4070,
+   "frame_end": 4172
   },
   {
    "id": "L37",
@@ -4023,8 +4023,8 @@
      "score": 0.964
     }
    ],
-   "frame_start": 4267,
-   "frame_end": 4367
+   "frame_start": 4177,
+   "frame_end": 4277
   },
   {
    "id": "L38",
@@ -4048,8 +4048,8 @@
      "score": 0.659
     }
    ],
-   "frame_start": 4375,
-   "frame_end": 4401
+   "frame_start": 4285,
+   "frame_end": 4311
   },
   {
    "id": "L38a",
@@ -4091,8 +4091,8 @@
      "score": 0.238
     }
    ],
-   "frame_start": 4394,
-   "frame_end": 4472
+   "frame_start": 4304,
+   "frame_end": 4382
   },
   {
    "id": "L39",
@@ -4116,8 +4116,8 @@
      "score": 0.685
     }
    ],
-   "frame_start": 4506,
-   "frame_end": 4527
+   "frame_start": 4416,
+   "frame_end": 4437
   },
   {
    "id": "L40",
@@ -4219,8 +4219,8 @@
      "score": 0.927
     }
    ],
-   "frame_start": 4592,
-   "frame_end": 4682
+   "frame_start": 4502,
+   "frame_end": 4592
   },
   {
    "id": "L41",
@@ -4250,8 +4250,8 @@
      "score": 0.194
     }
    ],
-   "frame_start": 4684,
-   "frame_end": 4712
+   "frame_start": 4594,
+   "frame_end": 4622
   },
   {
    "id": "L42",
@@ -4269,8 +4269,8 @@
      "score": 0.893
     }
    ],
-   "frame_start": 4727,
-   "frame_end": 4735
+   "frame_start": 4637,
+   "frame_end": 4645
   },
   {
    "id": "L43",
@@ -4306,8 +4306,8 @@
      "score": 0.359
     }
    ],
-   "frame_start": 4759,
-   "frame_end": 4781
+   "frame_start": 4669,
+   "frame_end": 4691
   },
   {
    "id": "L44",
@@ -4343,8 +4343,8 @@
      "score": 1.0
     }
    ],
-   "frame_start": 4784,
-   "frame_end": 4811
+   "frame_start": 4694,
+   "frame_end": 4721
   },
   {
    "id": "L45",
@@ -4434,8 +4434,8 @@
      "score": 0.93
     }
    ],
-   "frame_start": 4820,
-   "frame_end": 4909
+   "frame_start": 4730,
+   "frame_end": 4819
   },
   {
    "id": "L46",
@@ -4465,8 +4465,8 @@
      "score": 0.586
     }
    ],
-   "frame_start": 4911,
-   "frame_end": 4931
+   "frame_start": 4821,
+   "frame_end": 4841
   },
   {
    "id": "L47",
@@ -4532,8 +4532,8 @@
      "score": 0.967
     }
    ],
-   "frame_start": 4946,
-   "frame_end": 5012
+   "frame_start": 4856,
+   "frame_end": 4922
   },
   {
    "id": "L48",
@@ -4593,8 +4593,8 @@
      "score": 0.835
     }
    ],
-   "frame_start": 5038,
-   "frame_end": 5128
+   "frame_start": 4948,
+   "frame_end": 5038
   },
   {
    "id": "L49",
@@ -4642,8 +4642,8 @@
      "score": 0.825
     }
    ],
-   "frame_start": 5140,
-   "frame_end": 5186
+   "frame_start": 5050,
+   "frame_end": 5096
   },
   {
    "id": "L50",
@@ -4691,8 +4691,8 @@
      "score": 0.965
     }
    ],
-   "frame_start": 5195,
-   "frame_end": 5243
+   "frame_start": 5105,
+   "frame_end": 5153
   },
   {
    "id": "L51",
@@ -4788,8 +4788,8 @@
      "score": 0.963
     }
    ],
-   "frame_start": 5246,
-   "frame_end": 5346
+   "frame_start": 5156,
+   "frame_end": 5256
   },
   {
    "id": "L52",
@@ -4873,8 +4873,8 @@
      "score": 0.972
     }
    ],
-   "frame_start": 5359,
-   "frame_end": 5455
+   "frame_start": 5269,
+   "frame_end": 5365
   },
   {
    "id": "L53",
@@ -4964,8 +4964,8 @@
      "score": 0.965
     }
    ],
-   "frame_start": 5467,
-   "frame_end": 5561
+   "frame_start": 5377,
+   "frame_end": 5471
   },
   {
    "id": "L54",
@@ -5049,8 +5049,8 @@
      "score": 0.996
     }
    ],
-   "frame_start": 5571,
-   "frame_end": 5683
+   "frame_start": 5481,
+   "frame_end": 5593
   },
   {
    "id": "L55",
@@ -5122,8 +5122,8 @@
      "score": 0.856
     }
    ],
-   "frame_start": 5768,
-   "frame_end": 5879
+   "frame_start": 5678,
+   "frame_end": 5789
   },
   {
    "id": "L56",
@@ -5177,8 +5177,8 @@
      "score": 0.991
     }
    ],
-   "frame_start": 5900,
-   "frame_end": 5952
+   "frame_start": 5810,
+   "frame_end": 5862
   },
   {
    "id": "L57",
@@ -5226,8 +5226,8 @@
      "score": 1.0
     }
    ],
-   "frame_start": 5956,
-   "frame_end": 5997
+   "frame_start": 5866,
+   "frame_end": 5907
   },
   {
    "id": "L58",
@@ -5263,8 +5263,8 @@
      "score": 0.998
     }
    ],
-   "frame_start": 6026,
-   "frame_end": 6073
+   "frame_start": 5936,
+   "frame_end": 5983
   },
   {
    "id": "L59",
@@ -5294,8 +5294,8 @@
      "score": 0.766
     }
    ],
-   "frame_start": 6083,
-   "frame_end": 6108
+   "frame_start": 5993,
+   "frame_end": 6018
   },
   {
    "id": "L60",
@@ -5331,8 +5331,8 @@
      "score": 0.798
     }
    ],
-   "frame_start": 6134,
-   "frame_end": 6161
+   "frame_start": 6044,
+   "frame_end": 6071
   },
   {
    "id": "L61",
@@ -5368,8 +5368,8 @@
      "score": 0.05
     }
    ],
-   "frame_start": 6180,
-   "frame_end": 6269
+   "frame_start": 6090,
+   "frame_end": 6179
   },
   {
    "id": "L62",
@@ -5459,8 +5459,8 @@
      "score": 0.778
     }
    ],
-   "frame_start": 6272,
-   "frame_end": 6377
+   "frame_start": 6182,
+   "frame_end": 6287
   },
   {
    "id": "L63",
@@ -5562,8 +5562,8 @@
      "score": 0.0
     }
    ],
-   "frame_start": 6378,
-   "frame_end": 6473
+   "frame_start": 6288,
+   "frame_end": 6383
   },
   {
    "id": "L64",
@@ -5647,8 +5647,8 @@
      "score": 0.935
     }
    ],
-   "frame_start": 6486,
-   "frame_end": 6593
+   "frame_start": 6396,
+   "frame_end": 6503
   },
   {
    "id": "L65",
@@ -5672,8 +5672,8 @@
      "score": 0.054
     }
    ],
-   "frame_start": 6690,
-   "frame_end": 6732
+   "frame_start": 6600,
+   "frame_end": 6642
   },
   {
    "id": "L66",
@@ -5709,8 +5709,8 @@
      "score": 0.395
     }
    ],
-   "frame_start": 6741,
-   "frame_end": 6773
+   "frame_start": 6651,
+   "frame_end": 6683
   },
   {
    "id": "L67",
@@ -5770,8 +5770,8 @@
      "score": 0.468
     }
    ],
-   "frame_start": 6839,
-   "frame_end": 6891
+   "frame_start": 6749,
+   "frame_end": 6801
   },
   {
    "id": "L68",
@@ -5867,8 +5867,8 @@
      "score": 0.998
     }
    ],
-   "frame_start": 6943,
-   "frame_end": 7076
+   "frame_start": 6853,
+   "frame_end": 6986
   },
   {
    "id": "L69",
@@ -5904,8 +5904,8 @@
      "score": 0.802
     }
    ],
-   "frame_start": 7163,
-   "frame_end": 7185
+   "frame_start": 7073,
+   "frame_end": 7095
   },
   {
    "id": "L70",
@@ -5953,8 +5953,8 @@
      "score": 0.705
     }
    ],
-   "frame_start": 7218,
-   "frame_end": 7267
+   "frame_start": 7128,
+   "frame_end": 7177
   },
   {
    "id": "L71",
@@ -6014,8 +6014,8 @@
      "score": 0.983
     }
    ],
-   "frame_start": 7322,
-   "frame_end": 7425
+   "frame_start": 7232,
+   "frame_end": 7335
   },
   {
    "id": "L71a",
@@ -6063,8 +6063,8 @@
      "score": 0.641
     }
    ],
-   "frame_start": 7436,
-   "frame_end": 7484
+   "frame_start": 7346,
+   "frame_end": 7394
   }
  ],
  "shots": [
@@ -6074,11 +6074,11 @@
    "cue": "Before the audio starts (about 2 s of room tone, added in the edit)",
    "picture": "Pre-roll card on cream paper: \"A cartoon for grown-ups about tech settings.\" Plain sans, warm dark-brown ink, film layer on, no bubble letters and no characters, so it reads as a label rather than a title. Under it, smaller: \"(Mostly) AI-generated satire.\" Cut straight to S01's title",
    "source": "A",
-   "t": -3.912,
+   "t": -0.912,
    "line": null,
    "how": "pre-roll card on room tone, before the title",
    "frame": 0,
-   "end": -1.912,
+   "end": 1.088,
    "frame_end": 60
   },
   {
@@ -6087,12 +6087,12 @@
    "cue": "Downbeat, before the first line",
    "picture": "The title card (the countdown was cut, the human's note of 2026-11-09) \"DEFAULT ON\" in bubble letters on mustard. A small rocker switch under the title rocks itself from OFF to ON",
    "source": "A",
-   "t": -1.912,
+   "t": 1.088,
    "line": null,
    "how": "the title (its countdown cut, 2026-11-09); the rocker flips after the first downbeat",
    "frame": 60,
    "end": 3.828,
-   "frame_end": 232
+   "frame_end": 142
   },
   {
    "id": "S02",
@@ -6103,9 +6103,9 @@
    "t": 3.828,
    "line": "L01",
    "how": "cue words",
-   "frame": 232,
+   "frame": 142,
    "end": 9.428,
-   "frame_end": 400
+   "frame_end": 310
   },
   {
    "id": "S03",
@@ -6116,9 +6116,9 @@
    "t": 9.428,
    "line": "L02",
    "how": "cue words",
-   "frame": 400,
+   "frame": 310,
    "end": 13.14,
-   "frame_end": 512
+   "frame_end": 422
   },
   {
    "id": "S04",
@@ -6129,9 +6129,9 @@
    "t": 13.14,
    "line": "L03",
    "how": "cue words",
-   "frame": 512,
+   "frame": 422,
    "end": 19.648,
-   "frame_end": 707
+   "frame_end": 617
   },
   {
    "id": "S05",
@@ -6142,9 +6142,9 @@
    "t": 19.648,
    "line": "L04",
    "how": "cue words",
-   "frame": 707,
+   "frame": 617,
    "end": 23.168,
-   "frame_end": 812
+   "frame_end": 722
   },
   {
    "id": "S06",
@@ -6155,9 +6155,9 @@
    "t": 23.168,
    "line": "L05",
    "how": "cue words",
-   "frame": 812,
+   "frame": 722,
    "end": 26.74,
-   "frame_end": 920
+   "frame_end": 830
   },
   {
    "id": "S07",
@@ -6168,9 +6168,9 @@
    "t": 26.74,
    "line": "L06",
    "how": "cue words",
-   "frame": 920,
+   "frame": 830,
    "end": 30.048,
-   "frame_end": 1019
+   "frame_end": 929
   },
   {
    "id": "S08",
@@ -6181,9 +6181,9 @@
    "t": 30.048,
    "line": "L07",
    "how": "cue words",
-   "frame": 1019,
+   "frame": 929,
    "end": 34.16,
-   "frame_end": 1142
+   "frame_end": 1052
   },
   {
    "id": "S09",
@@ -6194,9 +6194,9 @@
    "t": 34.16,
    "line": "L08",
    "how": "cue words",
-   "frame": 1142,
+   "frame": 1052,
    "end": 37.72,
-   "frame_end": 1249
+   "frame_end": 1159
   },
   {
    "id": "S10",
@@ -6207,9 +6207,9 @@
    "t": 37.72,
    "line": "L09",
    "how": "cue words",
-   "frame": 1249,
+   "frame": 1159,
    "end": 39.277,
-   "frame_end": 1296
+   "frame_end": 1206
   },
   {
    "id": "S11",
@@ -6220,9 +6220,9 @@
    "t": 39.277,
    "line": "L09",
    "how": "the real click",
-   "frame": 1296,
+   "frame": 1206,
    "end": 39.43,
-   "frame_end": 1300
+   "frame_end": 1210
   },
   {
    "id": "S12",
@@ -6233,9 +6233,9 @@
    "t": 39.43,
    "line": "L09",
    "how": "cue words",
-   "frame": 1300,
+   "frame": 1210,
    "end": 41.498,
-   "frame_end": 1362
+   "frame_end": 1272
   },
   {
    "id": "S13",
@@ -6246,9 +6246,9 @@
    "t": 41.498,
    "line": "L10",
    "how": "cue words",
-   "frame": 1362,
+   "frame": 1272,
    "end": 44.581,
-   "frame_end": 1455
+   "frame_end": 1365
   },
   {
    "id": "S14",
@@ -6259,9 +6259,9 @@
    "t": 44.581,
    "line": "L11",
    "how": "cue words",
-   "frame": 1455,
+   "frame": 1365,
    "end": 48.138,
-   "frame_end": 1562
+   "frame_end": 1472
   },
   {
    "id": "S15",
@@ -6272,9 +6272,9 @@
    "t": 48.138,
    "line": "L12",
    "how": "cue words",
-   "frame": 1562,
+   "frame": 1472,
    "end": 51.718,
-   "frame_end": 1669
+   "frame_end": 1579
   },
   {
    "id": "S16",
@@ -6285,9 +6285,9 @@
    "t": 51.718,
    "line": "L13",
    "how": "cue words",
-   "frame": 1669,
+   "frame": 1579,
    "end": 55.25,
-   "frame_end": 1775
+   "frame_end": 1685
   },
   {
    "id": "S17",
@@ -6298,22 +6298,22 @@
    "t": 55.25,
    "line": "L14a",
    "how": "cue words",
-   "frame": 1775,
+   "frame": 1685,
    "end": 58.9,
-   "frame_end": 1884
+   "frame_end": 1794
   },
   {
    "id": "S18",
    "section": "Chorus 1",
    "cue": "Flute and scat fill",
-   "picture": "The grey hand doodles little ON switches in a margin, in time with the fill",
+   "picture": "A pencil, on its own (no hand: the human's note of 2026-11-09), doodles little ON switches in a margin, in time with the fill",
    "source": "A",
    "t": 58.9,
    "line": "L14a",
    "how": "after Switch's V04 tag",
-   "frame": 1884,
+   "frame": 1794,
    "end": 62.508,
-   "frame_end": 1993
+   "frame_end": 1903
   },
   {
    "id": "S19",
@@ -6324,9 +6324,9 @@
    "t": 62.508,
    "line": "L15",
    "how": "cue words",
-   "frame": 1993,
+   "frame": 1903,
    "end": 70.26,
-   "frame_end": 2225
+   "frame_end": 2135
   },
   {
    "id": "S20",
@@ -6337,9 +6337,9 @@
    "t": 70.26,
    "line": "L16",
    "how": "cue words",
-   "frame": 2225,
+   "frame": 2135,
    "end": 77.038,
-   "frame_end": 2429
+   "frame_end": 2339
   },
   {
    "id": "S21",
@@ -6350,9 +6350,9 @@
    "t": 77.038,
    "line": "L17",
    "how": "cue words",
-   "frame": 2429,
+   "frame": 2339,
    "end": 82.558,
-   "frame_end": 2594
+   "frame_end": 2504
   },
   {
    "id": "S22",
@@ -6363,9 +6363,9 @@
    "t": 82.558,
    "line": "L18",
    "how": "cue words",
-   "frame": 2594,
+   "frame": 2504,
    "end": 84.178,
-   "frame_end": 2643
+   "frame_end": 2553
   },
   {
    "id": "S23",
@@ -6376,9 +6376,9 @@
    "t": 84.178,
    "line": "L19",
    "how": "cue words",
-   "frame": 2643,
+   "frame": 2553,
    "end": 89.14,
-   "frame_end": 2792
+   "frame_end": 2702
   },
   {
    "id": "S24",
@@ -6389,9 +6389,9 @@
    "t": 89.14,
    "line": "L20",
    "how": "cue words",
-   "frame": 2792,
+   "frame": 2702,
    "end": 91.428,
-   "frame_end": 2860
+   "frame_end": 2770
   },
   {
    "id": "S25",
@@ -6402,9 +6402,9 @@
    "t": 91.428,
    "line": "L21",
    "how": "cue words",
-   "frame": 2860,
+   "frame": 2770,
    "end": 95.511,
-   "frame_end": 2983
+   "frame_end": 2893
   },
   {
    "id": "S26",
@@ -6415,9 +6415,9 @@
    "t": 95.511,
    "line": "L22",
    "how": "cue words",
-   "frame": 2983,
+   "frame": 2893,
    "end": 99.02,
-   "frame_end": 3088
+   "frame_end": 2998
   },
   {
    "id": "S27",
@@ -6428,9 +6428,9 @@
    "t": 99.02,
    "line": "L23",
    "how": "cue words",
-   "frame": 3088,
+   "frame": 2998,
    "end": 100.708,
-   "frame_end": 3139
+   "frame_end": 3049
   },
   {
    "id": "S28",
@@ -6441,9 +6441,9 @@
    "t": 100.708,
    "line": "L24",
    "how": "cue words",
-   "frame": 3139,
+   "frame": 3049,
    "end": 106.178,
-   "frame_end": 3303
+   "frame_end": 3213
   },
   {
    "id": "S29",
@@ -6454,9 +6454,9 @@
    "t": 106.178,
    "line": "L26",
    "how": "cue words",
-   "frame": 3303,
+   "frame": 3213,
    "end": 109.658,
-   "frame_end": 3407
+   "frame_end": 3317
   },
   {
    "id": "S30",
@@ -6467,9 +6467,9 @@
    "t": 109.658,
    "line": "L27",
    "how": "cue words",
-   "frame": 3407,
+   "frame": 3317,
    "end": 113.12,
-   "frame_end": 3511
+   "frame_end": 3421
   },
   {
    "id": "S31",
@@ -6480,9 +6480,9 @@
    "t": 113.12,
    "line": "L28",
    "how": "cue words",
-   "frame": 3511,
+   "frame": 3421,
    "end": 114.398,
-   "frame_end": 3549
+   "frame_end": 3459
   },
   {
    "id": "S32",
@@ -6493,9 +6493,9 @@
    "t": 114.398,
    "line": "L29",
    "how": "cue words",
-   "frame": 3549,
+   "frame": 3459,
    "end": 115.84,
-   "frame_end": 3593
+   "frame_end": 3503
   },
   {
    "id": "S33",
@@ -6506,9 +6506,9 @@
    "t": 115.84,
    "line": "L30",
    "how": "cue words",
-   "frame": 3593,
+   "frame": 3503,
    "end": 118.138,
-   "frame_end": 3662
+   "frame_end": 3572
   },
   {
    "id": "S34",
@@ -6519,9 +6519,9 @@
    "t": 118.138,
    "line": "L31",
    "how": "cue words",
-   "frame": 3662,
+   "frame": 3572,
    "end": 120.8,
-   "frame_end": 3741
+   "frame_end": 3651
   },
   {
    "id": "S35",
@@ -6532,9 +6532,9 @@
    "t": 120.8,
    "line": "L32",
    "how": "cue words",
-   "frame": 3741,
+   "frame": 3651,
    "end": 125.865,
-   "frame_end": 3893
+   "frame_end": 3803
   },
   {
    "id": "S36",
@@ -6545,9 +6545,9 @@
    "t": 125.865,
    "line": "L33",
    "how": "the real click",
-   "frame": 3893,
+   "frame": 3803,
    "end": 128.108,
-   "frame_end": 3961
+   "frame_end": 3871
   },
   {
    "id": "S37",
@@ -6558,9 +6558,9 @@
    "t": 128.108,
    "line": "L34",
    "how": "first chorus-2 line",
-   "frame": 3961,
+   "frame": 3871,
    "end": 138.318,
-   "frame_end": 4267
+   "frame_end": 4177
   },
   {
    "id": "S38",
@@ -6571,9 +6571,9 @@
    "t": 138.318,
    "line": "L37",
    "how": "cue words",
-   "frame": 4267,
+   "frame": 4177,
    "end": 142.56,
-   "frame_end": 4394
+   "frame_end": 4304
   },
   {
    "id": "S39",
@@ -6584,9 +6584,9 @@
    "t": 142.56,
    "line": "L38a",
    "how": "Switch's V11 tag",
-   "frame": 4394,
+   "frame": 4304,
    "end": 146.298,
-   "frame_end": 4506
+   "frame_end": 4416
   },
   {
    "id": "S40",
@@ -6597,9 +6597,9 @@
    "t": 146.298,
    "line": "L39",
    "how": "cue words",
-   "frame": 4506,
+   "frame": 4416,
    "end": 149.148,
-   "frame_end": 4592
+   "frame_end": 4502
   },
   {
    "id": "S41",
@@ -6610,9 +6610,9 @@
    "t": 149.148,
    "line": "L40",
    "how": "cue words",
-   "frame": 4592,
+   "frame": 4502,
    "end": 152.22,
-   "frame_end": 4684
+   "frame_end": 4594
   },
   {
    "id": "S42",
@@ -6623,9 +6623,9 @@
    "t": 152.22,
    "line": "L41",
    "how": "cue words",
-   "frame": 4684,
+   "frame": 4594,
    "end": 154.72,
-   "frame_end": 4759
+   "frame_end": 4669
   },
   {
    "id": "S43",
@@ -6636,9 +6636,9 @@
    "t": 154.72,
    "line": "L43",
    "how": "cue words",
-   "frame": 4759,
+   "frame": 4669,
    "end": 156.768,
-   "frame_end": 4820
+   "frame_end": 4730
   },
   {
    "id": "S44",
@@ -6649,9 +6649,9 @@
    "t": 156.768,
    "line": "L45",
    "how": "cue words",
-   "frame": 4820,
+   "frame": 4730,
    "end": 159.8,
-   "frame_end": 4911
+   "frame_end": 4821
   },
   {
    "id": "S45",
@@ -6662,9 +6662,9 @@
    "t": 159.8,
    "line": "L46",
    "how": "cue words",
-   "frame": 4911,
+   "frame": 4821,
    "end": 164.018,
-   "frame_end": 5038
+   "frame_end": 4948
   },
   {
    "id": "S46",
@@ -6675,9 +6675,9 @@
    "t": 164.018,
    "line": "L48",
    "how": "cue words",
-   "frame": 5038,
+   "frame": 4948,
    "end": 167.43,
-   "frame_end": 5140
+   "frame_end": 5050
   },
   {
    "id": "S47",
@@ -6688,9 +6688,9 @@
    "t": 167.43,
    "line": "L49",
    "how": "cue words",
-   "frame": 5140,
+   "frame": 5050,
    "end": 170.948,
-   "frame_end": 5246
+   "frame_end": 5156
   },
   {
    "id": "S48",
@@ -6701,9 +6701,9 @@
    "t": 170.948,
    "line": "L51",
    "how": "cue words",
-   "frame": 5246,
+   "frame": 5156,
    "end": 174.713,
-   "frame_end": 5359
+   "frame_end": 5269
   },
   {
    "id": "S49",
@@ -6714,9 +6714,9 @@
    "t": 174.713,
    "line": "L52",
    "how": "cue words",
-   "frame": 5359,
+   "frame": 5269,
    "end": 178.328,
-   "frame_end": 5467
+   "frame_end": 5377
   },
   {
    "id": "S50",
@@ -6727,9 +6727,9 @@
    "t": 178.328,
    "line": "L53",
    "how": "cue words",
-   "frame": 5467,
+   "frame": 5377,
    "end": 181.778,
-   "frame_end": 5571
+   "frame_end": 5481
   },
   {
    "id": "S51",
@@ -6740,9 +6740,9 @@
    "t": 181.778,
    "line": "L54",
    "how": "cue words",
-   "frame": 5571,
+   "frame": 5481,
    "end": 187.5,
-   "frame_end": 5742
+   "frame_end": 5652
   },
   {
    "id": "S52",
@@ -6753,9 +6753,9 @@
    "t": 187.5,
    "line": "L54",
    "how": "the record scratch (under the booing)",
-   "frame": 5742,
+   "frame": 5652,
    "end": 188.348,
-   "frame_end": 5768
+   "frame_end": 5678
   },
   {
    "id": "S53",
@@ -6766,9 +6766,9 @@
    "t": 188.348,
    "line": "L55",
    "how": "cue words",
-   "frame": 5768,
+   "frame": 5678,
    "end": 194.62,
-   "frame_end": 5956
+   "frame_end": 5866
   },
   {
    "id": "S54",
@@ -6779,9 +6779,9 @@
    "t": 194.62,
    "line": "L57",
    "how": "cue words",
-   "frame": 5956,
+   "frame": 5866,
    "end": 196.948,
-   "frame_end": 6026
+   "frame_end": 5936
   },
   {
    "id": "S55",
@@ -6792,9 +6792,9 @@
    "t": 196.948,
    "line": "L58",
    "how": "cue words",
-   "frame": 6026,
+   "frame": 5936,
    "end": 198.87,
-   "frame_end": 6083
+   "frame_end": 5993
   },
   {
    "id": "S56",
@@ -6805,9 +6805,9 @@
    "t": 198.87,
    "line": "L59",
    "how": "cue words",
-   "frame": 6083,
+   "frame": 5993,
    "end": 202.088,
-   "frame_end": 6180
+   "frame_end": 6090
   },
   {
    "id": "S57",
@@ -6818,9 +6818,9 @@
    "t": 202.088,
    "line": "L61",
    "how": "first final-chorus line",
-   "frame": 6180,
+   "frame": 6090,
    "end": 205.158,
-   "frame_end": 6272
+   "frame_end": 6182
   },
   {
    "id": "S57a",
@@ -6831,9 +6831,9 @@
    "t": 205.158,
    "line": "L62",
    "how": "cue words",
-   "frame": 6272,
+   "frame": 6182,
    "end": 208.698,
-   "frame_end": 6378
+   "frame_end": 6288
   },
   {
    "id": "S57b",
@@ -6844,9 +6844,9 @@
    "t": 208.698,
    "line": "L63",
    "how": "cue words",
-   "frame": 6378,
+   "frame": 6288,
    "end": 212.298,
-   "frame_end": 6486
+   "frame_end": 6396
   },
   {
    "id": "S57c",
@@ -6857,9 +6857,9 @@
    "t": 212.298,
    "line": "L64",
    "how": "cue words",
-   "frame": 6486,
+   "frame": 6396,
    "end": 219.078,
-   "frame_end": 6690
+   "frame_end": 6600
   },
   {
    "id": "S58",
@@ -6870,9 +6870,9 @@
    "t": 219.078,
    "line": "L65",
    "how": "last \"Default on!\"",
-   "frame": 6690,
+   "frame": 6600,
    "end": 220.784,
-   "frame_end": 6741
+   "frame_end": 6651
   },
   {
    "id": "S59",
@@ -6883,9 +6883,9 @@
    "t": 220.784,
    "line": "L66",
    "how": "cue words",
-   "frame": 6741,
+   "frame": 6651,
    "end": 222.407,
-   "frame_end": 6790
+   "frame_end": 6700
   },
   {
    "id": "S60",
@@ -6896,9 +6896,9 @@
    "t": 222.407,
    "line": "L66",
    "how": "first outro click (the human's comp has two)",
-   "frame": 6790,
+   "frame": 6700,
    "end": 224.07,
-   "frame_end": 6839
+   "frame_end": 6749
   },
   {
    "id": "S61",
@@ -6909,9 +6909,9 @@
    "t": 224.07,
    "line": "L67",
    "how": "cue words",
-   "frame": 6839,
+   "frame": 6749,
    "end": 227.528,
-   "frame_end": 6943
+   "frame_end": 6853
   },
   {
    "id": "S62",
@@ -6922,9 +6922,9 @@
    "t": 227.528,
    "line": "L68",
    "how": "cue words",
-   "frame": 6943,
+   "frame": 6853,
    "end": 232.154,
-   "frame_end": 7082
+   "frame_end": 6992
   },
   {
    "id": "S63",
@@ -6935,9 +6935,9 @@
    "t": 232.154,
    "line": "L68",
    "how": "the piano comes in; \"Huh.\" is not sung",
-   "frame": 7082,
+   "frame": 6992,
    "end": 236.68,
-   "frame_end": 7218
+   "frame_end": 7128
   },
   {
    "id": "S64",
@@ -6948,9 +6948,9 @@
    "t": 236.68,
    "line": "L70",
    "how": "cue words",
-   "frame": 7218,
+   "frame": 7128,
    "end": 240.164,
-   "frame_end": 7322
+   "frame_end": 7232
   },
   {
    "id": "S65",
@@ -6961,9 +6961,9 @@
    "t": 240.164,
    "line": "L71",
    "how": "cue words",
-   "frame": 7322,
+   "frame": 7232,
    "end": 241.805,
-   "frame_end": 7372
+   "frame_end": 7282
   },
   {
    "id": "S66",
@@ -6974,9 +6974,9 @@
    "t": 241.805,
    "line": "L71",
    "how": "the click between \"An AI did.\" and \"...But\"",
-   "frame": 7372,
+   "frame": 7282,
    "end": 243.94,
-   "frame_end": 7436
+   "frame_end": 7346
   },
   {
    "id": "S67",
@@ -6987,9 +6987,9 @@
    "t": 243.94,
    "line": "L71a",
    "how": "V21 over the band's tail; the hand flips on the last note; holds past the audio",
-   "frame": 7436,
+   "frame": 7346,
    "end": 254.122,
-   "frame_end": 7741,
+   "frame_end": 7651,
    "note": "real footage; runs past the audio, holding 2 s on room tone, then fact card G"
   }
  ]

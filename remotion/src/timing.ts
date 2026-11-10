@@ -1,5 +1,5 @@
 // The timing map (timing/map.json, scripts/timing_map.py) as the video's clock. Video frames include the
-// pre-roll (map.preroll_s: 5 s before v2's start, so 3.9122 s before the final master's); `at(t)` turns audio seconds into a video frame. Shots, lines, words and Switch slots come from the map.
+// pre-roll (map.preroll_s: S00's 2 s card ends on v2's start, the master's first downbeat, so 0.9122 s before the final master's); `at(t)` turns audio seconds into a video frame. Shots, lines, words and Switch slots come from the map.
 import map from "../../timing/map.json";
 
 export const FPS = map.fps;

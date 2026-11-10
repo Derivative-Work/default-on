@@ -34,8 +34,11 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 from song import FX, MASTER, OFFSET_1, OFFSET_2, BAR_AFTER_V2, SWITCH_COMP, TITLE, v2_to_master  # noqa: E402
 
 FPS = 30
-S00_S = 2.0  # S00: the "cartoon for grown-ups" card, on room tone, before the countdown
-PREROLL_S = round(S00_S + 3.0 - OFFSET_1, 4)  # then S01's countdown (3 s, M1 gate) before v2's downbeat; see Clocks
+S00_S = 2.0  # S00: the "cartoon for grown-ups" card, on room tone, before the title
+# the master's first downbeat (v2's start, OFFSET_1 into the final master) lands on S01's first frame: the music starts
+# the moment the title comes on (the human's note, 2026-11-09, round 6; the 3 s countdown that used to sit between
+# them was cut in round 4). Was S00_S + 3.0 - OFFSET_1 = 3.9122; see Clocks
+PREROLL_S = round(S00_S - OFFSET_1, 4)
 SR = 22050
 SLOTS = {  # Switch line: its line IDs in timing/words_switch.json
     "V01": ["L03"], "V02": ["L06"], "V03": ["L08", "L09"], "V04": ["L14a"], "V05": ["L16"], "V06": ["L20"],

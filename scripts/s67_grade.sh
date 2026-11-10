@@ -3,14 +3,14 @@
 # exposure/ISO/white balance, straight off the camera) into the clip the cut uses: edit/S67_graded.mp4, linked into
 # remotion/public/. The clip is laid frame for frame on the 30 fps timeline (the 0.1% speed difference is
 # invisible), starting so that the first dark frame (source 193.967 s: the switch turns the room's light off) lands on
-# the band's last note (map events.last_note_frame, 7629), with S67 starting at frame 7436.
+# the band's last note (map events.last_note_frame, 7539), with S67 starting at frame 7346 (both 90 frames earlier since the round-6 pre-roll; their gap, and so this clip, is unchanged).
 # The grade (the human's note, 2026-11-09: "it will need color grading to match the rest"): the camera's white
 # balance reads the white wall as blue-grey (185,194,214); per-channel gains warm it to the cartoon's paper (about
 # 216,206,201), with a touch more contrast and saturation and the cartoon's soft vignette. No audio (the camera's
 # sound is the home's: never published) and no metadata are carried over.
 set -euo pipefail
 cd "$(git rev-parse --show-toplevel)"
-DARK=193.967; S67=7436; OFF=7629; LEN=320
+DARK=193.967; S67=7346; OFF=7539; LEN=320
 # - one source frame: the input seek lands a frame late on this file (checked: the clip's first dark frame must be
 # index OFF - S67 = 193; the luma check at the end prints it)
 start=$(python3 -c "print(round($DARK - ($OFF - $S67 + 1) / 30 * 1.001, 4))")

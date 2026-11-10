@@ -199,3 +199,17 @@ Every human action: timestamp, what, why, and which rule allows it. The brief al
 - **Rule:** H2 (section notes at the M4 gate). No section is approved yet.
 - **Follow-up notes, verbatim:** "check the pencil hand again"; then "still not right -- just remove that hand entirely and let the pencil animate on its own". S18's hand is removed; the brief's S18 row now reads "A pencil, on its own (no hand: the human's note of 2026-11-09), doodles little ON switches in a margin, in time with the fill" (brief doc rev 81).
 - **Follow-up notes, verbatim:** "that scene looks like it's missing visual interest now that the hand is gone -- zoom in a bit more towards the top left to compensate"; "also make the "opt in opt out default" on that page a handwritten font, and make the stars look hand-drawn".
+
+## 2026-11-09 — M4 review notes, round 6 — H2
+
+- **Notes, verbatim:**
+  - "the music isn't starting soon enough. make it start immediately when the "Default On" title screen comes on. it's okay if it eats slightly into "hi grownups""
+  - "some of the wallpaper is sneaking out in front of the search results directly around the typewriter"
+  - "the ladder needs a border or similar on it so that it reads distinctly against the bookshelf"
+  - "in the first chorus, at "tuck it out of view", the summary popup flickers over the drawer for a frame"
+  - "at the "opt-in" scene, make it so that the cookie is on an outstretched palm rather than resting on the index finger"
+  - "at the "default" scene, the broccoli on top should be behind the broccoli on the bottom"
+  - ""is there one without the robot": the door opening is not reading it as such; add slight perspective"
+  - ""Google then said schools can turn Gemini off...": separate this from the shaking background so it can be read more easily"
+  - ""deeply integrated" is a direct quote, right? if so, this needs an onscreen citation (and maybe some of the context of the quote -- looks like there's plenty of space)"
+- **Rule:** H2 (section notes at the M4 gate). No section is approved yet.

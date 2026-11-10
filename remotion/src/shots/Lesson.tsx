@@ -5,7 +5,6 @@ import { Wash } from "../film/Paper";
 import { Caption, Chalkboard, Door, Envelope, Person, Kid, Slate, TV, Tile } from "../components/props";
 import { Floorboards, FloorLamp, Grain, Picture, Plant, Rug, Window } from "../components/sets";
 import { Narrator } from "../rigs/Narrator";
-import { Hand } from "../rigs/Hand";
 import { Switch } from "../rigs/Switch";
 import { BUBBLE, SANS } from "../theme/fonts";
 import { C, H, PEN, W, lw } from "../theme/palette";
@@ -45,6 +44,33 @@ const Board: React.FC<{ word: string; g: number; f?: number; children: React.Rea
   );
 };
 
+// a hand held out palm up, seen from the side, the sleeve running off to the right: the wrist at the origin, the
+// fingers pointing left (-x) and lying flat and together, their tips curling up a little; the thumb on the near side,
+// raised; a cookie resting in the palm. A thumb and three fingers, like every hand in the film
+const OfferHand: React.FC = () => (
+  <g>
+    <path d="M10,-40 L1400,-44 L1400,44 L10,40 Q-2,0 10,-40 Z" fill={C.teal} stroke={C.ink} strokeWidth={lw(6)} strokeLinejoin="round" />
+    {[260, 620].map((k) => <path key={k} d={`M${k},-40 q-12,40 4,80`} {...PEN} opacity={0.7} />)}
+    {/* the far fingers peek out above and behind the near one */}
+    {[[-14, 150], [-6, 158]].map(([y, l], i) => (
+      <path key={i} d={`M-80,${y - 9} L${-l + 8},${y - 11} Q${-l - 6},${y - 12} ${-l - 4},${y - 2} Q${-l - 2},${y + 6} ${-l + 10},${y + 6} L-80,${y + 8} Z`}
+        fill={C.skin} stroke={C.ink} strokeWidth={lw(4)} strokeLinejoin="round" />
+    ))}
+    {/* the palm and the near finger: one outline, the hand's flat top dipping a little where the cookie sits */}
+    <path d="M6,-26 Q-40,-18 -86,-6 L-150,-4 Q-168,-6 -168,6 Q-168,16 -152,16 L-90,20 Q-40,30 6,30 Z"
+      fill={C.skin} stroke={C.ink} strokeWidth={lw(4.5)} strokeLinejoin="round" />
+    <path d="M-96,6 q4,6 0,12" {...PEN} opacity={0.6} />
+    {/* the thumb, up on the near side by the wrist */}
+    <path d="M-30,-20 Q-44,-56 -66,-62 Q-80,-62 -76,-50 Q-66,-36 -60,-14 Z" fill={C.skin} stroke={C.ink} strokeWidth={lw(4.5)} strokeLinejoin="round" />
+    <rect x={-6} y={-46} width={30} height={92} rx={8} fill="#2b6f96" stroke={C.ink} strokeWidth={lw(5)} />
+    {/* the cookie, resting in the palm */}
+    <g transform="translate(-112, -32)">
+      <circle r={28} fill={C.mustard} stroke={C.ink} strokeWidth={lw(4.5)} />
+      {[[-9, -6], [8, 5], [-4, 12], [10, -11]].map(([cx, cy], k) => <circle key={k} cx={cx} cy={cy} r={4} fill={C.cardigan} />)}
+    </g>
+  </g>
+);
+
 // S19: "Now, 'opt-in' means somebody asks you…": a cartoon kid is offered a cookie and nods
 export const S19: ShotC = ({ f, g }) => {
   const offer = ez(f, 10, 30);
@@ -54,14 +80,9 @@ export const S19: ShotC = ({ f, g }) => {
       {f > 40 && <text x={760} y={400} fontFamily={BUBBLE} fontSize={60} fill={C.white} opacity={0.85}>sure!</text>}
       <g transform="translate(1180, 780)"><ellipse rx={170} ry={40} fill={C.white} stroke={C.ink} strokeWidth={lw(5)} />
         {[-90, -30, 30, 90, -60, 0, 60].map((x, i) => <g key={i} transform={`translate(${x}, ${i < 4 ? -14 : -44})`}><circle r={34} fill={C.mustard} stroke={C.ink} strokeWidth={lw(4)} />{[[-10, -8], [8, 6], [-4, 12]].map(([cx, cy], k) => <circle key={k} cx={cx} cy={cy} r={5} fill={C.cardigan} />)}</g>)}</g>
-      {/* someone asks: a hand in a teal sleeve (not the grey off-screen one) offers a cookie on its fingertip */}
-      <g transform={`translate(${W + 40}, 600) scale(-1, 1)`}>
-        <Hand reach={0.45 + offer * 0.45} length={W + 40 - 840} sleeve={[C.teal, "#2b6f96"]} curl={0.15} />
-        <g transform={`translate(${-(W + 40 - 840) * (1 - (0.45 + offer * 0.45)) + (W + 40 - 840) - 30}, -58)`}>
-          <circle r={44} fill={C.mustard} stroke={C.ink} strokeWidth={lw(6)} />
-          {[[-14, -10], [12, 8], [-6, 18], [16, -16]].map(([cx, cy], k) => <circle key={k} cx={cx} cy={cy} r={6} fill={C.cardigan} />)}
-        </g>
-      </g>
+      {/* someone asks: a hand in a teal sleeve (not the grey off-screen one) holds a cookie out on its open palm (the
+          human's note, 2026-11-09, round 6: not balanced on a fingertip) */}
+      <g transform={`translate(${W + 260 - offer * (W + 260 - 1330)}, ${640 + Math.sin(f / 7) * 3}) scale(1.5)`}><OfferHand /></g>
       {offer > 0.6 && f < 46 && <g transform="translate(1180, 380)">
         <path d="M-150,-60 h300 a30,30 0 0 1 30,30 v60 a30,30 0 0 1 -30,30 h-170 l-40,40 l6,-40 h-96 a30,30 0 0 1 -30,-30 v-60 a30,30 0 0 1 30,-30 Z" fill={C.white} stroke={C.ink} strokeWidth={lw(5)} />
         <text x={0} y={16} textAnchor="middle" fontFamily={BUBBLE} fontSize={54} fill={C.ink}>Cookie?</text>
@@ -163,7 +184,8 @@ const Tray: React.FC<{ f: number }> = ({ f }) => (
     {/* the plate and its broccoli, with steam */}
     <ellipse cx={-40} cy={20} rx={190} ry={46} fill={C.white} stroke={C.ink} strokeWidth={lw(5)} />
     <ellipse cx={-40} cy={20} rx={150} ry={32} {...PEN} opacity={0.5} />
-    {Array.from({ length: 11 }, (_, i) => {
+    {/* the back row (i > 5, higher up) first, so the front row overlaps it (the human's note, 2026-11-09, round 6) */}
+    {Array.from({ length: 11 }, (_, j) => 10 - j).map((i) => {
       const bx = -170 + (i % 6) * 50 + (i > 5 ? 25 : 0), by = i > 5 ? -46 : -14;
       return <g key={i} transform={`translate(${bx}, ${by})`}>
         <rect x={-8} y={4} width={16} height={34} rx={6} fill="#a8c46a" stroke={C.ink} strokeWidth={lw(3)} />

@@ -275,22 +275,41 @@ export const Phone: React.FC<{ w?: number; children?: React.ReactNode }> = ({ w 
   );
 };
 
+// A door in its frame. `open` 0..1 swings it toward the viewer on hinges at its left edge, in perspective (the
+// human's note, 2026-11-09, round 6: a flat sideways squash didn't read as a door opening): the free edge comes
+// nearer, so it grows taller (more above than below, the eye being low), and it narrows toward the hinge; its edge's
+// thickness shows. Every part of the panel goes through the same mapping, so the mouldings and knob ride with it.
 export const Door: React.FC<{ label: string; open?: number; color?: string; w?: number; h?: number }> = ({
   label, open = 0, color = C.orange, w = 360, h = 640,
-}) => (
-  <g>
-    <rect x={-w / 2 - 20} y={-h - 20} width={w + 40} height={h + 20} fill={C.dark} {...ink} />
-    <g transform={`translate(${-w / 2}, 0) scale(${1 - open * 0.85}, 1)`}>
-      <rect x={0} y={-h} width={w} height={h} fill={color} {...ink} />
-      <rect x={w * 0.14} y={-h * 0.92} width={w * 0.72} height={h * 0.36} rx={8} {...PEN} />
-      <rect x={w * 0.14} y={-h * 0.48} width={w * 0.72} height={h * 0.4} rx={8} {...PEN} />
-      <Grain x={w * 0.18} y={-h * 0.88} w={w * 0.64} h={h * 0.28} n={3} seed={5} vertical />
-      <circle cx={w - 40} cy={-h / 2} r={14} fill={C.creamShade} {...ink} strokeWidth={lw(4)} />
+}) => {
+  const th = open * 0.85 * (Math.PI / 2); // swing angle
+  const c = Math.cos(th), grow = Math.sin(th) * 0.16; // how much taller the free edge is, as a share of h
+  const P = (x: number, y: number): [number, number] => {
+    const u = x / w;
+    return [x * c, u * grow * h * 0.3 + y * (1 + u * grow * 1.3)];
+  };
+  const quad = (x0: number, y0: number, x1: number, y1: number) =>
+    [P(x0, y0), P(x1, y0), P(x1, y1), P(x0, y1)].map(([x, y], i) => `${i ? "L" : "M"}${x.toFixed(1)},${y.toFixed(1)}`).join(" ") + " Z";
+  const [kx, ky] = P(w - 40, -h / 2);
+  const edge = Math.sin(th) * 26; // the door's thickness, seen as it turns
+  const [ex0, ey0] = P(w, -h), [ex1, ey1] = P(w, 0);
+  return (
+    <g>
+      <rect x={-w / 2 - 20} y={-h - 20} width={w + 40} height={h + 20} fill={C.dark} {...ink} />
+      {open > 0 && <path d={`M${-w / 2},${-h} L${w / 2},${-h} L${w / 2},0 L${-w / 2},0 Z`} fill="#000" opacity={0.25} />}
+      <g transform={`translate(${-w / 2}, 0)`}>
+        {edge > 0.5 && <path d={`M${ex0},${ey0} L${ex0 + edge},${ey0 + 6} L${ex1 + edge},${ey1 - 2} L${ex1},${ey1} Z`} fill={C.ink} opacity={0.85} />}
+        <path d={quad(0, -h, w, 0)} fill={color} {...ink} strokeLinejoin="round" />
+        <path d={quad(w * 0.14, -h * 0.92, w * 0.86, -h * 0.56)} {...PEN} />
+        <path d={quad(w * 0.14, -h * 0.48, w * 0.86, -h * 0.08)} {...PEN} />
+        {open < 0.05 && <Grain x={w * 0.18} y={-h * 0.88} w={w * 0.64} h={h * 0.28} n={3} seed={5} vertical />}
+        <ellipse cx={kx} cy={ky} rx={14 * Math.max(0.35, c)} ry={14 * (1 + grow)} fill={C.creamShade} {...ink} strokeWidth={lw(4)} />
+      </g>
+      <rect x={-w / 2 + 20} y={-h - 110} width={w - 40} height={70} rx={10} fill={C.cream} {...ink} strokeWidth={lw(5)} />
+      <text x={0} y={-h - 60} textAnchor="middle" fontFamily={BUBBLE} fontSize={44} fill={C.ink}>{label}</text>
     </g>
-    <rect x={-w / 2 + 20} y={-h - 110} width={w - 40} height={70} rx={10} fill={C.cream} {...ink} strokeWidth={lw(5)} />
-    <text x={0} y={-h - 60} textAnchor="middle" fontFamily={BUBBLE} fontSize={44} fill={C.ink}>{label}</text>
-  </g>
-);
+  );
+};
 
 export const PriceTag: React.FC<{ text: string; s?: number; color?: string }> = ({ text, s = 1, color = C.mustard }) => (
   <g transform={`scale(${s})`}>

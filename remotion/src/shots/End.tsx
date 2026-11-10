@@ -236,6 +236,11 @@ export const S49: ShotC = ({ g }) => (
 // held S53-S56
 const SCHOOLCAP = "Google's VP for education, to The New York Times, Nov. 3, 2026";
 const CORRCAP = "Google then said schools can turn Gemini off and keep Search, but AI Overviews and AI Mode can't be removed.";
+// "deeply integrated" is a direct quote (the human asked, 2026-11-09, round 6): Chris Phillips, Google's VP for
+// education, to The New York Times on Nov. 3, 2026, before the reversal (GovTech, Nov. 4, 2026; Decrypt, via Education
+// Week). It was said to justify cutting off Search, so the caption keeps it before the reversal. Proposed for the fact
+// card's correction row as a suggestion; shown from the label plate (S55) through S56
+const QUOTECAP = "Before the reversal, Google's VP for education told The New York Times that Search and AI are \"deeply integrated\" (Nov. 3, 2026).";
 const Giant: React.FC<{ slide: number; boxes: string[] }> = ({ slide, boxes }) => {
   // the contract and the hand move as one, so the hand is plainly what slides it (the human's note, 2026-11-09)
   const cx = 1500 - slide * 560, cy = 800;
@@ -346,14 +351,18 @@ export const S52: ShotC = ({ f, g, len }) => {
 export const S53: ShotC = ({ f, g }) => {
   const jitter = Math.sin(f * 2.3) * 6;
   return (
+    <>
     <div style={{ position: "absolute", inset: 0, transform: `translateX(${jitter}px)` }}>
       <NarratorSet g={g - 8} board={["SEARCH + AI?"]} arm="tap" head={0} size={60}>
         <g transform="translate(560, 640) rotate(-4) scale(0.75)"><Contract boxes={["Search + AI", "No search", "Search, chatbot off"]} highlight={2} /></g>
         <g transform="translate(1520, 230) rotate(6)"><Slate text="CORRECTION" w={600} /></g>
-        <Caption text={CORRCAP} />
       </NarratorSet>
       <div style={{ position: "absolute", left: 0, right: 0, top: (f * 37) % H, height: 26, background: "linear-gradient(rgba(255,250,235,0), rgba(255,250,235,0.45), rgba(255,250,235,0))" }} />
     </div>
+    {/* the caption sits on its own steady layer above the wobbling tape and its scan bar (the human's note,
+        2026-11-09, round 6: it shook with the picture) */}
+    <svg width={W} height={H} viewBox={`0 0 ${W} ${H}`} style={{ position: "absolute", inset: 0 }}><Caption text={CORRCAP} /></svg>
+    </>
   );
 };
 
@@ -385,8 +394,10 @@ const Bolted: React.FC<{ g: number; tilt: number; tighten?: number }> = ({ g, ti
       <g transform="translate(960, 1100) scale(0.6)"><Switch pose="curious" mouth={mouthAt(g, "switch")} look={[0, -1]} blink={blink(g, 7)} /></g>
       <g transform="translate(1500, 1160) scale(0.6)"><Bookshelf w={300} shelves={3} seed={7} /></g>
     </g>
-    {/* mid-frame, clear of the label plate and of Switch peeking up from the bottom */}
-    <Caption text={CORRCAP} y={700} />
+    {/* clear of the label plate and of Switch peeking up from the bottom; once the plate is on, the quote's source
+        goes under it */}
+    {tighten > 0.6 && <Caption text={QUOTECAP} y={660} />}
+    <Caption text={CORRCAP} y={tighten > 0.6 ? 880 : 700} />
   </Bg>
 );
 export const S54: ShotC = ({ f, g, len }) => <Bolted g={g} tilt={ez(f, 0, len * 0.6)} />;
@@ -400,6 +411,7 @@ export const S56: ShotC = ({ f, g, len }) => {
     <NarratorSet g={g} board={["DEEPLY", "INTEGRATED?"]} arm="down" head={away ? 1 : 0} size={80}>
       <g transform="translate(980, 700) scale(0.42)"><Switch pose="curious" mouth={mouthAt(g, "switch")} look={[0.9, -0.8]} blink={blink(g, 8)} /></g>
       {away && <text x={1560} y={240} fontFamily={BUBBLE} fontSize={56} fill={C.ink} opacity={0.7}>ahem…</text>}
+      <Caption text={QUOTECAP} y={H - 96 - 126} />
       <Caption text={CORRCAP} />
     </NarratorSet>
   );

@@ -14,8 +14,8 @@ Style: Slot,DejaVu Sans,20,&H0060E060,&H0060E060,&H00000000,&H00000000,1,0,0,0,1
 
 [Events]
 Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
-Dialogue: 0,0:00:00.00,0:00:00.00,Shot,,0,0,0,,S00  Before the audio starts (about 2 s of room tone, added in the edit)
-Dialogue: 0,0:00:00.00,0:00:03.83,Shot,,0,0,0,,S01  Downbeat, before the first line
+Dialogue: 0,0:00:00.00,0:00:01.09,Shot,,0,0,0,,S00  Before the audio starts (about 2 s of room tone, added in the edit)
+Dialogue: 0,0:00:01.09,0:00:03.83,Shot,,0,0,0,,S01  Downbeat, before the first line
 Dialogue: 0,0:00:03.83,0:00:09.43,Shot,,0,0,0,,S02  "Hi, grown-ups! Today we're learning how an opt-out works." (regenerated)
 Dialogue: 0,0:00:09.43,0:00:13.14,Shot,,0,0,0,,S03  "Say hello to Little Switch!"
 Dialogue: 0,0:00:13.14,0:00:19.65,Shot,,0,0,0,,S04  V01 "Hi! I've got two sides…"

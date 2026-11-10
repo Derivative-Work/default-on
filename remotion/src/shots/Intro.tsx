@@ -9,7 +9,7 @@ import { Narrator } from "../rigs/Narrator";
 import { Switch } from "../rigs/Switch";
 import { BUBBLE, SANS } from "../theme/fonts";
 import { C, H, PEN, W, lw } from "../theme/palette";
-import { FPS, mouthAt, wordAt } from "../timing";
+import { FPS, at, events, mouthAt, shot, wordAt } from "../timing";
 import { Bg, ShotC, blink, bump, ez } from "./common";
 
 // S00: "A cartoon for grown-ups about tech settings." Plain sans, warm ink, no characters: a label, not a title;
@@ -28,10 +28,10 @@ export const S00: ShotC = () => (
 // S01: the title on mustard from the shot's first frame (the countdown is cut: the human's note, 2026-11-09, "it's
 // not adding much"); a small rocker under the title rocks itself from OFF to ON, still on its beat after the downbeat
 export const S01: ShotC = ({ f, len }) => {
-  const count = 90; // the downbeat, where the cut countdown ended
+  const count = 0; // the downbeat: the music starts on the title's first frame (round 6)
   const t = f - count;
   const s = spring({ frame: f, fps: FPS, config: { damping: 11 } });
-  const onAt = Math.min(40, len - count - 12);
+  const onAt = Math.min(at(events.first_downbeat) - shot("S01").frame, len - count - 12); // flips on the first downbeat
   const on = t > onAt;
   return (
     <Bg id="s01" seed={2} base={C.mustard}>
@@ -290,7 +290,7 @@ const SearchPage: React.FC<{ push: number; children?: React.ReactNode }> = ({ pu
         human's note, round 5: the page cut the typewriter in half); the mask's black is the keyboard's slab */}
     <defs><mask id="above-desk" maskUnits="userSpaceOnUse" x={0} y={0} width={W} height={H}>
       <rect x={0} y={0} width={W} height={762} fill="white" />
-      <path d="M-436,-198 L436,-198 L508,116 L-508,116 Z" transform="translate(960, 880)" fill="black" />
+      <path d="M-428,-188 L428,-188 L498,110 L-498,110 Z" transform="translate(960, 880)" fill="black" />
     </mask></defs>
     <g transform="translate(960, 150)"><SearchBox text="why is there a robot in my search" caret={false} /></g>
     <g mask="url(#above-desk)"><g transform={`translate(960, ${330 + push})`}><LinkPage /></g></g>
@@ -358,9 +358,21 @@ export const S08: ShotC = ({ f, g, len }) => {
       {/* the ladder leans against the bookcase; Switch is drawn in the ladder's own frame, so he is always on it,
           climbing rung by rung (each rung a small lift), hands reaching up for the next rung */}
       <g transform={`translate(1150, 1040) rotate(${5 + wob})`}>
-        {[-70, 70].map((x) => <line key={x} x1={x} y1={0} x2={x * 0.7} y2={-900} stroke={C.cardigan} strokeWidth={20} strokeLinecap="round" />)}
-        {[-70, 70].map((x) => <line key={`i${x}`} x1={x} y1={0} x2={x * 0.7} y2={-900} stroke={C.ink} strokeWidth={lw(4)} strokeLinecap="round" opacity={0.6} />)}
-        {Array.from({ length: 9 }, (_, i) => <line key={i} x1={-66 + i * 2} y1={-60 - i * 100} x2={66 - i * 2} y2={-60 - i * 100} stroke={C.cardigan} strokeWidth={14} />)}
+        {/* rails and rungs inked like every other cutout (the human's note, 2026-11-09, round 6: the ladder ran into
+            the bookcase behind it): an ink stroke under each wooden one, so each piece has an outline; the rungs go
+            behind the rails; a lighter wood than the bookcase, with a grain line down each rail */}
+        {Array.from({ length: 9 }, (_, i) => {
+          const y = -60 - i * 100, x = 70 - (i * 100 + 60) / 900 * 21;
+          return <g key={i}>
+            <line x1={-x} y1={y} x2={x} y2={y} stroke={C.ink} strokeWidth={14 + lw(5) * 2} />
+            <line x1={-x} y1={y} x2={x} y2={y} stroke={C.orange} strokeWidth={14} />
+          </g>;
+        })}
+        {[-70, 70].map((x) => <g key={x}>
+          <line x1={x} y1={0} x2={x * 0.7} y2={-900} stroke={C.ink} strokeWidth={22 + lw(5) * 2} strokeLinecap="round" />
+          <line x1={x} y1={0} x2={x * 0.7} y2={-900} stroke={C.orange} strokeWidth={22} strokeLinecap="round" />
+          <line x1={x - 4} y1={-10} x2={x * 0.7 - 3} y2={-880} stroke={C.ink} strokeWidth={lw(2)} strokeLinecap="round" opacity={0.35} />
+        </g>)}
         <g transform={`translate(0, ${-(150 + (step + ez((climb * 7 - step) * 10, 0, 6)) * 100)}) scale(0.5)`}>
           <Switch pose="curious" look={[0.7, -0.9]} armL={step % 2 ? 170 : 150} armR={step % 2 ? 150 : 170} blink={blink(g, 2)} />
         </g>

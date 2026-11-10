@@ -234,7 +234,9 @@ export const Gags: React.FC<{ f: number; g: number; len: number; lineId: string;
         </g>
       )}
       {beat === 2 && (set === 1 ? (
-        <g transform={`translate(${1620 + back * 60}, ${560 - back * 110}) scale(0.4)`} opacity={toss > 0.5 && back < 0.1 ? 0 : 1}>
+        // shut in the drawer from the beat's first frame: it only shows once the drawer slides open (the human's note,
+        // 2026-11-09, round 6: it flickered over the closed drawer as the beat began, while `toss` was still rising)
+        <g transform={`translate(${1620 + back * 60}, ${560 - back * 110}) scale(0.4)`} opacity={back < 0.1 ? 0 : 1}>
           <AnswerBox mouth={back > 0.5 ? "D" : "X"} wave={back > 0.5 ? Math.sin(f / 3) : 0} />
         </g>
       ) : (

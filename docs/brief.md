@@ -99,7 +99,7 @@
 | ID | Cue | Picture | Source |
 | --- | --- | --- | --- |
 | S00 | Before the audio starts (about 2 s of room tone, added in the edit) | Pre-roll card on cream paper: "A cartoon for grown-ups about tech settings." Plain sans, warm dark-brown ink, film layer on, no bubble letters and no characters, so it reads as a label rather than a title. Under it, smaller: "(Mostly) AI-generated satire." Cut straight to S01's title | A |
-| S01 | Downbeat, before the first line | The title card (the countdown was cut, the human's note of 2026-11-09) "DEFAULT ON" in bubble letters on mustard. A small rocker switch under the title rocks itself from OFF to ON | A |
+| S01 | Downbeat, before the first line | The title card (the countdown was cut, the human's note of 2026-11-09) "DEFAULT ON" in bubble letters on mustard. A small rocker switch under the title rocks itself from OFF to ON on the first downbeat. The music starts on the title's first frame (the human's note of 2026-11-09, round 6) | A |
 | S02 | "Hi, grown-ups! Today we're learning how an opt-out works." (regenerated) | Narrator on a stool by a chalkboard reading "TODAY: HOW AN OPT-OUT WORKS" | A |
 | S03 | "Say hello to Little Switch!" | Pan right along the wall to a wall plate; Switch's eyes open | A |
 | S04 | V01 "Hi! I've got two sides…" | Switch waves, then demonstrates: paddle rocks to ON, an "ON" label pops; rocks back, "OFF" | A |
@@ -193,7 +193,7 @@
 | S52 | [record scratch, tape rewind] | The film burns from the centre, the frame jitters, and the shot rewinds at speed to S50 | A, E |
 | S53 | "Correction, boys and girls!…" ("Ahem!" isn't sung) | The Narrator redubs with mouth shapes visibly out of sync; a "CORRECTION" slate. The contract now has a third box. Caption, held through S56: "Google then said schools can turn Gemini off and keep Search, but AI Overviews and AI Mode can't be removed." | A |
 | S54 | V16 "And the answer box on top?" | Tilt up: the answer box is bolted to the top of the frame, unchanged through the rewind | A |
-| S55 | "…That one's 'deeply integrated.'" | The bolts tighten themselves; a small label plate reads "deeply integrated" | A, E |
+| S55 | "…That one's 'deeply integrated.'" | The bolts tighten themselves; a small label plate reads "deeply integrated". Caption under the plate, held through S56: "Before the reversal, Google's VP for education told The New York Times that Search and AI are "deeply integrated" (Nov. 3, 2026)." (a direct quote; on the fact card once the human accepts the suggestion on its correction row) | A, E |
 | S56 | V17 "What's that mean?" / "It means it stays." | Switch looks up at the Narrator; the Narrator looks away | A |
 
 ### Final chorus
