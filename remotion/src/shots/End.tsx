@@ -710,13 +710,7 @@ export const S64: ShotC = ({ f, g, len }) => {
   );
 };
 
-// FG: fact card G, after S67's hold (M5 builds the cards; this marks its place and length)
-export const FG: ShotC = () => (
-  <Bg id="fg" seed={70}>
-    <text x={W / 2} y={470} textAnchor="middle" fontFamily={SANS} fontWeight={600} fontSize={60} fill={C.ink}>Fact card G</text>
-    <text x={W / 2} y={560} textAnchor="middle" fontFamily={SANS} fontSize={40} fill={C.inkSoft}>Who wrote this, and Anthropic's own default-on toggle (built in M5)</text>
-  </Bg>
-);
+// FG and the other closing cards are in Cards.tsx (M5)
 
 // S68 is retired (the human, 2026-11-09): the swag shot is cut; its disclosure becomes a credits card after fact
 // card G (M5)

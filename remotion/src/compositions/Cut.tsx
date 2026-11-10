@@ -9,10 +9,11 @@ import * as Chorus from "../shots/Chorus";
 import * as Lesson from "../shots/Lesson";
 import * as Quiz from "../shots/Quiz";
 import * as End from "../shots/End";
+import * as Cards from "../shots/Cards";
 import { ShotC } from "../shots/common";
 import { at, sections, shot, shots } from "../timing";
 
-const ALL = { ...Intro, ...Chorus, ...Lesson, ...Quiz, ...End } as Record<string, unknown>;
+const ALL = { ...Intro, ...Chorus, ...Lesson, ...Quiz, ...End, ...Cards } as Record<string, unknown>;
 export const SHOTS: Record<string, ShotC> = Object.fromEntries(shots.map((s) => {
   const c = ALL[s.id];
   if (typeof c !== "function") throw new Error(`no component for ${s.id}`);

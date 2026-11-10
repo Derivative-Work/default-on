@@ -58,6 +58,8 @@ FX_EVENTS = {
 PIANO_IN = 232.154
 HOLD_S = 2.0  # S67 holds on room tone after the audio ends (brief); keep in step with remotion/src/timing.ts
 CARD_S = 4.0  # a fact card (brief: about four seconds each)
+CARD_WPS = 4.5  # words a second a viewer reads a card at (a long card holds longer)
+END_S = 8.0  # the end card
 SECTIONS = [  # brief section (one composition each): the as-sung sections it covers
     ("Intro", ["Intro"]), ("Verse 1", ["Verse 1"]), ("Pre-chorus 1", ["Pre-chorus 1"]), ("Chorus 1", ["Chorus 1"]),
     ("Lesson", ["Lesson"]), ("Verse 2", ["Verse 2"]), ("Pre-chorus 2 and Chorus 2", ["Pre-chorus 2", "Chorus 2"]),
@@ -243,15 +245,29 @@ def main():
         cur = hit[0]
         s.update(t=round(hit[1], 3), line=lines[cur]["id"],
                  how="cue words" + (f" (first {hit[2]} not sung)" if hit[2] else ""))
-    # the post-roll so far (brief, End card and fact cards): S67's hold, then fact card G; the creator's disclosure card
-    # (S68, retired 2026-11-09) and the other cards are M5's
-    post = [{"id": "FG", "what": "fact card G", "t": round(audio_end + HOLD_S, 3), "len_s": CARD_S}]
+    # the post-roll (brief, End card and fact cards; M5): after S67's hold, fact card G, the creator's disclosure card
+    # (formerly S68), one card per fact-card row in table order, then the end card. Content in remotion/src/closing.json.
+    # A card holds for about four seconds (brief) or longer if its words need it: reading at CARD_WPS words a second,
+    # plus a second and a half to find the start; the end card holds END_S. The end card's intervention count is the
+    # number of entries in log/human_interventions.md as of this run.
+    closing = json.load(open("remotion/src/closing.json"))
+    words = lambda txt: len(txt.split())
+    card_len = lambda txt: max(CARD_S, round(words(txt) / CARD_WPS + 1.5, 1))
+    t = audio_end + HOLD_S
+    post = []
+    for c, what in [(closing["G"], "fact card G"), (closing["D"], "the creator's disclosure")] + \
+            [(r, f"fact card: {r['lyric']}") for r in closing["rows"]]:
+        post.append({"id": c["id"], "what": what, "t": round(t, 3), "len_s": card_len(c["body"])})
+        t += post[-1]["len_s"]
+    interventions = sum(1 for ln in open("log/human_interventions.md") if ln.startswith("## "))
+    post.append({"id": closing["end"]["id"], "what": "end card", "t": round(t, 3), "len_s": END_S, "interventions": interventions})
+    t += END_S
     for p in post:
         p["frame"] = fr(p["t"])
-    video_end = fr(audio_end + HOLD_S + CARD_S)
+    video_end = fr(t)
     for k, s in enumerate(shots):
         s["frame"] = fr(s["t"])
-        nxt = shots[k + 1]["t"] if k + 1 < len(shots) else audio_end + HOLD_S + CARD_S
+        nxt = shots[k + 1]["t"] if k + 1 < len(shots) else t
         if s["id"] == "S67":
             nxt = post[0]["t"]  # S67 hands over to fact card G
         s["end"] = nxt

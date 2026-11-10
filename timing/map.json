@@ -777,11 +777,89 @@
    "id": "FG",
    "what": "fact card G",
    "t": 254.122,
-   "len_s": 4.0,
+   "len_s": 13.7,
    "frame": 7651
+  },
+  {
+   "id": "FD",
+   "what": "the creator's disclosure",
+   "t": 267.822,
+   "len_s": 8.6,
+   "frame": 8062
+  },
+  {
+   "id": "F1",
+   "what": "fact card: Answer box on top; tiny \"Web\" tab",
+   "t": 276.422,
+   "len_s": 7.9,
+   "frame": 8320
+  },
+  {
+   "id": "F2",
+   "what": "fact card: Inbox helper flipped on last fall",
+   "t": 284.322,
+   "len_s": 9.3,
+   "frame": 8557
+  },
+  {
+   "id": "F3",
+   "what": "fact card: \"A menu, then a menu\u2026\"",
+   "t": 293.622,
+   "len_s": 4.6,
+   "frame": 8836
+  },
+  {
+   "id": "F4",
+   "what": "fact card: TV tile you can hide but not delete",
+   "t": 298.222,
+   "len_s": 7.5,
+   "frame": 8974
+  },
+  {
+   "id": "F5",
+   "what": "fact card: Blue ring in the chat app; mute, not uninstall",
+   "t": 305.722,
+   "len_s": 4.8,
+   "frame": 9199
+  },
+  {
+   "id": "F6",
+   "what": "fact card: \"Continue\" with no \"No\"",
+   "t": 310.522,
+   "len_s": 9.3,
+   "frame": 9343
+  },
+  {
+   "id": "F7",
+   "what": "fact card: Forty-five percent; cheap plan only on leaving",
+   "t": 319.822,
+   "len_s": 9.1,
+   "frame": 9622
+  },
+  {
+   "id": "F8",
+   "what": "fact card: \"Take the robot or no search\"",
+   "t": 328.922,
+   "len_s": 5.7,
+   "frame": 9895
+  },
+  {
+   "id": "F9",
+   "what": "fact card: Correction; \"deeply integrated\"",
+   "t": 334.622,
+   "len_s": 20.6,
+   "frame": 10066
+  },
+  {
+   "id": "FE",
+   "what": "end card",
+   "t": 355.222,
+   "len_s": 8.0,
+   "interventions": 25,
+   "frame": 10684
   }
  ],
- "video_end_frame": 7771,
+ "video_end_frame": 10924,
  "sections": [
   {
    "name": "Intro",
@@ -6085,7 +6163,7 @@
    "id": "S01",
    "section": "Intro",
    "cue": "Downbeat, before the first line",
-   "picture": "The title card (the countdown was cut, the human's note of 2026-11-09) \"DEFAULT ON\" in bubble letters on mustard. A small rocker switch under the title rocks itself from OFF to ON",
+   "picture": "The title card (the countdown was cut, the human's note of 2026-11-09) \"DEFAULT ON\" in bubble letters on mustard. A small rocker switch under the title rocks itself from OFF to ON on the first downbeat. The music starts on the title's first frame (the human's note of 2026-11-09, round 6)",
    "source": "A",
    "t": 1.088,
    "line": null,
@@ -6787,7 +6865,7 @@
    "id": "S55",
    "section": "Bridge",
    "cue": "\"\u2026That one's 'deeply integrated.'\"",
-   "picture": "The bolts tighten themselves; a small label plate reads \"deeply integrated\"",
+   "picture": "The bolts tighten themselves; a small label plate reads \"deeply integrated\". Caption under the plate, held through S56: \"Before the reversal, Google's VP for education told The New York Times that Search and AI are \"deeply integrated\" (Nov. 3, 2026).\" (a direct quote, on the fact card's correction row)",
    "source": "A, E",
    "t": 196.948,
    "line": "L58",

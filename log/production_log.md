@@ -382,3 +382,9 @@ Append-only. One entry per action: timestamp, step (shot ID where relevant), wha
 ## 2026-11-09 — M4 gate approved; M5 begins
 
 - The human approved the round-7 cut ("this is great, keep going"; `log/human_interventions.md`). M5: fact cards, end card, captions, thumbnail and vertical cut.
+
+## 2026-11-09 — M5: the closing cards
+
+- **What:** the post-roll after S67's hold, built from `remotion/src/closing.json` (`remotion/src/shots/Cards.tsx`): fact card G ("Who wrote this?", the song doc's own draft of it, with its two sources from the audit table); the creator's disclosure (the human's wording, brief); one card per row of the Default On fact card, in table order (F1–F9), each with "In the song:" and the row's lyric, the claim word for word, its status (allegations set in red, facts in the soft ink) and its sources by name and address; then the end card (credits per the brief's End card line, the music's Suno take ID from `log/prompts/suno/takes.md`, and the count of entries in `log/human_interventions.md` with the log's address). Plain type on the paper, no film layer, a short fade each.
+- **Lengths:** about four seconds each (brief), longer where the words need it: words ÷ 4.5 a second + 1.5 s, at least 4 s; the end card 8 s (`scripts/timing_map.py`, `CARD_WPS`, `END_S`). FG 13.7 s, FD 8.6 s, F1–F9 4.6–20.6 s; the closing runs 109 s and the video 10,924 frames (6:04).
+- **Open for the human:** the log's address is in the private repo (not reachable by viewers until it's public); "audits by … Copilot" on card G and the end card waits on Copilot's audit, still to run (Inputs).
