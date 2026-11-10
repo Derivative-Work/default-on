@@ -270,3 +270,8 @@ Every human action: timestamp, what, why, and which rule allows it. The brief al
 - **Verbatim:** "yes, add that one. I also want karaoke captions on Switch's singing (not the spoken parts)." (answering the proposal of a citation on the search scene, S05–S08, the one real-product scene without one)
 - **Rule:** H2.
 - **Follow-up, verbatim:** "hm there doesn't seem to be enough contrast on these" (Switch's karaoke, from the stills).
+
+## 2026-11-10 — Push — H2
+
+- **Verbatim:** "push it" (after the repository files). `main` pushed, 84c00d4..8e0eb75. The repository stays private until the human makes it public before release.
+- **Rule:** H2.
