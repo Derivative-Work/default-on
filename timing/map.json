@@ -855,7 +855,7 @@
    "what": "end card",
    "t": 355.022,
    "len_s": 8.0,
-   "interventions": 28,
+   "interventions": 33,
    "frame": 10678
   },
   {
@@ -1088,7 +1088,7 @@
    "lines": [
     "L16"
    ],
-   "text": "And \"opt-out\" means that no one asked you, and you're hunting for the spot!",
+   "text": "And \"opt-out\" means nobody asked you, and you're hunting for the spot!",
    "take": [
     [
      70.26,
@@ -2623,7 +2623,7 @@
    "section": "Lesson",
    "stem": "audio/switch/comp/Default On (switch only).wav",
    "singer": "switch",
-   "text": "And \"opt-out\" means that no one asked you, and you're hunting for the spot!",
+   "text": "And \"opt-out\" means nobody asked you, and you're hunting for the spot!",
    "start": 70.26,
    "end": 75.96,
    "words": [
@@ -2646,22 +2646,10 @@
      "score": 0.994
     },
     {
-     "w": "that",
-     "start": 71.2,
-     "end": 71.31,
-     "score": 0.0
-    },
-    {
-     "w": "no",
+     "w": "nobody",
      "start": 71.3,
-     "end": 71.39,
-     "score": 0.999
-    },
-    {
-     "w": "one",
-     "start": 71.54,
      "end": 71.69,
-     "score": 0.333
+     "score": 0.999
     },
     {
      "w": "asked",
@@ -6233,7 +6221,7 @@
    "id": "S05",
    "section": "Verse 1",
    "cue": "\"You typed a little question\u2026\"",
-   "picture": "A big generic search box on a desk; letters type themselves",
+   "picture": "A big generic search box on a desk; letters type themselves. Caption, held through S08: \"Google's AI Overviews, rolled out broadly from I/O 2024\"",
    "source": "A",
    "t": 19.648,
    "line": "L04",
@@ -6427,7 +6415,7 @@
   {
    "id": "S20",
    "section": "Lesson",
-   "cue": "V05 \"And 'opt-out' means that no one asked you\u2026\"",
+   "cue": "V05 \"And 'opt-out' means nobody asked you\u2026\"",
    "picture": "\"OPT-OUT.\" The kid already has a cookie stuck to his hand and wanders a maze of menus looking for the exit",
    "source": "A",
    "t": 70.26,

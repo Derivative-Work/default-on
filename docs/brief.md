@@ -40,7 +40,7 @@
 | V02 | Verse 1 | "Yes, but can I please read the page myself?" | Sung or talk-sung, curious |
 | V03 | Pre-chorus 1 | "I've only got two sides, it isn't much to learn: / You push me down for off… …so how'd I just return?" | Slow and bluesy; leave the gap for the click |
 | V04 | Chorus 1 tag | "(On, on, on…)" | Sung, getting quieter |
-| V05 | Lesson | "And 'opt-out' means that no one asked you, and you're hunting for the spot!" | Sung, proud of knowing the answer |
+| V05 | Lesson | "And 'opt-out' means nobody asked you, and you're hunting for the spot!" (as he sang it; written "…means that no one asked you…") | Sung, proud of knowing the answer |
 | V06 | Lesson | "There's always a test." | Spoken, sighing |
 | V07 | Verse 2 | "And what did the company say?" (as he spoke it; written "And what's the company say?") | Spoken |
 | V08 | Verse 2 | "Can I delete it?" | Spoken, hopeful |
@@ -138,7 +138,7 @@
 | ID | Cue | Picture | Source |
 | --- | --- | --- | --- |
 | S19 | "Now, 'opt-in' means somebody asks you…" | Chalkboard: "OPT-IN." A cartoon kid is offered a cookie and nods | A |
-| S20 | V05 "And 'opt-out' means that no one asked you…" | "OPT-OUT." The kid already has a cookie stuck to his hand and wanders a maze of menus looking for the exit | A |
+| S20 | V05 "And 'opt-out' means nobody asked you…" | "OPT-OUT." The kid already has a cookie stuck to his hand and wanders a maze of menus looking for the exit | A |
 | S21 | "And 'default' is the setting that they picked…" | "DEFAULT." The kid sits down to a plate already piled with broccoli | A |
 | S22 | "…they'll say you picked the same." | A rubber stamp slams "YOU CHOSE THIS" onto the plate | A |
 | S23 | "Got that? Opt-in, opt-out, default. There'll be a test." | The Narrator taps the three words; a stack of test papers thuds onto the desk | A, E |

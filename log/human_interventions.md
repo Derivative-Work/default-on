@@ -275,3 +275,9 @@ Every human action: timestamp, what, why, and which rule allows it. The brief al
 
 - **Verbatim:** "push it" (after the repository files). `main` pushed, 84c00d4..8e0eb75. The repository stays private until the human makes it public before release.
 - **Rule:** H2.
+
+## 2026-11-10 — V05 as spoken — H3
+
+- **Verbatim:** "his actual spoken line is "and opt-out means nobody asked you...""
+- **Decision:** V05 (L16) is "And "opt-out" means nobody asked you, and you're hunting for the spot!" (the rest of the line assumed unchanged); the transcript, alignment, lip sync, captions, brief rows and the S20 render follow.
+- **Rule:** H3 (Switch's lines as recorded).

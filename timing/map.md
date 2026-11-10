@@ -28,7 +28,7 @@ Take = his comped line(s) in the master. Room = Narrator's word before → Narra
 | V02 | Yes, but can I please read the page myself? | 26.74–29.82 | 26.52–30.05 | 3.53 |
 | V03 | I've only got two sides, it isn't much to learn: / You push me down for off... ...so how'd I just return? | 34.16–37.25, 37.72–40.84 | 33.58–41.50 | 7.92 |
 | V04 | Default on, on, on, on, on, on, on... | 55.25–58.90 | 55.03–62.51 | 7.48 |
-| V05 | And "opt-out" means that no one asked you, and you're hunting for the spot! | 70.26–75.96 | 68.57–77.04 | 8.47 |
+| V05 | And "opt-out" means nobody asked you, and you're hunting for the spot! | 70.26–75.96 | 68.57–77.04 | 8.47 |
 | V06 | There's always a test. | 89.14–90.46 | 87.87–91.43 | 3.56 |
 | V07 | And what did the company say? | 99.02–100.42 | 98.46–100.71 | 2.25 |
 | V08 | Can I delete it? | 113.12–114.16 | 112.63–114.40 | 1.77 |
@@ -86,7 +86,7 @@ Take = his comped line(s) in the master. Room = Narrator's word before → Narra
 | S17 | Chorus 1 | "Default on!" / V04 "(On, on, on…)" | 55.25 | 1685 | L14a | cue words |
 | S18 | Chorus 1 | Flute and scat fill | 58.90 | 1794 | L14a | after Switch's V04 tag |
 | S19 | Lesson | "Now, 'opt-in' means somebody asks you…" | 62.51 | 1903 | L15 | cue words |
-| S20 | Lesson | V05 "And 'opt-out' means that no one asked you…" | 70.26 | 2135 | L16 | cue words |
+| S20 | Lesson | V05 "And 'opt-out' means nobody asked you…" | 70.26 | 2135 | L16 | cue words |
 | S21 | Lesson | "And 'default' is the setting that they picked…" | 77.04 | 2339 | L17 | cue words |
 | S22 | Lesson | "…they'll say you picked the same." | 82.56 | 2504 | L18 | cue words |
 | S23 | Lesson | "Got that? Opt-in, opt-out, default. There'll be a test." | 84.18 | 2553 | L19 | cue words |
@@ -158,7 +158,7 @@ Take = his comped line(s) in the master. Room = Narrator's word before → Narra
 | L14a | switch | Chorus 1 | 55.25 | 58.90 | Default on, on, on, on, on, on, on... |
 | L14 | narrator | Chorus 1 | 55.32 | 56.03 | Default on! |
 | L15 | narrator | Lesson | 62.51 | 68.57 | Now, "opt-in" means somebody asks you, and you say, "Well, sure, why not." |
-| L16 | switch | Lesson | 70.26 | 75.96 | And "opt-out" means that no one asked you, and you're hunting for the spot! |
+| L16 | switch | Lesson | 70.26 | 75.96 | And "opt-out" means nobody asked you, and you're hunting for the spot! |
 | L17 | narrator | Lesson | 77.04 | 80.45 | And "default" is the setting that they picked before you came, |
 | L18 | narrator | Lesson | 81.08 | 84.01 | And if you never touch it, friend, they'll say you picked the same. |
 | L19 | narrator | Lesson | 84.18 | 87.87 | Got that? Opt-in, opt-out, default. There'll be a test. |

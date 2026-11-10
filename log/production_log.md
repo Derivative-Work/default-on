@@ -439,3 +439,7 @@ Append-only. One entry per action: timestamp, step (shot ID where relevant), wha
 - **The song doc's mirror:** `docs/song_doc_full.md` re-mirrored at rev 45 (was rev 38). `scripts/doc_to_md.py` dropped blockquotes, so every earlier mirror had lost card G's draft; it now writes them.
 - **Checked:** the child's name appears in tracked files only in the two guardians' consent statements in `log/human_interventions.md`, as the project's rule allows; it will be public with the repo.
 - **2026-11-10:** pushed `main` to github.com/Derivative-Work/default-on (84c00d4..8e0eb75, 39 commits; the repo is still private), at the human's word ("push it").
+
+## 2026-11-10 — V05 as he sang it
+
+- `lyrics/switch_comp.txt` L16 now "And "opt-out" means nobody asked you, and you're hunting for the spot!" (the human); re-aligned (`scripts/align_words.py`: only L16 changed, every word placed without a low score); `timing/map.json` regenerated (no shot moved); `timing/visemes.json` re-run (only L16 changed); `captions/default_on.en.srt` regenerated. Brief V05 and S20 rows (doc rev 96, `docs/brief.md`).
