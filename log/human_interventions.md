@@ -301,3 +301,8 @@ Every human action: timestamp, what, why, and which rule allows it. The brief al
 - **M7:** the summary box arriving with the piano stands; there is no chime in the mix, so the captions lose their "[pop-up chime]" cue. M7 closes.
 - **M8:** ChatGPT's and Gemini's audits (`~/Downloads/default-on-m8-{chatgpt,gemini}-check.md`), copied verbatim to `log/audits/`. Claude's review with proposed fixes: `log/audits/03_review.md`, for the human's approval.
 - **Rule:** H2 (gates), H3 (the audits, run by the human).
+
+## 2026-11-10 — M8 fixes approved — H2
+
+- **Verbatim:** "yes go ahead" (to every fix and source change proposed in `log/audits/03_review.md`).
+- **Rule:** H2 (M8 gate: resolve every flag before release).
