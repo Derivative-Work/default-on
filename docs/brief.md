@@ -237,7 +237,7 @@
 **Inputs the human supplies**
 
 - The locked master and its stems (Narrator vocal, instrumental, and any others the generator gave), with the take ID, prompt and settings.
-- A screen capture of the generation screen showing the style prompt, lyrics and take list (for S65–S66).
+- A screen capture of the generation screen showing the style prompt, lyrics and take list (for S65–S66). (Supplied 2026-11-10, with a recording of the Logic project for S66's right half.)
 - Switch's takes V01–V19 and V21, the 20 real-switch clicks and 10 seconds of room tone (see the recording plan).
 - About ten seconds of real footage for S67: a close-up of a small hand flipping a light switch off, shot tight on plain wall, phone held still, 4K if possible. (Supplied 2026-11-09. S68's swag shot is no longer needed.)
 - The Default On doc (lyrics, fact card) and this brief.

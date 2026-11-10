@@ -419,3 +419,9 @@ Append-only. One entry per action: timestamp, step (shot ID where relevant), wha
 ## 2026-11-09 — M5: a second short, the school story
 
 - **What:** `VerticalSchool` (`remotion/src/compositions/Vertical.tsx`, now one factory for both shorts): S48 ("Now the school's the place for learning…", 2:52 in the cut) through the end of the final chorus (its last "Default on!", 3:41.5), 1,489 + 90 frames (52.6 s with the Full video card), in the first short's layout with the title and picture set higher. The burnt-in citations would shrink to about 21 px at 9:16, so each is repeated in large type at the foot of the frame while it is on screen in the cut, stacked as in the cut: the VP's (S50–S52), the quote's source (from S55's label plate through S56) and the correction (S53–S56), the same words (`SCHOOLCAP`, `QUOTECAP`, `CORRCAP`, now exported from `End.tsx`). Output `deliverables/vertical_school.mp4`.
+
+## 2026-11-10 — S65–S66: the real screen recordings
+
+- **What:** `scripts/s65_s66_clips.sh` cuts the human's two recordings to the shots (`edit/S65_suno.mp4` 1920x1080, 50 frames; `edit/S66_suno.mp4` and `edit/S66_logic.mp4` 960x1080, 64 frames each; hard links in `remotion/public/`), and `End.tsx`'s S65 and S66 replace their stand-ins: S65 the Suno create page full frame; S66 split, Suno left and Logic right, a cream rule between.
+- **Sync, by cross-correlating each recording's audio with the master:** Logic, master = recording + 234.978 s (correlation 0.99), so its playhead is exactly on the song; Suno (the original take, mixed differently: correlation 0.3–0.7), master = recording + 228.2 s before the bar the human added ahead of V21 and + 229.7 s after it; placed by the first and run 1:1, so S65 is in step and S66's left half slips by the added bar where only the progress bar could show it.
+- **Crops:** see the script; nothing private in frame (`log/human_interventions.md`).

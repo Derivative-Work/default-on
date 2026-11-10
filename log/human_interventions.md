@@ -257,3 +257,10 @@ Every human action: timestamp, what, why, and which rule allows it. The brief al
 - **Verbatim:** "also make me a short for the beginning of the search story to the following chorus (roughly 2:54 to 3:38)"
 - **Decision:** S48 ("Now the school's the place for learning…", 2:52) through the end of the final chorus (its last "Default on!", 3:41.5), in the vertical cut's layout, with the on-screen citations repeated large under the line.
 - **Rule:** H2.
+
+## 2026-11-10 — S65–S66 screen recordings supplied — H3
+
+- **Verbatim:** "I just added the screen captures for both -- they're in ~/Downloads. In case it works for the shot: they include that part of the audio, so you can sync them using correlation"
+- **Files:** `~/Downloads/Screen Recording 2026-11-09 at 23.57.27.mov` (Suno's create page: lyrics, style, the take list, the original take playing; 3464x2258, 240 fps, 21.9 s; sha256 e41424ea…54979e) and `… at 23.59.23.mov` (the Logic project playing the final mix: tracks, Switch's takes, the clicks; 3824x2484, 240 fps, 19.5 s; sha256 9d06577b…2e370f4), copied to `assets/real/S65/suno_create.mov` and `logic_timeline.mov`.
+- **Checked before use:** every sampled frame of both. Nothing names or shows the child: the Logic tracks read "Little Switch", "Little Switch Takes: 5 – Comp A" and so on. Cropped out: the browser's address bar and profile button, Logic's window title, and its movie thumbnail (which showed an older cut's stand-in text). The recordings' audio is used only to place them.
+- **Rule:** H3 (the brief's Inputs: the generation-screen capture for S65–S66).

@@ -16,7 +16,7 @@ import { NarratorSet } from "./Intro";
 import { Living } from "./Lesson";
 import { Bookshelf, Clock, Floorboards, Grain, Wallpaper, Window } from "../components/sets";
 import { FLIP_LEN, FLIP_Y, Lyric } from "./Chorus";
-import { Bg, ShotC, Stand, blink, bump, ez } from "./common";
+import { Bg, ShotC, blink, bump, ez } from "./common";
 
 // S48: "Now the school's the place for learning…": a one-room schoolhouse at dusk, slow pan (Rhodes only), drawn in
 // full (the human's note, 2026-11-06: "the school exterior could use a lot more detail"): sky, moon, clouds and stars;
@@ -715,14 +715,30 @@ export const S64: ShotC = ({ f, g, len }) => {
 // S68 is retired (the human, 2026-11-09): the swag shot is cut; its disclosure becomes a credits card after fact
 // card G (M5)
 
-// S65-S67: real material. Until it lands, stand-ins say what goes there; the film layer is off from S65 (Cut.tsx)
-export const S65: ShotC = () => <Stand label="S65 · REAL SCREEN CAPTURE" note="The generation screen: style prompt, lyrics, take list (the human supplies it)" />;
-export const S66: ShotC = () => (
-  <div style={{ position: "absolute", inset: 0, display: "flex" }}>
-    <div style={{ flex: 1, position: "relative" }}><Stand label="S66 · LEFT" note="The generation screen" /></div>
-    <div style={{ flex: 1, position: "relative", borderLeft: `6px solid ${C.cream}` }}><Stand label="S66 · RIGHT" note="The editing timeline: the Switch track, 'Switch: recorded at home', its waveform playing" /></div>
-  </div>
-);
+// S65-S67: real material; the film layer is off from S65 (Cut.tsx). S65-S66 are the human's screen recordings
+// (2026-11-10), cut and timed to the song by scripts/s65_s66_clips.sh: S65 the generation screen (Suno's create page:
+// style, lyrics, the take list); S66 split, the generation screen left and the editing timeline right (the Logic
+// project playing, its playhead crossing the clicks into Switch's last take)
+export const S65: ShotC = ({ f }) => {
+  const cur = useCurrentFrame();
+  return (
+    <AbsoluteFill style={{ backgroundColor: "#000" }}>
+      <Sequence from={cur - f}><OffthreadVideo src={staticFile("S65_suno.mp4")} muted style={{ width: W, height: H }} /></Sequence>
+    </AbsoluteFill>
+  );
+};
+export const S66: ShotC = ({ f }) => {
+  const cur = useCurrentFrame();
+  return (
+    <AbsoluteFill style={{ backgroundColor: "#171717", display: "flex" }}>
+      <Sequence from={cur - f}>
+        <OffthreadVideo src={staticFile("S66_suno.mp4")} muted style={{ position: "absolute", left: 0, top: 0, width: W / 2, height: H }} />
+        <OffthreadVideo src={staticFile("S66_logic.mp4")} muted style={{ position: "absolute", left: W / 2, top: 0, width: W / 2, height: H }} />
+        <div style={{ position: "absolute", left: W / 2 - 3, top: 0, width: 6, height: H, backgroundColor: C.cream }} />
+      </Sequence>
+    </AbsoluteFill>
+  );
+};
 // S67: the human's real footage (assets/real/S67, cut and graded by scripts/s67_grade.sh into S67_graded.mp4): a
 // light switch on a plain wall; a small hand reaches in and waits; on the band's last note it flips the switch and the
 // room's light goes out, so the frame goes dark and stays dark through the hold. Shortly before the flip, Switch's
