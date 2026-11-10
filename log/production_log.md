@@ -401,3 +401,7 @@ Append-only. One entry per action: timestamp, step (shot ID where relevant), wha
 ## 2026-11-09 — M5: the thumbnail
 
 - **What:** `Thumbnail` composition (`remotion/src/compositions/Thumbnail.tsx`): the pre-chorus night set and spotlight (`Night`, now exported from `Chorus.tsx`), Switch large and startled with his paddle halfway from OFF to ON, the grey sleeve's finger on the paddle, "click!", and "DEFAULT ON" in the bubble letters; under the film layer. Nothing real: no child, no real hand, no generation screen or timeline (brief). Rendered with `npx remotion still src/index.ts Thumbnail` and saved as `deliverables/thumbnail.jpg` (1920x1080, quality 92).
+
+## 2026-11-09 — M5: the vertical cut
+
+- **What:** `Vertical` composition (`remotion/src/compositions/Vertical.tsx`), 1080x1920, 832 frames: S09–S17 from the cut (pre-chorus 1 and chorus 1, through Switch's echo after the sticker reveal) and a 3 s "Full video" card. The 16:9 picture is shown whole at full width, not cropped: the chorus's karaoke lines and most of the staging use the whole width, so a 9:16 crop would cut them. Above it, the title and the S00 subtitle on the paper; below it, the line being sung in large type for phones on mute (Switch's lines labelled SWITCH, in teal). The audio is the final master over the same span, faded in over 6 frames and out under the card. Output `deliverables/vertical.mp4`.

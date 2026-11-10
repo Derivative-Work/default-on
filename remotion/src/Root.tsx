@@ -4,6 +4,7 @@ import "./theme/fonts";
 import { RigSheet } from "./compositions/RigSheet";
 import { HandSheet } from "./compositions/HandSheet";
 import { Thumbnail } from "./compositions/Thumbnail";
+import { Vertical, V_H, V_LEN, V_W } from "./compositions/Vertical";
 import { StyleBoard, BOARD } from "./compositions/StyleBoard";
 import { MotionTest, MOTION_TEST } from "./compositions/MotionTest";
 import { Animatic } from "./compositions/Animatic";
@@ -18,6 +19,7 @@ export const Root: React.FC = () => (
     <Composition id="RigSheet" component={RigSheet} durationInFrames={1} fps={FPS} width={W} height={H} />
     <Composition id="HandSheet" component={HandSheet} durationInFrames={1} fps={FPS} width={W} height={H} />
     <Composition id="Thumbnail" component={Thumbnail} durationInFrames={1} fps={FPS} width={W} height={H} />
+    <Composition id="Vertical" component={Vertical} durationInFrames={V_LEN} fps={FPS} width={V_W} height={V_H} />
     <Composition id="StyleBoard" component={StyleBoard} durationInFrames={Math.max(1, BOARD.length)} fps={FPS} width={W} height={H} />
     <Composition id="MotionTest" component={MotionTest} durationInFrames={MOTION_TEST.frames} fps={FPS} width={W} height={H} />
     <Composition id="SpotCheck" component={SpotCheck} durationInFrames={shots.length} fps={FPS} width={960} height={540} />
