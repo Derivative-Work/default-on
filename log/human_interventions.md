@@ -251,3 +251,9 @@ Every human action: timestamp, what, why, and which rule allows it. The brief al
   (music-deslop being the postfilter run on the Suno outputs, and Tuna Fish being a harmonizer I vibe-coded and used here as an octave shifter for my singing to add an extra voice to the choir) hm, now that it's typed out it seems a bit much for the credits screen..."
 - **Decisions:** the fact cards and card lengths are approved. The four lines go on a second credits card ("Sound") after the end card rather than crowding it; the Pixabay titles and links are the ones the human gave on 2026-11-08 ("people crowd shouting", pixabay.com/sound-effects/people-crowd-shouting-6325; "film special effects record scratch", pixabay.com/sound-effects/film-special-effects-record-scratch-108233; `assets/LICENSES.md`).
 - **Rule:** H2 (the closing materials).
+
+## 2026-11-09 — A second short — H2
+
+- **Verbatim:** "also make me a short for the beginning of the search story to the following chorus (roughly 2:54 to 3:38)"
+- **Decision:** S48 ("Now the school's the place for learning…", 2:52) through the end of the final chorus (its last "Default on!", 3:41.5), in the vertical cut's layout, with the on-screen citations repeated large under the line.
+- **Rule:** H2.

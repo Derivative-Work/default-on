@@ -415,3 +415,7 @@ Append-only. One entry per action: timestamp, step (shot ID where relevant), wha
 ## 2026-11-09 — M5: the Sound credits card
 
 - **What:** the human's four sound credits (`log/human_interventions.md`) on a second credits card after the end card, "Sound" (`FS`, 7 s; `closing.json` `sound`, `Cards.tsx`), so the end card stays readable: mix and master; the two Pixabay effects by their Pixabay titles, each address on its own line in smaller type; the door and switch recorded by the creator and child (no name). The video is now 11,128 frames (6:11); the credits music still fades over the last 4 s. Brief End card line updated (doc rev 91, `docs/brief.md`).
+
+## 2026-11-09 — M5: a second short, the school story
+
+- **What:** `VerticalSchool` (`remotion/src/compositions/Vertical.tsx`, now one factory for both shorts): S48 ("Now the school's the place for learning…", 2:52 in the cut) through the end of the final chorus (its last "Default on!", 3:41.5), 1,489 + 90 frames (52.6 s with the Full video card), in the first short's layout with the title and picture set higher. The burnt-in citations would shrink to about 21 px at 9:16, so each is repeated in large type at the foot of the frame while it is on screen in the cut, stacked as in the cut: the VP's (S50–S52), the quote's source (from S55's label plate through S56) and the correction (S53–S56), the same words (`SCHOOLCAP`, `QUOTECAP`, `CORRCAP`, now exported from `End.tsx`). Output `deliverables/vertical_school.mp4`.
