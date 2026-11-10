@@ -272,7 +272,7 @@ export const S46: ShotC = ({ f, len }) => {
   );
 };
 
-// S47: V15 "Was there one without the robot?" / "Only once you tried to leave!": Switch walks toward a door marked
+// S47: V15 "Is there one without the robot?" / "Only once you tried to leave!": Switch walks toward a door marked
 // "CANCEL"; a cheaper tag peeks out from behind it (labelled CLASSIC, no price: the fact card gives none), then the
 // door slams on the human's door recording
 export const S47: ShotC = ({ f, g, len }) => {

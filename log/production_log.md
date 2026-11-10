@@ -443,3 +443,8 @@ Append-only. One entry per action: timestamp, step (shot ID where relevant), wha
 ## 2026-11-10 — V05 as he sang it
 
 - `lyrics/switch_comp.txt` L16 now "And "opt-out" means nobody asked you, and you're hunting for the spot!" (the human); re-aligned (`scripts/align_words.py`: only L16 changed, every word placed without a low score); `timing/map.json` regenerated (no shot moved); `timing/visemes.json` re-run (only L16 changed); `captions/default_on.en.srt` regenerated. Brief V05 and S20 rows (doc rev 96, `docs/brief.md`).
+
+## 2026-11-10 — M8: the audit prompt
+
+- **What:** `log/prompts/other/m8_fact_audit.md`, after Nine Hundred Acres' M8 prompt: the auditor's own disclosure first (the video names Google, Microsoft, Meta, Apple, LG and Anthropic); then every on-screen claim word for word with its listed source: the song's captions, the S28 fine print and the claim-bearing lyrics (A1–A11), card G and F1–F9 as on screen with their status lines, and the labels and jokes to flag only if misleading (C); verdicts, primary sources and newer developments asked for each. For the human to paste into Gemini and/or ChatGPT; the raw replies go in `log/audits/`.
+- Also: S47's code comment quotes V15 as spoken.
