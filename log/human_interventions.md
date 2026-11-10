@@ -197,3 +197,4 @@ Every human action: timestamp, what, why, and which rule allows it. The brief al
   - "the test stack appears to have holes where the papers should be visible"
   - "the hands still don't look quite right throughout. In particular, make the search agreement look like it's being held as it's pushed onscreen by having the paper occlude the fingers."
 - **Rule:** H2 (section notes at the M4 gate). No section is approved yet.
+- **Follow-up notes, verbatim:** "check the pencil hand again"; then "still not right -- just remove that hand entirely and let the pencil animate on its own". S18's hand is removed; the brief's S18 row now reads "A pencil, on its own (no hand: the human's note of 2026-11-09), doodles little ON switches in a margin, in time with the fill" (brief doc rev 81).

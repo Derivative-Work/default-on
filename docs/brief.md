@@ -131,7 +131,7 @@
 | S15 | "You can hide it, you can mute it…" | Three beats: a blanket thrown over it; a mute bar over its mouth; it's shut in a drawer that slides back open | A |
 | S16 | "But the switch is just a picture…" | Switch peels off the wall and turns out to be a sticker. A pencil finishes drawing him back on | A |
 | S17 | "Default on!" / V04 "(On, on, on…)" | Switch, redrawn slightly crooked, echoes quietly | A |
-| S18 | Flute and scat fill | The grey hand doodles little ON switches in a margin, in time with the fill | A |
+| S18 | Flute and scat fill | A pencil, on its own (no hand: the human's note of 2026-11-09), doodles little ON switches in a margin, in time with the fill | A |
 
 ### Lesson
 

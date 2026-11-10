@@ -3,9 +3,9 @@ import React from "react";
 import { Wash } from "../film/Paper";
 import { BallLyric } from "../components/kit";
 import { AnswerBox, MiniRocker, Spotlight } from "../components/props";
-import { Hand, PencilHand, TIP_Y } from "../rigs/Hand";
+import { Hand, TIP_Y } from "../rigs/Hand";
 import { PADDLE, PLATE, Switch } from "../rigs/Switch";
-import { C, H, W, lw } from "../theme/palette";
+import { C, H, PEN, W, lw } from "../theme/palette";
 import { BUBBLE, SANS } from "../theme/fonts";
 import { Bookshelf, Clock, Floorboards, Grain, FloorLamp, Plant, Rug, Sunburst, Wallpaper, Window, breath } from "../components/sets";
 import { at, downbeats, line, mouthAt } from "../timing";
@@ -352,12 +352,32 @@ const Echo: React.FC<{ f: number; g: number; tired?: boolean }> = ({ f, g, tired
 export const S17: ShotC = ({ f, g }) => <Echo f={f} g={g} />;
 export const S39: ShotC = ({ f, g }) => <Echo f={f} g={g} tired />;
 
-// S18: the flute and scat fill: the grey hand doodles little ON switches in a margin, in time with the fill
+// a pencil from its tip at the origin along +x: graphite, sharpened wood, a yellow barrel, a ferrule and an eraser
+const Pencil: React.FC = () => (
+  <g>
+    <path d="M0,0 L26,-7 L26,7 Z" fill={C.ink} />
+    <path d="M26,-7 L60,-13 L60,13 L26,7 Z" fill="#e8c9a0" stroke={C.ink} strokeWidth={lw(3)} strokeLinejoin="round" />
+    <rect x={60} y={-13} width={300} height={26} fill={C.mustard} stroke={C.ink} strokeWidth={lw(3)} />
+    <line x1={60} y1={-4} x2={360} y2={-4} {...PEN} opacity={0.5} />
+    <line x1={60} y1={5} x2={360} y2={5} {...PEN} opacity={0.5} />
+    <rect x={360} y={-14} width={34} height={28} fill="#b8b8b8" stroke={C.ink} strokeWidth={lw(3)} />
+    <path d="M370,-14 V14 M382,-14 V14" {...PEN} opacity={0.6} />
+    <path d="M394,-13 L418,-13 Q428,0 418,13 L394,13 Z" fill="#e8a0a0" stroke={C.ink} strokeWidth={lw(3)} strokeLinejoin="round" />
+  </g>
+);
+
+// S18: the flute and scat fill: a pencil doodles little ON switches in a margin by itself, in time with the fill.
+// No hand (the human's note, 2026-11-09, round 5: "just remove that hand entirely and let the pencil animate on its
+// own"): the pencil stands on its tip at the latest doodle, wiggles as it scribbles, and hops to the next spot
+// between doodles
 export const S18: ShotC = ({ f, g }) => {
   const n = Math.min(Math.floor(f / 14), 10);
   const k = Math.max(0, n - 1);
   const px = 160 + (k % 2) * 140, py = 190 + Math.floor(k / 2) * 170;
-  const scrib = Math.sin(f * 1.3) * 10;
+  const t = f % 14; // frames into the current doodle
+  const hop = n > 0 && n < 10 && t < 4 ? Math.sin((t / 4) * Math.PI) * 60 : 0; // a little hop up to each new spot
+  const scrib = n > 0 ? Math.sin(f * 1.3) * 10 : 0;
+  const tilt = 58 + Math.sin(f * 0.9) * 6; // stands leaning right, rocking as it scribbles
   return (
     <Bg id="s18" seed={18}>
       {Array.from({ length: 13 }, (_, i) => <line key={i} x1={0} y1={110 + i * 76} x2={W} y2={110 + i * 76} stroke={C.teal} strokeWidth={2} opacity={0.35} />)}
@@ -370,10 +390,10 @@ export const S18: ShotC = ({ f, g }) => {
         <g key={i} transform={`translate(${160 + (i % 2) * 140}, ${190 + Math.floor(i / 2) * 170}) rotate(${((i * 37) % 9) - 4})`}><MiniRocker on={1} s={0.9} /></g>
       ))}
       {[[700, 520], [1100, 420], [900, 700]].map(([x, y], i) => i < n / 3 && <path key={i} d={`M${x},${y} l10,24 l26,4 l-20,16 l6,26 l-22,-14 l-22,14 l6,-26 l-20,-16 l26,-4 Z`} fill="none" stroke={C.inkSoft} strokeWidth={3} opacity={0.7} />)}
-      {/* the hand, with a pencil, scribbling the latest switch */}
-      {/* the hand holds the pencil like a hand does: tip on the page at the latest doodle, the pencil running down to
-          the right between thumb and index, the fist and sleeve off past the frame's bottom edge */}
-      <g transform={`translate(${px + 40 + scrib}, ${py + 50})`}><PencilHand angle={52} /></g>
+      {/* the pencil, tip on the page at the latest doodle; a shadow under the tip, speed ticks while it hops */}
+      <ellipse cx={px + 40 + scrib} cy={py + 54} rx={16 - hop * 0.1} ry={5} fill={C.ink} opacity={0.2} />
+      {hop > 20 && [0, 1].map((k) => <path key={k} d={`M${px + 20 + k * 40},${py + 40 - hop} l${-8 + k * 16},14`} {...PEN} opacity={0.6} />)}
+      <g transform={`translate(${px + 40 + scrib}, ${py + 50 - hop}) rotate(${-tilt})`}><Pencil /></g>
     </Bg>
   );
 };
