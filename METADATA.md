@@ -5,7 +5,7 @@ YouTube metadata for the main video and the two vertical cuts, ready to paste at
 
 **Before uploading:**
 - **Still to do before release:** the morning-of news check of the fact cards' developing stories, the intervention
-  count below, the v1.0 GitHub release, and the YouTube links once uploaded. (M7, M8 and the 4K render are done.)
+  count below, the v1.0 GitHub release, and the vertical cuts' links once uploaded. (M7, M8 and the 4K render are done.)
 - **The repository** goes public before the video (the human, 2026-11-09): the end card points to its log.
 - **Intervention count.** The main description gives the number logged at upload
   (`grep -c '^## ' log/human_interventions.md`). The end card gives the count when it was rendered.
@@ -154,7 +154,7 @@ content: yes; Standard YouTube License. Related video: the main video. No chapte
 ```
 AI-generated satire. A cartoon for grown-ups about AI features that arrive switched on, and the off switches that don't stay off. Switch is voiced by a real child.
 
-Full video, facts and sources: [main video link]
+Full video, facts and sources: https://www.youtube.com/watch?v=LRdWKtGsklg
 Production log, with every prompt and every human intervention: https://github.com/Derivative-Work/default-on
 Animation and edit: Claude Code · Words: Claude
 Video and assets CC BY-NC-SA 4.0. Satire; not affiliated with any company named.
@@ -183,7 +183,7 @@ they read on a phone. Settings as the first vertical cut.
 ```
 AI-generated satire about real events. On Nov 3, 2026, Google's VP for education told The New York Times that students at schools rejecting its AI would lose Search (GovTech). Google then said schools can turn Gemini off and keep Search, but AI Overviews and AI Mode can't be removed from Search (Windows Report; Decrypt).
 
-Full video, facts and sources: [main video link]
+Full video, facts and sources: https://www.youtube.com/watch?v=LRdWKtGsklg
 Production log, with every prompt and every human intervention: https://github.com/Derivative-Work/default-on
 Animation and edit: Claude Code · Words: Claude
 Video and assets CC BY-NC-SA 4.0. Satire; not affiliated with any company named.

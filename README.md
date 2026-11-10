@@ -27,7 +27,7 @@ reporting.
 
 ## Watch
 
-- **YouTube:** the main video and the two vertical cuts (links added at release).
+- **YouTube:** [the main video](https://www.youtube.com/watch?v=LRdWKtGsklg); the two vertical cuts (links added when they're up).
 - **Files:** the videos, captions, thumbnail and music are in the v1.0 release (added at release).
 
 ## The making-of record
