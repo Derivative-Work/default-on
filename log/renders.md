@@ -132,3 +132,9 @@ Every render: timestamp, shot ID, composition, props, commit hash, output, conta
 - **Compositions:** `Sec11-Outroandreveal` from 5ced211 (the Sound card after the end card); `scripts/assemble.sh`; a sending copy at CRF 29. `VerticalSchool` from 3f123fb: `npx remotion render src/index.ts VerticalSchool ../deliverables/vertical_school.mp4 --concurrency=8 --crf=18`.
 - **Checks:** full cut 11,128 frames (6:11); sync −0.0001 s / 0.0000 s / 0.0000 s at 30 s, 150 s and 245 s; the credits music fades from 366.933 s; the Sound card in the render. School short: 1080x1920, 1,579 frames (52.6 s), −15.2 dB mean, −1.0 dB peak; its citations in the render at the foot of the frame.
 - **Outputs:** `renders/m4/sec11_outro.mp4`, `renders/m4/m4_full.mp4`, `renders/m4/review/m4_full_review_720p.mp4` and `_send.mp4` (25.6 MB), `deliverables/vertical_school.mp4` (21.9 MB). Superseded: `archive/renders/m5_cards_v2_2026-11-09/`.
+
+## 2026-11-10T00:18 — Sec11 with the real S65–S66; the full cut
+
+- **Compositions:** `Sec11-Outroandreveal` from 6b335d1 (S65–S66 from `edit/S65_suno.mp4`, `S66_suno.mp4`, `S66_logic.mp4`, `scripts/s65_s66_clips.sh`); `scripts/assemble.sh`; the sending copy at CRF 29.
+- **Checks:** 11,128 frames; sync −0.0001 s / 0.0000 s / 0.0000 s at 30 s, 150 s and 245 s. In the render: the cuts S64→S65 on 7232, S65→S66 on 7282, S66→S67 on 7346; the Suno page, then the split with Logic's playhead short of the clicks.
+- **Outputs:** `renders/m4/sec11_outro.mp4`, `renders/m4/m4_full.mp4`, `renders/m4/review/m4_full_review_720p.mp4`, `_send.mp4` (25.7 MB), contact sheets in `review/`. Superseded: `archive/renders/m5_sound_card_2026-11-09/`.
