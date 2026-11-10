@@ -397,3 +397,7 @@ Append-only. One entry per action: timestamp, step (shot ID where relevant), wha
 ## 2026-11-09 — M5: the credits music
 
 - **What:** the human's credits track (`audio/credits/default-on-credits.wav`, see `log/human_interventions.md`) plays from its first sample on fact card G's first frame (frame 7651) and fades out over the video's last 4 s (`timing/map.json` `credits_audio`). In the Remotion cut (`Cut.tsx`, for the section renders) and in the final soundtrack: `scripts/assemble.sh` now builds the full cut, the master and the credits music summed without normalising, levels as supplied. `remotion/public/credits.wav` is a hard link. `assets/LICENSES.md` and the brief (doc rev 85, `docs/brief.md`) list it; `MANIFEST.sha256` regenerated.
+
+## 2026-11-09 — M5: the thumbnail
+
+- **What:** `Thumbnail` composition (`remotion/src/compositions/Thumbnail.tsx`): the pre-chorus night set and spotlight (`Night`, now exported from `Chorus.tsx`), Switch large and startled with his paddle halfway from OFF to ON, the grey sleeve's finger on the paddle, "click!", and "DEFAULT ON" in the bubble letters; under the film layer. Nothing real: no child, no real hand, no generation screen or timeline (brief). Rendered with `npx remotion still src/index.ts Thumbnail` and saved as `deliverables/thumbnail.jpg` (1920x1080, quality 92).

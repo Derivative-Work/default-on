@@ -26,7 +26,7 @@ export const Lyric: React.FC<{ id: string; f: number; g: number; y?: number; siz
 // the pre-chorus set: the living room at night, night blue: a curtained window with the moon and twinkling stars,
 // a dark bookshelf, a lamp switched off, a clock reading late, the floor; one spotlight on Switch, with a moth
 // circling it; `dim` for the second time round (S35-S36)
-const Night: React.FC<{ id: string; dim?: number; g?: number; children: React.ReactNode }> = ({ id, dim = 0, g = 0, children }) => (
+export const Night: React.FC<{ id: string; dim?: number; g?: number; children: React.ReactNode }> = ({ id, dim = 0, g = 0, children }) => (
   <Bg id={id} seed={9} base={C.night}>
     <Wallpaper id={`${id}n`} kind="stripe" a={C.night} b="#2c3d63" opacity={0.4} />
     <g transform="translate(330, 330)" opacity={0.85}>
