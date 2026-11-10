@@ -1,7 +1,7 @@
 """Review aid (brief, Pipeline): one contact sheet per shot, review/<shot>.jpg, from a rendered video of the whole cut.
 Four frames per shot (at 10%, 35%, 65% and 90% of its range on screen) tiled 2x2, each 480 px wide; the render's own
-burn-in names the shot and frame. Shot ranges come from timing/map.json, with the post-roll so far (fact card G as
-"FG", then S68) and the video's end from it. A section render starts at frame <offset> of the cut; only the shots
+burn-in names the shot and frame. Shot ranges come from timing/map.json, with the post-roll (the closing cards: fact card G as
+"FG", the disclosure FD, F1-F9 and the end card FE) and the video's end from it. A section render starts at frame <offset> of the cut; only the shots
 inside it get sheets. Each frame is seeked to directly, so a sheet doesn't decode the whole video.
 
 Usage: python3 -I scripts/contact_sheets.py <video> [<offset> <frames>]
@@ -15,7 +15,7 @@ from pathlib import Path
 
 def ranges():
     m = json.loads(Path("timing/map.json").read_text())
-    s = sorted([(x["id"], x["frame"]) for x in m["shots"]] + [(p["id"], p["frame"]) for p in m["post"] if p["id"] == "FG"],
+    s = sorted([(x["id"], x["frame"]) for x in m["shots"]] + [(p["id"], p["frame"]) for p in m["post"]],
                key=lambda x: x[1])
     end = m["video_end_frame"]
     return m["fps"], [(sid, a, s[i + 1][1] if i + 1 < len(s) else end) for i, (sid, a) in enumerate(s)]
