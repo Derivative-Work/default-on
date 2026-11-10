@@ -41,7 +41,8 @@ fx = [
     (at(ev["door_slam"]), "[door slams]"),
     (at(ev["booing"][0]), "[crowd boos]"),
     (at(ev["record_scratch"][0]), "[record scratch, tape rewinds]"),
-    (at(ev["popup_chime"]), "[pop-up chime]"),
+    # no "[pop-up chime]": the human's mix has no chime there (2026-11-10: the box arrives with the piano instead); the
+    # map's popup_chime only marks where the lyric's tag sat
     (at(ev["last_note"]), "[light switch clicks off]"),
 ]
 shot = {s["id"]: s for s in m["shots"]}

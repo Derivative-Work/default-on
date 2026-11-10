@@ -294,3 +294,10 @@ Every human action: timestamp, what, why, and which rule allows it. The brief al
 - **M7 (melody):** the human and four human reviewers listened and recognised no known children's TV theme in the melody. The brief's other M7 check (S59–S67 frame by frame against the final mix) is the agent's.
 - **M8:** the human will run the audit prompt (`log/prompts/other/m8_fact_audit.md`).
 - **Rule:** H1 (takes), H3 (his recordings), H2 (gates).
+
+## 2026-11-10 — The chime; M8 audits supplied — H2, H3
+
+- **Verbatim:** "M7: I had you move the sound to line up with the piano because there was no chime. The piano was already there, and it fit the genre better than a chime would have. M8: audits are in"
+- **M7:** the summary box arriving with the piano stands; there is no chime in the mix, so the captions lose their "[pop-up chime]" cue. M7 closes.
+- **M8:** ChatGPT's and Gemini's audits (`~/Downloads/default-on-m8-{chatgpt,gemini}-check.md`), copied verbatim to `log/audits/`. Claude's review with proposed fixes: `log/audits/03_review.md`, for the human's approval.
+- **Rule:** H2 (gates), H3 (the audits, run by the human).
