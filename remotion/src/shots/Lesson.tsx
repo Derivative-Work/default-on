@@ -51,20 +51,20 @@ const OfferHand: React.FC = () => (
   <g>
     <path d="M10,-40 L1400,-44 L1400,44 L10,40 Q-2,0 10,-40 Z" fill={C.teal} stroke={C.ink} strokeWidth={lw(6)} strokeLinejoin="round" />
     {[260, 620].map((k) => <path key={k} d={`M${k},-40 q-12,40 4,80`} {...PEN} opacity={0.7} />)}
-    {/* the far fingers peek out above and behind the near one */}
-    {[[-14, 150], [-6, 158]].map(([y, l], i) => (
-      <path key={i} d={`M-80,${y - 9} L${-l + 8},${y - 11} Q${-l - 6},${y - 12} ${-l - 4},${y - 2} Q${-l - 2},${y + 6} ${-l + 10},${y + 6} L-80,${y + 8} Z`}
+    {/* every digit grows out from under the palm (the human's note, 2026-11-09, round 6: the fingers looked cut off
+        from the wrist): the thumb and the two far fingers are drawn first, their roots inside the palm's outline */}
+    <path d="M-14,-18 Q-30,-56 -58,-66 Q-76,-70 -74,-56 Q-64,-40 -52,-12 Z" fill={C.skin} stroke={C.ink} strokeWidth={lw(4.5)} strokeLinejoin="round" />
+    {[[-21, 158], [-14, 164]].map(([y, l], i) => (
+      <path key={i} d={`M-40,${y} L${-l + 8},${y} Q${-l - 6},${y} ${-l - 6},${y + 7} Q${-l - 6},${y + 13} ${-l + 8},${y + 13} L-40,${y + 13} Z`}
         fill={C.skin} stroke={C.ink} strokeWidth={lw(4)} strokeLinejoin="round" />
     ))}
-    {/* the palm and the near finger: one outline, the hand's flat top dipping a little where the cookie sits */}
-    <path d="M6,-26 Q-40,-18 -86,-6 L-150,-4 Q-168,-6 -168,6 Q-168,16 -152,16 L-90,20 Q-40,30 6,30 Z"
+    {/* the palm and the near finger in one outline: thick at the heel, sloping down to the knuckles */}
+    <path d="M8,-36 Q-30,-32 -66,-12 L-150,-6 Q-170,-4 -169,7 Q-168,18 -150,18 L-80,22 Q-30,38 8,36 Z"
       fill={C.skin} stroke={C.ink} strokeWidth={lw(4.5)} strokeLinejoin="round" />
-    <path d="M-96,6 q4,6 0,12" {...PEN} opacity={0.6} />
-    {/* the thumb, up on the near side by the wrist */}
-    <path d="M-30,-20 Q-44,-56 -66,-62 Q-80,-62 -76,-50 Q-66,-36 -60,-14 Z" fill={C.skin} stroke={C.ink} strokeWidth={lw(4.5)} strokeLinejoin="round" />
+    <path d="M-92,4 q4,6 0,12" {...PEN} opacity={0.6} />
     <rect x={-6} y={-46} width={30} height={92} rx={8} fill="#2b6f96" stroke={C.ink} strokeWidth={lw(5)} />
     {/* the cookie, resting in the palm */}
-    <g transform="translate(-112, -32)">
+    <g transform="translate(-112, -38)">
       <circle r={28} fill={C.mustard} stroke={C.ink} strokeWidth={lw(4.5)} />
       {[[-9, -6], [8, 5], [-4, 12], [10, -11]].map(([cx, cy], k) => <circle key={k} cx={cx} cy={cy} r={4} fill={C.cardigan} />)}
     </g>

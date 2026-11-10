@@ -286,7 +286,7 @@ export const Door: React.FC<{ label: string; open?: number; color?: string; w?: 
   const c = Math.cos(th), grow = Math.sin(th) * 0.16; // how much taller the free edge is, as a share of h
   const P = (x: number, y: number): [number, number] => {
     const u = x / w;
-    return [x * c, u * grow * h * 0.3 + y * (1 + u * grow * 1.3)];
+    return [x * c, u * grow * h * 0.15 + y * (1 + u * grow * 1.15)];
   };
   const quad = (x0: number, y0: number, x1: number, y1: number) =>
     [P(x0, y0), P(x1, y0), P(x1, y1), P(x0, y1)].map(([x, y], i) => `${i ? "L" : "M"}${x.toFixed(1)},${y.toFixed(1)}`).join(" ") + " Z";

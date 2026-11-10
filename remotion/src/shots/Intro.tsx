@@ -183,7 +183,7 @@ export const S04: ShotC = ({ f, g }) => {
 // the study desk for verse 1: diamond wallpaper on teal, a pinboard, a table lamp standing on the desk, a wood-grain
 // desktop with a typewriter-style keyboard (three centred, staggered rows of lettered round keys on a frame, and a
 // space bar), a mug, a notepad and pencils
-const Study: React.FC<{ g: number; children: React.ReactNode; keys?: number }> = ({ g, children, keys = -1 }) => (
+const Study: React.FC<{ g: number; children: React.ReactNode; keys?: number; under?: React.ReactNode }> = ({ g, children, keys = -1, under }) => (
   <Bg id="study" seed={5} base={C.teal}>
     <Wallpaper id="study" kind="diamond" a={C.cream} b={C.mustard} opacity={0.22} />
     <g transform="translate(1660, 230)">
@@ -201,6 +201,7 @@ const Study: React.FC<{ g: number; children: React.ReactNode; keys?: number }> =
     <Grain x={0} y={770} w={W} h={280} n={5} seed={1} />
     {Array.from({ length: 7 }, (_, i) => <path key={i} d={`M-20,${800 + i * 42} q${400 + i * 30},${-14 + (i % 2) * 28} ${960},0 t${980},0`} stroke={C.cardiganShade} strokeWidth={3} fill="none" opacity={0.5} />)}
     <g transform="translate(200, 800)"><TableLamp /></g>
+    {under}
     {/* keyboard (the human's notes, 2026-11-09: taller, with depth, and laid out like a real one): a slab seen from
         above and in front, its front face showing; three tiers of round keys on stalks, the back row highest and
         smallest; each row starts a fixed stagger right of the row behind it (A a quarter key right of Q, Z half a key
@@ -284,16 +285,18 @@ const LinkPage: React.FC = () => (
 // the search page as S06 leaves it and S07 finds it: search box at the top, links pushed `push` px down (hidden by
 // the desk and the keyboard), the answer box sitting on them
 const PUSHED = 210, BOX = { x: 960, y: 420 };
-const SearchPage: React.FC<{ push: number; children?: React.ReactNode }> = ({ push, children }) => (
+// The links are drawn by the Study under its keyboard (`under`), so the keyboard, outline and all, simply covers them
+// (the human's notes, round 5: the page cut the typewriter in half; round 6: a mask cut round the keyboard showed a
+// band of wall, then hid the keyboard's outline). Clipped at the desk's edge, which they slide down behind
+const LinksUnder: React.FC<{ push: number }> = ({ push }) => (
   <g>
-    {/* the links slide down behind the desk's edge and behind the keyboard, which stays whole in front of them (the
-        human's note, round 5: the page cut the typewriter in half); the mask's black is the keyboard's slab */}
-    <defs><mask id="above-desk" maskUnits="userSpaceOnUse" x={0} y={0} width={W} height={H}>
-      <rect x={0} y={0} width={W} height={762} fill="white" />
-      <path d="M-428,-188 L428,-188 L498,110 L-498,110 Z" transform="translate(960, 880)" fill="black" />
-    </mask></defs>
+    <defs><clipPath id="above-desk"><rect x={0} y={0} width={W} height={762} /></clipPath></defs>
+    <g clipPath="url(#above-desk)"><g transform={`translate(960, ${330 + push})`}><LinkPage /></g></g>
+  </g>
+);
+const SearchPage: React.FC<{ children?: React.ReactNode }> = ({ children }) => (
+  <g>
     <g transform="translate(960, 150)"><SearchBox text="why is there a robot in my search" caret={false} /></g>
-    <g mask="url(#above-desk)"><g transform={`translate(960, ${330 + push})`}><LinkPage /></g></g>
     {children}
   </g>
 );
@@ -308,8 +311,8 @@ export const S06: ShotC = ({ f, g, len }) => {
   const push = PUSHED * ez(f, land, land + 5) + bump(f, land + 5, 4) * 18; // the shove, with a little overshoot
   const puff = f > land ? ez(f, land, land + 14) : 0;
   return (
-    <Study g={g}>
-      <SearchPage push={push}>
+    <Study g={g} under={<LinksUnder push={push} />}>
+      <SearchPage>
         {puff > 0 && puff < 1 && [-1, 1].map((k) => [0, 1, 2].map((j) => (
           <circle key={`${k}${j}`} cx={960 + k * (280 + puff * 140 + j * 50)} cy={BOX.y + 120 - j * 26 - puff * 30} r={(30 - j * 6) * (1 - puff * 0.6)} fill={C.cream} stroke={C.ink} strokeWidth={lw(3)} opacity={1 - puff} />
         )))}
@@ -328,8 +331,8 @@ export const S07: ShotC = ({ f, g }) => {
   const walk = ez(f, 0, 10);
   const lift = ez(f, 12, 30);
   return (
-    <Study g={g}>
-      <SearchPage push={PUSHED}>
+    <Study g={g} under={<LinksUnder push={PUSHED} />}>
+      <SearchPage>
         <g transform={`translate(${BOX.x}, ${BOX.y - lift * 30}) rotate(${-lift * 9}, 260, 100)`}><AnswerBox legs={0.3} /></g>
         <g transform={`translate(${1390 + (1 - walk) * 300}, 640) scale(${0.62 * breath(g, 3)})`}>
           <Switch pose="curious" mouth={mouthAt(g, "switch")} look={[-0.9, 0.3]} armL={110 + lift * 30} blink={blink(g, 1)} />

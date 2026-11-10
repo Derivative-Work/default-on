@@ -286,7 +286,8 @@ export const S47: ShotC = ({ f, g, len }) => {
       <rect x={-20} y={860} width={W + 40} height={240} fill="#3a3466" stroke={C.ink} strokeWidth={lw(6)} />
       <Floorboards y={860} h={240} boards={3} />
       <Curtains />
-      <g transform="translate(1280, 900)"><Door label="CANCEL" open={slam ? 0 : peek * 0.4} color={C.red} /></g>
+      {/* standing on the floor line, against the wall (the human's note, 2026-11-09, round 6: it sank into the floor) */}
+      <g transform="translate(1280, 860)"><Door label="CANCEL" open={slam ? 0 : peek * 0.4} color={C.red} /></g>
       <g transform={`translate(${1480 - (1 - peek) * 220}, 560) scale(0.6)`} opacity={peek}><PriceTag text="CLASSIC" color={C.avocado} s={0.8} /></g>
       <g transform={`translate(${300 + walk * 520}, ${700 - bump(f, d + 2, 5) * 30}) scale(0.6)`}>
         <Switch pose={slam ? "startled" : "curious"} mouth={mouthAt(g, "switch")} look={[1, 0]} blink={blink(g, 6)} />

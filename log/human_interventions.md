@@ -213,3 +213,4 @@ Every human action: timestamp, what, why, and which rule allows it. The brief al
   - ""Google then said schools can turn Gemini off...": separate this from the shaking background so it can be read more easily"
   - ""deeply integrated" is a direct quote, right? if so, this needs an onscreen citation (and maybe some of the context of the quote -- looks like there's plenty of space)"
 - **Rule:** H2 (section notes at the M4 gate). No section is approved yet.
+- **Follow-up notes, verbatim:** "you went a bit too far on the typewriter: now its black border is not visible"; "the fingers on the cookie hand are visibly disconnected from the wrist"; "the cancel door's perspective is good but it is now not clearly on the wall (it's bottom is below the border of the floor)".
