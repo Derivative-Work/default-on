@@ -346,3 +346,10 @@ Append-only. One entry per action: timestamp, step (shot ID where relevant), wha
 
 - Fetched origin: 84c00d4 (guardian consent, `log/human_interventions.md` only) merged as ebcfe9c; conflict was the two appended entries, both kept.
 - Round-5 notes (3) logged verbatim in `log/human_interventions.md`.
+
+## 2026-11-09 — M4 review notes, round 5 (applied)
+
+1. **Typewriter (S06–S07):** the links page now slides down behind the keyboard as well as the desk's edge (a mask cut to the keyboard's slab replaces the plain desk-edge clip), so the keyboard stays whole in front of it.
+2. **Test stack (S23–S24):** each bundle's top face is solid paper; it was an open outline, and where bundles are offset and turned the wall showed through it as holes.
+3. **Hands:** `Hand4` rebuilt. The thumb and open fingers were angled with the wrong sign, so the thumb lay across the back of the hand like a sticker and the open fingers crossed. Now the thumb and straight fingers grow out from under a shorter palm; the open hand fans out; curled fingers and the folded thumb sit on top in the point and the fist. The grey-sleeve pointing hand (`Hand`, also S19's teal one) had three curled fingers plus the index, one finger too many against the rest of the film; it now has two, tucked within the palm. Review aid: `HandSheet` composition (every pose, both sides).
+4. **The giant's hand (S50–S52):** the cuff and hand go under the agreement's edge, so the paper hides the fingers, and the thumb lies on top of the paper: a grip, moving with it.

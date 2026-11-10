@@ -316,7 +316,8 @@ const TestStack: React.FC<{ h: number }> = ({ h }) => {
         return (
           <g key={i} transform={`translate(${ox}, 0) rotate(${rot}, 0, ${y0 - hb / 2})`}>
             <path d={`M${w / 2},${y0} L${w / 2 + dx},${y0 - dy} L${w / 2 + dx},${y0 - hb - dy} L${w / 2},${y0 - hb} Z`} fill={C.creamShade} stroke={C.ink} strokeWidth={lw(4)} strokeLinejoin="round" />
-            <path d={`M${-w / 2},${y0 - hb} L${-w / 2 + dx},${y0 - hb - dy} L${w / 2 + dx},${y0 - hb - dy}`} fill="none" stroke={C.ink} strokeWidth={lw(3)} />
+            {/* the bundle's top face is solid paper (the human's note, round 5: open tops read as holes in the stack) */}
+            <path d={`M${-w / 2},${y0 - hb} L${-w / 2 + dx},${y0 - hb - dy} L${w / 2 + dx},${y0 - hb - dy} L${w / 2},${y0 - hb} Z`} fill={C.white} stroke={C.ink} strokeWidth={lw(3)} strokeLinejoin="round" />
             <rect x={-w / 2} y={y0 - hb} width={w} height={hb} fill={C.white} stroke={C.ink} strokeWidth={lw(4)} />
             {Array.from({ length: Math.floor(hb / 7) - 1 }, (_, k) => {
               const j = (((i * 7 + k) * 37) % 11) - 5;

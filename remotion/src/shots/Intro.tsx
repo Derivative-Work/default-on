@@ -281,14 +281,19 @@ const LinkPage: React.FC = () => (
     ))}
   </g>
 );
-// the search page as S06 leaves it and S07 finds it: search box at the top, links pushed `push` px down (clipped at
-// the desk), the answer box sitting on them
+// the search page as S06 leaves it and S07 finds it: search box at the top, links pushed `push` px down (hidden by
+// the desk and the keyboard), the answer box sitting on them
 const PUSHED = 210, BOX = { x: 960, y: 420 };
 const SearchPage: React.FC<{ push: number; children?: React.ReactNode }> = ({ push, children }) => (
   <g>
-    <defs><clipPath id="above-desk"><rect x={0} y={0} width={W} height={762} /></clipPath></defs>
+    {/* the links slide down behind the desk's edge and behind the keyboard, which stays whole in front of them (the
+        human's note, round 5: the page cut the typewriter in half); the mask's black is the keyboard's slab */}
+    <defs><mask id="above-desk" maskUnits="userSpaceOnUse" x={0} y={0} width={W} height={H}>
+      <rect x={0} y={0} width={W} height={762} fill="white" />
+      <path d="M-436,-198 L436,-198 L508,116 L-508,116 Z" transform="translate(960, 880)" fill="black" />
+    </mask></defs>
     <g transform="translate(960, 150)"><SearchBox text="why is there a robot in my search" caret={false} /></g>
-    <g clipPath="url(#above-desk)"><g transform={`translate(960, ${330 + push})`}><LinkPage /></g></g>
+    <g mask="url(#above-desk)"><g transform={`translate(960, ${330 + push})`}><LinkPage /></g></g>
     {children}
   </g>
 );

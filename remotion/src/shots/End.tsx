@@ -5,7 +5,7 @@ import { AbsoluteFill, OffthreadVideo, Sequence, staticFile, useCurrentFrame } f
 import { Wash } from "../film/Paper";
 import { AnswerBox, Caption, Contract, MiniRocker, Slate, Spotlight, TV, Tile, Kid } from "../components/props";
 import { Hand } from "../rigs/Hand";
-import { Hand4 } from "../rigs/Hand4";
+import { Digit, Hand4 } from "../rigs/Hand4";
 import { Narrator } from "../rigs/Narrator";
 import { Switch } from "../rigs/Switch";
 import { BUBBLE, SANS } from "../theme/fonts";
@@ -237,8 +237,7 @@ export const S49: ShotC = ({ g }) => (
 const SCHOOLCAP = "Google's VP for education, to The New York Times, Nov. 3, 2026";
 const CORRCAP = "Google then said schools can turn Gemini off and keep Search, but AI Overviews and AI Mode can't be removed.";
 const Giant: React.FC<{ slide: number; boxes: string[] }> = ({ slide, boxes }) => {
-  // the contract and the hand move as one: the hand (a thumb and three fingers, like every hand in the film) is
-  // pressed flat on the contract's right edge, so it is plainly what slides it (the human's note, 2026-11-09)
+  // the contract and the hand move as one, so the hand is plainly what slides it (the human's note, 2026-11-09)
   const cx = 1500 - slide * 560, cy = 800;
   return (
   <Bg id="s50" seed={50} base={C.avocado}>
@@ -247,15 +246,20 @@ const Giant: React.FC<{ slide: number; boxes: string[] }> = ({ slide, boxes }) =
     <ellipse cx={420} cy={930} rx={270} ry={20} fill={C.ink} opacity={0.15} />
     <g transform="translate(400, 800) rotate(-6) scale(0.8)" opacity={0.9}><Note /></g>
     <ellipse cx={cx + 20} cy={cy + 222} rx={300} ry={20} fill={C.ink} opacity={0.2} />
-    <g transform={`translate(${cx}, ${cy}) rotate(-3)`}><g transform="scale(0.9)"><Contract boxes={boxes} /></g></g>
+    {/* the cuff and the hand go under the paper's edge: the fingers are tucked beneath the agreement (the paper hides
+        them) and the thumb presses on top, so the hand is plainly gripping it as it pushes it on (the human's note,
+        2026-11-09, round 5) */}
     <g transform={`translate(${cx + 650}, ${cy - 30})`}>
       <rect x={-200} y={-120} width={1200} height={240} fill="#3b3f52" stroke={C.ink} strokeWidth={lw(8)} />
       {Array.from({ length: 10 }, (_, i) => <line key={i} x1={-200 + i * 120} y1={-120} x2={-200 + i * 120} y2={120} stroke={C.cream} strokeWidth={3} opacity={0.5} />)}
       <path d="M-100,-120 q20,120 0,240 M200,-120 q-14,120 6,240" {...PEN} stroke={C.cream} opacity={0.4} />
+      <g transform="translate(-262, 6) rotate(90) scale(2.6)"><Hand4 pose="rest" side={-1} thumb={false} /></g>
       <rect x={-260} y={-130} width={80} height={260} rx={10} fill={C.white} stroke={C.ink} strokeWidth={lw(7)} />
       <rect x={-236} y={-20} width={30} height={40} rx={6} fill={C.mustard} stroke={C.ink} strokeWidth={lw(4)} />
-      {/* the hand, palm down on the paper, fingers toward the contract */}
-      <g transform="translate(-262, 6) rotate(90) scale(2.6)"><Hand4 pose="open" side={-1} /></g>
+    </g>
+    <g transform={`translate(${cx}, ${cy}) rotate(-3)`}><g transform="scale(0.9)"><Contract boxes={boxes} /></g></g>
+    <g transform={`translate(${cx + 650}, ${cy - 30})`}>
+      <g transform="translate(-292, -34) scale(2.6)"><Digit x={0} y={0} deg={-76} len={42} w={17} fill={C.skin} nail /></g>
     </g>
     <Caption text={SCHOOLCAP} />
   </Bg>

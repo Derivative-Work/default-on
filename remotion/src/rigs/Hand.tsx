@@ -3,7 +3,7 @@
 // (length, TIP_Y) when `reach` is 1, so a shot puts the hand's origin at the frame edge and sets `length` to reach
 // its target. `reach` 0 = all the way off. `press` 0..1 bends the index finger a little as it pushes.
 // Redrawn 2026-11-06 (the human's note: "the finger that turns the switch is not reading right"): one hand shape with
-// three curled knuckles, a thumb along them, and an extended index finger with a nail.
+// two curled fingers, a thumb along them, and an extended index finger with a nail (a thumb and three fingers).
 import React from "react";
 import { C, PEN, lw } from "../theme/palette";
 
@@ -34,10 +34,11 @@ export const Hand: React.FC<{ reach?: number; length?: number; curl?: number; pr
     <g transform={`translate(${x}, 0)`}>
       <Sleeve end={hx - 14} color={sleeve?.[0]} shade={sleeve?.[1]} />
       <g transform={`translate(${hx}, 0)`}>
-        {/* the back of the hand, then the three curled fingers below the index, each its own finger with a knuckle
-            and a tucked tip (the human's note: no single blob for the rest of the fingers) */}
-        <Skin d="M0,-44 Q50,-50 90,-40 L96,40 Q60,58 0,46 Z" />
-        {[[-10, 98], [14, 96], [38, 90]].map(([y, x], i) => (
+        {/* the back of the hand, then the two curled fingers below the index, each its own finger with a knuckle
+            and a tucked tip (the human's note: no single blob for the rest of the fingers). Two, not three: a thumb
+            and three fingers, like every other hand in the film (the human's note, 2026-11-09, round 5) */}
+        <Skin d="M0,-44 Q50,-50 90,-40 L98,26 Q60,44 0,40 Z" />
+        {[[-10, 106], [14, 102]].map(([y, x], i) => (
           <g key={i}>
             {/* a curled finger: the first joint folded down, its tip tucked back under toward the palm */}
             <path d={`M70,${y} L${x - 12},${y} Q${x + 2},${y} ${x + 2},${y + 12} Q${x + 2},${y + 26} ${x - 14},${y + 26} L${x - 26},${y + 26} Q${x - 30},${y + 20} ${x - 22},${y + 17} L70,${y + 22} Z`}

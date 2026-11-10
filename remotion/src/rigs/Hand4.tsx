@@ -13,7 +13,7 @@ import { C, lw } from "../theme/palette";
 export type HandPose = "rest" | "open" | "point" | "fist";
 
 // a finger: a capsule from (x, y) at `deg` from straight down, `len` long and `w` wide, rounded at the tip
-const Digit: React.FC<{ x: number; y: number; deg: number; len: number; w: number; fill: string; nail?: boolean }> = ({ x, y, deg, len, w, fill, nail }) => (
+export const Digit: React.FC<{ x: number; y: number; deg: number; len: number; w: number; fill: string; nail?: boolean }> = ({ x, y, deg, len, w, fill, nail }) => (
   <g transform={`translate(${x}, ${y}) rotate(${-deg})`}>
     <rect x={-w / 2} y={-w / 2} width={w} height={len + w / 2} rx={w / 2} fill={fill} stroke={C.ink} strokeWidth={lw(4)} />
     <path d={`M${-w * 0.3},${len * 0.45} q${w * 0.3},${w * 0.18} ${w * 0.6},0`} fill="none" stroke={C.ink} strokeWidth={lw(2)} opacity={0.5} />
@@ -29,30 +29,40 @@ const Knuckle: React.FC<{ x: number; y: number; w: number; fill: string }> = ({ 
   </g>
 );
 
-export const Hand4: React.FC<{ pose?: HandPose; side?: -1 | 1; s?: number; fill?: string }> = ({ pose = "rest", side = 1, s = 1, fill = C.skin }) => {
-  const w = 15; // finger width
-  const palm = <path d="M-24,0 Q-27,30 -22,46 Q0,54 22,46 Q27,30 24,0 Q0,-6 -24,0 Z" fill={fill} stroke={C.ink} strokeWidth={lw(4.5)} strokeLinejoin="round" />;
-  let fingers: React.ReactNode;
-  let thumb: React.ReactNode;
+export const Hand4: React.FC<{ pose?: HandPose; side?: -1 | 1; s?: number; fill?: string; thumb?: boolean }> = ({ pose = "rest", side = 1, s = 1, fill = C.skin, thumb = true }) => {
+  // (the human's note, 2026-11-09, round 5: the hands still read wrong) Built back to front so every digit grows out
+  // from under the palm: the thumb and straight fingers sit behind it, their bases hidden; curled fingers and a
+  // folded thumb sit on top of it. A positive `deg` turns a digit toward +x, so the thumb (on the -x side) points
+  // out with a negative angle and only folds across the hand (positive) in the point and the fist.
+  const w = 16; // finger width
+  const palm = <path d="M-18,0 Q-26,14 -25,32 Q-22,42 0,43 Q22,42 25,32 Q26,14 18,0 Z" fill={fill} stroke={C.ink} strokeWidth={lw(4.5)} strokeLinejoin="round" />;
+  const knuckles = (y: number, xs: number[]) => xs.map((x, i) => <Knuckle key={i} x={x} y={y} w={w} fill={fill} />);
+  let back: React.ReactNode = null, front: React.ReactNode = null;
   if (pose === "open") {
-    fingers = <>{[[-15, 18], [0, 2], [15, -14]].map(([x, d], i) => <Digit key={i} x={x} y={42} deg={d} len={40 - Math.abs(i - 1) * 4} w={w} fill={fill} nail />)}</>;
-    thumb = <Digit x={-20} y={16} deg={62} len={30} w={w + 1} fill={fill} nail />;
-  } else if (pose === "point") {
-    fingers = <>
-      {[[2, 52], [16, 50]].map(([x, y], i) => <Knuckle key={i} x={x} y={y} w={w} fill={fill} />)}
-      <Digit x={-13} y={42} deg={4} len={54} w={w} fill={fill} nail />
+    back = <>
+      {thumb && <Digit x={-19} y={16} deg={-56} len={32} w={w + 1} fill={fill} nail />}
+      {[[-15, -15, 42], [0, 0, 48], [15, 14, 42]].map(([x, d, l], i) => <Digit key={i} x={x} y={30} deg={d} len={l} w={w} fill={fill} nail />)}
     </>;
-    thumb = <Digit x={-18} y={20} deg={-30} len={30} w={w + 1} fill={fill} nail />;
+  } else if (pose === "point") {
+    back = <Digit x={-16} y={30} deg={0} len={56} w={w} fill={fill} nail />;
+    front = <>
+      {knuckles(40, [0, 16])}
+      <Digit x={-19} y={26} deg={68} len={28} w={w + 1} fill={fill} nail />
+    </>;
   } else if (pose === "fist") {
-    fingers = <>{[-14, 0, 14].map((x, i) => <Knuckle key={i} x={x} y={50 - (i === 1 ? 2 : 0)} w={w} fill={fill} />)}</>;
-    thumb = <Digit x={-20} y={22} deg={-62} len={30} w={w + 1} fill={fill} nail />;
+    front = <>
+      {knuckles(40, [-16, 0, 16])}
+      <Digit x={-21} y={26} deg={68} len={30} w={w + 1} fill={fill} nail />
+    </>;
   } else {
-    fingers = <>{[[-14, 3], [0, 0], [14, -3]].map(([x, d], i) => <Digit key={i} x={x} y={42} deg={d} len={30 - Math.abs(i - 1) * 4} w={w} fill={fill} />)}</>;
-    thumb = <Digit x={-21} y={14} deg={28} len={28} w={w + 1} fill={fill} nail />;
+    back = <>
+      {thumb && <Digit x={-20} y={16} deg={-36} len={30} w={w + 1} fill={fill} nail />}
+      {[[-16, 4, 38], [0, 2, 42], [16, 0, 37]].map(([x, d, l], i) => <Digit key={i} x={x} y={30} deg={d} len={l} w={w} fill={fill} nail />)}
+    </>;
   }
   return (
     <g transform={`scale(${side * s}, ${s})`}>
-      {pose === "point" || pose === "fist" ? <>{palm}{fingers}{thumb}</> : <>{fingers}{palm}{thumb}</>}
+      {back}{palm}{front}
     </g>
   );
 };
