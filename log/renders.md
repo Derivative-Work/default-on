@@ -138,3 +138,9 @@ Every render: timestamp, shot ID, composition, props, commit hash, output, conta
 - **Compositions:** `Sec11-Outroandreveal` from 6b335d1 (S65–S66 from `edit/S65_suno.mp4`, `S66_suno.mp4`, `S66_logic.mp4`, `scripts/s65_s66_clips.sh`); `scripts/assemble.sh`; the sending copy at CRF 29.
 - **Checks:** 11,128 frames; sync −0.0001 s / 0.0000 s / 0.0000 s at 30 s, 150 s and 245 s. In the render: the cuts S64→S65 on 7232, S65→S66 on 7282, S66→S67 on 7346; the Suno page, then the split with Logic's playhead short of the clicks.
 - **Outputs:** `renders/m4/sec11_outro.mp4`, `renders/m4/m4_full.mp4`, `renders/m4/review/m4_full_review_720p.mp4`, `_send.mp4` (25.7 MB), contact sheets in `review/`. Superseded: `archive/renders/m5_sound_card_2026-11-09/`.
+
+## 2026-11-10T01:03 — Sections 2, 3, 4, 5, 7, 11 with the search citation and Switch's karaoke; the full cut; the first short
+
+- **Compositions:** `Sec02-Verse1`, `Sec03-Prechorus1`, `Sec04-Chorus1`, `Sec05-Lesson`, `Sec07-Prechorus2andChorus2`, `Sec11-Outroandreveal` from ce0a3dd (the citation on S05–S08; Switch's sung lines in bold karaoke); the other sections as before. `scripts/assemble.sh`; the sending copy at CRF 29; `Vertical` → `deliverables/vertical.mp4`.
+- **Checks:** 11,128 frames; sync −0.0001 s / 0.0000 s / 0.0000 s at 30 s, 150 s and 245 s. In the render: V02 above the citation in S07, the pre-chorus on the night set, both "on, on, on" tags on the wallpaper, V18 in S61; the first short carries the karaoke in its picture.
+- **Outputs:** the six sections, `renders/m4/m4_full.mp4`, `renders/m4/review/m4_full_review_720p.mp4` and `_send.mp4` (26.1 MB), `deliverables/vertical.mp4` (10.8 MB), contact sheets in `review/`. Superseded: `archive/renders/m5_s65_real_2026-11-10/` and `archive/renders/m5_karaoke_v1_partial_2026-11-10/`.
