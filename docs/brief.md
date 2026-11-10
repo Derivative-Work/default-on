@@ -108,7 +108,7 @@
 
 | ID | Cue | Picture | Source |
 | --- | --- | --- | --- |
-| S05 | "You typed a little question…" | A big generic search box on a desk; letters type themselves | A |
+| S05 | "You typed a little question…" | A big generic search box on a desk; letters type themselves. Caption, held through S08: "Google's AI Overviews, rolled out broadly from I/O 2024" | A |
 | S06 | "And an answer hopped on top of it…" | An answer box with legs hops onto the list of links and sits on them, squashing them flat | A |
 | S07 | V02 "Yes, but can I please read the page myself?" | Switch lifts a corner of the answer box and peeks at the squashed links | A |
 | S08 | "Well, there's a tiny tab marked 'Web'…" | Switch climbs a wobbling ladder to a tiny tab labelled "Web" on a high shelf | A |
@@ -227,6 +227,8 @@
 - **Fact cards:** card G (who wrote this, and Anthropic's own default-on toggle) first, answering V21; then the creator's own disclosure as a credits card (formerly S68's caption, the human's decision of 2026-11-09): "Made by a former Google and Microsoft employee, who holds no stock in either. Nothing here comes from the inside: every claim is from public reporting, sourced on the cards that follow."; then one per row of the Default On fact card, in that order, about four seconds each, in plain type with the source under each. Allegations say so. Under the closing cards, the human's credits music (a second Suno track, https://suno.com/s/EF0G3Pktq2aZmhlg) plays from its start on card G's first frame and fades out at the end (the human's direction, 2026-11-09).
 
 **Thumbnail:** Switch mid-flip with the grey hand reaching in. Never the real hand, the generation screen or the timeline, which would spoil the reveal.
+
+**Karaoke:** Switch's sung lines (V02–V05, V10, V11, V18) carry the bouncing-ball lyric, his words turning teal; his spoken lines don't (the human, 2026-11-10).
 
 **Vertical cut:** S09–S17 (pre-chorus and chorus 1), ending on the sticker reveal, with a "Full video" card.
 

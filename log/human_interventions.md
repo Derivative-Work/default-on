@@ -264,3 +264,8 @@ Every human action: timestamp, what, why, and which rule allows it. The brief al
 - **Files:** `~/Downloads/Screen Recording 2026-11-09 at 23.57.27.mov` (Suno's create page: lyrics, style, the take list, the original take playing; 3464x2258, 240 fps, 21.9 s; sha256 e41424ea…54979e) and `… at 23.59.23.mov` (the Logic project playing the final mix: tracks, Switch's takes, the clicks; 3824x2484, 240 fps, 19.5 s; sha256 9d06577b…2e370f4), copied to `assets/real/S65/suno_create.mov` and `logic_timeline.mov`.
 - **Checked before use:** every sampled frame of both. Nothing names or shows the child: the Logic tracks read "Little Switch", "Little Switch Takes: 5 – Comp A" and so on. Cropped out: the browser's address bar and profile button, Logic's window title, and its movie thumbnail (which showed an older cut's stand-in text). The recordings' audio is used only to place them.
 - **Rule:** H3 (the brief's Inputs: the generation-screen capture for S65–S66).
+
+## 2026-11-10 — Search citation; karaoke on Switch's singing — H2
+
+- **Verbatim:** "yes, add that one. I also want karaoke captions on Switch's singing (not the spoken parts)." (answering the proposal of a citation on the search scene, S05–S08, the one real-product scene without one)
+- **Rule:** H2.

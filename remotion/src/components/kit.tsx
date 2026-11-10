@@ -49,8 +49,8 @@ export const measure = (text: string, size: number, face = BUBBLE) => {
 };
 
 // a lyric line in bubble letters with a bouncing ball; `syl` are the syllables with their local start frames
-export const BallLyric: React.FC<{ f: number; syl: { t: string; at: number }[]; y?: number; size?: number; color?: string }> = ({
-  f, syl, y = 960, size: want = 74, color = C.cream,
+export const BallLyric: React.FC<{ f: number; syl: { t: string; at: number }[]; y?: number; size?: number; color?: string; hot?: string }> = ({
+  f, syl, y = 960, size: want = 74, color = C.cream, hot = C.orange,
 }) => {
   // shrink a long line to fit the frame with a margin
   const natural = syl.reduce((a, s) => a + measure(s.t, want), 0);
@@ -76,7 +76,7 @@ export const BallLyric: React.FC<{ f: number; syl: { t: string; at: number }[]; 
     <g>
       {syl.map((s, i) => (
         <text key={i} x={pos[i] - (measure(s.t, size) - measure(s.t.trimEnd(), size)) / 2} y={y} textAnchor="middle" fontFamily={BUBBLE} fontSize={size}
-          fill={k >= i ? C.orange : color} stroke={C.ink} strokeWidth={size * 0.07} paintOrder="stroke">{s.t.trim()}</text>
+          fill={k >= i ? hot : color} stroke={C.ink} strokeWidth={size * 0.07} paintOrder="stroke">{s.t.trim()}</text>
       ))}
       <ellipse cx={bx} cy={by} rx={size * 0.24} ry={size * 0.22} fill={C.white} stroke={C.ink} strokeWidth={lw(5)} />
     </g>

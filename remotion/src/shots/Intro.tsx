@@ -2,7 +2,7 @@
 import React from "react";
 import { AbsoluteFill, spring } from "remotion";
 import { PaperDefs, Wash } from "../film/Paper";
-import { AnswerBox, Chalkboard, Links, MiniRocker, SearchBox, Stool } from "../components/props";
+import { AnswerBox, Caption, Chalkboard, Links, MiniRocker, SearchBox, Stool } from "../components/props";
 import { Pop, Wall } from "../components/kit";
 import { Bookshelf, ChalkDoodles, ChalkTray, Clock, Floorboards, Globe, Grain, Outlet, Pennant, Picture, Plant, Radiator, Rug, Sharpener, Sunburst, TableLamp, WallCalendar, Wallpaper, Wastebasket, Window, breath, sway } from "../components/sets";
 import { Narrator } from "../rigs/Narrator";
@@ -180,6 +180,11 @@ export const S04: ShotC = ({ f, g }) => {
   );
 };
 
+// the search scene's citation (the human's note, 2026-11-10: every real product on screen is cited), held S05-S08, in
+// the fact card's words (row "Answer box on top; tiny 'Web' tab": "Google's AI Overviews rolled out broadly from I/O
+// 2024")
+export const SEARCHCAP = "Google's AI Overviews, rolled out broadly from I/O 2024";
+
 // the study desk for verse 1: diamond wallpaper on teal, a pinboard, a table lamp standing on the desk, a wood-grain
 // desktop with a typewriter-style keyboard (three centred, staggered rows of lettered round keys on a frame, and a
 // space bar), a mug, a notepad and pencils
@@ -247,6 +252,7 @@ const Study: React.FC<{ g: number; children: React.ReactNode; keys?: number; und
       </g>
     </g>
     {children}
+    <Caption text={SEARCHCAP} />
   </Bg>
 );
 
@@ -385,6 +391,7 @@ export const S08: ShotC = ({ f, g, len }) => {
       <Floorboards y={1000} h={100} boards={2} />
       {/* the Narrator framed from the chest up, cropped by the frame's bottom edge */}
       <g transform={`translate(430, ${850 - (breath(g) - 1) * 200}) scale(0.9)`}><Narrator mouth={mouthAt(g, "narrator")} armR="point" head={1} blink={blink(g)} /></g>
+      <Caption text={SEARCHCAP} />
     </Bg>
   );
 };
