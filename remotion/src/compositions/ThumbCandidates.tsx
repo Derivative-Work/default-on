@@ -175,3 +175,25 @@ export const ThumbF: React.FC = () => (
     </Burst>
   </Film>
 );
+
+// C2: C with the stamp as big as the frame allows (the human's note, 2026-11-10: "bigger 'you chose this'"): two
+// lines, Switch's eyes above it, the ticked box in the corner
+export const ThumbC2: React.FC = () => (
+  <Film strength={1} splices={[]}>
+    <Burst id="tc2" a={C.mustard} b="#f5c95a" cx={960} cy={300}>
+      <SwitchAt x={1000} y={420} s={1.9} pose="startled" toggle={1} mouth="E" look={[0, -0.2]} />
+      <g transform="translate(205, 190) rotate(-8) scale(0.78)">
+        <rect x={-110} y={-110} width={220} height={220} rx={18} fill={C.cream} stroke={C.ink} strokeWidth={lw(12)} />
+        <path d="M-70,0 L-20,60 L90,-80" fill="none" stroke={C.avocado} strokeWidth={42} strokeLinecap="round" strokeLinejoin="round" />
+        <text y={185} textAnchor="middle" fontFamily={SANS} fontWeight={700} fontSize={50} fill={C.ink}>pre-selected</text>
+      </g>
+      <g transform="translate(960, 745) rotate(-7)">
+        <rect x={-900} y={-300} width={1800} height={560} rx={22} fill={C.cream} stroke={C.red} strokeWidth={22} />
+        <rect x={-868} y={-268} width={1736} height={496} rx={12} fill="none" stroke={C.red} strokeWidth={8} />
+        <text x={0} y={-35} textAnchor="middle" fontFamily={BUBBLE} fontSize={250} fill={C.red} letterSpacing={8}>YOU CHOSE</text>
+        <text x={0} y={200} textAnchor="middle" fontFamily={BUBBLE} fontSize={250} fill={C.red} letterSpacing={30}>THIS</text>
+      </g>
+      {[[90, 560], [1840, 470], [120, 1010], [1820, 1030], [1650, 380]].map(([x, y], i) => <circle key={i} cx={x} cy={y} r={12 + (i % 3) * 6} fill={C.red} opacity={0.8} />)}
+    </Burst>
+  </Film>
+);
