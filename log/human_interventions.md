@@ -286,3 +286,11 @@ Every human action: timestamp, what, why, and which rule allows it. The brief al
 
 - **Verbatim:** "okay, this is good. walk me through what's left" (on the cut with the closing cards, Sound card, captions, thumbnail, both vertical cuts, the search citation and Switch's karaoke; commit 8750911). Taken as approval of M5.
 - **Rule:** H2 (gate).
+
+## 2026-11-10 — M6 comp details; M7 melody check — H1, H3, H2
+
+- **Verbatim:** "M6: all I did on his audio is add a compressor, EQ, panning, and reverb to match Suno's "processing". Roughly 10 takes for each part, mostly just getting him used to each line, some comping and timing adjustments. M7: Neither I nor any of the 4 human reviewers recognized the melody. M8: ready to run the audit prompt once you have it for me"
+- **M6:** Switch's processing, as the human did it: compressor, EQ, panning and reverb, to match the generated mix; no pitch correction on his solo singing (S67's caption). About ten takes per line, comped with timing adjustments (`log/switch_takes.md`). His lines, lip sync and karaoke are in the M5-approved cut; taken as the M6 gate (approve the comp by ear) closing with this note.
+- **M7 (melody):** the human and four human reviewers listened and recognised no known children's TV theme in the melody. The brief's other M7 check (S59–S67 frame by frame against the final mix) is the agent's.
+- **M8:** the human will run the audit prompt (`log/prompts/other/m8_fact_audit.md`).
+- **Rule:** H1 (takes), H3 (his recordings), H2 (gates).

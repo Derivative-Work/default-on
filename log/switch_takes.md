@@ -31,3 +31,7 @@ Every Switch comp decision: line ID (V01–V20), session, takes recorded, take c
 | V18 | I've got two sides. / ...Guess one of 'em was just for show. | 220.78–221.86, 224.07–225.78 | 220.48–227.53 |
 | V19 | Hey, who wrote this song, anyway? | 236.68–238.32 | 235.59–240.16 |
 | V21 | Hey... was its switch on, too? | 243.94–245.54 | 243.59–263.46 |
+
+## 2026-11-10 — Takes and processing (the human)
+
+The human, for every line: "Roughly 10 takes for each part, mostly just getting him used to each line, some comping and timing adjustments." Processing on his comp: a compressor, EQ, panning and reverb, "to match Suno's processing"; no pitch correction on his solo singing. Per-line take numbers weren't kept.
